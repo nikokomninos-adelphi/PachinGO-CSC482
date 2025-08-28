@@ -1,1 +1,1 @@
-# PachinGO - A Peggle-like Game
+# PachinGO: A Peggle-like Game
