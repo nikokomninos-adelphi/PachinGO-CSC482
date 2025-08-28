@@ -1,1 +1,1 @@
-# CSC482-PachinGO
+# PachinGO - A Peggle-like Game
