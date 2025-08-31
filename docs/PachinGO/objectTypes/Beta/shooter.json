@@ -1,0 +1,144 @@
+{
+	"name": "shooter",
+	"plugin-id": "Sprite",
+	"sid": 883570672159700,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 308518432466938
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 126,
+						"originX": -0.0078125,
+						"originY": 0.49206349206349204,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9395538,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.6349206349206349,
+								0,
+								0.3650793650793651,
+								0.09375,
+								0,
+								0.15625,
+								0,
+								0.734375,
+								0.3650793650793651,
+								0.75,
+								0.4126984126984127,
+								0.75,
+								0.5714285714285714,
+								0.71875,
+								0.6666666666666667,
+								0.15625,
+								1,
+								0.078125,
+								0.9841269841269842
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.8046875,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 842449037588953,
+				"name": "idle",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 63,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6589106,
+						"collisionPoly": {
+							"points": [
+								0.30158730158730157,
+								0,
+								0.4603174603174603,
+								0,
+								0.873015873015873,
+								0.3125,
+								0.8888888888888888,
+								0.375,
+								0.8888888888888888,
+								0.6041666666666666,
+								0.873015873015873,
+								0.6875,
+								0.8412698412698413,
+								0.7291666666666666,
+								0.4603174603174603,
+								1,
+								0.2857142857142857,
+								1,
+								0.23809523809523808,
+								0.9583333333333334,
+								0.19047619047619047,
+								0.8958333333333334,
+								0.15873015873015872,
+								0.8333333333333334,
+								0.12698412698412698,
+								0.75,
+								0.1111111111111111,
+								0.6875,
+								0.1111111111111111,
+								0.3125,
+								0.12698412698412698,
+								0.25,
+								0.15873015873015872,
+								0.16666666666666666,
+								0.19047619047619047,
+								0.10416666666666667,
+								0.23809523809523808,
+								0.041666666666666664
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 687918744915002,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

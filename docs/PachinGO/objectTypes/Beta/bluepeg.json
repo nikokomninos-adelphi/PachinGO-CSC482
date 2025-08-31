@@ -1,0 +1,83 @@
+{
+	"name": "bluepeg",
+	"plugin-id": "Sprite",
+	"sid": 488518294509721,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 213673118127800
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 463974545145214
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2769983,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 619107351963516,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

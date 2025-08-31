@@ -1,0 +1,111 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 440711609959155
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "shooter",
+					"sid": 805048823438571,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				}
+			],
+			"sid": 774234972705055
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 634122983762386,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "shooter",
+					"sid": 648592026415601,
+					"parameters": {
+						"object": "ball",
+						"layer": "0",
+						"image-point": "1",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "apply-impulse-at-angle",
+					"objectClass": "ball",
+					"sid": 122711347798021,
+					"behaviorType": "Physics",
+					"parameters": {
+						"impulse": "10",
+						"angle": "shooter.Angle",
+						"image-point": "0"
+					}
+				}
+			],
+			"sid": 604088273881438
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "ball",
+					"sid": 679564472638790,
+					"parameters": {
+						"object": "bluebrick"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "ball",
+					"sid": 614595349391458,
+					"parameters": {
+						"object": "bluecurve"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "ball",
+					"sid": 809326622820716,
+					"parameters": {
+						"object": "bluepeg"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "ball",
+					"sid": 914479893269171,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "Self.Bullet.Speed - 15"
+					}
+				}
+			],
+			"sid": 649304080881192,
+			"disabled": true,
+			"isOrBlock": true
+		}
+	],
+	"sid": 277583079393040
+}
