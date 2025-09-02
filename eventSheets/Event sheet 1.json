@@ -105,6 +105,12 @@
 			"sid": 649304080881192,
 			"disabled": true,
 			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 612405663635522
 		}
 	],
 	"sid": 277583079393040

@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -74,7 +81,8 @@
 					"bgtest",
 					"shooter",
 					"ball",
-					"wall"
+					"wall",
+					"bucket"
 				],
 				"subfolders": [],
 				"name": "Beta"
