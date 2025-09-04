@@ -1,0 +1,296 @@
+{
+	"name": "PegCurve",
+	"plugin-id": "Sprite",
+	"sid": 520161358170104,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 373991521802252
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 236913610989089
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7374960,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 899365525541814,
+				"name": "Blue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2814816,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 506963573906727,
+				"name": "BlueActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5122938,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 714262759627164,
+				"name": "Orange",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2234939,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 346313846200754,
+				"name": "OrangeActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5393449,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 105157229009843,
+				"name": "Evil",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.525,
+						"originY": 0.5454545454545454,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2717862,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 502290841936901,
+				"name": "EvilActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
