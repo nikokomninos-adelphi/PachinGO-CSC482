@@ -259,10 +259,10 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "shooter",
-							"sid": 364608770029215,
+							"sid": 923338384314895,
 							"parameters": {
 								"object": "ball",
-								"layer": "0",
+								"layer": "1",
 								"image-point": "1",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -466,6 +466,105 @@
 								}
 							],
 							"sid": 959968999078529
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "ball",
+							"sid": 353744894380303
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 325431982775909,
+							"parameters": {
+								"variable": "EvilPegSet",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 139829731325514,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "PegBrick",
+									"sid": 907073729826767,
+									"parameters": {
+										"animation": "\"Evil\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PegBrick",
+									"sid": 470011064081611,
+									"parameters": {
+										"animation": "\"Blue\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 721736345745070
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "PegCircle",
+									"sid": 172410850815914,
+									"parameters": {
+										"animation": "\"Evil\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PegCircle",
+									"sid": 846898893145221,
+									"parameters": {
+										"animation": "\"Blue\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 709374669489549
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "PegCurve",
+									"sid": 412868246709802,
+									"parameters": {
+										"animation": "\"Evil\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PegCurve",
+									"sid": 124164968759112,
+									"parameters": {
+										"animation": "\"Blue\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 524235641561580
 						}
 					]
 				}
