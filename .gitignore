@@ -1,3 +1,4 @@
 *.uistate.json
 ts-defs
 .DS_Store
+./frontend/node_modules/
