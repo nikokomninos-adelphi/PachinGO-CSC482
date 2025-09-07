@@ -1,0 +1,10 @@
+{
+	"name": "OrangePegsRemaining",
+	"plugin-id": "Text",
+	"sid": 602000305526296,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

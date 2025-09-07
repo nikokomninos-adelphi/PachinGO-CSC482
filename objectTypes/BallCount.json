@@ -1,0 +1,10 @@
+{
+	"name": "BallCount",
+	"plugin-id": "Text",
+	"sid": 497645007902074,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

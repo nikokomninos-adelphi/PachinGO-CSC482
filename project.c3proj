@@ -28,6 +28,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -57,6 +64,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -67,17 +81,19 @@
 	"objectTypes": {
 		"items": [
 			"Mouse",
-			"Keyboard"
+			"Keyboard",
+			"BallCount",
+			"bucketHitbox",
+			"YouWin",
+			"FreeBall",
+			"OrangePegsRemaining"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"bluepeg",
-					"orangepeg",
-					"bluebrick",
-					"bluecurve",
-					"orangebrick",
-					"orangecurve",
+					"PegCircle",
+					"PegBrick",
+					"PegCurve",
 					"bgtest",
 					"shooter",
 					"ball",
