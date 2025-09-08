@@ -8,6 +8,20 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -82,11 +96,7 @@
 		"items": [
 			"Mouse",
 			"Keyboard",
-			"BallCount",
-			"bucketHitbox",
-			"YouWin",
-			"FreeBall",
-			"OrangePegsRemaining"
+			"JSON"
 		],
 		"subfolders": [
 			{
@@ -98,10 +108,25 @@
 					"shooter",
 					"ball",
 					"wall",
-					"bucket"
+					"bucket",
+					"BallCount",
+					"FreeBall",
+					"OrangePegsRemaining",
+					"YouWin",
+					"bucketHitbox"
 				],
 				"subfolders": [],
 				"name": "Beta"
+			},
+			{
+				"items": [
+					"Logo",
+					"Play",
+					"AJAX",
+					"AJAXTest"
+				],
+				"subfolders": [],
+				"name": "Menu"
 			}
 		]
 	},
@@ -114,13 +139,15 @@
 	},
 	"layouts": {
 		"items": [
-			"beta"
+			"beta",
+			"menu"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"beta",
+			"menu"
 		],
 		"subfolders": []
 	},
