@@ -1,0 +1,92 @@
+{
+	"name": "menu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 911399374012738
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 894749054698210,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Play"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 495378085053766,
+					"parameters": {
+						"layout": "beta"
+					}
+				}
+			],
+			"sid": 225683097765856
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 944405673923685
+				}
+			],
+			"actions": [
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 756325669683535,
+					"parameters": {
+						"tag": "\"hello\"",
+						"url": "\"http://localhost:3000/hello\""
+					}
+				}
+			],
+			"sid": 271520582768697
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 738962672149262,
+					"parameters": {
+						"tag": "\"hello\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 989389732305675,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "AJAXTest",
+					"sid": 942964255278861,
+					"parameters": {
+						"text": "JSON.Get(\"message\")"
+					}
+				}
+			],
+			"sid": 527936196588861
+		}
+	],
+	"sid": 838613263321146
+}

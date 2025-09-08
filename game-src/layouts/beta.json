@@ -2743,7 +2743,16 @@
 		"subfolders": []
 	},
 	"sid": 888271382340474,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "JSON",
+			"properties": {},
+			"uid": 53,
+			"sid": 838606257949533,
+			"tags": "",
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 800,
 	"height": 600,
@@ -2751,5 +2760,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "beta"
 }
