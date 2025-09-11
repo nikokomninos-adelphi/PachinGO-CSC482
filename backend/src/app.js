@@ -15,9 +15,15 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: ["http://localhost:3000", "https://preview.construct.net"]
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://preview.construct.net",
+      "https://pachingo.onrender.com",
+    ],
+  })
+);
 app.use(testRoutes);
 app.use("/api/users", userRoutes);
 
