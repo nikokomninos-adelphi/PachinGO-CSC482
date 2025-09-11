@@ -1,0 +1,10 @@
+{
+	"name": "MultiplierText",
+	"plugin-id": "Text",
+	"sid": 203502126952299,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

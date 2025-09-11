@@ -57,6 +57,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Physics",
 			"name": "Physics",
 			"author": "Scirra",
@@ -89,6 +96,13 @@
 			"name": "Solid",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "brightness",
+			"name": "Brightness",
+			"author": "Scirra",
+			"bundled": false
 		}
 	],
 	"uniqueId": "drk9h2airkk",
@@ -101,19 +115,19 @@
 		"subfolders": [
 			{
 				"items": [
-					"PegCircle",
-					"PegBrick",
-					"PegCurve",
+					"Peg",
 					"bgtest",
 					"shooter",
 					"ball",
 					"wall",
 					"bucket",
-					"BallCount",
-					"FreeBall",
-					"OrangePegsRemaining",
-					"YouWin",
-					"bucketHitbox"
+					"bucketHitbox",
+					"CoinFlip",
+					"bucketVictoryHitbox",
+					"bucketVictory",
+					"wallVictory",
+					"ballTrail",
+					"Bumper"
 				],
 				"subfolders": [],
 				"name": "Beta"
@@ -127,6 +141,21 @@
 				],
 				"subfolders": [],
 				"name": "Menu"
+			},
+			{
+				"items": [
+					"BallCount",
+					"FreeBall",
+					"OrangePegsRemaining",
+					"ScoreText",
+					"TotalScoreText",
+					"TurnCountText",
+					"YouWin",
+					"ScoreCountUpwards",
+					"MultiplierText"
+				],
+				"subfolders": [],
+				"name": "Text"
 			}
 		]
 	},
@@ -139,14 +168,16 @@
 	},
 	"layouts": {
 		"items": [
-			"beta",
-			"menu"
+			"menu",
+			"Demo Level 1",
+			"Demo Level 2",
+			"Demo Level 3"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"beta",
+			"Core Gameplay",
 			"menu"
 		],
 		"subfolders": []
@@ -161,7 +192,24 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "Yakuza 0 OST - Friday Night.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 705603856238877,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Yakuza 0 OST - Disco Queen.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 903986729004446,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

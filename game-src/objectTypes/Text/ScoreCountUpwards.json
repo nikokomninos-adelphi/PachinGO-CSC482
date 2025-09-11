@@ -1,0 +1,10 @@
+{
+	"name": "ScoreCountUpwards",
+	"plugin-id": "Text",
+	"sid": 154471695013159,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

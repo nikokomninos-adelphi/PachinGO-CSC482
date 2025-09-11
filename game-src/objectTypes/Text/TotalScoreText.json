@@ -1,0 +1,10 @@
+{
+	"name": "TotalScoreText",
+	"plugin-id": "Text",
+	"sid": 591574370673371,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

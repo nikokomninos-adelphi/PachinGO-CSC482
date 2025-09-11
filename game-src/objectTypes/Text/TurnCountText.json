@@ -1,0 +1,10 @@
+{
+	"name": "TurnCountText",
+	"plugin-id": "Text",
+	"sid": 432331548852552,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
