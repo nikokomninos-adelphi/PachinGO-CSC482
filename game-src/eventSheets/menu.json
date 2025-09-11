@@ -46,10 +46,10 @@
 				{
 					"id": "request-url",
 					"objectClass": "AJAX",
-					"sid": 756325669683535,
+					"sid": 743683016860749,
 					"parameters": {
 						"tag": "\"hello\"",
-						"url": "\"http://localhost:3000/hello\""
+						"url": "\"https://pachingo.onrender.com/\""
 					}
 				}
 			],

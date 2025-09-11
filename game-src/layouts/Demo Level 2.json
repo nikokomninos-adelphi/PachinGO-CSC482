@@ -5513,7 +5513,7 @@
 								"linear-damping": 0,
 								"angular-damping": 0.01,
 								"bullet": false,
-								"enabled": true
+								"enabled": false
 							}
 						}
 					},
