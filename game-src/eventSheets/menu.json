@@ -3,43 +3,12 @@
 	"events": [
 		{
 			"eventType": "block",
-			"conditions": [],
-			"actions": [],
-			"sid": 911399374012738
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 894749054698210,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Play"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 495378085053766,
-					"parameters": {
-						"layout": "Demo Level 1"
-					}
-				}
-			],
-			"sid": 225683097765856
-		},
-		{
-			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 944405673923685
+					"sid": 944405673923685,
+					"disabled": true
 				}
 			],
 			"actions": [
@@ -62,6 +31,7 @@
 					"id": "on-completed",
 					"objectClass": "AJAX",
 					"sid": 738962672149262,
+					"disabled": true,
 					"parameters": {
 						"tag": "\"hello\""
 					}
@@ -86,6 +56,84 @@
 				}
 			],
 			"sid": 527936196588861
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 556891351234509,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Demo1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 937527740928249,
+					"parameters": {
+						"layout": "Demo Level 1"
+					}
+				}
+			],
+			"sid": 798400116224680
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 277218492193060,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Demo2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 294177995305646,
+					"parameters": {
+						"layout": "Demo Level 2"
+					}
+				}
+			],
+			"sid": 570439665798688
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 252062510492887,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Demo3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 327233038574409,
+					"parameters": {
+						"layout": "Demo Level 3"
+					}
+				}
+			],
+			"sid": 246223125975602
 		}
 	],
 	"sid": 838613263321146

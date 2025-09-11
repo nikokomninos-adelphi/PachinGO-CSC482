@@ -135,9 +135,11 @@
 			{
 				"items": [
 					"Logo",
-					"Play",
+					"Demo1",
 					"AJAX",
-					"AJAXTest"
+					"AJAXTest",
+					"Demo2",
+					"Demo3"
 				],
 				"subfolders": [],
 				"name": "Menu"
