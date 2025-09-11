@@ -1,0 +1,1195 @@
+{
+	"name": "Peg",
+	"plugin-id": "Sprite",
+	"sid": 488518294509721,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 213673118127800
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 463974545145214
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 649967688668046
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2037429,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 619107351963516,
+				"name": "CircleBlue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 672872,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 258290978908152,
+				"name": "CircleBlueActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7532106,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 416303112841768,
+				"name": "CircleOrange",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2298469,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 577656447650507,
+				"name": "CircleOrangeActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3026172,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 768699200304957,
+				"name": "CirclePurple",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7765068,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 859047966872442,
+				"name": "CirclePurpleActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7442902,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 423716128912320,
+				"name": "CircleEvil",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8163585,
+						"collisionPoly": {
+							"points": [
+								0.35,
+								0.05,
+								0.65,
+								0.05,
+								0.85,
+								0.15,
+								0.95,
+								0.35,
+								0.95,
+								0.6,
+								0.9,
+								0.75,
+								0.75,
+								0.9,
+								0.6,
+								0.95,
+								0.4,
+								0.95,
+								0.25,
+								0.9,
+								0.1,
+								0.75,
+								0.05,
+								0.65,
+								0.05,
+								0.35,
+								0.15,
+								0.15
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 866214004216957,
+				"name": "CircleEvilActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 22,
+						"originX": 0.6124567474048445,
+						"originY": 0.6694214876033058,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9507892,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.9545454545454546,
+								0.029411764705882353,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 654378522459057,
+				"name": "BrickBlue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 26,
+						"originX": 0.6005263157894738,
+						"originY": 0.6434615384615385,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8602960,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.8846153846153846,
+								0.07894736842105263,
+								0.8846153846153846
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 558841655356527,
+				"name": "BrickBlueActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 22,
+						"originX": 0.6124567474048445,
+						"originY": 0.6694214876033058,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 100168,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.9545454545454546,
+								0.029411764705882353,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 616333144099340,
+				"name": "BrickOrange",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 26,
+						"originX": 0.6006191950464398,
+						"originY": 0.6433566433566433,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1210835,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.8846153846153846,
+								0.07894736842105263,
+								0.8846153846153846
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 936486030726365,
+				"name": "BrickOrangeActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 22,
+						"originX": 0.6124567474048445,
+						"originY": 0.6694214876033058,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8286077,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.9545454545454546,
+								0.029411764705882353,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 223509036278347,
+				"name": "BrickPurple",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 26,
+						"originX": 0.6005263157894737,
+						"originY": 0.6434615384615385,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8907539,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.11538461538461539,
+								0.9210526315789473,
+								0.8846153846153846,
+								0.07894736842105263,
+								0.8846153846153846
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 624898127851194,
+				"name": "BrickPurpleActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 22,
+						"originX": 0.6176470588235294,
+						"originY": 0.6818181818181818,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4954645,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.9545454545454546,
+								0.029411764705882353,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 657668731154906,
+				"name": "BrickEvil",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 22,
+						"originX": 0.6176470588235294,
+						"originY": 0.6818181818181818,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1948791,
+						"collisionPoly": {
+							"points": [
+								0.029411764705882353,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.045454545454545456,
+								0.9705882352941176,
+								0.9545454545454546,
+								0.029411764705882353,
+								0.9545454545454546
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 158134233765570,
+				"name": "BrickEvilActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 21,
+						"originX": 0.5894736842105265,
+						"originY": 0.7012987012987013,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 169700,
+						"collisionPoly": {
+							"points": [
+								0.39473684210526316,
+								0.047619047619047616,
+								0.6578947368421053,
+								0.047619047619047616,
+								0.868421052631579,
+								0.09523809523809523,
+								0.9736842105263158,
+								0.14285714285714285,
+								0.9736842105263158,
+								0.42857142857142855,
+								0.8947368421052632,
+								0.9047619047619048,
+								0.5394738448293588,
+								0.766666884649368,
+								0.1105263157894737,
+								0.8952380225771949,
+								0.10526315789473684,
+								0.8571428571428571,
+								0.02631578947368421,
+								0.42857142857142855,
+								0.02631578947368421,
+								0.19047619047619047,
+								0.07894736842105263,
+								0.14285714285714285
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 291484521275152,
+				"name": "CurveBlue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 42,
+						"height": 25,
+						"originX": 0.5809523809523811,
+						"originY": 0.6690909090909091,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7666349,
+						"collisionPoly": {
+							"points": [
+								0.38095238095238093,
+								0.12,
+								0.6666666666666666,
+								0.12,
+								0.8571428571428571,
+								0.16,
+								0.9285714285714286,
+								0.2,
+								0.9285714285714286,
+								0.48,
+								0.8809523809523809,
+								0.76,
+								0.8571428571428571,
+								0.84,
+								0.7059524172828308,
+								0.7859999389648437,
+								0.5214284987676707,
+								0.7479999999999999,
+								0.3309524536132811,
+								0.8079999389648437,
+								0.17142857142857137,
+								0.8799999389648439,
+								0.07142857142857142,
+								0.48,
+								0.07142857142857142,
+								0.24,
+								0.09523809523809523,
+								0.2
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 902525580313446,
+				"name": "CurveBlueActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.5850000000000002,
+						"originY": 0.6694214876033058,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5257936,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.9,
+								0.09090909090909091,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.865000076293945,
+								0.8454545454545453,
+								0.5225000000000001,
+								0.7545454545454552,
+								0.34999992370605487,
+								0.7863636363636365,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 963697075283021,
+				"name": "CurveOrange",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 42,
+						"height": 25,
+						"originX": 0.5809523809523811,
+						"originY": 0.6690909090909091,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6397349,
+						"collisionPoly": {
+							"points": [
+								0.2857142857142857,
+								0.12,
+								0.7857142857142857,
+								0.12,
+								0.9285714285714286,
+								0.16,
+								0.9523809523809523,
+								0.2,
+								0.9523809523809523,
+								0.4,
+								0.8547619774228051,
+								0.852,
+								0.5452381678989962,
+								0.7599999999999999,
+								0.14285714285714285,
+								0.88,
+								0.047619047619047616,
+								0.4,
+								0.047619047619047616,
+								0.24,
+								0.07142857142857142,
+								0.2
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 139132968908895,
+				"name": "CurveOrangeActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 21,
+						"originX": 0.5894736842105265,
+						"originY": 0.7012987012987013,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8659796,
+						"collisionPoly": {
+							"points": [
+								0.39473684210526316,
+								0.047619047619047616,
+								0.6578947368421053,
+								0.047619047619047616,
+								0.868421052631579,
+								0.09523809523809523,
+								0.9736842105263158,
+								0.14285714285714285,
+								0.9736842105263158,
+								0.42857142857142855,
+								0.8947368421052632,
+								0.9047619047619048,
+								0.5394738448293588,
+								0.766666884649368,
+								0.1105263157894737,
+								0.8952380225771949,
+								0.10526315789473684,
+								0.8571428571428571,
+								0.02631578947368421,
+								0.42857142857142855,
+								0.02631578947368421,
+								0.19047619047619047,
+								0.07894736842105263,
+								0.14285714285714285
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 111329464524211,
+				"name": "CurvePurple",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 42,
+						"height": 25,
+						"originX": 0.5809523809523811,
+						"originY": 0.6690909090909091,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 546192,
+						"collisionPoly": {
+							"points": [
+								0.38095238095238093,
+								0.12,
+								0.6666666666666666,
+								0.12,
+								0.8571428571428571,
+								0.16,
+								0.9285714285714286,
+								0.2,
+								0.9285714285714286,
+								0.48,
+								0.8809523809523809,
+								0.76,
+								0.8571428571428571,
+								0.84,
+								0.7059524172828308,
+								0.7859999389648437,
+								0.5214284987676707,
+								0.7479999999999999,
+								0.3309524536132811,
+								0.8079999389648437,
+								0.17142857142857137,
+								0.8799999389648439,
+								0.07142857142857142,
+								0.48,
+								0.07142857142857142,
+								0.24,
+								0.09523809523809523,
+								0.2
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 235873435867725,
+				"name": "CurvePurpleActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.5875,
+						"originY": 0.6590909090909091,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8755581,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 488253759826459,
+				"name": "CurveEvil",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 40,
+						"height": 22,
+						"originX": 0.5875,
+						"originY": 0.6590909090909091,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2635864,
+						"collisionPoly": {
+							"points": [
+								0.325,
+								0.045454545454545456,
+								0.75,
+								0.045454545454545456,
+								0.95,
+								0.13636363636363635,
+								0.95,
+								0.5,
+								0.875,
+								0.8636363636363636,
+								0.125,
+								0.8636363636363636,
+								0.05,
+								0.5,
+								0.05,
+								0.13636363636363635
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 956612974494523,
+				"name": "CurveEvilActive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
