@@ -73,7 +73,7 @@ export const loginUser = async (req, res) => {
 
     // Generate JWT token for authentication
     const token = jwt.sign({ username: user.username }, "secret");
-    res.status(200).json({ token });
+    res.status(200).json({ message: "Login successful", token });
   } catch (e) {
     res.status(500).json({ error: "Internal server error" });
   }
