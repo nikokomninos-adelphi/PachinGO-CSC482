@@ -1,3 +1,10 @@
+/**
+ * db.js
+ * 
+ * Contains logic to start bootstrap connection
+ * to remote MongoDB database (MongoDB Atlas)
+ */
+
 import mongoose, { connect } from "mongoose";
 
 const connectDB = async () => {

@@ -3,3 +3,4 @@ ts-defs
 .DS_Store
 **/node_modules/
 **/.env
+todo.md
