@@ -139,7 +139,9 @@
 					"AJAX",
 					"AJAXTest",
 					"Demo2",
-					"Demo3"
+					"Demo3",
+					"Login",
+					"Back"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -170,17 +172,19 @@
 	},
 	"layouts": {
 		"items": [
-			"menu",
+			"Menu",
 			"Demo Level 1",
 			"Demo Level 2",
-			"Demo Level 3"
+			"Demo Level 3",
+			"Login"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"Core Gameplay",
-			"menu"
+			"Menu",
+			"Login"
 		],
 		"subfolders": []
 	},

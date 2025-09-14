@@ -1,5 +1,5 @@
 {
-	"name": "menu",
+	"name": "Menu",
 	"events": [
 		{
 			"eventType": "block",
@@ -134,6 +134,32 @@
 				}
 			],
 			"sid": 246223125975602
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 310487890930835,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Back"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 883088959808817,
+					"parameters": {
+						"layout": "Login"
+					}
+				}
+			],
+			"sid": 658862930484277
 		}
 	],
 	"sid": 838613263321146

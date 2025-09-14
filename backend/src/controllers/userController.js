@@ -59,7 +59,7 @@ export const loginUser = async (req, res) => {
     const user = await User.findOne({ username: req.body.username });
 
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
 
     // Compare inputted password to actual hashed password

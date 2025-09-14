@@ -1,5 +1,5 @@
 {
-	"name": "menu",
+	"name": "Menu",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -12,7 +12,7 @@
 						"text": "PachinGO!",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 24,
+						"size": 48,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -43,9 +43,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 277,
-						"y": 140,
-						"width": 246,
+						"x": 239,
+						"y": 81,
+						"width": 322,
 						"height": 89,
 						"originX": 0,
 						"originY": 0,
@@ -96,7 +96,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 295,
+						"x": 297,
 						"y": 296,
 						"width": 204,
 						"height": 55,
@@ -149,8 +149,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 289,
-						"y": 367,
+						"x": 298,
+						"y": 370,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -202,10 +202,63 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 294,
+						"x": 299,
 						"y": 444,
 						"width": 204,
 						"height": 55,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Login",
+					"properties": {
+						"text": "Login",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 357,
+					"sid": 353903560919838,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 353903560919838,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 693,
+						"y": 544,
+						"width": 80,
+						"height": 41,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -262,5 +315,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "menu"
+	"eventSheet": "Menu"
 }
