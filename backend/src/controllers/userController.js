@@ -1,6 +1,6 @@
 /**
  * userController
- * 
+ *
  * Contains logic relating to the /api/users endpoint.
  * Handles user registration and login
  */
@@ -19,11 +19,14 @@ export const registerUser = async (req, res) => {
   try {
     // Checks if username and password meet requirements
     if (req.body.username.length < 5 || req.body.password.length < 5) {
-      return res
-        .status(400)
-        .json({
-          error: "Username and password must be 5 or more characters long",
-        });
+      return res.status(400).json({
+        error: "Username and password must be at least 5 characters",
+      });
+    }
+    if (req.body.username.length > 50 || req.body.password.length > 50) {
+      return res.status(400).json({
+        error: "Username and password must be less than 50 characters",
+      });
     }
 
     // Check if username already exists
