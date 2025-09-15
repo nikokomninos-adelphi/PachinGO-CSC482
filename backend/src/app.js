@@ -28,6 +28,7 @@ app.use(
       "http://localhost:3000",
       "https://preview.construct.net",
       "https://pachingo.onrender.com",
+      "https://playpachingo.vercel.app"
     ],
   })
 );
