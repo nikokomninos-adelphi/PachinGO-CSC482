@@ -49,6 +49,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -140,8 +147,7 @@
 					"AJAXTest",
 					"Demo2",
 					"Demo3",
-					"Login",
-					"Back"
+					"Login"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -160,6 +166,23 @@
 				],
 				"subfolders": [],
 				"name": "Text"
+			},
+			{
+				"items": [
+					"UsernameInput",
+					"PasswordInput",
+					"Back",
+					"LoginStatus"
+				],
+				"subfolders": [],
+				"name": "Login"
+			},
+			{
+				"items": [
+					"Register"
+				],
+				"subfolders": [],
+				"name": "Register"
 			}
 		]
 	},
@@ -176,7 +199,8 @@
 			"Demo Level 1",
 			"Demo Level 2",
 			"Demo Level 3",
-			"Login"
+			"Login",
+			"Register"
 		],
 		"subfolders": []
 	},
@@ -184,7 +208,8 @@
 		"items": [
 			"Core Gameplay",
 			"Menu",
-			"Login"
+			"Login",
+			"Register"
 		],
 		"subfolders": []
 	},

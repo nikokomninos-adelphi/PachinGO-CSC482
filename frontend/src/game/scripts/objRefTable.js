@@ -11,6 +11,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Fade,
 		C3.Plugins.Text,
 		C3.Plugins.AJAX,
+		C3.Plugins.TextBox,
 		C3.Plugins.Mouse,
 		C3.Plugins.Keyboard,
 		C3.Plugins.Json,
@@ -71,7 +72,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Json.Exps.Get,
 		C3.Plugins.Mouse.Cnds.OnObjectClicked,
-		C3.Plugins.System.Acts.GoToLayout
+		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.TextBox.Cnds.OnTextChanged,
+		C3.Plugins.TextBox.Exps.Text,
+		C3.Plugins.Json.Acts.SetValue,
+		C3.Plugins.AJAX.Acts.SetHeader,
+		C3.Plugins.AJAX.Acts.Post,
+		C3.Plugins.Json.Exps.ToCompactString,
+		C3.Plugins.AJAX.Cnds.OnComplete,
+		C3.Plugins.AJAX.Cnds.OnAnyError,
+		C3.Plugins.Json.Cnds.HasKey
 	];
 };
 self.C3_JsPropNameTable = [
@@ -101,6 +111,7 @@ self.C3_JsPropNameTable = [
 	{AJAXTest: 0},
 	{Demo2: 0},
 	{Demo3: 0},
+	{Login: 0},
 	{BallCount: 0},
 	{FreeBall: 0},
 	{OrangePegsRemaining: 0},
@@ -110,6 +121,11 @@ self.C3_JsPropNameTable = [
 	{YouWin: 0},
 	{ScoreCountUpwards: 0},
 	{MultiplierText: 0},
+	{UsernameInput: 0},
+	{PasswordInput: 0},
+	{Back: 0},
+	{LoginStatus: 0},
+	{Register: 0},
 	{Mouse: 0},
 	{Keyboard: 0},
 	{JSON: 0},
@@ -125,7 +141,10 @@ self.C3_JsPropNameTable = [
 	{ScoreMultiplier: 0},
 	{ScoreVictoryScreenCounter: 0},
 	{BluePegsDestroyedInOneTurn: 0},
-	{OrangePegsDestroyedInOneTurn: 0}
+	{OrangePegsDestroyedInOneTurn: 0},
+	{Username: 0},
+	{Password: 0},
+	{JWT: 0}
 ];
 
 self.InstanceType = {
@@ -148,6 +167,7 @@ self.InstanceType = {
 	AJAXTest: class extends self.ITextInstance {},
 	Demo2: class extends self.ITextInstance {},
 	Demo3: class extends self.ITextInstance {},
+	Login: class extends self.ITextInstance {},
 	BallCount: class extends self.ITextInstance {},
 	FreeBall: class extends self.ITextInstance {},
 	OrangePegsRemaining: class extends self.ITextInstance {},
@@ -157,6 +177,11 @@ self.InstanceType = {
 	YouWin: class extends self.ITextInstance {},
 	ScoreCountUpwards: class extends self.ITextInstance {},
 	MultiplierText: class extends self.ITextInstance {},
+	UsernameInput: class extends self.ITextInputInstance {},
+	PasswordInput: class extends self.ITextInputInstance {},
+	Back: class extends self.ITextInstance {},
+	LoginStatus: class extends self.ITextInstance {},
+	Register: class extends self.ITextInstance {},
 	Mouse: class extends self.IInstance {},
 	Keyboard: class extends self.IInstance {},
 	JSON: class extends self.IJSONInstance {}

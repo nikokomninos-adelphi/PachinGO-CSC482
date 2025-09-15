@@ -68,7 +68,7 @@ export const loginUser = async (req, res) => {
       user.password
     );
     if (!compPasswords) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
 
     // Generate JWT token for authentication

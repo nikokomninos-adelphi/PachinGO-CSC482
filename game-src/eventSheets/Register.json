@@ -1,43 +1,13 @@
 {
-	"name": "Login",
+	"name": "Register",
 	"events": [
-		{
-			"eventType": "variable",
-			"name": "Username",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 606128426502209
-		},
-		{
-			"eventType": "variable",
-			"name": "Password",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 892511526425928
-		},
-		{
-			"eventType": "variable",
-			"name": "JWT",
-			"type": "string",
-			"initialValue": "",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 532946513098991
-		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 813192406892772,
+					"sid": 418559485319863,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
@@ -49,13 +19,57 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 124176649009364,
+					"sid": 690155958424542,
 					"parameters": {
-						"layout": "Menu"
+						"layout": "Login"
 					}
 				}
 			],
-			"sid": 814774279672747
+			"sid": 984213409439998
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "UsernameInput",
+					"sid": 336573991758458
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 971961699966948,
+					"parameters": {
+						"variable": "Username",
+						"value": "UsernameInput.Text"
+					}
+				}
+			],
+			"sid": 872940132255883
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "PasswordInput",
+					"sid": 688187000050343
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 239765037613187,
+					"parameters": {
+						"variable": "Password",
+						"value": "PasswordInput.Text"
+					}
+				}
+			],
+			"sid": 788040797552367
 		},
 		{
 			"eventType": "block",
@@ -63,7 +77,7 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 543924619505093,
+					"sid": 398408716406825,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
@@ -73,79 +87,9 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 390002009287484,
-					"parameters": {
-						"layout": "Register"
-					}
-				}
-			],
-			"sid": 713767787562382
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-text-changed",
-					"objectClass": "UsernameInput",
-					"sid": 565431046787175
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 517544988264794,
-					"parameters": {
-						"variable": "Username",
-						"value": "UsernameInput.Text"
-					}
-				}
-			],
-			"sid": 379013558542164
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-text-changed",
-					"objectClass": "PasswordInput",
-					"sid": 104437651459840
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 203261649259147,
-					"parameters": {
-						"variable": "Password",
-						"value": "PasswordInput.Text"
-					}
-				}
-			],
-			"sid": 551583601393209
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 270248056638479,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Login"
-					}
-				}
-			],
-			"actions": [
-				{
 					"id": "set-value",
 					"objectClass": "JSON",
-					"sid": 297682842647121,
+					"sid": 365259010355297,
 					"parameters": {
 						"path": "\"username\"",
 						"value": "Username"
@@ -154,7 +98,7 @@
 				{
 					"id": "set-value",
 					"objectClass": "JSON",
-					"sid": 897079181401209,
+					"sid": 382842111520731,
 					"parameters": {
 						"path": "\"password\"",
 						"value": "Password"
@@ -163,7 +107,7 @@
 				{
 					"id": "set-request-header",
 					"objectClass": "AJAX",
-					"sid": 960549699567360,
+					"sid": 292447959551394,
 					"parameters": {
 						"header": "\"Content-Type\"",
 						"value": "\"application/json\""
@@ -172,7 +116,7 @@
 				{
 					"id": "set-request-header",
 					"objectClass": "AJAX",
-					"sid": 792889964569511,
+					"sid": 808985440868025,
 					"parameters": {
 						"header": "\"Accept\"",
 						"value": "\"application/json\""
@@ -181,16 +125,16 @@
 				{
 					"id": "post-to-url",
 					"objectClass": "AJAX",
-					"sid": 433345580213702,
+					"sid": 170694072839992,
 					"parameters": {
-						"tag": "\"login\"",
-						"url": "\"http://localhost:3000/api/users/login\"",
+						"tag": "\"register\"",
+						"url": "\"https://pachingo.onrender.com/api/users/register\"",
 						"data": "JSON.ToCompactString",
 						"method": "\"POST\""
 					}
 				}
 			],
-			"sid": 690943810284936
+			"sid": 775007590520968
 		},
 		{
 			"eventType": "block",
@@ -198,9 +142,9 @@
 				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
-					"sid": 868832345501830,
+					"sid": 237928982952323,
 					"parameters": {
-						"tag": "\"login\""
+						"tag": "\"register\""
 					}
 				}
 			],
@@ -208,13 +152,13 @@
 				{
 					"id": "parse",
 					"objectClass": "JSON",
-					"sid": 724137185306004,
+					"sid": 329543116500626,
 					"parameters": {
 						"data": "AJAX.LastData"
 					}
 				}
 			],
-			"sid": 355639538067463
+			"sid": 829459460765450
 		},
 		{
 			"eventType": "block",
@@ -222,20 +166,20 @@
 				{
 					"id": "on-any-error",
 					"objectClass": "AJAX",
-					"sid": 673601903756032
+					"sid": 450882506745889
 				}
 			],
 			"actions": [
 				{
 					"id": "parse",
 					"objectClass": "JSON",
-					"sid": 219576192356814,
+					"sid": 217250887658017,
 					"parameters": {
 						"data": "AJAX.LastData"
 					}
 				}
 			],
-			"sid": 521224312624777
+			"sid": 387079025364553
 		},
 		{
 			"eventType": "block",
@@ -243,7 +187,7 @@
 				{
 					"id": "has-key",
 					"objectClass": "JSON",
-					"sid": 580131936484358,
+					"sid": 803133788256114,
 					"parameters": {
 						"path": "\"message\""
 					}
@@ -253,7 +197,7 @@
 				{
 					"id": "set-text",
 					"objectClass": "LoginStatus",
-					"sid": 323571946659967,
+					"sid": 916732872529963,
 					"parameters": {
 						"text": "JSON.Get(\"message\")"
 					}
@@ -261,16 +205,7 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 522308770068643,
-					"parameters": {
-						"variable": "JWT",
-						"value": "JSON.Get(\"token\")"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 167266570944704,
+					"sid": 447678062298685,
 					"parameters": {
 						"variable": "Password",
 						"value": "\"\""
@@ -279,13 +214,13 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 850138697361104,
+					"sid": 701880740178777,
 					"parameters": {
-						"layout": "Menu"
+						"layout": "Login"
 					}
 				}
 			],
-			"sid": 174295885956545
+			"sid": 409240081242066
 		},
 		{
 			"eventType": "block",
@@ -293,9 +228,9 @@
 				{
 					"id": "has-key",
 					"objectClass": "JSON",
-					"sid": 930243984669385,
+					"sid": 407906037029269,
 					"parameters": {
-						"path": "\"error\"\n"
+						"path": "\"error\""
 					}
 				}
 			],
@@ -303,14 +238,14 @@
 				{
 					"id": "set-text",
 					"objectClass": "LoginStatus",
-					"sid": 399898039897366,
+					"sid": 746678849150059,
 					"parameters": {
 						"text": "JSON.Get(\"error\")"
 					}
 				}
 			],
-			"sid": 921172975006318
+			"sid": 445758208742724
 		}
 	],
-	"sid": 821725297737357
+	"sid": 593909943166130
 }

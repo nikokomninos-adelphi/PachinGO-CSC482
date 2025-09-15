@@ -1,5 +1,5 @@
 {
-	"name": "Login",
+	"name": "Register",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -31,20 +31,20 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 358,
-					"sid": 702134838139800,
+					"uid": 363,
+					"sid": 417905633865672,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 702134838139800,
+						"sid": 417905633865672,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 12.54952848736815,
-						"y": 12.230147742221988,
+						"x": 19,
+						"y": 21,
 						"width": 78.51885330578517,
 						"height": 44.351286626596504,
 						"originX": 0,
@@ -74,20 +74,20 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 359,
-					"sid": 864712073978301,
+					"uid": 365,
+					"sid": 930200902891608,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 864712073978301,
+						"sid": 930200902891608,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 326.2852431941444,
-						"y": 184.98857435402704,
+						"x": 309,
+						"y": 211,
 						"width": 150,
 						"height": 22,
 						"originX": 0,
@@ -115,20 +115,20 @@
 						"id": "",
 						"class": ""
 					},
-					"uid": 360,
-					"sid": 185651154009228,
+					"uid": 366,
+					"sid": 582858057379599,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 185651154009228,
+						"sid": 582858057379599,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 330.3470356036271,
-						"y": 255.74134126200346,
+						"x": 313,
+						"y": 281,
 						"width": 150,
 						"height": 22,
 						"originX": 0,
@@ -142,9 +142,9 @@
 					}
 				},
 				{
-					"type": "Login",
+					"type": "Register",
 					"properties": {
-						"text": "Login",
+						"text": "Register",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 24,
@@ -166,22 +166,22 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 361,
-					"sid": 435040034841435,
+					"uid": 367,
+					"sid": 886736511959826,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 435040034841435,
+						"sid": 886736511959826,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 354.70314730924383,
-						"y": 357.570910240993,
-						"width": 80,
-						"height": 41,
+						"x": 324,
+						"y": 359,
+						"width": 131.48983377160027,
+						"height": 40.34525262960187,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -219,20 +219,20 @@
 						"origin": "top-left",
 						"read-aloud": false
 					},
-					"uid": 362,
-					"sid": 466532455262964,
+					"uid": 368,
+					"sid": 776196716045978,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 466532455262964,
+						"sid": 776196716045978,
 						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 110.96306100525777,
-						"y": 457.8362731933594,
+						"x": 102,
+						"y": 473,
 						"width": 552.2081611570247,
 						"height": 63.201657588279545,
 						"originX": 0,
@@ -246,62 +246,9 @@
 						"angle": 0,
 						"zElevation": 0
 					}
-				},
-				{
-					"type": "Register",
-					"properties": {
-						"text": "Register Here",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 24,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 364,
-					"sid": 783856787760918,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 783856787760918,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 579.3241328605577,
-						"y": 545.8097102210362,
-						"width": 211.48983377160027,
-						"height": 40.34525262960187,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
 				}
 			],
-			"sid": 293283978914486,
+			"sid": 949765803135913,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -335,7 +282,7 @@
 		"items": [],
 		"subfolders": []
 	},
-	"sid": 687901116739896,
+	"sid": 350941361137744,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 800,
@@ -344,5 +291,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Login"
+	"eventSheet": "Register"
 }

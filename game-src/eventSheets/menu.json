@@ -141,11 +141,21 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 310487890930835,
+					"sid": 118866481387612,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Back"
+						"object-clicked": "Login"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 676255446273962,
+					"parameters": {
+						"variable": "JWT",
+						"comparison": 0,
+						"value": "\"\""
 					}
 				}
 			],
@@ -160,6 +170,86 @@
 				}
 			],
 			"sid": 658862930484277
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 845768728895360,
+					"parameters": {
+						"variable": "JWT",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Login",
+					"sid": 156791993673462,
+					"parameters": {
+						"text": "\"Logout\""
+					}
+				}
+			],
+			"sid": 971075468573938
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 855799891685740,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Login"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 981754939653851,
+					"parameters": {
+						"variable": "JWT",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 968681713088996,
+					"parameters": {
+						"variable": "Username",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 954984632744487,
+					"parameters": {
+						"variable": "JWT",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Login",
+					"sid": 298188040975389,
+					"parameters": {
+						"text": "\"Login\""
+					}
+				}
+			],
+			"sid": 957930628998676
 		}
 	],
 	"sid": 838613263321146
