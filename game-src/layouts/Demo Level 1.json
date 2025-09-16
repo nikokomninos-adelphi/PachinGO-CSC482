@@ -234,7 +234,7 @@
 								"immovable": false,
 								"collision-mask": "use-collision-polygon",
 								"prevent-rotation": true,
-								"density": 10,
+								"density": 9,
 								"friction": 0,
 								"elasticity": 0.6,
 								"linear-damping": 0.08,
