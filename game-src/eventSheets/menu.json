@@ -141,6 +141,32 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
+					"sid": 616573233637278,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Demo4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 714324982949399,
+					"parameters": {
+						"layout": "Demo Level 4"
+					}
+				}
+			],
+			"sid": 466661122072211
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
 					"sid": 118866481387612,
 					"parameters": {
 						"mouse-button": "left",
