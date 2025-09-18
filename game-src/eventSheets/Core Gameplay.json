@@ -308,9 +308,9 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 908487682705363,
+							"sid": 900774793357642,
 							"parameters": {
-								"layer": "3",
+								"layer": "\"Victory Screen\"",
 								"visibility": "invisible"
 							}
 						},

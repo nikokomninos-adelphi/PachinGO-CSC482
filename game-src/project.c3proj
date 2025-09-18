@@ -134,7 +134,8 @@
 					"bucketVictory",
 					"wallVictory",
 					"ballTrail",
-					"Bumper"
+					"Bumper",
+					"demo4bg"
 				],
 				"subfolders": [],
 				"name": "Beta"
@@ -219,6 +220,7 @@
 			"Demo Level 1",
 			"Demo Level 2",
 			"Demo Level 3",
+			"Demo Level 4",
 			"Login",
 			"Register"
 		],
