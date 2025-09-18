@@ -1156,6 +1156,15 @@
 									],
 									"actions": [
 										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 383198566872424,
+											"parameters": {
+												"variable": "EndOfTurn",
+												"value": "true"
+											}
+										},
+										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
 											"sid": 382964769645858,
@@ -1205,6 +1214,15 @@
 												"variable": "BallActive",
 												"value": "false"
 											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 710550402823779,
+											"parameters": {
+												"variable": "EndOfTurn",
+												"value": "false"
+											}
 										}
 									],
 									"sid": 992838404935840
@@ -1223,6 +1241,15 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 646735874659117,
+											"parameters": {
+												"variable": "EndOfTurn",
+												"value": "true"
+											}
+										},
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
@@ -1271,6 +1298,15 @@
 											"sid": 641049136733251,
 											"parameters": {
 												"variable": "BallActive",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 278589281567269,
+											"parameters": {
+												"variable": "EndOfTurn",
 												"value": "false"
 											}
 										}

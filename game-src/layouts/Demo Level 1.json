@@ -5,45 +5,7 @@
 			"name": "BG",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [
-				{
-					"type": "bluepegs",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 239,
-					"sid": 987870760949941,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 987870760949941,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 968,
-						"y": 144,
-						"width": 94,
-						"height": 95,
-						"originX": 0.5,
-						"originY": 6.2631578947368425,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 593113268957708,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
