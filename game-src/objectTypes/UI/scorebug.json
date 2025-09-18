@@ -1,0 +1,54 @@
+{
+	"name": "scorebug",
+	"plugin-id": "Sprite",
+	"sid": 381923975101471,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 319,
+						"height": 72,
+						"originX": 1.293103448275862,
+						"originY": 6.270833333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6525220,
+						"collisionPoly": {
+							"points": [
+								0.23197492163009403,
+								0.013888888888888888,
+								0.9937304075235112,
+								0.05555555555555555,
+								0.9059561128526648,
+								0.9861111111111112,
+								0.2884012539184953,
+								0.9861111111111112,
+								0.012539184952978056,
+								0.375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 840175983511551,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

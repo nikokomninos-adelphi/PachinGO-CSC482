@@ -45,7 +45,7 @@
 			"eventType": "variable",
 			"name": "BallCount",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -150,6 +150,26 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 545015393849943
+		},
+		{
+			"eventType": "variable",
+			"name": "EndOfTurn",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 550447162096890
+		},
+		{
+			"eventType": "variable",
+			"name": "FreeBall",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 620204555919712
 		},
 		{
 			"eventType": "group",
@@ -685,12 +705,39 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 851250356173846,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "true"
+									}
+								},
+								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
 									"sid": 440154569188647,
 									"parameters": {
 										"variable": "BallCount",
 										"value": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 970196654813973,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 734502513605542,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "false"
 									}
 								}
 							],
@@ -717,12 +764,39 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 531185399981790,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "true"
+									}
+								},
+								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
 									"sid": 777569969489551,
 									"parameters": {
 										"variable": "BallCount",
 										"value": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 196128655665509,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 343550012556914,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "false"
 									}
 								}
 							],
@@ -749,12 +823,39 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 737594093991800,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "true"
+									}
+								},
+								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
 									"sid": 478735748448602,
 									"parameters": {
 										"variable": "BallCount",
 										"value": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 612160503023801,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 321073615033902,
+									"parameters": {
+										"variable": "FreeBall",
+										"value": "false"
 									}
 								}
 							],
@@ -827,6 +928,15 @@
 								"variable": "TurnCount",
 								"value": "1"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 894955229302838,
+							"parameters": {
+								"variable": "EndOfTurn",
+								"value": "true"
+							}
 						}
 					],
 					"sid": 906374271386472
@@ -841,6 +951,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 868095126197909,
+							"parameters": {
+								"variable": "EndOfTurn",
+								"value": "true"
+							}
+						},
 						{
 							"id": "wait",
 							"objectClass": "System",
@@ -857,6 +976,15 @@
 							"parameters": {
 								"variable": "ScoreTotal",
 								"value": "(((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 502648490677111,
+							"parameters": {
+								"variable": "EndOfTurn",
+								"value": "false"
 							}
 						}
 					],
@@ -2924,12 +3052,30 @@
 							}
 						},
 						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 684180921248203,
+							"parameters": {
+								"variable": "FreeBall",
+								"value": "true"
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 142813796467153,
 							"parameters": {
 								"seconds": "0.02",
 								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 650285886234059,
+							"parameters": {
+								"variable": "EndOfTurn",
+								"value": "true"
 							}
 						},
 						{
@@ -2971,6 +3117,24 @@
 							"parameters": {
 								"visibility": "invisible"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 962046671215247,
+							"parameters": {
+								"variable": "EndOfTurn",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 444151766442814,
+							"parameters": {
+								"variable": "FreeBall",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 128935630719369
@@ -2994,9 +3158,9 @@
 						{
 							"id": "set-y",
 							"objectClass": "bucket",
-							"sid": 914956694553975,
+							"sid": 249897313751435,
 							"parameters": {
-								"y": "587"
+								"y": "580"
 							}
 						},
 						{
@@ -3078,9 +3242,9 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 771422654709488,
+							"sid": 700460501476539,
 							"parameters": {
-								"layer": "3",
+								"layer": "\"Victory Screen\"",
 								"visibility": "visible"
 							}
 						},
@@ -3238,9 +3402,9 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 398970234580049,
+									"sid": 226074038826737,
 									"parameters": {
-										"layer": "3"
+										"layer": "\"Victory Screen\""
 									}
 								},
 								{
@@ -3284,9 +3448,9 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 237017695465722,
+									"sid": 727413494741173,
 									"parameters": {
-										"layer": "3"
+										"layer": "\"Victory Screen\""
 									}
 								},
 								{
@@ -3330,9 +3494,9 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 585354054924511,
+									"sid": 808368905421615,
 									"parameters": {
-										"layer": "3"
+										"layer": "\"Victory Screen\""
 									}
 								},
 								{
@@ -3383,9 +3547,9 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 328933062457751,
+									"sid": 548121122926788,
 									"parameters": {
-										"layer": "3"
+										"layer": "\"Victory Screen\""
 									}
 								}
 							],
@@ -3530,6 +3694,1495 @@
 				}
 			],
 			"sid": 900496679235850
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "BallsLeft",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Animated",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 177692215005270,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 384341522400707,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "10"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 830743905097841
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 686199405018964,
+											"parameters": {
+												"animation": "\"10Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 701544084587492
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 368953907392025,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 867415639386815,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "9"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 829936477526237
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 758546006039456,
+											"parameters": {
+												"animation": "\"9Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 604643901641326
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 683109779989547,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 318674375599799,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "8"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 298693019272225
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 534611711633612,
+											"parameters": {
+												"animation": "\"8Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 691580017161472
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 738475892858363,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 337084528964515,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "7"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 392207671314590
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 805556128463900,
+											"parameters": {
+												"animation": "\"7Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 360322878340539
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 230335073036646,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 286067792837856,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "6"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 259797337135500
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 372243830701627,
+											"parameters": {
+												"animation": "\"6Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 874085994015438
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 717090314812185,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 233693842187065,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "5"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 936318484868636
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 273612364916867,
+											"parameters": {
+												"animation": "\"5Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 813662545573173
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 632189774136696,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 735931972506465,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "4"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 834924409881132
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 991580044051644,
+											"parameters": {
+												"animation": "\"4Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 388367322393196
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 485337504901493,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 579245079586972,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "3"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 776013056445842
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 950978733562167,
+											"parameters": {
+												"animation": "\"3Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 618490793523866
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 368146899758799,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 480171686654984,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 400521148455443
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 859453002274928,
+											"parameters": {
+												"animation": "\"2Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 818394922056145
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 208048410150040,
+											"parameters": {
+												"variable": "EndOfTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 696816316373502,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 820802578303310
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 347438084771806,
+											"parameters": {
+												"animation": "\"1Ani\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 740788802920558
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 976336791514331,
+											"parameters": {
+												"variable": "FreeBall"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 584480091630786
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "FreeBallUI",
+											"sid": 681803735486884,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 727950677194946
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 602669984517077,
+											"parameters": {
+												"variable": "FreeBall"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 649895396457249
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "FreeBallUI",
+											"sid": 813758550590032,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 902419297909321
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 939844010053438,
+											"parameters": {
+												"variable": "ScoreTotal",
+												"comparison": 4,
+												"value": "50000"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "FreeBallUI",
+											"sid": 978221933383374,
+											"parameters": {
+												"animation": "\"Purple\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 215026894077843
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 717098185051587,
+											"parameters": {
+												"variable": "ScoreTotal",
+												"comparison": 4,
+												"value": "75000"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "FreeBallUI",
+											"sid": 628828786137517,
+											"parameters": {
+												"animation": "\"Yellow\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 464975354455663
+								}
+							],
+							"sid": 558938027050265
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Static",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 429638972314753,
+											"parameters": {
+												"animation": "\"10Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 719445774581643,
+											"parameters": {
+												"animation": "\"10Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 179318474030588
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 616096947701719,
+											"parameters": {
+												"animation": "\"9Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 262867667387234,
+											"parameters": {
+												"animation": "\"9Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 420410729851589
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 845118378918147,
+											"parameters": {
+												"animation": "\"8Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 515125668692985,
+											"parameters": {
+												"animation": "\"8Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 386177755552879
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 772882912355576,
+											"parameters": {
+												"animation": "\"7Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 250143813970411,
+											"parameters": {
+												"animation": "\"7Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 261716006438964
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 514458235291565,
+											"parameters": {
+												"animation": "\"6Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 408086912948047,
+											"parameters": {
+												"animation": "\"6Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 646289867577482
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 630377113953342,
+											"parameters": {
+												"animation": "\"5Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 717644025394467,
+											"parameters": {
+												"animation": "\"5Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 574293896474535
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 118713847035821,
+											"parameters": {
+												"animation": "\"4Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 912181846880054,
+											"parameters": {
+												"animation": "\"4Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 816402249848311
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 312661058256318,
+											"parameters": {
+												"animation": "\"3Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 642121278666864,
+											"parameters": {
+												"animation": "\"3Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 768056387016657
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 173986721861658,
+											"parameters": {
+												"animation": "\"2Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 882930020588640,
+											"parameters": {
+												"animation": "\"2Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 799899393709062
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "BallsLeft",
+											"sid": 232069008743251,
+											"parameters": {
+												"animation": "\"1Ani\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 354411630647401,
+											"parameters": {
+												"animation": "\"1Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 475795710142536
+								}
+							],
+							"sid": 619971873098814
+						}
+					],
+					"sid": 315668626785755
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Fevermeter",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 982216230956686,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 199925183372980,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 994645358276703
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 661949187776760,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "24"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 287019565637584,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 199783672425556
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 778061810151021,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "23"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 277942932482151,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 105719388753007
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 352436077632964,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "22"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 930768717961863,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 654842408725008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 611149840117241,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "21"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 920725490611417,
+									"parameters": {
+										"frame-number": "4"
+									}
+								}
+							],
+							"sid": 843260422105514
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 792717959689796,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 652779812930072,
+									"parameters": {
+										"frame-number": "5"
+									}
+								}
+							],
+							"sid": 466016796845267
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 367343798018365,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "19"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 410558915221747,
+									"parameters": {
+										"frame-number": "6"
+									}
+								}
+							],
+							"sid": 282799585493376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 818331992469267,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "18"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 892139688461586,
+									"parameters": {
+										"frame-number": "7"
+									}
+								}
+							],
+							"sid": 237201163795909
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 139675480767880,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "17"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 502250802824952,
+									"parameters": {
+										"frame-number": "8"
+									}
+								}
+							],
+							"sid": 807622460135924
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 506854062963138,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "16"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 982160274467765,
+									"parameters": {
+										"frame-number": "9"
+									}
+								}
+							],
+							"sid": 504681006005622
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 363831342949622,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "15"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 182247994391841,
+									"parameters": {
+										"frame-number": "10"
+									}
+								}
+							],
+							"sid": 618350340649563
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 856759708202861,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "14"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 644584888398170,
+									"parameters": {
+										"frame-number": "11"
+									}
+								}
+							],
+							"sid": 947167354814462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 118312906127948,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 567572221249095,
+									"parameters": {
+										"frame-number": "12"
+									}
+								}
+							],
+							"sid": 361074407303567
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 328298134490033,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "12"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 313645666205764,
+									"parameters": {
+										"frame-number": "13"
+									}
+								}
+							],
+							"sid": 525144830471454
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 725829425975920,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "11"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 490415760612359,
+									"parameters": {
+										"frame-number": "14"
+									}
+								}
+							],
+							"sid": 731683963833523
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 815660230429433,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 370640066285529,
+									"parameters": {
+										"frame-number": "15"
+									}
+								}
+							],
+							"sid": 640148441057697
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 226826556985431,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "9"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 890687951152568,
+									"parameters": {
+										"frame-number": "16"
+									}
+								}
+							],
+							"sid": 609301031177917
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 618399668158660,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "8"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 321751058478388,
+									"parameters": {
+										"frame-number": "17"
+									}
+								}
+							],
+							"sid": 613218423486072
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 651112156686792,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 807157793879412,
+									"parameters": {
+										"frame-number": "18"
+									}
+								}
+							],
+							"sid": 979818530311533
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 872988811512237,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 486498799872082,
+									"parameters": {
+										"frame-number": "19"
+									}
+								}
+							],
+							"sid": 866566198446018
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 307177210374916,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 407133283902793,
+									"parameters": {
+										"frame-number": "20"
+									}
+								}
+							],
+							"sid": 555044773528329
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 529243684353429,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 444171697720527,
+									"parameters": {
+										"frame-number": "21"
+									}
+								}
+							],
+							"sid": 446219772521708
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 904385123937096,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 517928131710150,
+									"parameters": {
+										"frame-number": "22"
+									}
+								}
+							],
+							"sid": 963435673080372
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 637704873595862,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 534756782441382,
+									"parameters": {
+										"frame-number": "23"
+									}
+								}
+							],
+							"sid": 677662111179691
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 653456113975872,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 577533311306901,
+									"parameters": {
+										"frame-number": "24"
+									}
+								}
+							],
+							"sid": 592009567334877
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 991546387036507,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "fevermeter",
+									"sid": 251420418315575,
+									"parameters": {
+										"frame-number": "25"
+									}
+								}
+							],
+							"sid": 440908451175945
+						}
+					],
+					"sid": 161196643139474
+				}
+			],
+			"sid": 635023284471835
 		}
 	],
 	"sid": 277583079393040

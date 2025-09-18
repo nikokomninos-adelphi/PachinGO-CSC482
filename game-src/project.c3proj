@@ -183,6 +183,26 @@
 				],
 				"subfolders": [],
 				"name": "Register"
+			},
+			{
+				"items": [
+					"WallUI",
+					"scorebug",
+					"crystals",
+					"floorui",
+					"BallsLeft",
+					"fevermeter",
+					"FreeBallUI"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"bluepegs"
+				],
+				"subfolders": [],
+				"name": "FX"
 			}
 		]
 	},
@@ -236,6 +256,22 @@
 					"name": "Yakuza 0 OST - Disco Queen.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 903986729004446,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gambling.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 457799116273777,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Reptile Eater.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 695532970024066,
 					"file-info": {
 						"purpose": "none"
 					}

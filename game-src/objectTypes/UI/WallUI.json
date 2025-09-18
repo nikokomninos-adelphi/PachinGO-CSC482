@@ -1,0 +1,71 @@
+{
+	"name": "WallUI",
+	"plugin-id": "Sprite",
+	"sid": 373141603774118,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 439679199346486
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 458055508635636
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 520,
+						"height": 903,
+						"originX": 1.1567307692307693,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1180812,
+						"collisionPoly": {
+							"points": [
+								0.0019230769230769232,
+								0.0011074197120708748,
+								0.9961538461538462,
+								0.0033222591362126247,
+								0.9283653699434725,
+								0.08720933612134874,
+								0.4579326849717359,
+								0.08540975374240779,
+								0.3144230182354269,
+								0.16112958500419575,
+								0.313461421086238,
+								0.6888151284996196,
+								0.3173075749323917,
+								0.9988925802879292,
+								0.0019230769230769232,
+								0.9988925802879292
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 866845172885821,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
