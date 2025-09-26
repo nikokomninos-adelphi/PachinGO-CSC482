@@ -1,28 +1,23 @@
 {
-	"name": "ball",
+	"name": "ballTrail",
 	"plugin-id": "Sprite",
-	"sid": 804342747646874,
-	"isGlobal": false,
+	"sid": 688308059635215,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
-			"behaviorId": "Physics",
-			"name": "Physics",
-			"sid": 405783668794997
-		},
-		{
-			"behaviorId": "Bullet",
-			"name": "Bullet",
-			"sid": 779734744006296
-		},
-		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 403867235294803
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 499449091965396
 		}
 	],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
 	"animations": {
 		"items": [
 			{
@@ -36,7 +31,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 8634391,
+						"imageSpriteId": 2918970,
 						"collisionPoly": {
 							"points": [
 								0.48475011834719683,
@@ -92,7 +87,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 942304470760406,
+				"sid": 561731949467185,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

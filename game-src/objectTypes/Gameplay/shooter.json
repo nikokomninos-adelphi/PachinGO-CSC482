@@ -10,6 +10,11 @@
 			"behaviorId": "Pin",
 			"name": "Pin",
 			"sid": 308518432466938
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 582311655470982
 		}
 	],
 	"effectTypes": [],

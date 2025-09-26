@@ -1,8 +1,8 @@
 {
-	"name": "Demo2",
+	"name": "ScoreCalcVisible",
 	"plugin-id": "Text",
-	"sid": 515367952123799,
-	"isGlobal": false,
+	"sid": 208026219473438,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],

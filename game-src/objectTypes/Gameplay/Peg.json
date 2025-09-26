@@ -4,7 +4,15 @@
 	"sid": 488518294509721,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ContinuousContactTimer",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 662178842357804
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "solid",

@@ -2,7 +2,7 @@
 	"name": "FreeBall",
 	"plugin-id": "Text",
 	"sid": 814769504967789,
-	"isGlobal": false,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],

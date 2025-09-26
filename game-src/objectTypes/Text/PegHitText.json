@@ -1,0 +1,16 @@
+{
+	"name": "PegHitText",
+	"plugin-id": "Text",
+	"sid": 929504558301723,
+	"isGlobal": true,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 842920091150202
+		}
+	],
+	"effectTypes": []
+}

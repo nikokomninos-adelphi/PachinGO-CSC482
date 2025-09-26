@@ -41,75 +41,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "ball",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 2,
-					"sid": 981237097824804,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Physics": {
-							"properties": {
-								"immovable": false,
-								"collision-mask": "use-collision-polygon",
-								"prevent-rotation": true,
-								"density": 9,
-								"friction": 0,
-								"elasticity": 0.6,
-								"linear-damping": 0.08,
-								"angular-damping": 0.08,
-								"bullet": true,
-								"enabled": true
-							}
-						},
-						"Bullet": {
-							"properties": {
-								"speed": 400,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": true,
-								"step": false,
-								"enabled": false
-							}
-						},
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"tags": ""
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 981237097824804,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -8.419448323040797,
-						"y": 621.2916467454414,
-						"width": 10.528301886792452,
-						"height": 10.530303030303031,
-						"originX": 0.5496720091972679,
-						"originY": 0.4962325594070199,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Peg",
 					"properties": {
 						"initially-visible": true,
@@ -121,7 +52,9 @@
 					"uid": 7,
 					"sid": 820616615352862,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -182,7 +115,9 @@
 					"uid": 8,
 					"sid": 178220578095113,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -243,7 +178,9 @@
 					"uid": 9,
 					"sid": 995561246207980,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -304,7 +241,9 @@
 					"uid": 10,
 					"sid": 510229333833685,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -365,7 +304,9 @@
 					"uid": 11,
 					"sid": 481171841442219,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -426,7 +367,9 @@
 					"uid": 12,
 					"sid": 602849871233502,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -487,7 +430,9 @@
 					"uid": 13,
 					"sid": 989764331995624,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -548,7 +493,9 @@
 					"uid": 14,
 					"sid": 326921185448715,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -609,7 +556,9 @@
 					"uid": 15,
 					"sid": 794589073537235,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -670,7 +619,9 @@
 					"uid": 16,
 					"sid": 596348194837221,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -731,7 +682,9 @@
 					"uid": 17,
 					"sid": 516853482559117,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -792,7 +745,9 @@
 					"uid": 18,
 					"sid": 455510832047122,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -853,7 +808,9 @@
 					"uid": 19,
 					"sid": 427324951777521,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -914,7 +871,9 @@
 					"uid": 20,
 					"sid": 647368139742394,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -975,7 +934,9 @@
 					"uid": 24,
 					"sid": 434205596676006,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1036,7 +997,9 @@
 					"uid": 25,
 					"sid": 134391815123006,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1097,7 +1060,9 @@
 					"uid": 26,
 					"sid": 428313799484989,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1158,7 +1123,9 @@
 					"uid": 27,
 					"sid": 106145729214347,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1219,7 +1186,9 @@
 					"uid": 28,
 					"sid": 128125669930318,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1280,7 +1249,9 @@
 					"uid": 29,
 					"sid": 242215464390714,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1341,7 +1312,9 @@
 					"uid": 33,
 					"sid": 392715799688472,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1402,7 +1375,9 @@
 					"uid": 34,
 					"sid": 660650793161654,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1463,7 +1438,9 @@
 					"uid": 37,
 					"sid": 932297609917941,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1524,7 +1501,9 @@
 					"uid": 38,
 					"sid": 409458708799438,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1585,7 +1564,9 @@
 					"uid": 39,
 					"sid": 628307581437450,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1646,7 +1627,9 @@
 					"uid": 40,
 					"sid": 284635727451471,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1707,7 +1690,9 @@
 					"uid": 41,
 					"sid": 239581772333549,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1768,7 +1753,9 @@
 					"uid": 42,
 					"sid": 803241651390543,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1829,7 +1816,9 @@
 					"uid": 43,
 					"sid": 519055993449791,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1890,7 +1879,9 @@
 					"uid": 44,
 					"sid": 450023898445578,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -1951,7 +1942,9 @@
 					"uid": 45,
 					"sid": 857261562374981,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2012,7 +2005,9 @@
 					"uid": 54,
 					"sid": 704082539284265,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2073,7 +2068,9 @@
 					"uid": 55,
 					"sid": 671280925660284,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2134,7 +2131,9 @@
 					"uid": 56,
 					"sid": 909688364769986,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2195,7 +2194,9 @@
 					"uid": 57,
 					"sid": 848250799282415,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2256,7 +2257,9 @@
 					"uid": 58,
 					"sid": 108309046645102,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2317,7 +2320,9 @@
 					"uid": 59,
 					"sid": 857675953798507,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2378,7 +2383,9 @@
 					"uid": 60,
 					"sid": 793055265038641,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2439,7 +2446,9 @@
 					"uid": 61,
 					"sid": 682282211211431,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2500,7 +2509,9 @@
 					"uid": 62,
 					"sid": 739281385321423,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2561,7 +2572,9 @@
 					"uid": 63,
 					"sid": 513071105359810,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2622,7 +2635,9 @@
 					"uid": 64,
 					"sid": 742180402116118,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2683,7 +2698,9 @@
 					"uid": 65,
 					"sid": 858822134827098,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2744,7 +2761,9 @@
 					"uid": 66,
 					"sid": 735204870569689,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2805,7 +2824,9 @@
 					"uid": 3,
 					"sid": 709646763180794,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2866,7 +2887,9 @@
 					"uid": 35,
 					"sid": 602151614373905,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2927,7 +2950,9 @@
 					"uid": 36,
 					"sid": 482210259957545,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2988,7 +3013,9 @@
 					"uid": 68,
 					"sid": 874734620629177,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3049,7 +3076,9 @@
 					"uid": 67,
 					"sid": 368538748949473,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3110,7 +3139,9 @@
 					"uid": 69,
 					"sid": 444430627693974,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3171,7 +3202,9 @@
 					"uid": 70,
 					"sid": 321708067237725,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3232,7 +3265,9 @@
 					"uid": 71,
 					"sid": 597284034176849,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3293,7 +3328,9 @@
 					"uid": 72,
 					"sid": 357641851978556,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3354,7 +3391,9 @@
 					"uid": 73,
 					"sid": 159699783563566,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3415,7 +3454,9 @@
 					"uid": 74,
 					"sid": 369624154176378,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3476,7 +3517,9 @@
 					"uid": 75,
 					"sid": 478585239829210,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3537,7 +3580,9 @@
 					"uid": 76,
 					"sid": 415910608037897,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3598,7 +3643,9 @@
 					"uid": 77,
 					"sid": 558665175560457,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3659,7 +3706,9 @@
 					"uid": 78,
 					"sid": 657824945726078,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3720,7 +3769,9 @@
 					"uid": 79,
 					"sid": 281430213373843,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3781,7 +3832,9 @@
 					"uid": 151,
 					"sid": 696522114583942,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3842,7 +3895,9 @@
 					"uid": 152,
 					"sid": 156751215312450,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3903,7 +3958,9 @@
 					"uid": 153,
 					"sid": 995721995370235,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -3964,7 +4021,9 @@
 					"uid": 154,
 					"sid": 557234497089596,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4025,7 +4084,9 @@
 					"uid": 97,
 					"sid": 238391051336681,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4086,7 +4147,9 @@
 					"uid": 98,
 					"sid": 571644687831644,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4147,7 +4210,9 @@
 					"uid": 99,
 					"sid": 360269255383760,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4208,7 +4273,9 @@
 					"uid": 100,
 					"sid": 254360265629044,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4269,7 +4336,9 @@
 					"uid": 101,
 					"sid": 544970508868712,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4330,7 +4399,9 @@
 					"uid": 102,
 					"sid": 351220254531196,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4391,7 +4462,9 @@
 					"uid": 103,
 					"sid": 931234563159564,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4452,7 +4525,9 @@
 					"uid": 104,
 					"sid": 426945414148376,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4513,7 +4588,9 @@
 					"uid": 105,
 					"sid": 231652963191052,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4574,7 +4651,9 @@
 					"uid": 106,
 					"sid": 391788981443416,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4635,7 +4714,9 @@
 					"uid": 107,
 					"sid": 128772672368242,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4696,7 +4777,9 @@
 					"uid": 108,
 					"sid": 741572963905116,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4757,7 +4840,9 @@
 					"uid": 109,
 					"sid": 981830903895132,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4818,7 +4903,9 @@
 					"uid": 110,
 					"sid": 215700270773444,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4879,7 +4966,9 @@
 					"uid": 111,
 					"sid": 306918253404190,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -4940,7 +5029,9 @@
 					"uid": 112,
 					"sid": 398511045242070,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ContinuousContactTimer": 0
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -5045,7 +5136,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 365,
+						"x": 387,
 						"y": 155,
 						"width": 877,
 						"height": 18,
@@ -5161,8 +5252,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 512,
-						"y": 300.475389,
+						"x": 513,
+						"y": 306,
 						"width": -250,
 						"height": 602.2185921927439,
 						"originX": 1.1567307692307693,
@@ -5439,7 +5530,7 @@
 				{
 					"type": "ScoreText",
 					"properties": {
-						"text": "Score: X",
+						"text": "[outlineback=#FFFFFF][lineThickness=5]Score: X",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 13,
@@ -5473,10 +5564,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 88.2851672294646,
-						"y": 7.383932686444652,
-						"width": 141.41768215791495,
-						"height": 36.83653844201382,
+						"x": 19,
+						"y": 16,
+						"width": 252,
+						"height": 18,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -5492,7 +5583,7 @@
 				{
 					"type": "TurnCountText",
 					"properties": {
-						"text": "Turn: X",
+						"text": "[outlineback=#FFFFFF][lineThickness=5]Turn X",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 13,
@@ -5526,10 +5617,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 565.8138318329159,
-						"y": 7.548949847996909,
-						"width": 143.09090909090907,
-						"height": 38,
+						"x": 579,
+						"y": 16,
+						"width": 143,
+						"height": 18,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -5704,6 +5795,14 @@
 							"properties": {
 								"destroy": false
 							}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5713,7 +5812,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 361,
+						"x": 400,
 						"y": 43,
 						"width": 91.19205028905168,
 						"height": 92.18532858068426,
@@ -5750,10 +5849,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 123.27514909049825,
-						"y": 548.4869286122195,
-						"width": 79.21650567750032,
-						"height": 82.43822959261395,
+						"x": 126.1866125852417,
+						"y": 545.45705660866,
+						"width": 81.89292380791044,
+						"height": 85.223497264213,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -5769,12 +5868,12 @@
 				{
 					"type": "FreeBall",
 					"properties": {
-						"text": "Free Ball!",
+						"text": "[outlineback=#FFFFFF][lineThickness=5]Free Ball!",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 12,
 						"line-height": 0,
-						"bold": false,
+						"bold": true,
 						"italic": false,
 						"color": [
 							0,
@@ -6400,112 +6499,6 @@
 					}
 				},
 				{
-					"type": "TotalScoreText",
-					"properties": {
-						"text": "Total Score:",
-						"enable-bbcode": true,
-						"font": "fantasy",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": false,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 113,
-					"sid": 764629977614075,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 764629977614075,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 335.0450578169389,
-						"y": 253.22804121537638,
-						"width": 122.72727272727263,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ScoreCountUpwards",
-					"properties": {
-						"text": "0",
-						"enable-bbcode": true,
-						"font": "fantasy",
-						"size": 26,
-						"line-height": 0,
-						"bold": true,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": false,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 114,
-					"sid": 661810837477840,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 661810837477840,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 244.02737225252915,
-						"y": 269.59177468039775,
-						"width": 297.27272727272725,
-						"height": 59.090909090909065,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "wallVictory",
 					"properties": {
 						"initially-visible": true,
@@ -6843,115 +6836,6 @@
 						"height": 43.63636363636357,
 						"originX": 0.5,
 						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "YouWin",
-					"properties": {
-						"text": "You win! Press R to reset layout",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": false,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 46,
-					"sid": 646149039360371,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 646149039360371,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 228,
-						"y": 170,
-						"width": 327.1224643125471,
-						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ballTrail",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 80,
-					"sid": 587611491963881,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 0.8,
-								"destroy": true,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"effects": {
-						"Brightness": {
-							"isEnabled": true,
-							"parameters": {
-								"brightness": 1
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 587611491963881,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 14.206485748290987,
-						"y": 621.7607908448972,
-						"width": 10.528301886792452,
-						"height": 10.530303030303031,
-						"originX": 0.5496720091972679,
-						"originY": 0.4962325594070199,
 						"color": [
 							1,
 							1,

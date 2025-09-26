@@ -63,110 +63,6 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 556891351234509,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Demo1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 937527740928249,
-					"parameters": {
-						"layout": "Demo Level 1"
-					}
-				}
-			],
-			"sid": 798400116224680
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 277218492193060,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Demo2"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 294177995305646,
-					"parameters": {
-						"layout": "Demo Level 2"
-					}
-				}
-			],
-			"sid": 570439665798688
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 252062510492887,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Demo3"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 327233038574409,
-					"parameters": {
-						"layout": "Demo Level 3"
-					}
-				}
-			],
-			"sid": 246223125975602
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 616573233637278,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Demo4"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 714324982949399,
-					"parameters": {
-						"layout": "Demo Level 4"
-					}
-				}
-			],
-			"sid": 466661122072211
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
 					"sid": 118866481387612,
 					"parameters": {
 						"mouse-button": "left",
@@ -276,6 +172,171 @@
 				}
 			],
 			"sid": 957930628998676
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "bucket",
+					"sid": 731447886054433
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bucket",
+					"sid": 190395396153563
+				}
+			],
+			"sid": 362628923022170,
+			"disabled": true
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Select",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 891578767993753,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 698308858652222,
+							"parameters": {
+								"tags": "\"Demo1\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 917720950876221,
+							"parameters": {
+								"layout": "Demo Level 1"
+							}
+						}
+					],
+					"sid": 224550984082991
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 900179006802735,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 925370485496092,
+							"parameters": {
+								"tags": "\"Demo2\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 278617818305031,
+							"parameters": {
+								"layout": "Demo Level 2"
+							}
+						}
+					],
+					"sid": 622716676270022
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 489077695428677,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 680918264569184,
+							"parameters": {
+								"tags": "\"Demo3\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 846680141436335,
+							"parameters": {
+								"layout": "Demo Level 3"
+							}
+						}
+					],
+					"sid": 441463270118812
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 410688068057249,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 694265089836695,
+							"parameters": {
+								"tags": "\"Demo4\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 391018087850071,
+							"parameters": {
+								"layout": "Demo Level 4"
+							}
+						}
+					],
+					"sid": 155607341967986
+				}
+			],
+			"sid": 336832917900890
 		}
 	],
 	"sid": 838613263321146

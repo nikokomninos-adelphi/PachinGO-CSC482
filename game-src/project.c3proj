@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Physics",
 			"name": "Physics",
 			"author": "Scirra",
@@ -135,21 +142,19 @@
 					"wallVictory",
 					"ballTrail",
 					"Bumper",
-					"demo4bg"
+					"demo4bg",
+					"shootervisual"
 				],
 				"subfolders": [],
-				"name": "Beta"
+				"name": "Gameplay"
 			},
 			{
 				"items": [
 					"Logo",
-					"Demo1",
+					"LevelText",
 					"AJAX",
 					"AJAXTest",
-					"Demo2",
-					"Demo3",
-					"Login",
-					"Demo4"
+					"Login"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -162,9 +167,10 @@
 					"ScoreText",
 					"TotalScoreText",
 					"TurnCountText",
-					"YouWin",
+					"GameEndText",
 					"ScoreCountUpwards",
-					"MultiplierText"
+					"PegHitText",
+					"ScoreCalcVisible"
 				],
 				"subfolders": [],
 				"name": "Text"
@@ -223,16 +229,17 @@
 			"Demo Level 3",
 			"Demo Level 4",
 			"Login",
-			"Register"
+			"Register",
+			"Demo Level 5"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"Core Gameplay",
-			"Menu",
 			"Login",
-			"Register"
+			"Register",
+			"Menu"
 		],
 		"subfolders": []
 	},
