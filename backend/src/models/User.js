@@ -2,7 +2,7 @@
  * User
  * 
  * Schema for a MongoDB document that
- * stores user account info.
+ * stores user account credentials info.
  */
 
 import mongoose from "mongoose";
