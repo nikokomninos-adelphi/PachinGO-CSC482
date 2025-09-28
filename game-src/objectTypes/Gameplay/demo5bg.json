@@ -1,0 +1,52 @@
+{
+	"name": "demo5bg",
+	"plugin-id": "Sprite",
+	"sid": 143960675166633,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1068,
+						"height": 972,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6795875,
+						"collisionPoly": {
+							"points": [
+								0.0017667183906971528,
+								0.0021615448214010458,
+								0.9982332816093028,
+								0.0021615448214010458,
+								0.9982332816093028,
+								0.9978384551785989,
+								0.0017667183906971528,
+								0.9978384551785989
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 620407942964893,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

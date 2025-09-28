@@ -465,33 +465,33 @@
 						{
 							"id": "set-text",
 							"objectClass": "BallCount",
-							"sid": 377138994483016,
+							"sid": 419971296595239,
 							"parameters": {
-								"text": "\"[outlineback=#FFFFFF][lineThickness=5]Balls: \" &BallCount"
+								"text": "\"[outlineback=#000000][lineThickness=5]Balls: \" &BallCount"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "OrangePegsRemaining",
-							"sid": 943508563325698,
+							"sid": 389197200068602,
 							"parameters": {
-								"text": "\"[outlineback=#FFFFFF][lineThickness=5]Orange: \" &OrangePegsRemaining"
+								"text": "\"[outlineback=#000000][lineThickness=5]Orange: \" &OrangePegsRemaining"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "TurnCountText",
-							"sid": 989904458667420,
+							"sid": 178620556496320,
 							"parameters": {
-								"text": "\"[outlineback=#FFFFFF][lineThickness=5]Turn \" &TurnCount"
+								"text": "\"[outlineback=#000000][lineThickness=5]Turn \" &TurnCount"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "ScoreText",
-							"sid": 798351701212686,
+							"sid": 247983883845765,
 							"parameters": {
-								"text": "\"[outlineback=#FFFFFF][lineThickness=5]Score: \" &ScoreTotal"
+								"text": "\"[outlineback=#000000][lineThickness=5]Score: \" &ScoreTotal"
 							}
 						},
 						{
@@ -958,6 +958,26 @@
 								"mouse-button": "left",
 								"click-type": "clicked"
 							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 582551983479555,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Menu\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 234340933345749,
+							"parameters": {
+								"object": "menubutton"
+							},
+							"isInverted": true
 						},
 						{
 							"id": "compare-eventvar",
@@ -1691,6 +1711,17 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
+									"sid": 184191976083211,
+									"parameters": {
+										"variable": "TurnCount",
+										"comparison": 0,
+										"value": "1"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
 									"sid": 845096895296773,
 									"parameters": {
 										"variable": "OtherPegsDestroyedInOneTurn",
@@ -2017,9 +2048,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "ScoreCalcVisible",
-															"sid": 297643219747026,
+															"sid": 446307304062320,
 															"parameters": {
-																"text": "\"[outlineback=#FFFFFF][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
+																"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
 															}
 														},
 														{
@@ -2138,9 +2169,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "ScoreCalcVisible",
-															"sid": 207195036984510,
+															"sid": 572491802794815,
 															"parameters": {
-																"text": "\"[outlineback=#FFFFFF][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 1.5\"\n"
+																"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 1.5\"\n"
 															}
 														},
 														{
@@ -2259,9 +2290,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "ScoreCalcVisible",
-															"sid": 798680082923436,
+															"sid": 804417040135655,
 															"parameters": {
-																"text": "\"[outlineback=#FFFFFF][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 0.5\"\n"
+																"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 0.5\"\n"
 															}
 														},
 														{
@@ -2379,9 +2410,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "ScoreCalcVisible",
-															"sid": 295154991304173,
+															"sid": 508890748127819,
 															"parameters": {
-																"text": "\"[outlineback=#FFFFFF][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
+																"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
 															}
 														},
 														{
@@ -2442,9 +2473,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "ScoreCountUpwards",
-													"sid": 853047707084281,
+													"sid": 973825842629255,
 													"parameters": {
-														"text": "\"[outlineback=#FFFFFF][lineThickness=5]\" &ScoreCounterTally"
+														"text": "\"[outlineback=#000000][lineThickness=5]\" &ScoreCounterTally"
 													}
 												}
 											],
@@ -2646,9 +2677,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "ScoreCountUpwards",
-									"sid": 314386431316467,
+									"sid": 332486682401389,
 									"parameters": {
-										"text": "\"[outlineback=#FFFFFF][lineThickness=5]\" &PointsEarnedInOneTurn"
+										"text": "\"[outlineback=#000000][lineThickness=5]\" &PointsEarnedInOneTurn"
 									}
 								},
 								{
@@ -5184,11 +5215,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Peg",
-											"sid": 746183257433354,
+											"sid": 130334791671947,
 											"parameters": {
 												"instance-variable": "ContinuousContactTimer",
 												"comparison": 5,
-												"value": "120"
+												"value": "75"
 											}
 										}
 									],
@@ -5901,9 +5932,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "ScoreCountUpwards",
-											"sid": 393637988082434,
+											"sid": 251086356665534,
 											"parameters": {
-												"text": "\"[outlineback=#FFFFFF][lineThickness=5]\"&ScoreCounterTally"
+												"text": "\"[outlineback=#000000][lineThickness=5]\"&ScoreCounterTally"
 											}
 										}
 									],
@@ -5954,9 +5985,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "ScoreCountUpwards",
-											"sid": 981412734604554,
+											"sid": 981701721276305,
 											"parameters": {
-												"text": "\"[outlineback=#FFFFFF][lineThickness=5]\"&ScoreCounterTally"
+												"text": "\"[outlineback=#000000][lineThickness=5]\"&ScoreCounterTally"
 											}
 										},
 										{
@@ -5971,9 +6002,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "GameEndText",
-											"sid": 483942700066212,
+											"sid": 725990528807006,
 											"parameters": {
-												"text": "\"[outlineback=#FFFFFF][lineThickness=5]You win! Press R to reset layout.\""
+												"text": "\"[outlineback=#000000][lineThickness=5]You win! Press R to reset layout.\""
 											}
 										},
 										{
@@ -6050,9 +6081,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "GameEndText",
-									"sid": 423187658483105,
+									"sid": 684190915686177,
 									"parameters": {
-										"text": "\"[outlineback=#FFFFFF][lineThickness=5]You lose! Press R to reset layout.\""
+										"text": "\"[outlineback=#000000][lineThickness=5]You lose! Press R to reset layout.\""
 									}
 								},
 								{
@@ -6088,6 +6119,96 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Menu",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 278491519408283,
+									"parameters": {
+										"object": "menubutton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "menubutton",
+									"sid": 608148879708753,
+									"parameters": {
+										"color": "rgbEx(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 930670518130159
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 741151427637318,
+									"parameters": {
+										"object": "menubutton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "menubutton",
+									"sid": 883296158720253,
+									"parameters": {
+										"color": "rgbEx(127,127,127)"
+									}
+								}
+							],
+							"sid": 787915776297769
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 940893268164629,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "menubutton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 212498042967343
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 985338859900697,
+									"parameters": {
+										"layout": "Menu"
+									}
+								}
+							],
+							"sid": 344960664092461
+						}
+					],
+					"sid": 510451275040161
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
@@ -6501,6 +6622,46 @@
 										}
 									],
 									"sid": 740788802920558
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 654357127484277,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 258584076063805,
+											"parameters": {
+												"variable": "BallCount",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 958855288758387
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "BallsLeft",
+											"sid": 336296123107614,
+											"parameters": {
+												"animation": "\"0Static\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 977592700464069
 								},
 								{
 									"eventType": "block",
@@ -7569,6 +7730,216 @@
 				}
 			],
 			"sid": 635023284471835
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MUSIC",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 506945744386276,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Demo Level 1\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 998285283150726
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 548527009935481
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 900586007592701,
+							"parameters": {
+								"audio-file": "Gambling",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 983739130072109
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 553447030316988,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Demo Level 2\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 969204919329610
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 455516131947457
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 385062249412619,
+							"parameters": {
+								"audio-file": "Yakuza 0 OST - Disco Queen",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 408156020943707
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 454764989245086,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Demo Level 3\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 198918717250881
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 341030590277140
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 695571962024651,
+							"parameters": {
+								"audio-file": "Reptile Eater",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 184881611520798
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 574407802658946,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Demo Level 4\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 375023572447023
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 863729020571458
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 666063811671404,
+							"parameters": {
+								"audio-file": "Yakuza 0 OST - Friday Night",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 956276003321144
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 401402829056820,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Demo Level 5\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 931608547242008
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 343184318609947
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 266829393156167,
+							"parameters": {
+								"audio-file": "The_Fragrance_of_Black_Coffee",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 686860906028923
+				}
+			],
+			"sid": 958414022054636
 		}
 	],
 	"sid": 277583079393040

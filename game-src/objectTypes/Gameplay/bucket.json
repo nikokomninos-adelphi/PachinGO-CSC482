@@ -2,7 +2,7 @@
 	"name": "bucket",
 	"plugin-id": "Sprite",
 	"sid": 539725366638282,
-	"isGlobal": true,
+	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [

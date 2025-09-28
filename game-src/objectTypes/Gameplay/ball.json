@@ -2,7 +2,7 @@
 	"name": "ball",
 	"plugin-id": "Sprite",
 	"sid": 804342747646874,
-	"isGlobal": true,
+	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [

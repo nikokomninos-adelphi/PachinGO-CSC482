@@ -96,8 +96,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 297,
-						"y": 256,
+						"x": 291,
+						"y": 220,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -202,8 +202,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 297,
-						"y": 322,
+						"x": 291,
+						"y": 286,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -255,8 +255,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 297,
-						"y": 384,
+						"x": 291,
+						"y": 348,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -308,8 +308,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 297,
-						"y": 448,
+						"x": 291,
+						"y": 412,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -587,7 +587,7 @@
 				{
 					"type": "ScoreCalcVisible",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]((((Blue x 10) + (Orange x 100)) x (Blue + Orange)) x ScoreMultiplier) x Purple/Evil",
+						"text": "[outlineback=#000000][lineThickness=5]((((Blue x 10) + (Orange x 100)) x (Blue + Orange)) x ScoreMultiplier) x Purple/Evil",
 						"enable-bbcode": true,
 						"font": "fantasy",
 						"size": 12,
@@ -595,9 +595,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -640,7 +640,7 @@
 				{
 					"type": "ScoreCountUpwards",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]0",
+						"text": "[outlineback=#000000][lineThickness=5]0",
 						"enable-bbcode": true,
 						"font": "fantasy",
 						"size": 26,
@@ -648,9 +648,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -693,7 +693,7 @@
 				{
 					"type": "GameEndText",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]You win! Press R to reset layout.",
+						"text": "[outlineback=#000000][lineThickness=5]You win! Press R to reset layout.",
 						"enable-bbcode": true,
 						"font": "fantasy",
 						"size": 12,
@@ -701,9 +701,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -727,8 +727,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -22,
-						"y": 620,
+						"x": -23,
+						"y": 614,
 						"width": 327.1224643125471,
 						"height": 30,
 						"originX": 0,
@@ -746,7 +746,7 @@
 				{
 					"type": "TotalScoreText",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]Total Score:",
+						"text": "[outlineback=#000000][lineThickness=5]Total Score:",
 						"enable-bbcode": true,
 						"font": "fantasy",
 						"size": 12,
@@ -754,9 +754,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -799,7 +799,7 @@
 				{
 					"type": "ScoreCountUpwards",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]0",
+						"text": "[outlineback=#000000][lineThickness=5]0",
 						"enable-bbcode": true,
 						"font": "fantasy",
 						"size": 26,
@@ -807,9 +807,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -837,6 +837,59 @@
 						"y": 767,
 						"width": 297.27272727272725,
 						"height": 36.090909090909065,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LevelText",
+					"properties": {
+						"text": "Demo Level 5",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 774,
+					"sid": 962335591860578,
+					"tags": "Demo5",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 962335591860578,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 292,
+						"y": 469,
+						"width": 204,
+						"height": 55,
 						"originX": 0,
 						"originY": 0,
 						"color": [

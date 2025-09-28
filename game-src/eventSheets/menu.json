@@ -334,6 +334,40 @@
 						}
 					],
 					"sid": 155607341967986
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 412545761823285,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 691865988804380,
+							"parameters": {
+								"tags": "\"Demo5\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 640281487458983,
+							"parameters": {
+								"layout": "Demo Level 5"
+							}
+						}
+					],
+					"sid": 822174619137198
 				}
 			],
 			"sid": 336832917900890
