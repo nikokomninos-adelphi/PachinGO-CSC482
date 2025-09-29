@@ -210,7 +210,12 @@
 					"fevermeter",
 					"FreeBallUI",
 					"MenuUI",
-					"menubutton"
+					"menubutton",
+					"MenuUIBUg",
+					"backtohome",
+					"backtogame",
+					"restartlevel",
+					"volumebutt"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -228,7 +233,9 @@
 	"autosaveData": null,
 	"containers": [],
 	"families": {
-		"items": [],
+		"items": [
+			"GameMenuUi"
+		],
 		"subfolders": []
 	},
 	"layouts": {

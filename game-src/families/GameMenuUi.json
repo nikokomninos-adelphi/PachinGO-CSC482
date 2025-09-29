@@ -1,0 +1,15 @@
+{
+	"name": "GameMenuUi",
+	"plugin-id": "Sprite",
+	"sid": 187479346621932,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"backtogame",
+		"backtohome",
+		"MenuUIBUg",
+		"restartlevel",
+		"volumebutt"
+	]
+}
