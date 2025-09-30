@@ -1,0 +1,15 @@
+{
+	"name": "CusMenuUI",
+	"plugin-id": "Sprite",
+	"sid": 192345009977877,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"customizemenuUI",
+		"HSLUI",
+		"backbbutton",
+		"Savebbutton",
+		"walldecal"
+	]
+}

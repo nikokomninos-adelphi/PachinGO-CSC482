@@ -1,0 +1,86 @@
+{
+	"name": "Savebbutton",
+	"plugin-id": "Sprite",
+	"sid": 844457575581229,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3766587,
+						"collisionPoly": {
+							"points": [
+								0.08016877637130802,
+								0.013333333333333334,
+								0.9240506329113924,
+								0.02666666666666667,
+								0.9915611814345991,
+								0.5333333333333333,
+								0.919831223628692,
+								0.9866666666666667,
+								0.0759493670886076,
+								0.96,
+								0.008438818565400843,
+								0.4799999999999998
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3454147,
+						"collisionPoly": {
+							"points": [
+								0.05857323434634763,
+								0,
+								0.9416226032152968,
+								0,
+								1,
+								0.5422222222222223,
+								0.937207356370952,
+								1,
+								0.05415798750200289,
+								1,
+								0,
+								0.4319999999999997
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 700927934203966,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,43 +1,36 @@
 {
-	"name": "scorebug",
+	"name": "customizemenuUI",
 	"plugin-id": "Sprite",
-	"sid": 381923975101471,
+	"sid": 915101250571038,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
-	"effectTypes": [
-		{
-			"effectId": "hsladjust",
-			"name": "AdjustHSL"
-		}
-	],
+	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 319,
-						"height": 72,
-						"originX": 1.293103448275862,
-						"originY": 6.270833333333333,
+						"width": 670,
+						"height": 602,
+						"originX": 0.5,
+						"originY": 0.36046511627906974,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6525220,
+						"imageSpriteId": 6317686,
 						"collisionPoly": {
 							"points": [
-								0.23197492163009403,
-								0.013888888888888888,
-								0.9937304075235112,
-								0.05555555555555555,
-								0.9059561128526648,
-								0.9861111111111112,
-								0.2884012539184953,
-								0.9861111111111112,
-								0.012539184952978056,
-								0.375
+								0.01791044776119403,
+								0.0016611295681063123,
+								0.998507462686567,
+								0.019933554817275746,
+								0.982089552238806,
+								0.9983388704318937,
+								0.0014925373134328358,
+								0.9800664451827242
 							]
 						},
 						"useCollisionPoly": true,
@@ -45,7 +38,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 840175983511551,
+				"sid": 195610831252603,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -63,6 +63,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "sliderbar",
+			"name": "Slider bar",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -122,6 +129,13 @@
 			"type": "effect",
 			"id": "brightness",
 			"name": "Brightness",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
 			"author": "Scirra",
 			"bundled": false
 		}
@@ -215,7 +229,23 @@
 					"backtohome",
 					"backtogame",
 					"restartlevel",
-					"volumebutt"
+					"volumebutt",
+					"custombutton",
+					"fxbutton",
+					"customizemenuUI",
+					"HSLUI",
+					"HueWallSlide",
+					"SatWallSlide",
+					"LumWallSlide",
+					"HueScoreSlide",
+					"HueCrystalSlide",
+					"LumScoreSlide",
+					"LumCrystalSlide",
+					"SatScoreSlide",
+					"SatCrystalSlide",
+					"walldecal",
+					"backbbutton",
+					"Savebbutton"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -234,7 +264,8 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"GameMenuUi"
+			"GameMenuUi",
+			"CusMenuUI"
 		],
 		"subfolders": []
 	},
@@ -256,8 +287,7 @@
 			"Core Gameplay",
 			"Login",
 			"Register",
-			"Menu",
-			"Core Gameplay2"
+			"Menu"
 		],
 		"subfolders": []
 	},

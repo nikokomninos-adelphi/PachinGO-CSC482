@@ -813,6 +813,12 @@
 							"isInverted": true
 						},
 						{
+							"id": "is-visible",
+							"objectClass": "CusMenuUI",
+							"sid": 100969730549316,
+							"isInverted": true
+						},
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 533818091813796,
@@ -1001,6 +1007,12 @@
 							"id": "is-visible",
 							"objectClass": "GameMenuUi",
 							"sid": 336289914727158,
+							"isInverted": true
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "CusMenuUI",
+							"sid": 574208401913173,
 							"isInverted": true
 						},
 						{
@@ -6146,6 +6158,126 @@
 			"sid": 563023063803237
 		},
 		{
+			"eventType": "variable",
+			"name": "waitin",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 804829906307766
+		},
+		{
+			"eventType": "variable",
+			"name": "volume",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 153324338070004
+		},
+		{
+			"eventType": "variable",
+			"name": "FX",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 730138329517489
+		},
+		{
+			"eventType": "variable",
+			"name": "HWall",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 282135095038930
+		},
+		{
+			"eventType": "variable",
+			"name": "HScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845873416061319
+		},
+		{
+			"eventType": "variable",
+			"name": "HCrystal",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 455439489946093
+		},
+		{
+			"eventType": "variable",
+			"name": "SWall",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 651623476663868
+		},
+		{
+			"eventType": "variable",
+			"name": "SScore",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 389343343030270
+		},
+		{
+			"eventType": "variable",
+			"name": "SCrystal",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 367469341192203
+		},
+		{
+			"eventType": "variable",
+			"name": "LWall",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 972241787911917
+		},
+		{
+			"eventType": "variable",
+			"name": "LScore",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 763586968416606
+		},
+		{
+			"eventType": "variable",
+			"name": "LCrystal",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 638681663768152
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "UI",
@@ -6159,6 +6291,1173 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Im not gonna lie this looks abysmal "
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 416945985821310
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 676620439047057,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 162306009299881,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SWall * 4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 855939883995377,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 334962374228768,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 331858289905825,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SScore*4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 369665181222391,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 876052026740015,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 439947055950150,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SCrystal *4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 870623540612197,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueWallSlide",
+									"sid": 744006399804872,
+									"parameters": {
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueScoreSlide",
+									"sid": 481774461478151,
+									"parameters": {
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueCrystalSlide",
+									"sid": 361649758070401,
+									"parameters": {
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatWallSlide",
+									"sid": 765490394040417,
+									"parameters": {
+										"value": "SWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatScoreSlide",
+									"sid": 580535995587180,
+									"parameters": {
+										"value": "SScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatCrystalSlide",
+									"sid": 168278643770997,
+									"parameters": {
+										"value": "SCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumWallSlide",
+									"sid": 706122166994737,
+									"parameters": {
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumScoreSlide",
+									"sid": 205138308411546,
+									"parameters": {
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumCrystalSlide",
+									"sid": 654658657749414,
+									"parameters": {
+										"value": "LCrystal"
+									}
+								}
+							],
+							"sid": 888866083433993
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "CustomizeMenu",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 297015261940337,
+											"parameters": {
+												"object": "custombutton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "custombutton",
+											"sid": 213984961735958,
+											"parameters": {
+												"opacity": "75"
+											}
+										}
+									],
+									"sid": 639073899126688
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 675100747176867,
+											"parameters": {
+												"object": "custombutton"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "custombutton",
+											"sid": 740916722681649,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 191854515990622
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 519813320305925,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "custombutton"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 431753631046170,
+											"parameters": {
+												"variable": "waitin"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "GameMenuUi",
+											"sid": 678717104066309
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "CusMenuUI",
+											"sid": 633224181542146,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "GameMenuUi",
+											"sid": 631774812480019,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 591553065894748
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "CustomizeUIButtons",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 986450785615410,
+													"parameters": {
+														"object": "Savebbutton"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Savebbutton",
+													"sid": 902426410204205,
+													"parameters": {
+														"opacity": "75"
+													}
+												}
+											],
+											"sid": 606330552465697
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 220726192254538,
+													"parameters": {
+														"object": "Savebbutton"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Savebbutton",
+													"sid": 494719975822489,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 896002201754766
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 745342856797852,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Savebbutton"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Savebbutton",
+													"sid": 928092674284110,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 406653531746024,
+													"parameters": {
+														"variable": "waitin"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 764508724531505
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Savebbutton",
+													"sid": 944325553553479,
+													"parameters": {
+														"frame-number": "1"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 582664518269521,
+													"parameters": {
+														"variable": "waitin",
+														"value": "true"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 294366059933290,
+													"parameters": {
+														"seconds": "2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 329801875252488,
+													"parameters": {
+														"variable": "waitin",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Savebbutton",
+													"sid": 764584447971366,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 936002324493194
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 990141147444999,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "Savebbutton"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "Savebbutton",
+													"sid": 367917741212055,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 207386494511508,
+													"parameters": {
+														"variable": "waitin"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 464453345601959
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 863803023870884,
+													"parameters": {
+														"variable": "waitin",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 954896598620672,
+													"parameters": {
+														"variable": "HWall",
+														"value": "HueWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 454064141093611,
+													"parameters": {
+														"variable": "HScore",
+														"value": "HueScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 411940597579388,
+													"parameters": {
+														"variable": "HCrystal",
+														"value": "HueCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 847789059286395,
+													"parameters": {
+														"variable": "LWall",
+														"value": "LumWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 416329884839848,
+													"parameters": {
+														"variable": "LScore",
+														"value": "LumScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 662641431901992,
+													"parameters": {
+														"variable": "LCrystal",
+														"value": "LumCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 697653671532253,
+													"parameters": {
+														"variable": "SWall",
+														"value": "SatWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 679406177147160,
+													"parameters": {
+														"variable": "SScore",
+														"value": "SatScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 638589579973826,
+													"parameters": {
+														"variable": "SCrystal",
+														"value": "SatCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 298617712162299,
+													"parameters": {
+														"seconds": "1",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 986512392940977,
+													"parameters": {
+														"variable": "waitin",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 140685771851222
+										},
+										{
+											"eventType": "comment",
+											"text": "Save saves the users erm custom stats"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 323064869921761,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "backbbutton"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 940342661799283,
+													"parameters": {
+														"variable": "waitin"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 960257700611396
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 166184412920765,
+													"parameters": {
+														"variable": "waitin",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 873921971638492,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueCrystalSlide",
+													"sid": 453497187638463,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueScoreSlide",
+													"sid": 709608364515492,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueWallSlide",
+													"sid": 638300950307560,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumScoreSlide",
+													"sid": 910422375781990,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumCrystalSlide",
+													"sid": 658876851845295,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumWallSlide",
+													"sid": 706217298128645,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatCrystalSlide",
+													"sid": 573041682359176,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatScoreSlide",
+													"sid": 115029802828014,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatWallSlide",
+													"sid": 785247915451091,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 996345843051728,
+													"parameters": {
+														"seconds": ".0005",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "GameMenuUi",
+													"sid": 686823889560640,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 538255234974786,
+													"parameters": {
+														"variable": "waitin",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 901227130910996
+										}
+									],
+									"sid": 533316636285266
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Those Dang Sliders",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 353049432322141,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "menubutton"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 855853580708756,
+													"parameters": {
+														"variable": "waitin"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 217908582536791
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "menubutton",
+													"sid": 979645259786406,
+													"parameters": {
+														"comparison": 0,
+														"number": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HueCrystalSlide",
+													"sid": 625416266176278,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueScoreSlide",
+													"sid": 740006324465982,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueWallSlide",
+													"sid": 284682217024313,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumScoreSlide",
+													"sid": 996889554218184,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumCrystalSlide",
+													"sid": 994163035759153,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumWallSlide",
+													"sid": 297889896213109,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatCrystalSlide",
+													"sid": 754888202393324,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatScoreSlide",
+													"sid": 884336515717445,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatWallSlide",
+													"sid": 448287477916263,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 515321811557887
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 194601783287441,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "custombutton"
+													}
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 231329903294528,
+													"parameters": {
+														"variable": "waitin"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "CusMenuUI",
+													"sid": 519408268743783
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "HueCrystalSlide",
+													"sid": 554452912926857,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueScoreSlide",
+													"sid": 673231257759708,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "HueWallSlide",
+													"sid": 204449397175953,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumScoreSlide",
+													"sid": 610494119359727,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumCrystalSlide",
+													"sid": 394407481589567,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LumWallSlide",
+													"sid": 544898644657176,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatCrystalSlide",
+													"sid": 874696433266434,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatScoreSlide",
+													"sid": 669759076671152,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "SatWallSlide",
+													"sid": 788583089079273,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 444883706313811
+										},
+										{
+											"eventType": "comment",
+											"text": "oh brother this is about to get mad repetitive "
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueWallSlide",
+													"sid": 253545744639635
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 578763292193672,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueWallSlide.Value"
+													}
+												}
+											],
+											"sid": 169124421408730
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatWallSlide",
+													"sid": 470676304725187
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 868790160954801,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatWallSlide.Value * 4"
+													}
+												}
+											],
+											"sid": 692374005601430
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumWallSlide",
+													"sid": 680593538583886
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 132940004813787,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumWallSlide.Value"
+													}
+												}
+											],
+											"sid": 791074212493072
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueScoreSlide",
+													"sid": 702801903369188
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 523033026027975,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueScoreSlide.Value"
+													}
+												}
+											],
+											"sid": 726181298180759
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatScoreSlide",
+													"sid": 480691412989943
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 640861949375935,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatScoreSlide.Value*4"
+													}
+												}
+											],
+											"sid": 795106827639916
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumScoreSlide",
+													"sid": 188668213110354
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 376640970053462,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumScoreSlide.Value"
+													}
+												}
+											],
+											"sid": 323650799578383
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueCrystalSlide",
+													"sid": 538232085006079
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 853024698363364,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueCrystalSlide.Value"
+													}
+												}
+											],
+											"sid": 240807808804677
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatCrystalSlide",
+													"sid": 321822736946085
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 483327403332382,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatCrystalSlide.Value *4"
+													}
+												}
+											],
+											"sid": 775051207727298
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumCrystalSlide",
+													"sid": 490335465299587
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 380772035971164,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumCrystalSlide.Value"
+													}
+												}
+											],
+											"sid": 887624872520628
+										}
+									],
+									"sid": 360498001051424
+								}
+							],
+							"sid": 412539545714102
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -6222,6 +7521,15 @@
 									}
 								},
 								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 724976933076121,
+									"parameters": {
+										"variable": "waitin"
+									},
+									"isInverted": true
+								},
+								{
 									"id": "is-visible",
 									"objectClass": "GameMenuUi",
 									"sid": 665716761508182
@@ -6239,8 +7547,16 @@
 							"actions": [
 								{
 									"id": "set-visible",
+									"objectClass": "CusMenuUI",
+									"sid": 945462253950959,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
 									"objectClass": "GameMenuUi",
-									"sid": 395353041444941,
+									"sid": 895625600871258,
 									"parameters": {
 										"visibility": "invisible"
 									}
@@ -6248,13 +7564,132 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "menubutton",
-									"sid": 495275436196325,
+									"sid": 519351948056110,
 									"parameters": {
 										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 672978143253610,
+									"parameters": {
+										"variable": "waitin",
+										"value": "true"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 238502591269687,
+									"parameters": {
+										"seconds": ".5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 732966579378082,
+									"parameters": {
+										"variable": "waitin",
+										"value": "false"
 									}
 								}
 							],
 							"sid": 137740533763262
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 960107995710078,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "menubutton"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 759097817059279,
+									"parameters": {
+										"variable": "waitin"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "CusMenuUI",
+									"sid": 423463713590614
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "menubutton",
+									"sid": 215061005428384,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "CusMenuUI",
+									"sid": 937890729887020,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameMenuUi",
+									"sid": 938842332356479,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "menubutton",
+									"sid": 699235821388262,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 968260744566983,
+									"parameters": {
+										"variable": "waitin",
+										"value": "true"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 859562597181891,
+									"parameters": {
+										"seconds": ".5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 204179583835039,
+									"parameters": {
+										"variable": "waitin",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 810814043190087
 						},
 						{
 							"eventType": "block",
@@ -6268,6 +7703,15 @@
 										"click-type": "clicked",
 										"object-clicked": "menubutton"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 791005014268659,
+									"parameters": {
+										"variable": "waitin"
+									},
+									"isInverted": true
 								},
 								{
 									"id": "compare-animation-frame",
@@ -6288,8 +7732,16 @@
 							"actions": [
 								{
 									"id": "set-visible",
+									"objectClass": "CusMenuUI",
+									"sid": 176080999493490,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
 									"objectClass": "GameMenuUi",
-									"sid": 401936167533015,
+									"sid": 368142990104848,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -6297,9 +7749,36 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "menubutton",
-									"sid": 873937614017076,
+									"sid": 790572864306841,
 									"parameters": {
 										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 582750573415866,
+									"parameters": {
+										"variable": "waitin",
+										"value": "true"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 992997989821366,
+									"parameters": {
+										"seconds": ".5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 948813396953691,
+									"parameters": {
+										"variable": "waitin",
+										"value": "false"
 									}
 								}
 							],
@@ -6388,6 +7867,14 @@
 											"parameters": {
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "menubutton",
+											"sid": 959293856068720,
+											"parameters": {
+												"frame-number": "0"
+											}
 										}
 									],
 									"sid": 599239809970534
@@ -6474,17 +7961,17 @@
 											}
 										},
 										{
+											"id": "set-animation-frame",
+											"objectClass": "menubutton",
+											"sid": 921317418509391,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
 											"id": "stop-all",
 											"objectClass": "Audio",
 											"sid": 156826325180683
-										},
-										{
-											"id": "reset-global-variables",
-											"objectClass": "System",
-											"sid": 334318391571642,
-											"parameters": {
-												"reset-static": true
-											}
 										},
 										{
 											"id": "set-layer-visible",
@@ -6603,11 +8090,11 @@
 											}
 										},
 										{
-											"id": "reset-global-variables",
-											"objectClass": "System",
-											"sid": 228036422047547,
+											"id": "set-animation-frame",
+											"objectClass": "menubutton",
+											"sid": 266561130696781,
 											"parameters": {
-												"reset-static": true
+												"frame-number": "0"
 											}
 										},
 										{
@@ -6645,26 +8132,6 @@
 								{
 									"eventType": "comment",
 									"text": "volume toggle off,low,med,high"
-								},
-								{
-									"eventType": "variable",
-									"name": "waitin",
-									"type": "boolean",
-									"initialValue": "false",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 296264901991542
-								},
-								{
-									"eventType": "variable",
-									"name": "volume",
-									"type": "number",
-									"initialValue": "3",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 559151381495342
 								},
 								{
 									"eventType": "block",
@@ -6782,9 +8249,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 975741027916030,
+											"sid": 665573685983998,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": ".5",
 												"use-timescale": true
 											}
 										},
@@ -6867,9 +8334,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 303845133769625,
+											"sid": 557700452801065,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": ".5",
 												"use-timescale": true
 											}
 										},
@@ -6952,9 +8419,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 301080757376256,
+											"sid": 305397021745031,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": ".5",
 												"use-timescale": true
 											}
 										},
@@ -7037,9 +8504,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 161857963615594,
+											"sid": 598296860954895,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": ".5",
 												"use-timescale": true
 											}
 										},
@@ -7188,7 +8655,7 @@
 								},
 								{
 									"eventType": "comment",
-									"text": "might be excess to do this but to make sure volume is stored"
+									"text": "might be excess to do this but to make sure volume is stored (NOT WORKING CURRENTLY)"
 								},
 								{
 									"eventType": "block",
@@ -7313,6 +8780,229 @@
 										}
 									],
 									"sid": 495811695570031
+								},
+								{
+									"eventType": "comment",
+									"text": "space"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 289671955559987,
+											"parameters": {
+												"object": "fxbutton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "fxbutton",
+											"sid": 664182356590862,
+											"parameters": {
+												"opacity": "75"
+											}
+										}
+									],
+									"sid": 323558934510911
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 986994379254581,
+											"parameters": {
+												"object": "fxbutton"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "fxbutton",
+											"sid": 232809016954899,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 504042468319899
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 411279164430789,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "fxbutton"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 118629559798062,
+											"parameters": {
+												"variable": "waitin"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-animation-frame-tag",
+											"objectClass": "fxbutton",
+											"sid": 145766677032927,
+											"parameters": {
+												"comparison": 0,
+												"tag": "\"on\""
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "GameMenuUi",
+											"sid": 988585004437810
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "fxbutton",
+											"sid": 125343580623018,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 836783910810768,
+											"parameters": {
+												"variable": "FX",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 349704970751225,
+											"parameters": {
+												"variable": "waitin",
+												"value": "true"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 501154575211836,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 889811195935151,
+											"parameters": {
+												"variable": "waitin",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 438741661884427
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 709857253190555,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "fxbutton"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 383114681105421,
+											"parameters": {
+												"variable": "waitin"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-animation-frame-tag",
+											"objectClass": "fxbutton",
+											"sid": 110595458104324,
+											"parameters": {
+												"comparison": 0,
+												"tag": "\"off\""
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "GameMenuUi",
+											"sid": 434297523365546
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 436141408231163,
+											"parameters": {
+												"variable": "waitin",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "fxbutton",
+											"sid": 621301835938335,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 941207390020899,
+											"parameters": {
+												"variable": "FX",
+												"value": "true"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 287599687892139,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 416615860692219,
+											"parameters": {
+												"variable": "waitin",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 472641660577352
 								}
 							],
 							"sid": 845674961760357

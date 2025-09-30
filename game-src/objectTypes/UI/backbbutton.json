@@ -1,43 +1,40 @@
 {
-	"name": "scorebug",
+	"name": "backbbutton",
 	"plugin-id": "Sprite",
-	"sid": 381923975101471,
+	"sid": 896421383230169,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
-	"effectTypes": [
-		{
-			"effectId": "hsladjust",
-			"name": "AdjustHSL"
-		}
-	],
+	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 319,
-						"height": 72,
-						"originX": 1.293103448275862,
-						"originY": 6.270833333333333,
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6525220,
+						"imageSpriteId": 4211688,
 						"collisionPoly": {
 							"points": [
-								0.23197492163009403,
-								0.013888888888888888,
-								0.9937304075235112,
-								0.05555555555555555,
-								0.9059561128526648,
-								0.9861111111111112,
-								0.2884012539184953,
-								0.9861111111111112,
-								0.012539184952978056,
-								0.375
+								0.08016877637130802,
+								0.013333333333333334,
+								0.9240506329113924,
+								0.02666666666666667,
+								0.9915611814345991,
+								0.5333333333333333,
+								0.919831223628692,
+								0.9866666666666667,
+								0.0759493670886076,
+								0.96,
+								0.008438818565400843,
+								0.4799999999999998
 							]
 						},
 						"useCollisionPoly": true,
@@ -45,7 +42,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 840175983511551,
+				"sid": 208546698704325,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

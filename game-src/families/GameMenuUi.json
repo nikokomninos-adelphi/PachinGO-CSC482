@@ -10,6 +10,8 @@
 		"backtohome",
 		"MenuUIBUg",
 		"restartlevel",
-		"volumebutt"
+		"volumebutt",
+		"custombutton",
+		"fxbutton"
 	]
 }

@@ -1,0 +1,116 @@
+{
+	"name": "walldecal",
+	"plugin-id": "Sprite",
+	"sid": 234393141977545,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3568808,
+						"collisionPoly": {
+							"points": [
+								0.08016877637130802,
+								0.013333333333333334,
+								0.9240506329113924,
+								0.02666666666666667,
+								0.9915611814345991,
+								0.5333333333333333,
+								0.919831223628692,
+								0.9866666666666667,
+								0.0759493670886076,
+								0.96,
+								0.008438818565400843,
+								0.4799999999999998
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7304856,
+						"collisionPoly": {
+							"points": [
+								0.08016877637130802,
+								0.013333333333333334,
+								0.9240506329113924,
+								0.02666666666666667,
+								0.9915611814345991,
+								0.5333333333333333,
+								0.919831223628692,
+								0.9866666666666667,
+								0.0759493670886076,
+								0.96,
+								0.008438818565400843,
+								0.4799999999999998
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 237,
+						"height": 75,
+						"originX": 0.4978902953586498,
+						"originY": 0.47333333333333333,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5614089,
+						"collisionPoly": {
+							"points": [
+								0.08016877637130802,
+								0.013333333333333334,
+								0.9240506329113924,
+								0.02666666666666667,
+								0.9915611814345991,
+								0.5333333333333333,
+								0.919831223628692,
+								0.9866666666666667,
+								0.0759493670886076,
+								0.96,
+								0.008438818565400843,
+								0.4799999999999998
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 828822902728515,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
