@@ -113,13 +113,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "Timer",
-			"name": "Timer",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -272,12 +265,12 @@
 	"layouts": {
 		"items": [
 			"Menu",
+			"Login",
+			"Register",
 			"Demo Level 1",
 			"Demo Level 2",
 			"Demo Level 3",
 			"Demo Level 4",
-			"Login",
-			"Register",
 			"Demo Level 5"
 		],
 		"subfolders": []

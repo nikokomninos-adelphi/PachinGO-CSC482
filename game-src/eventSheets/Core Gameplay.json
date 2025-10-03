@@ -242,9 +242,129 @@
 			"sid": 620204555919712
 		},
 		{
+			"eventType": "variable",
+			"name": "waitin",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 165837908177449
+		},
+		{
+			"eventType": "variable",
+			"name": "volume",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 356193354664551
+		},
+		{
+			"eventType": "variable",
+			"name": "FX",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 809246437210014
+		},
+		{
+			"eventType": "variable",
+			"name": "HWall",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 476463397146188
+		},
+		{
+			"eventType": "variable",
+			"name": "HScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 353604193068267
+		},
+		{
+			"eventType": "variable",
+			"name": "HCrystal",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 453772652225319
+		},
+		{
+			"eventType": "variable",
+			"name": "SWall",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 333609004311709
+		},
+		{
+			"eventType": "variable",
+			"name": "SScore",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 674463175589244
+		},
+		{
+			"eventType": "variable",
+			"name": "SCrystal",
+			"type": "number",
+			"initialValue": "25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 259695140526579
+		},
+		{
+			"eventType": "variable",
+			"name": "LWall",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 795614568131767
+		},
+		{
+			"eventType": "variable",
+			"name": "LScore",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 213153194358266
+		},
+		{
+			"eventType": "variable",
+			"name": "LCrystal",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 550129431610144
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Basic Handling",
+			"title": "Basic Handling / Start of Layout",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -259,6 +379,266 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Resetting all gameplay related booleans"
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 866718682976357,
+							"parameters": {
+								"variable": "BallActive",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 153382897315547,
+							"parameters": {
+								"variable": "BallLandedInBucket",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 708253910119985,
+							"parameters": {
+								"variable": "EndOfTurnHappening",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 256777282795796,
+							"parameters": {
+								"variable": "EndOfTurnHappeningContinued",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 761874241988845,
+							"parameters": {
+								"variable": "ScoreBeenTalliedForTheTurn",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 822433216884531,
+							"parameters": {
+								"variable": "EvilPegActivatedForScore",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 809818118275496,
+							"parameters": {
+								"variable": "FreeBallAnimation",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 330198935502561,
+							"parameters": {
+								"variable": "GameFinishedLoading",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 913907495224248,
+							"parameters": {
+								"variable": "HasPurplePegSpawned",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 359811611202441,
+							"parameters": {
+								"variable": "HasEvilPegSpawned",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 901342700851648,
+							"parameters": {
+								"variable": "PurplePegActivatedForScore",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 395280477230707,
+							"parameters": {
+								"variable": "waitin",
+								"value": "false"
+							}
+						},
+						{
+							"id": "reset-eventvar",
+							"objectClass": "System",
+							"sid": 231843911070594,
+							"parameters": {
+								"variable": "BallCount"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Resetting all gameplay related variables"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 452950449991828,
+							"parameters": {
+								"variable": "BallCount",
+								"value": "10"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 967692495846654,
+							"parameters": {
+								"variable": "BluePegsDestroyedInOneTurn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 616527859388553,
+							"parameters": {
+								"variable": "DestroyingPegsAtEndOfTurnProcess",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 833636786957276,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 560896206890684,
+							"parameters": {
+								"variable": "OrangePegsDestroyedInOneTurn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 213494780152241,
+							"parameters": {
+								"variable": "OrangePegsLoadedInLevel",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 521905900075871,
+							"parameters": {
+								"variable": "OtherPegsDestroyedInOneTurn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 677762971731862,
+							"parameters": {
+								"variable": "PointsEarnedInOneTurn",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 834070955430536,
+							"parameters": {
+								"variable": "ScoreCounterTally",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 340656294781176,
+							"parameters": {
+								"variable": "ScoreMultiplier",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 674282441950568,
+							"parameters": {
+								"variable": "ScoreTotal",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 782765691233295,
+							"parameters": {
+								"variable": "TurnCount",
+								"value": "0"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Variables set for dealing w/ continuous ball contact on peg"
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Peg",
+							"sid": 395227334476189,
+							"parameters": {
+								"instance-variable": "ContinuousContactTimer",
+								"value": "0"
+							}
+						},
+						{
+							"id": "clear-obstacles",
+							"objectClass": "Peg",
+							"sid": 355066152927707,
+							"behaviorType": "LineOfSight"
+						},
+						{
+							"id": "set-range",
+							"objectClass": "Peg",
+							"sid": 340906447022201,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"range": "26"
+							}
+						},
+						{
 							"id": "set-world-gravity",
 							"objectClass": "ball",
 							"sid": 421549455106870,
@@ -268,14 +648,243 @@
 							}
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 407657055474540,
+							"parameters": {
+								"layer": "\"Victory Screen\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Spawning various objects on start"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "shooter",
+							"sid": 149130834961415,
+							"parameters": {
+								"x": "400",
+								"y": "43"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "floorui",
+							"sid": 699032914410833,
+							"parameters": {
+								"x": "400",
+								"y": "155"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ScoreCalcVisible",
+							"sid": 150374604056316,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 951607286623773,
+							"sid": 181787720556046,
+							"parameters": {
+								"object-to-create": "bucket",
+								"layer": "\"Gameplay\"",
+								"x": "393",
+								"y": "587",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 131501632732490,
+							"parameters": {
+								"object-to-create": "bucketHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "393",
+								"y": "632",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 391315248528027,
+							"parameters": {
+								"object-to-create": "FreeBall",
+								"layer": "\"UI\"",
+								"x": "393",
+								"y": "632",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "FreeBall",
+							"sid": 742365218203849,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 646549810287554,
+							"parameters": {
+								"object-to-create": "BallsLeft",
+								"layer": "\"UI\"",
+								"x": "39",
+								"y": "323",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 680832161424171,
+							"parameters": {
+								"object-to-create": "FreeBallUI",
+								"layer": "\"UI\"",
+								"x": "38.997931",
+								"y": "322.778345",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 410101540814835,
+							"parameters": {
+								"object-to-create": "fevermeter",
+								"layer": "\"UI\"",
+								"x": "762",
+								"y": "305",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 591714945664144,
+							"parameters": {
+								"object-to-create": "MenuUI",
+								"layer": "\"UI\"",
+								"x": "764",
+								"y": "556",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 521841079592359,
+							"parameters": {
+								"object-to-create": "menubutton",
+								"layer": "\"UI\"",
+								"x": "764",
+								"y": "556",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 151637757946077,
+							"parameters": {
+								"object-to-create": "scorebug",
+								"layer": "\"UI\"",
+								"x": "490",
+								"y": "303",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 846644351680674,
+							"parameters": {
+								"object-to-create": "scorebug",
+								"layer": "\"UI\"",
+								"x": "311",
+								"y": "303",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 242015882494109,
+							"parameters": {
+								"object-to-create": "crystals",
+								"layer": "\"UI\"",
+								"x": "363",
+								"y": "443",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 565771664277134,
+							"parameters": {
+								"object-to-create": "crystals",
+								"layer": "\"UI\"",
+								"x": "439",
+								"y": "443",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 973482544379931,
+							"parameters": {
+								"object-to-create": "ScoreText",
+								"layer": "\"UI\"",
+								"x": "25",
+								"y": "16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 704888567868975,
+							"parameters": {
+								"object-to-create": "TurnCountText",
+								"layer": "\"UI\"",
+								"x": "569",
+								"y": "16",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 764840519393735,
 							"parameters": {
 								"object-to-create": "ScoreCalcVisible",
 								"layer": "\"UI\"",
 								"x": "80",
-								"y": "132",
+								"y": "135",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -322,7 +931,7 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 555728223599971,
+							"sid": 474929612249843,
 							"parameters": {
 								"object-to-create": "TotalScoreText",
 								"layer": "\"Victory Screen\"",
@@ -333,40 +942,8 @@
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "ScoreText",
-							"sid": 957534244892256,
-							"parameters": {
-								"x": "19",
-								"y": "16"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "ScoreText",
-							"sid": 955780839284548,
-							"parameters": {
-								"width": "252",
-								"height": "18"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "TurnCountText",
-							"sid": 684644167124024,
-							"parameters": {
-								"x": "579",
-								"y": "16"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "TurnCountText",
-							"sid": 921706031425648,
-							"parameters": {
-								"width": "143",
-								"height": "18"
-							}
+							"type": "comment",
+							"text": "Game is ready to be played, end process"
 						},
 						{
 							"id": "set-boolean-eventvar",
@@ -394,35 +971,204 @@
 								"variable": "GameFinishedLoading",
 								"value": "true"
 							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 997342179272228,
+							"parameters": {
+								"object-to-create": "CoinFlip",
+								"layer": "\"UI\"",
+								"x": "400",
+								"y": "315",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
 						}
 					],
-					"sid": 454623137247564,
+					"sid": 454623137247564
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 247816602005606
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "BallCount",
+							"sid": 109275455131441,
+							"parameters": {
+								"text": "\"[outlineback=#000000][lineThickness=5]Balls: \" &BallCount"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "OrangePegsRemaining",
+							"sid": 219084869086093,
+							"parameters": {
+								"text": "\"[outlineback=#000000][lineThickness=5]Orange: \" &OrangePegsRemaining"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TurnCountText",
+							"sid": 136499980780243,
+							"parameters": {
+								"text": "\"[outlineback=#000000][lineThickness=5]Turn \" &TurnCount"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ScoreText",
+							"sid": 696273447339912,
+							"parameters": {
+								"text": "\"[outlineback=#000000][lineThickness=5]Score: \" &ScoreTotal"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "bucketHitbox",
+							"sid": 833683726533953,
+							"parameters": {
+								"x": "bucket.X",
+								"y": "bucket.Y+15"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "FreeBall",
+							"sid": 281080737687707,
+							"parameters": {
+								"x": "bucket.X-58",
+								"y": "bucket.Y-50"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "bucketVictoryHitbox",
+							"sid": 523046609765726,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 923822772528498
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Additional Object Position Handling",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-y",
-									"objectClass": "ScoreCountUpwards",
-									"sid": 320338017848662,
+									"id": "compare-x",
+									"objectClass": "crystals",
+									"sid": 745592843314682,
 									"parameters": {
 										"comparison": 0,
-										"y-co-ordinate": "157"
+										"x-co-ordinate": "363"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "change-tags",
-									"objectClass": "ScoreCountUpwards",
-									"sid": 264265160070027,
+									"id": "set-size",
+									"objectClass": "crystals",
+									"sid": 959986246595202,
 									"parameters": {
-										"action": "add",
-										"tags": "\"MainGameplay\""
+										"width": "-67 ",
+										"height": "39"
 									}
 								}
 							],
-							"sid": 327548271689155
+							"sid": 222078483680201
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "scorebug",
+									"sid": 999382701192126,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "490"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "scorebug",
+									"sid": 132145281332589,
+									"parameters": {
+										"width": "-225.17908",
+										"height": "48.061917"
+									}
+								}
+							],
+							"sid": 962441363220613
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "WallUI",
+									"sid": 946186618476902,
+									"parameters": {
+										"comparison": 0,
+										"width": "-250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "WallUI",
+									"sid": 864890098895909,
+									"parameters": {
+										"x": "513",
+										"y": "300"
+									}
+								}
+							],
+							"sid": 248763320385619
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "WallUI",
+									"sid": 737373823088880,
+									"parameters": {
+										"comparison": 0,
+										"width": "250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "WallUI",
+									"sid": 551693534470507,
+									"parameters": {
+										"x": "288",
+										"y": "300"
+									}
+								}
+							],
+							"sid": 644833786930011
 						},
 						{
 							"eventType": "block",
@@ -430,7 +1176,7 @@
 								{
 									"id": "compare-y",
 									"objectClass": "ScoreCountUpwards",
-									"sid": 383173764119520,
+									"sid": 227503514048789,
 									"parameters": {
 										"comparison": 0,
 										"y-co-ordinate": "288"
@@ -441,95 +1187,43 @@
 								{
 									"id": "change-tags",
 									"objectClass": "ScoreCountUpwards",
-									"sid": 659031423749612,
+									"sid": 339643196920757,
 									"parameters": {
 										"action": "add",
 										"tags": "\"EndScreen\""
 									}
 								}
 							],
-							"sid": 654023952893183
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 126136225939534
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "BallCount",
-							"sid": 419971296595239,
-							"parameters": {
-								"text": "\"[outlineback=#000000][lineThickness=5]Balls: \" &BallCount"
-							}
+							"sid": 453092535491722
 						},
 						{
-							"id": "set-text",
-							"objectClass": "OrangePegsRemaining",
-							"sid": 389197200068602,
-							"parameters": {
-								"text": "\"[outlineback=#000000][lineThickness=5]Orange: \" &OrangePegsRemaining"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "TurnCountText",
-							"sid": 178620556496320,
-							"parameters": {
-								"text": "\"[outlineback=#000000][lineThickness=5]Turn \" &TurnCount"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "ScoreText",
-							"sid": 247983883845765,
-							"parameters": {
-								"text": "\"[outlineback=#000000][lineThickness=5]Score: \" &ScoreTotal"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "bucketHitbox",
-							"sid": 150262524483521,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "bucketHitbox",
-							"sid": 370117343197536,
-							"parameters": {
-								"x": "bucket.X",
-								"y": "bucket.Y+15"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "bucketVictoryHitbox",
-							"sid": 689107470328337,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "FreeBall",
-							"sid": 232168885576547,
-							"parameters": {
-								"x": "bucket.X-58",
-								"y": "bucket.Y-50"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "ScoreCountUpwards",
+									"sid": 868888571156913,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "157"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "change-tags",
+									"objectClass": "ScoreCountUpwards",
+									"sid": 294615671307027,
+									"parameters": {
+										"action": "add",
+										"tags": "\"MainGameplay\""
+									}
+								}
+							],
+							"sid": 191415411970003
 						}
 					],
-					"sid": 284355669911960
+					"sid": 512555221508383
 				},
 				{
 					"eventType": "group",
@@ -677,28 +1371,6 @@
 									"text": "Full Layout Reset - for testing purposes"
 								},
 								{
-									"id": "reset-global-variables",
-									"objectClass": "System",
-									"sid": 417130998311241,
-									"parameters": {
-										"reset-static": true
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 407657055474540,
-									"parameters": {
-										"layer": "\"Victory Screen\"",
-										"visibility": "invisible"
-									}
-								},
-								{
-									"id": "restart-layout",
-									"objectClass": "System",
-									"sid": 132282454223577
-								},
-								{
 									"id": "destroy",
 									"objectClass": "ball",
 									"sid": 183102261040868
@@ -712,6 +1384,11 @@
 									"id": "destroy",
 									"objectClass": "PegHitText",
 									"sid": 330762034841720
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 253646890515180
 								}
 							],
 							"sid": 174300310124062
@@ -734,23 +1411,6 @@
 									"text": "Full Layout Reset - for testing purposes"
 								},
 								{
-									"id": "reset-global-variables",
-									"objectClass": "System",
-									"sid": 748955520117606,
-									"parameters": {
-										"reset-static": true
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 364408340741919,
-									"parameters": {
-										"layer": "\"Victory Screen\"",
-										"visibility": "invisible"
-									}
-								},
-								{
 									"id": "destroy",
 									"objectClass": "ball",
 									"sid": 770704490368679
@@ -768,7 +1428,7 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 971071790830810,
+									"sid": 115588958821419,
 									"parameters": {
 										"layout": "Menu"
 									}
@@ -1787,6 +2447,11 @@
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
 									"sid": 229558341502410
+								},
+								{
+									"id": "is-on-screen",
+									"objectClass": "CoinFlip",
+									"sid": 711323067331900
 								}
 							],
 							"actions": [
@@ -3260,6 +3925,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-instvar-value",
+									"objectClass": "Peg",
+									"sid": 720593826953431,
+									"parameters": {
+										"instance-variable": "ContinuousContactTimer",
+										"value": "0"
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 959327976325332,
@@ -3986,10 +4660,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 953729853898465,
+											"sid": 761175494544210,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4064,10 +4738,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 556150492224279,
+											"sid": 126820262745636,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4142,10 +4816,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 831138674759918,
+											"sid": 108160521375648,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4239,10 +4913,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 502305685536846,
+											"sid": 164416804717452,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4326,10 +5000,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 659397674034215,
+											"sid": 115717783262666,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4413,10 +5087,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 117545846808878,
+											"sid": 541917552126616,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4510,10 +5184,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 573591438325400,
+											"sid": 842706325684002,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4597,10 +5271,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 508680980536887,
+											"sid": 151094410512734,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4684,10 +5358,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 866228267847841,
+											"sid": 378692593389133,
 											"parameters": {
 												"object": "PegHitText",
-												"layer": "\"Gameplay\"",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -4803,10 +5477,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 747851369709049,
+													"sid": 930683118506622,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -4855,10 +5529,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 844834047495702,
+													"sid": 297197278462203,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -4966,10 +5640,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 423330787423143,
+													"sid": 980718688953511,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -5018,10 +5692,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 177270984088573,
+													"sid": 121854781339914,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -5129,10 +5803,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 360690738699131,
+													"sid": 422730273246530,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -5181,10 +5855,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "Peg",
-													"sid": 116321265320365,
+													"sid": 552768608696537,
 													"parameters": {
 														"object": "PegHitText",
-														"layer": "\"Gameplay\"",
+														"layer": "\"UI\"",
 														"image-point": "0",
 														"create-hierarchy": false,
 														"template-name": "\"\""
@@ -5243,48 +5917,341 @@
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
-											"objectClass": "Peg",
-											"sid": 367948678111484,
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 932407717262263,
 											"parameters": {
-												"instance-variable": "ContinuousContactTimer",
-												"value": "25"
+												"seconds": "0.8",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "add-obstacle",
+											"objectClass": "Peg",
+											"sid": 815004071427785,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"obstacle": "ball"
 											}
 										}
 									],
-									"sid": 882002387289634
+									"sid": 882002387289634,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 786165007607293,
+													"parameters": {
+														"animation": "\"CircleBlue\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 687643288067513,
+													"parameters": {
+														"animation": "\"BrickBlue\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 766101932474869,
+													"parameters": {
+														"animation": "\"CurveBlue\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 605325831966976,
+													"parameters": {
+														"animation": "\"CircleOrange\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 371721686862352,
+													"parameters": {
+														"animation": "\"BrickOrange\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 869811658763109,
+													"parameters": {
+														"animation": "\"CurveOrange\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 608961903328527,
+													"parameters": {
+														"animation": "\"CirclePurple\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 256530975550664,
+													"parameters": {
+														"animation": "\"BrickPurple\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 742498485872795,
+													"parameters": {
+														"animation": "\"CurvePurple\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 769564396971097,
+													"parameters": {
+														"animation": "\"CircleEvil\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 143187057152945,
+													"parameters": {
+														"animation": "\"BrickEvil\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 661635883324934,
+													"parameters": {
+														"animation": "\"CurveEvil\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Peg",
+													"sid": 136591212110846,
+													"parameters": {
+														"instance-variable": "ContinuousContactTimer",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 415661595165485,
+											"isOrBlock": true
+										}
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Peg",
-											"sid": 130334791671947,
-											"parameters": {
-												"instance-variable": "ContinuousContactTimer",
-												"comparison": 5,
-												"value": "75"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "Peg",
-											"sid": 611301627318095
-										},
-										{
-											"id": "add-to-eventvar",
+											"id": "every-tick",
 											"objectClass": "System",
-											"sid": 528850091177313,
-											"parameters": {
-												"variable": "DestroyingPegsAtEndOfTurnProcess",
-												"value": "1"
-											}
+											"sid": 738473324358548
 										}
 									],
-									"sid": 437240204980793
+									"actions": [],
+									"sid": 486496556417180,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-los-to-object",
+													"objectClass": "Peg",
+													"sid": 852350939644116,
+													"behaviorType": "LineOfSight",
+													"parameters": {
+														"object": "ball",
+														"image-point": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Peg",
+													"sid": 292020305253648,
+													"parameters": {
+														"instance-variable": "ContinuousContactTimer",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 994666482836861,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 968151682091547,
+															"parameters": {
+																"animation": "\"CircleBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 717614031159487,
+															"parameters": {
+																"animation": "\"BrickBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 625015328137181,
+															"parameters": {
+																"animation": "\"CurveBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 676602807584414,
+															"parameters": {
+																"animation": "\"CircleOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 440249501659949,
+															"parameters": {
+																"animation": "\"BrickOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 808536212540043,
+															"parameters": {
+																"animation": "\"CurveOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 657503477345196,
+															"parameters": {
+																"animation": "\"CirclePurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 104713547814290,
+															"parameters": {
+																"animation": "\"BrickPurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 521730310571150,
+															"parameters": {
+																"animation": "\"CurvePurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 966205594076774,
+															"parameters": {
+																"animation": "\"CircleEvilActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 590398643182124,
+															"parameters": {
+																"animation": "\"BrickEvilActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 638279715408282,
+															"parameters": {
+																"animation": "\"CurveEvilActive\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 718741522683416,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Peg",
+																	"sid": 637726728730155,
+																	"parameters": {
+																		"instance-variable": "ContinuousContactTimer",
+																		"comparison": 5,
+																		"value": "120"
+																	}
+																},
+																{
+																	"id": "has-los-to-object",
+																	"objectClass": "Peg",
+																	"sid": 495374905529438,
+																	"behaviorType": "LineOfSight",
+																	"parameters": {
+																		"object": "ball",
+																		"image-point": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 558178821909943,
+																	"parameters": {
+																		"variable": "DestroyingPegsAtEndOfTurnProcess",
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "Peg",
+																	"sid": 978360434210669
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Peg",
+																	"sid": 862190561606427,
+																	"parameters": {
+																		"instance-variable": "ContinuousContactTimer",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 631072999025819
+														}
+													],
+													"isOrBlock": true
+												}
+											]
+										}
+									]
 								}
 							],
 							"sid": 534848319080847
@@ -5887,6 +6854,16 @@
 											"sid": 406215459574910
 										},
 										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 854286767222961,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
 											"id": "layer-is-visible",
 											"objectClass": "System",
 											"sid": 854548259395312,
@@ -5941,6 +6918,16 @@
 											"sid": 814387901303221
 										},
 										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 725622489105394,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
 											"id": "has-tags",
 											"objectClass": "ScoreCountUpwards",
 											"sid": 947400728066099,
@@ -5992,6 +6979,16 @@
 											"id": "is-visible",
 											"objectClass": "ScoreCountUpwards",
 											"sid": 130438478944882
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 288352558845897,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											}
 										},
 										{
 											"id": "has-tags",
@@ -6158,129 +7155,9 @@
 			"sid": 563023063803237
 		},
 		{
-			"eventType": "variable",
-			"name": "waitin",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 804829906307766
-		},
-		{
-			"eventType": "variable",
-			"name": "volume",
-			"type": "number",
-			"initialValue": "3",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 153324338070004
-		},
-		{
-			"eventType": "variable",
-			"name": "FX",
-			"type": "boolean",
-			"initialValue": "true",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 730138329517489
-		},
-		{
-			"eventType": "variable",
-			"name": "HWall",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 282135095038930
-		},
-		{
-			"eventType": "variable",
-			"name": "HScore",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 845873416061319
-		},
-		{
-			"eventType": "variable",
-			"name": "HCrystal",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 455439489946093
-		},
-		{
-			"eventType": "variable",
-			"name": "SWall",
-			"type": "number",
-			"initialValue": "25",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 651623476663868
-		},
-		{
-			"eventType": "variable",
-			"name": "SScore",
-			"type": "number",
-			"initialValue": "25",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 389343343030270
-		},
-		{
-			"eventType": "variable",
-			"name": "SCrystal",
-			"type": "number",
-			"initialValue": "25",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 367469341192203
-		},
-		{
-			"eventType": "variable",
-			"name": "LWall",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 972241787911917
-		},
-		{
-			"eventType": "variable",
-			"name": "LScore",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 763586968416606
-		},
-		{
-			"eventType": "variable",
-			"name": "LCrystal",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 638681663768152
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "UI",
+			"title": "UI Elements",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -6305,6 +7182,78 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-value",
+									"objectClass": "HueWallSlide",
+									"sid": 883148387092931,
+									"parameters": {
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueScoreSlide",
+									"sid": 126511130689629,
+									"parameters": {
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueCrystalSlide",
+									"sid": 257916121332960,
+									"parameters": {
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatWallSlide",
+									"sid": 438552101771392,
+									"parameters": {
+										"value": "SWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatScoreSlide",
+									"sid": 384135808958883,
+									"parameters": {
+										"value": "SScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatCrystalSlide",
+									"sid": 831958265109938,
+									"parameters": {
+										"value": "SCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumWallSlide",
+									"sid": 685132362215886,
+									"parameters": {
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumScoreSlide",
+									"sid": 304616681511384,
+									"parameters": {
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumCrystalSlide",
+									"sid": 686451044525079,
+									"parameters": {
+										"value": "LCrystal"
+									}
+								},
 								{
 									"id": "set-effect-parameter",
 									"objectClass": "WallUI",
@@ -6392,78 +7341,6 @@
 									"parameters": {
 										"effect": "\"AdjustHSL\"",
 										"parameter-index": "2",
-										"value": "LCrystal"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "HueWallSlide",
-									"sid": 744006399804872,
-									"parameters": {
-										"value": "HWall"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "HueScoreSlide",
-									"sid": 481774461478151,
-									"parameters": {
-										"value": "HScore"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "HueCrystalSlide",
-									"sid": 361649758070401,
-									"parameters": {
-										"value": "HCrystal"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "SatWallSlide",
-									"sid": 765490394040417,
-									"parameters": {
-										"value": "SWall"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "SatScoreSlide",
-									"sid": 580535995587180,
-									"parameters": {
-										"value": "SScore"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "SatCrystalSlide",
-									"sid": 168278643770997,
-									"parameters": {
-										"value": "SCrystal"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "LumWallSlide",
-									"sid": 706122166994737,
-									"parameters": {
-										"value": "LWall"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "LumScoreSlide",
-									"sid": 205138308411546,
-									"parameters": {
-										"value": "LScore"
-									}
-								},
-								{
-									"id": "set-value",
-									"objectClass": "LumCrystalSlide",
-									"sid": 654658657749414,
-									"parameters": {
 										"value": "LCrystal"
 									}
 								}
@@ -6683,6 +7560,87 @@
 													"parameters": {
 														"variable": "waitin",
 														"value": "true"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 440392215078082,
+													"parameters": {
+														"variable": "HWall",
+														"value": "HueWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 407342752608667,
+													"parameters": {
+														"variable": "HScore",
+														"value": "HueScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 646274640804509,
+													"parameters": {
+														"variable": "HCrystal",
+														"value": "HueCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 215061399294535,
+													"parameters": {
+														"variable": "LWall",
+														"value": "LumWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 212522028895133,
+													"parameters": {
+														"variable": "LScore",
+														"value": "LumScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 709286622612363,
+													"parameters": {
+														"variable": "LCrystal",
+														"value": "LumCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 747417882389806,
+													"parameters": {
+														"variable": "SWall",
+														"value": "SatWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 770330068576588,
+													"parameters": {
+														"variable": "SScore",
+														"value": "SatScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 894283177007249,
+													"parameters": {
+														"variable": "SCrystal",
+														"value": "SatCrystalSlide.Value"
 													}
 												},
 												{
@@ -7259,6 +8217,16 @@
 													"id": "set-effect-parameter",
 													"objectClass": "WallUI",
 													"sid": 578763292193672,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "floorui",
+													"sid": 799766386819803,
 													"parameters": {
 														"effect": "\"AdjustHSL\"",
 														"parameter-index": "0",
@@ -7974,15 +8942,6 @@
 											"sid": 156826325180683
 										},
 										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 212212310678146,
-											"parameters": {
-												"layer": "\"Victory Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
 											"id": "destroy",
 											"objectClass": "ball",
 											"sid": 888173699381863
@@ -8095,15 +9054,6 @@
 											"sid": 266561130696781,
 											"parameters": {
 												"frame-number": "0"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 767569858454299,
-											"parameters": {
-												"layer": "\"Victory Screen\"",
-												"visibility": "invisible"
 											}
 										},
 										{
@@ -8231,10 +9181,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 139608810996527,
+											"sid": 402639091657241,
 											"parameters": {
 												"variable": "volume",
-												"value": "0"
+												"value": "1"
 											}
 										},
 										{
@@ -10535,7 +11485,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "MUSIC",
+			"title": "Music",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
