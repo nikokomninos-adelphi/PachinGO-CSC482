@@ -612,7 +612,7 @@
 						},
 						{
 							"type": "comment",
-							"text": "Variables set for dealing w/ continuous ball contact on peg"
+							"text": "Variables set, mostly for dealing w/ continuous ball contact on peg "
 						},
 						{
 							"id": "set-instvar-value",
@@ -729,6 +729,14 @@
 							"id": "set-visible",
 							"objectClass": "FreeBall",
 							"sid": 742365218203849,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Bumper",
+							"sid": 660680950980150,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -942,6 +950,149 @@
 							}
 						},
 						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 775235061086099,
+							"parameters": {
+								"object-to-create": "bucketVictory",
+								"layer": "\"Gameplay\"",
+								"x": "400",
+								"y": "670",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 810802213345168,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "74",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 406110862843780,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "209",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 160451333630593,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "338",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 749717437199217,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "463",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 502331334120075,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "721",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 494353202630402,
+							"parameters": {
+								"object-to-create": "bucketVictoryHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "142",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 190003659455057,
+							"parameters": {
+								"object-to-create": "bucketVictoryHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "274",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 942085378917248,
+							"parameters": {
+								"object-to-create": "bucketVictoryHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "400",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 410428942774820,
+							"parameters": {
+								"object-to-create": "bucketVictoryHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "527",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 403608974237431,
+							"parameters": {
+								"object-to-create": "bucketVictoryHitbox",
+								"layer": "\"Gameplay\"",
+								"x": "656",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
 							"type": "comment",
 							"text": "Game is ready to be played, end process"
 						},
@@ -1047,14 +1198,6 @@
 								"x": "bucket.X-58",
 								"y": "bucket.Y-50"
 							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "bucketVictoryHitbox",
-							"sid": 523046609765726,
-							"parameters": {
-								"visibility": "invisible"
-							}
 						}
 					],
 					"sid": 923822772528498
@@ -1066,6 +1209,181 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 492804209572834,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "142"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 982560130304302,
+									"parameters": {
+										"width": "65",
+										"height": "26"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 697439302411922,
+									"parameters": {
+										"action": "add",
+										"tags": "\"25K\""
+									}
+								}
+							],
+							"sid": 820464577815059
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 842933012447952,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "274"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 818275193826323,
+									"parameters": {
+										"width": "54",
+										"height": "26"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 250464957290150,
+									"parameters": {
+										"action": "add",
+										"tags": "\"50k\""
+									}
+								}
+							],
+							"sid": 553749042500272
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 926890991500991,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "400"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 781715178468098,
+									"parameters": {
+										"width": "49.478453",
+										"height": "26"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 749248128504361,
+									"parameters": {
+										"action": "add",
+										"tags": "\"100K\""
+									}
+								}
+							],
+							"sid": 761564378870453
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 306409055891463,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "527"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 875074890742301,
+									"parameters": {
+										"width": "54",
+										"height": "26"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 531344655415854,
+									"parameters": {
+										"action": "add",
+										"tags": "\"50k\""
+									}
+								}
+							],
+							"sid": 772461512939181
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 158730253285490,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "656"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 713123047389301,
+									"parameters": {
+										"width": "65",
+										"height": "26"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "bucketVictoryHitbox",
+									"sid": 943626076275925,
+									"parameters": {
+										"action": "add",
+										"tags": "\"25K\""
+									}
+								}
+							],
+							"sid": 599103947614331
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -1091,6 +1409,32 @@
 								}
 							],
 							"sid": 222078483680201
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "crystals",
+									"sid": 512696655649920,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "363"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "crystals",
+									"sid": 117023749625545,
+									"parameters": {
+										"width": "-67 ",
+										"height": "39"
+									}
+								}
+							],
+							"sid": 428532517170085
 						},
 						{
 							"eventType": "block",
@@ -1389,6 +1733,15 @@
 									"id": "restart-layout",
 									"objectClass": "System",
 									"sid": 253646890515180
+								},
+								{
+									"id": "set-world-gravity",
+									"objectClass": "ball",
+									"sid": 446568606755856,
+									"behaviorType": "Physics",
+									"parameters": {
+										"gravity": "10"
+									}
 								}
 							],
 							"sid": 174300310124062
@@ -1431,6 +1784,15 @@
 									"sid": 115588958821419,
 									"parameters": {
 										"layout": "Menu"
+									}
+								},
+								{
+									"id": "set-world-gravity",
+									"objectClass": "ball",
+									"sid": 460644481825797,
+									"behaviorType": "Physics",
+									"parameters": {
+										"gravity": "10"
 									}
 								}
 							],
@@ -1734,6 +2096,15 @@
 								"image-point": "1",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-world-gravity",
+							"objectClass": "ball",
+							"sid": 130745460766675,
+							"behaviorType": "Physics",
+							"parameters": {
+								"gravity": "10"
 							}
 						},
 						{
@@ -2326,10 +2697,10 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 546112176524096,
+							"sid": 823994587166428,
 							"parameters": {
 								"variable": "OrangePegsRemaining",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							},
 							"isInverted": true
@@ -3914,10 +4285,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 361689360759371,
+									"sid": 217852622585944,
 									"parameters": {
 										"variable": "OrangePegsRemaining",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									},
 									"isInverted": true
@@ -6366,10 +6737,10 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 770327056816932,
+							"sid": 244397940068154,
 							"parameters": {
 								"variable": "OrangePegsRemaining",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							},
 							"isInverted": true
@@ -6401,10 +6772,10 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 264304894832916,
+							"sid": 653779053350515,
 							"parameters": {
 								"variable": "OrangePegsRemaining",
-								"comparison": 0,
+								"comparison": 3,
 								"value": "0"
 							}
 						}
@@ -6549,27 +6920,28 @@
 									}
 								},
 								{
-									"id": "set-y",
+									"id": "set-position",
 									"objectClass": "bucketVictory",
-									"sid": 726761968233931,
+									"sid": 413072776786986,
 									"parameters": {
-										"y": "bucket.Y - 100"
+										"x": "400",
+										"y": "552"
 									}
 								},
 								{
 									"id": "set-y",
-									"objectClass": "wallVictory",
-									"sid": 813251140706893,
+									"objectClass": "Bumper",
+									"sid": 387805927533212,
 									"parameters": {
-										"y": "bucket.Y - 100"
+										"y": "589"
 									}
 								},
 								{
 									"id": "set-y",
 									"objectClass": "bucketVictoryHitbox",
-									"sid": 883515173702354,
+									"sid": 487128772555484,
 									"parameters": {
-										"y": "bucketHitbox.Y"
+										"y": "bucketHitbox.Y+5"
 									}
 								},
 								{
@@ -6597,10 +6969,10 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 185002212028677,
+											"sid": 716359473334664,
 											"parameters": {
 												"variable": "OrangePegsRemaining",
-												"comparison": 0,
+												"comparison": 3,
 												"value": "0"
 											}
 										}
@@ -6719,9 +7091,9 @@
 										{
 											"id": "has-tags",
 											"objectClass": "bucketVictoryHitbox",
-											"sid": 282468521029638,
+											"sid": 789195630502247,
 											"parameters": {
-												"tags": "\"10K\""
+												"tags": "\"25K\""
 											}
 										}
 									],
@@ -6729,10 +7101,10 @@
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 928901638793520,
+											"sid": 228472496555635,
 											"parameters": {
 												"variable": "ScoreTotal",
-												"value": "10000"
+												"value": "25000"
 											}
 										},
 										{
@@ -11456,10 +11828,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 991546387036507,
+									"sid": 915739075655384,
 									"parameters": {
 										"variable": "OrangePegsRemaining",
-										"comparison": 0,
+										"comparison": 3,
 										"value": "0"
 									}
 								}

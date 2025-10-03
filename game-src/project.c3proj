@@ -153,12 +153,12 @@
 					"bucketHitbox",
 					"CoinFlip",
 					"bucketVictoryHitbox",
-					"bucketVictory",
 					"wallVictory",
 					"ballTrail",
 					"Bumper",
 					"demo4bg",
-					"shootervisual"
+					"shootervisual",
+					"bucketVictory"
 				],
 				"subfolders": [],
 				"name": "Gameplay"
