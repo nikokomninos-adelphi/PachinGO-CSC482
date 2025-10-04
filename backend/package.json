@@ -2,11 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/server.js",
-    "start": "node ./src/server.js"
+    "test": "jest ./src --watch",
+    "dev": "nodemon ./src/server.ts",
+    "start": "node ./src/server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,24 @@
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "ts-jest": "^29.4.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/node": "^7.28.0",
+    "@babel/plugin-transform-typescript": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-typescript": "^7.27.1",
+    "@jest/globals": "^30.2.0",
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.6.1",
+    "babel-jest": "^30.2.0",
+    "babel-node": "^0.0.1-security",
+    "jest": "^30.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

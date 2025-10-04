@@ -5,6 +5,8 @@
  * to make the backend is running at /api/ 
  */
 
-export const hello = async (req, res) => {
+import type { Request, Response } from "express";
+
+export const hello = async (req: Request, res: Response) => {
   res.json({ message: "Hello" });
 };

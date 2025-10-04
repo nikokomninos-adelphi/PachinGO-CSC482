@@ -8,14 +8,16 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-import User from "../models/User.js";
+import type { Request, Response } from "express";
+
+import User from "../models/User.ts";
 
 /**
  * Register a user
- * @param {import('express').Request} req
- * @param {import('express').Response} res
+ * @param {Request} req
+ * @param {Response} res
  */
-export const registerUser = async (req, res) => {
+export const registerUser = async (req: Request, res: Response) => {
   try {
     // Checks if username and password meet requirements
     if (req.body.username.length < 5 || req.body.password.length < 5) {
@@ -50,11 +52,11 @@ export const registerUser = async (req, res) => {
 
 /**
  * Log a user in
- * @param {import('express').Request} req
- * @param {import('express').Response} res
+ * @param {Request} req
+ * @param {Response} res
  * @returns
  */
-export const loginUser = async (req, res) => {
+export const loginUser = async (req: Request, res: Response) => {
   try {
     const user = await User.findOne({ username: req.body.username });
 

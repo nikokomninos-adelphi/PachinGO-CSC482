@@ -6,15 +6,16 @@
  */
 
 import jwt from "jsonwebtoken";
+import { Request, Response, NextFunction } from "express";
 
 /**
  * Middleware to verify a JWT token
- * @param {import('express').Request} req 
- * @param {import('express'.Response)} res 
- * @param {import('express').NextFunction} next 
+ * @param {Request} req 
+ * @param {Response} res 
+ * @param {NextFunction} next 
  * @returns {void}
  */
-const verifyToken = (req, res, next) => {
+/*const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers['authorization'];
   if (!token) {
     return res.status(401).json({ error: "Unauthorized" });
@@ -29,4 +30,4 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-export default verifyToken;
+export default verifyToken;*/

@@ -7,7 +7,7 @@
  */
 
 import express from "express";
-import { registerUser, loginUser } from "../controllers/userController.js";
+import { registerUser, loginUser } from "../controllers/userController.ts";
 
 const router = express.Router();
 

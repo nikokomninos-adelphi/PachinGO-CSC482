@@ -11,10 +11,10 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import connectDB from "./config/db.js";
+import connectDB from "./config/db.ts";
 
-import testRoutes from "./routes/testRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
+import testRoutes from "./routes/testRoutes.ts";
+import userRoutes from "./routes/userRoutes.ts";
 
 dotenv.config();
 connectDB();
