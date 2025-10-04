@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest ./src --watch",
     "dev": "nodemon ./src/app.ts",
-    "start": "node ./src/app.ts",
+    "start": "npx ts-node-esm ./src/app.ts",
     "build": "tsc ./src/app.ts"
   },
   "keywords": [],
