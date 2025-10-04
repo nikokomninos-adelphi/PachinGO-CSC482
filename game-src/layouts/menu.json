@@ -924,7 +924,7 @@
 								"period-random": 0,
 								"period-offset": 0,
 								"period-offset-random": 0,
-								"magnitude": 250,
+								"magnitude": 215,
 								"magnitude-random": 0,
 								"enabled": true,
 								"live-preview": false

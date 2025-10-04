@@ -697,11 +697,11 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 181787720556046,
+							"sid": 822960374091670,
 							"parameters": {
 								"object-to-create": "bucket",
 								"layer": "\"Gameplay\"",
-								"x": "393",
+								"x": "400",
 								"y": "587",
 								"create-hierarchy": false,
 								"template-name": "\"\""

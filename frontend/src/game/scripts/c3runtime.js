@@ -1106,6 +1106,21 @@ self["C3_Shaders"]["brightness"] = {
 	animated: false,
 	parameters: [["brightness",0,"percent"]]
 };
+self["C3_Shaders"]["hsladjust"] = {
+	glsl: "varying mediump vec2 vTex;\nuniform lowp sampler2D samplerFront;\nprecision mediump float;\nuniform float huerotate;\nuniform float satadjust;\nuniform float lumadjust;\nvec3 rgb_to_hsl(vec3 color)\n{\nvec3 hsl = vec3(0.0, 0.0, 0.0);\nfloat fmin = min(min(color.r, color.g), color.b);\nfloat fmax = max(max(color.r, color.g), color.b);\nfloat delta = fmax - fmin;\nhsl.z = (fmax + fmin) / 2.0;\nif (delta == 0.0)\n{\nhsl.x = 0.0;\nhsl.y = 0.0;\n}\nelse\n{\nif (hsl.z < 0.5)\nhsl.y = delta / (fmax + fmin);\nelse\nhsl.y = delta / (2.0 - fmax - fmin);\nfloat dR = (((fmax - color.r) / 6.0) + (delta / 2.0)) / delta;\nfloat dG = (((fmax - color.g) / 6.0) + (delta / 2.0)) / delta;\nfloat dB = (((fmax - color.b) / 6.0) + (delta / 2.0)) / delta;\nif (color.r == fmax)\nhsl.x = dB - dG;\nelse if (color.g == fmax)\nhsl.x = (1.0 / 3.0) + dR - dB;\nelse if (color.b == fmax)\nhsl.x = (2.0 / 3.0) + dG - dR;\nif (hsl.x < 0.0)\nhsl.x += 1.0;\nelse if (hsl.x > 1.0)\nhsl.x -= 1.0;\n}\nreturn hsl;\n}\nfloat hue_to_rgb(float f1, float f2, float hue)\n{\nif (hue < 0.0)\nhue += 1.0;\nelse if (hue > 1.0)\nhue -= 1.0;\nfloat ret;\nif ((6.0 * hue) < 1.0)\nret = f1 + (f2 - f1) * 6.0 * hue;\nelse if ((2.0 * hue) < 1.0)\nret = f2;\nelse if ((3.0 * hue) < 2.0)\nret = f1 + (f2 - f1) * ((2.0 / 3.0) - hue) * 6.0;\nelse\nret = f1;\nreturn ret;\n}\nvec3 hsl_to_rgb(vec3 hsl)\n{\nvec3 rgb = vec3(hsl.z);\nif (hsl.y != 0.0)\n{\nfloat f2;\nif (hsl.z < 0.5)\nf2 = hsl.z * (1.0 + hsl.y);\nelse\nf2 = (hsl.z + hsl.y) - (hsl.y * hsl.z);\nfloat f1 = 2.0 * hsl.z - f2;\nrgb.r = hue_to_rgb(f1, f2, hsl.x + (1.0 / 3.0));\nrgb.g = hue_to_rgb(f1, f2, hsl.x);\nrgb.b = hue_to_rgb(f1, f2, hsl.x - (1.0 / 3.0));\n}\nreturn rgb;\n}\nvoid main(void)\n{\nvec4 front = texture2D(samplerFront, vTex);\nvec3 rgb = rgb_to_hsl(front.rgb) + vec3((huerotate > 0.5 ? huerotate - 1.0 : huerotate), 0, (lumadjust - 1.0) * front.a);\nrgb.y *= satadjust;\nrgb = hsl_to_rgb(rgb);\ngl_FragColor = vec4(rgb, front.a);\n}",
+	glslWebGL2: "",
+	wgsl: "%%SAMPLERFRONT_BINDING%% var samplerFront : sampler;\n%%TEXTUREFRONT_BINDING%% var textureFront : texture_2d<f32>;\nstruct ShaderParams {\nhuerotate : f32,\nsatadjust : f32,\nlumadjust : f32\n};\n%%SHADERPARAMS_BINDING%% var<uniform> shaderParams : ShaderParams;\n%%C3_UTILITY_FUNCTIONS%%\n%%FRAGMENTINPUT_STRUCT%%\n%%FRAGMENTOUTPUT_STRUCT%%\n@fragment\nfn main(input : FragmentInput) -> FragmentOutput\n{\nvar front : vec4<f32> = textureSample(textureFront, samplerFront, input.fragUV);\nvar huerotate : f32 = shaderParams.huerotate;\nif (huerotate > 0.5)\n{\nhuerotate = huerotate - 1.0;\n}\nvar rgb : vec3<f32> = c3_RGBtoHSL(front.rgb) + vec3<f32>(huerotate, 0.0, (shaderParams.lumadjust - 1.0) * front.a);\nrgb.y = rgb.y * shaderParams.satadjust;\nrgb = c3_HSLtoRGB(rgb);\nvar output : FragmentOutput;\noutput.color = vec4<f32>(rgb, front.a);\nreturn output;\n}",
+	blendsBackground: false,
+	usesDepth: false,
+	extendBoxHorizontal: 0,
+	extendBoxVertical: 0,
+	crossSampling: false,
+	mustPreDraw: false,
+	preservesOpaqueness: true,
+	supports3dDirectRendering: false,
+	animated: false,
+	parameters: [["huerotate",0,"percent"],["satadjust",0,"percent"],["lumadjust",0,"percent"]]
+};
 
 }
 
@@ -1134,6 +1149,11 @@ self["C3_Shaders"]["brightness"] = {
 {const t=self.C3,e="text-input";t.Plugins.TextBox=class extends t.SDKDOMPluginBase{constructor(t){super(t,e),this.AddElementMessageHandler("click",(t,e)=>t._OnClick(e)),this.AddElementMessageHandler("dblclick",(t,e)=>t._OnDoubleClick(e)),this.AddElementMessageHandler("change",(t,e)=>t._OnChange(e))}Release(){super.Release()}}}{const t=self.C3;t.Plugins.TextBox.Type=class extends t.SDKTypeBase{constructor(t){super(t)}Release(){super.Release()}OnCreate(){}}}{const t=self.C3,e=self.C3X,s=0,i=1,l=2,n=3,a=4,h=5,r=6,_=7,o=8,d=9,c=10,p="text-input",x=["text","password","email","number","tel","url","textarea","search"];t.Plugins.TextBox.Instance=class extends t.SDKDOMInstanceBase{constructor(t,e){super(t,p),this._text="",this._placeholder="",this._title="",this._isEnabled=!0,this._isReadOnly=!1,this._spellCheck=!1,this._type="text",this._autoFontSize=!0,this._maxLength=-1,this._id="",this._className="",e&&(this._text=e[s],this._placeholder=e[i],this._title=e[l],this.GetWorldInfo().SetVisible(e[n]),this._isEnabled=e[a],this._isReadOnly=e[h],this._spellCheck=e[r],this._type=x[e[_]],this._autoFontSize=e[o],this._id=e[d],this._className=e[c]),this.CreateElement({"type":this._type,"id":this._id,"className":this._className})}Release(){super.Release()}GetElementState(){return{"text":this._text,"placeholder":this._placeholder,"title":this._title,"isEnabled":this._isEnabled,"isReadOnly":this._isReadOnly,"spellCheck":this._spellCheck,"maxLength":this._maxLength}}async _OnClick(e){this.DispatchScriptEvent("click",!0),await this.TriggerAsync(t.Plugins.TextBox.Cnds.OnClicked)}async _OnDoubleClick(e){this.DispatchScriptEvent("dblclick",!0),await this.TriggerAsync(t.Plugins.TextBox.Cnds.OnDoubleClicked)}async _OnChange(e){this._text=e["text"],this.DispatchScriptEvent("change",!0),await this.TriggerAsync(t.Plugins.TextBox.Cnds.OnTextChanged)}_SetText(t){this._text!==t&&(this._text=t,this.UpdateElementState())}_GetText(){return this._text}_SetPlaceholder(t){this._placeholder!==t&&(this._placeholder=t,this.UpdateElementState())}_GetPlaceholder(){return this._placeholder}_SetTooltip(t){this._title!==t&&(this._title=t,this.UpdateElementState())}_GetTooltip(){return this._title}_SetEnabled(t){t=!!t,this._isEnabled!==t&&(this._isEnabled=t,this.UpdateElementState())}_IsEnabled(){return this._isEnabled}_SetReadOnly(t){t=!!t,this._isReadOnly!==t&&(this._isReadOnly=t,this.UpdateElementState())}_IsReadOnly(){return this._isReadOnly}_SetMaxLength(t){t=Math.max(+t,-1),this._maxLength!==t&&(this._maxLength=t,this.UpdateElementState())}_GetMaxLength(){return this._maxLength}_ScrollToBottom(){Promise.resolve().then(()=>this.PostToDOMElement("scroll-to-bottom"))}Draw(t){}SaveToJson(){return{"t":this._text,"p":this._placeholder,"ti":this._title,"e":this._isEnabled,"r":this._isReadOnly,"sp":this._spellCheck,"ml":this._maxLength,"type":this._type,"id":this._id}}LoadFromJson(t){this._text=t["t"],this._placeholder=t["p"],this._title=t["ti"],this._isEnabled=t["e"],this._isReadOnly=t["r"],this._spellCheck=t["sp"],this._maxLength=t.hasOwnProperty("ml")?t["ml"]:-1,this._type=t["type"],this._id=t["id"],this.UpdateElementState()}GetPropertyValueByIndex(t){switch(t){case s:return this._text;case i:return this._placeholder;case l:return this._title;case a:return this._isEnabled;case h:return this._isReadOnly;case r:return this._spellCheck;case o:return this._autoFontSize}}SetPropertyValueByIndex(t,e){switch(t){case s:if(this._text===e)return;this._text=e,this.UpdateElementState();break;case i:if(this._placeholder===e)return;this._placeholder=e,this.UpdateElementState();break;case l:if(this._title===e)return;this._title=e,this.UpdateElementState();break;case a:if(this._isEnabled===!!e)return;this._isEnabled=!!e,this.UpdateElementState();break;case h:if(this._isReadOnly===!!e)return;this._isReadOnly=!!e,this.UpdateElementState();break;case r:if(this._spellCheck===!!e)return;this._spellCheck=!!e,this.UpdateElementState();break;case o:this._autoFontSize=!!e}}GetDebuggerProperties(){const e=t.Plugins.TextBox.Acts,s="plugins.textbox";return[{title:s+".name",properties:[{name:s+".properties.text.name",value:this._text,onedit:t=>this.CallAction(e.SetText,t)},{name:s+".properties.enabled.name",value:this._isEnabled,onedit:t=>this.CallAction(e.SetEnabled,t)},{name:s+".properties.read-only.name",value:this._isReadOnly,onedit:t=>this.CallAction(e.SetReadOnly,t)}]}]}GetScriptInterfaceClass(){return self.ITextInputInstance}};const u=new WeakMap;self.ITextInputInstance=class extends self.IDOMInstance{constructor(){super(),u.set(this,self.IInstance._GetInitInst().GetSdkInstance())}set text(t){e.RequireString(t),u.get(this)._SetText(t)}get text(){return u.get(this)._GetText()}set placeholder(t){e.RequireString(t),u.get(this)._SetPlaceholder(t)}get placeholder(){return u.get(this)._GetPlaceholder()}set tooltip(t){e.RequireString(t),u.get(this)._SetTooltip(t)}get tooltip(){return u.get(this)._GetTooltip()}set isEnabled(t){u.get(this)._SetEnabled(t)}get isEnabled(){return u.get(this)._IsEnabled()}set isReadOnly(t){u.get(this)._SetReadOnly(t)}get isReadOnly(){return u.get(this)._IsReadOnly()}set maxLength(t){e.RequireFiniteNumber(t),u.get(this)._SetMaxLength(t)}get maxLength(){return u.get(this)._GetMaxLength()}scrollToBottom(){u.get(this)._ScrollToBottom()}}}{const t=self.C3;t.Plugins.TextBox.Cnds={CompareText(e,s){return 0===s?t.equalsNoCase(this._text,e):this._text===e},OnTextChanged:()=>!0,OnClicked:()=>!0,OnDoubleClicked:()=>!0}}self.C3.Plugins.TextBox.Acts={SetText(t){this._SetText(t.toString())},AppendText(t){""!==t&&this._SetText(this._GetText()+t)},SetPlaceholder(t){this._SetPlaceholder(t)},SetTooltip(t){this._SetTooltip(t)},SetReadOnly(t){this._SetReadOnly(0===t)},ScrollToBottom(){this._ScrollToBottom()},SetMaxLength(t){this._SetMaxLength(t)}};self.C3.Plugins.TextBox.Exps={Text(){return this._GetText()},MaxLength(){return this._GetMaxLength()}};
 }
 
+// scripts/plugins/sliderbar/c3runtime/runtime.js
+{
+{const e=self.C3,t="sliderbar";e.Plugins.sliderbar=class extends e.SDKDOMPluginBase{constructor(e){super(e,t),this.AddElementMessageHandler("click",(e,t)=>e._OnClick(t)),this.AddElementMessageHandler("change",(e,t)=>e._OnChange(t)),this.AddElementMessageHandler("input",(e,t)=>e._OnInput(t))}Release(){super.Release()}}}{const e=self.C3;e.Plugins.sliderbar.Type=class extends e.SDKTypeBase{constructor(e){super(e)}Release(){super.Release()}OnCreate(){}}}{const e=self.C3,t=self.C3X,i=0,s=1,a=2,n=3,r=4,l=5,h=6,u=7,m=8,_="sliderbar";e.Plugins.sliderbar.Instance=class extends e.SDKDOMInstanceBase{constructor(e,t){super(e,_),this._value=0,this._min=0,this._max=100,this._step=1,this._title="",this._isEnabled=!0,this._id="",this._className="",t&&(this._value=t[i],this._min=t[s],this._max=t[a],this._step=t[n],this._title=t[r],this.GetWorldInfo().SetVisible(t[l]),this._isEnabled=t[h],this._id=t[u],this._className=t[m]),this.CreateElement({"id":this._id,"className":this._className})}Release(){super.Release()}GetElementState(){return{"value":this._value,"min":this._min,"max":this._max,"step":this._step,"title":this._title,"isEnabled":this._isEnabled}}async _OnClick(t){this.DispatchScriptEvent("click",!0),await this.TriggerAsync(e.Plugins.sliderbar.Cnds.OnClicked)}async _OnChange(t){this._value=t["value"],this.DispatchScriptEvent("change",!0),await this.TriggerAsync(e.Plugins.sliderbar.Cnds.OnChanged)}async _OnInput(t){this._value=t["value"],this.DispatchScriptEvent("input",!0),await this.TriggerAsync(e.Plugins.sliderbar.Cnds.OnChanging)}Draw(e){}_SetValue(e){this._value!==e&&(this._value=e,this.UpdateElementState())}_GetValue(){return this._value}_SetMaximum(e){this._max!==e&&(this._max=e,this.UpdateElementState())}_GetMaximum(){return this._max}_SetMinimum(e){this._min!==e&&(this._min=e,this.UpdateElementState())}_GetMinimum(){return this._min}_SetTooltip(e){this._title!==e&&(this._title=e,this.UpdateElementState())}_GetTooltip(){return this._title}_SetStep(e){this._step!==e&&(this._step=e,this.UpdateElementState())}_GetStep(){return this._step}_SetEnabled(e){e=!!e,this._isEnabled!==e&&(this._isEnabled=e,this.UpdateElementState())}_IsEnabled(){return this._isEnabled}SaveToJson(){return{"v":this._value,"min":this._min,"max":this._max,"s":this._step,"t":this._title,"e":this._isEnabled,"id":this._id}}LoadFromJson(e){this._value=e["v"],this._min=e["min"],this._max=e["max"],this._step=e["s"],this._title=e["t"],this._isEnabled=e["e"],this._id=e["id"],this.UpdateElementState()}GetPropertyValueByIndex(e){switch(e){case i:return this._GetValue();case s:return this._GetMinimum();case a:return this._GetMaximum();case n:return this._GetStep();case r:return this._GetTooltip();case h:return this._IsEnbled()}}SetPropertyValueByIndex(e,t){switch(e){case i:this._SetValue(t);break;case s:this._SetMinimum(t);break;case a:this._SetMaximum(t);break;case n:this._SetStep(t);break;case r:this._SetTooltip(t);break;case h:this._SetEnabled(t)}}GetDebuggerProperties(){e.Plugins.sliderbar.Acts;const t="plugins.sliderbar";return[{title:t+".name",properties:[{name:t+".properties.value.name",value:this._GetValue(),onedit:e=>this._SetValue(e)},{name:t+".properties.minimum.name",value:this._GetMinimum(),onedit:e=>this._SetMinimum(e)},{name:t+".properties.maximum.name",value:this._GetMaximum(),onedit:e=>this._SetMaximum(e)},{name:t+".properties.step.name",value:this._GetStep(),onedit:e=>this._SetStep(e)},{name:t+".properties.enabled.name",value:this._IsEnabled(),onedit:e=>this._SetEnabled(e)}]}]}GetScriptInterfaceClass(){return self.ISliderBarInstance}};const d=new WeakMap;self.ISliderBarInstance=class extends self.IDOMInstance{constructor(){super(),d.set(this,self.IInstance._GetInitInst().GetSdkInstance())}set value(e){t.RequireFiniteNumber(e),d.get(this)._SetValue(e)}get value(){return d.get(this)._GetValue()}set maximum(e){t.RequireFiniteNumber(e),d.get(this)._SetMaximum(e)}get maximum(){return d.get(this)._GetMaximum()}set minimum(e){t.RequireFiniteNumber(e),d.get(this)._SetMinimum(e)}get minimum(){return d.get(this)._GetMinimum()}set step(e){t.RequireFiniteNumber(e),d.get(this)._SetStep(e)}get step(){return d.get(this)._GetStep()}set tooltip(e){t.RequireString(e),d.get(this)._SetTooltip(e)}get tooltip(){return d.get(this)._GetTooltip()}set isEnabled(e){d.get(this)._SetEnabled(e)}get isEnabled(){return d.get(this)._IsEnabled()}}}{const e=self.C3;e.Plugins.sliderbar.Cnds={OnClicked:()=>!0,OnChanged:()=>!0,OnChanging:()=>!0,CompareValue(t,i){return e.compare(this._GetValue(),t,i)}}}self.C3.Plugins.sliderbar.Acts={SetTooltip(e){this._SetTooltip(e)},SetValue(e){this._SetValue(e)},SetMaximum(e){this._SetMaximum(e)},SetMinimum(e){this._SetMinimum(e)},SetStep(e){this._SetStep(e)}};self.C3.Plugins.sliderbar.Exps={Value(){return this._GetValue()},Maximum(){return this._GetMaximum()},Minimum(){return this._GetMinimum()},Step(){return this._GetStep()}};
+}
+
 // scripts/plugins/Mouse/c3runtime/runtime.js
 {
 {const e=self.C3;e.Plugins.Mouse=class extends e.SDKPluginBase{constructor(e){super(e)}Release(){super.Release()}}}{const t=self.C3,s=self.C3X;t.Plugins.Mouse.Type=class extends t.SDKTypeBase{constructor(e){super(e)}Release(){super.Release()}OnCreate(){}GetScriptInterfaceClass(){return self.IMouseObjectType}};let n=null;function GetMouseSdkInstance(){return n.GetSingleGlobalInstance().GetSdkInstance()}self.IMouseObjectType=class extends self.IObjectType{constructor(e){super(e),n=e,e.GetRuntime()._GetCommonScriptInterfaces().mouse=this}getMouseX(e){return GetMouseSdkInstance().GetMousePositionForLayer(e)[0]}getMouseY(e){return GetMouseSdkInstance().GetMousePositionForLayer(e)[1]}getMousePosition(e){return GetMouseSdkInstance().GetMousePositionForLayer(e)}isMouseButtonDown(e){return GetMouseSdkInstance().IsMouseButtonDown(e)}setCursorStyle(e){s.RequireString(e),GetMouseSdkInstance().SetCursorStyle(e)}setCursorObjectClass(e){const t=GetMouseSdkInstance(),s=t.GetRuntime()._UnwrapIObjectClass(e);t.SetCursorObjectClass(s)}}}{const o=self.C3,i="mouse";let r=null;o.Plugins.Mouse.Instance=class extends o.SDKInstanceBase{constructor(e,t){super(e,i),this._buttonMap=[!1,!1,!1,!1,!1],this._mouseXcanvas=0,this._mouseYcanvas=0,this._triggerButton=0,this._triggerType=0,this._triggerDir=0,this._wheelDeltaX=0,this._wheelDeltaY=0,this._wheelDeltaZ=0,this._hasPointerLock=!1,this._movementX=0,this._movementY=0,this.AddDOMMessageHandlers([["pointer-lock-change",e=>this._OnPointerLockChange(e)],["pointer-lock-error",e=>this._OnPointerLockError(e)]]);const s=this.GetRuntime().Dispatcher();this._disposables=new o.CompositeDisposable(o.Disposable.From(s,"pointermove",e=>this._OnPointerMove(e.data)),o.Disposable.From(s,"pointerdown",e=>this._OnPointerDown(e.data)),o.Disposable.From(s,"pointerup",e=>this._OnPointerUp(e.data)),o.Disposable.From(s,"dblclick",e=>this._OnDoubleClick(e.data)),o.Disposable.From(s,"wheel",e=>this._OnMouseWheel(e.data)),o.Disposable.From(s,"window-blur",()=>this._OnWindowBlur()))}Release(){super.Release()}_OnPointerDown(e){"mouse"===e["pointerType"]&&(this._mouseXcanvas=e["pageX"]-this._runtime.GetCanvasClientX(),this._mouseYcanvas=e["pageY"]-this._runtime.GetCanvasClientY(),this._CheckButtonChanges(e["lastButtons"],e["buttons"]))}_OnPointerMove(e){this._movementX=e["movementX"],this._movementY=e["movementY"],this.Trigger(o.Plugins.Mouse.Cnds.OnMovement),this._movementX=0,this._movementY=0,"mouse"===e["pointerType"]&&(this._mouseXcanvas=e["pageX"]-this._runtime.GetCanvasClientX(),this._mouseYcanvas=e["pageY"]-this._runtime.GetCanvasClientY(),this._CheckButtonChanges(e["lastButtons"],e["buttons"]))}_OnPointerUp(e){"mouse"===e["pointerType"]&&this._CheckButtonChanges(e["lastButtons"],e["buttons"])}_CheckButtonChanges(e,t){this._CheckButtonChange(e,t,1,0),this._CheckButtonChange(e,t,4,1),this._CheckButtonChange(e,t,2,2),this._CheckButtonChange(e,t,8,3),this._CheckButtonChange(e,t,16,4)}_CheckButtonChange(e,t,s,n){!(e&s)&&t&s?this._OnMouseDown(n):e&s&&!(t&s)&&this._OnMouseUp(n)}_OnMouseDown(e){this._buttonMap[e]=!0,this.Trigger(o.Plugins.Mouse.Cnds.OnAnyClick),this._triggerButton=e,this._triggerType=0,this.Trigger(o.Plugins.Mouse.Cnds.OnClick),this.Trigger(o.Plugins.Mouse.Cnds.OnObjectClicked)}_OnMouseUp(e){this._buttonMap[e]&&(this._buttonMap[e]=!1,this._triggerButton=e,this.Trigger(o.Plugins.Mouse.Cnds.OnRelease))}_OnDoubleClick(e){this._triggerButton=e["button"],this._triggerType=1,this.Trigger(o.Plugins.Mouse.Cnds.OnClick),this.Trigger(o.Plugins.Mouse.Cnds.OnObjectClicked)}_OnMouseWheel(e){this._triggerDir=e["deltaY"]<0?1:0,this._wheelDeltaX=e["deltaX"],this._wheelDeltaY=e["deltaY"],this._wheelDeltaZ=e["deltaZ"],this.Trigger(o.Plugins.Mouse.Cnds.OnWheel)}_OnWindowBlur(){for(let e=0,t=this._buttonMap.length;e<t;++e){if(!this._buttonMap[e])return;this._buttonMap[e]=!1,this._triggerButton=e,this.Trigger(o.Plugins.Mouse.Cnds.OnRelease)}}GetMousePositionForLayer(e){const t=this._runtime.GetMainRunningLayout(),s=this._mouseXcanvas,n=this._mouseYcanvas;if(void 0===e){return t.GetLayerByIndex(0).CanvasCssToLayer_DefaultTransform(s,n)}{const o=t.GetLayer(e);return o?o.CanvasCssToLayer(s,n):[0,0]}}IsMouseButtonDown(e){return e=Math.floor(e),!!this._buttonMap[e]}_IsMouseOverCanvas(){return this._mouseXcanvas>=0&&this._mouseYcanvas>=0&&this._mouseXcanvas<this._runtime.GetCanvasCssWidth()&&this._mouseYcanvas<this._runtime.GetCanvasCssHeight()}SetCursorStyle(e){r!==e&&(r=e,this.PostToDOM("cursor",e))}async SetCursorObjectClass(e){if(o.Platform.IsMobile||!e)return;const t=e.GetFirstPicked();if(!t)return;const s=t.GetWorldInfo(),n=t.GetCurrentImageInfo();if(!s||!n)return;if(r===n)return;r=n;const i=`url(${await n.ExtractImageToBlobURL()}) ${Math.round(s.GetOriginX()*n.GetWidth())} ${Math.round(s.GetOriginY()*n.GetHeight())}, auto`;this.PostToDOM("cursor",i)}_OnPointerLockChange(e){this._UpdatePointerLockState(e["has-pointer-lock"])}_OnPointerLockError(e){this._UpdatePointerLockState(e["has-pointer-lock"]),this.Trigger(o.Plugins.Mouse.Cnds.OnPointerLockError)}_UpdatePointerLockState(e){this._hasPointerLock!==e&&(this._hasPointerLock=e,this._hasPointerLock?this.Trigger(o.Plugins.Mouse.Cnds.OnPointerLocked):this.Trigger(o.Plugins.Mouse.Cnds.OnPointerUnlocked))}GetDebuggerProperties(){const e="plugins.mouse";return[{title:e+".name",properties:[{name:e+".debugger.absolute-position",value:this._mouseXcanvas+","+this._mouseYcanvas},{name:e+".debugger.left-button",value:this._buttonMap[0]},{name:e+".debugger.middle-button",value:this._buttonMap[1]},{name:e+".debugger.right-button",value:this._buttonMap[2]},{name:e+".debugger.button-4",value:this._buttonMap[3]},{name:e+".debugger.button-5",value:this._buttonMap[4]}]},{title:e+".debugger.position-on-each-layer",properties:this._runtime.GetMainRunningLayout().GetLayers().map(e=>({name:"$"+e.GetName(),value:e.CanvasCssToLayer(this._mouseXcanvas,this._mouseYcanvas).join(", ")}))}]}}}{const u=self.C3;u.Plugins.Mouse.Cnds={OnClick(e,t){return this._triggerButton===e&&this._triggerType===t},OnAnyClick:()=>!0,IsButtonDown(e){return this._buttonMap[e]},OnRelease(e){return this._triggerButton===e},IsOverObject(e){const t=this._runtime.GetCurrentCondition().IsInverted(),s=[];return this._IsMouseOverCanvas()&&s.push([this._mouseXcanvas,this._mouseYcanvas]),u.xor(this._runtime.GetCollisionEngine().TestAndSelectCanvasPointOverlap(e,s,t),t)},OnObjectClicked(e,t,s){if(e!==this._triggerButton||t!==this._triggerType)return!1;if(!this._IsMouseOverCanvas())return!1;const n=this._mouseXcanvas,o=this._mouseYcanvas;return this._runtime.GetCollisionEngine().TestAndSelectCanvasPointOverlap(s,[[n,o]],!1)},OnWheel(e){return 2===e||this._triggerDir===e},OnPointerLocked:()=>!0,OnPointerUnlocked:()=>!0,OnPointerLockError:()=>!0,HasPointerLock(){return this._hasPointerLock},OnMovement:()=>!0}}{const a=self.C3,h=["auto","pointer","text","crosshair","move","help","wait","none"],l=["auto","all-scroll","none","help","pointer","progress","wait","cell","crosshair","text","vertical-text","alias","copy","move","not-allowed","grab","grabbing","col-resize","row-resize","ew-resize","ns-resize","nesw-resize","nwse-resize","zoom-in","zoom-out"];a.Plugins.Mouse.Acts={SetCursor(e){this.SetCursorStyle(h[e])},SetCursor2(e){this.SetCursorStyle(l[e])},SetCursorSprite(e){this.SetCursorObjectClass(e)},RequestPointerLock(e){this._PostToDOMMaybeSync("request-pointer-lock",{"unadjustedMovement":e})},ReleasePointerLock(){this.PostToDOM("release-pointer-lock")}}}self.C3.Plugins.Mouse.Exps={X(e){return this.GetMousePositionForLayer(e)[0]},Y(e){return this.GetMousePositionForLayer(e)[1]},AbsoluteX(){return this._mouseXcanvas},AbsoluteY(){return this._mouseYcanvas},MovementX(){return this._movementX},MovementY(){return this._movementY},WheelDeltaX(){return this._wheelDeltaX},WheelDeltaY(){return this._wheelDeltaY},WheelDeltaZ(){return this._wheelDeltaZ}};
@@ -1147,6 +1167,11 @@ self["C3_Shaders"]["brightness"] = {
 // scripts/plugins/Json/c3runtime/runtime.js
 {
 {const t=self.C3;t.Plugins.Json=class extends t.SDKPluginBase{constructor(t){super(t)}Release(){super.Release()}}}{const t=self.C3;t.Plugins.Json.Type=class extends t.SDKTypeBase{constructor(t){super(t)}Release(){super.Release()}OnCreate(){}}}{const t=self.C3,e=self.C3X,a=self.IInstance;t.Plugins.Json.Instance=class extends t.SDKInstanceBase{constructor(t,e){super(t),this._valueCache=[null,null],this._locationCache=[null,null],this._data={},this._path=[],this._currentKey="",this._currentValue=0}Release(){super.Release()}_InvalidateValueCache(){this._valueCache[0]=null,this._valueCache[1]=null}_HasValueCache(e,a){const s=this._valueCache[0];if(null===e||null===s)return!1;if(s===e||t.arraysEqual(s,e))return!0;if(a&&s.length>0){for(let t=0,a=Math.min(e.length,s.length);t<a;++t)if(e[t]!==s[t])return!1;return!0}return!1}_GetValueCache(){return this._valueCache[1]}_UpdateValueCache(t,e){this._valueCache[0]=t,this._valueCache[1]=e}_InvalidateLocationCache(){this._locationCache[0]=null,this._locationCache[1]=null}_HasLocationCache(t){return this._locationCache[0]===t}_GetLocationCache(){return this._locationCache[1]}_UpdateLocationCache(t,e){this._locationCache[0]=t,this._locationCache[1]=e}_SetData(t){this._data=t,this._InvalidateValueCache(),this._SetPath("")}_GetData(){return this._data}_SetPath(t){this._path=this._ParsePathUnsafe(t),this._InvalidateLocationCache()}_ParsePath(e){return t.cloneArray(this._ParsePathUnsafe(e))}_ParsePathUnsafe(e){const a=[];let s,r=!1;if(this._HasLocationCache(e))return this._GetLocationCache();"."===e[0]?(s=t.cloneArray(this._path),e=e.slice(1)):s=[];for(const n of e)r?(a.push(n),r=!1):"\\"===n?r=!0:"."===n?(s.push(a.join("")),t.clearArray(a)):a.push(n);return 0!==a.length&&s.push(a.join("")),this._UpdateLocationCache(e,s),s}_GetValueAtFullPath(t,e){if(this._HasValueCache(t,!1))return this._GetValueCache();let a=this._data;for(const s of t)if(Array.isArray(a)){const t=parseInt(s,10);if(t<0||t>=a.length||!isFinite(t)){a=null;break}a=a[t]}else{if("object"!=typeof a||null===a){a=null;break}if(a.hasOwnProperty(s))a=a[s];else{if(!e){a=null;break}{const t={};a[s]=t,a=t}}}return this._UpdateValueCache(t,a),a}_GetValue(t){const e=this._ParsePath(t);if(!e.length)return this._data;const a=e.pop(),s=this._GetValueAtFullPath(e,!1);if(Array.isArray(s)){const t=parseInt(a,10);return t>=0&&t<s.length?s[t]:null}return"object"==typeof s&&null!==s&&s.hasOwnProperty(a)?s[a]:null}_JSONTypeOf(t){return null===t?"null":Array.isArray(t)?"array":typeof t}_GetTypeOf(t){const e=this._GetValue(t);return this._JSONTypeOf(e)}_ToSafeValue(t){const e=typeof t;return"number"===e||"string"===e?t:"boolean"===e&&t?1:0}_GetSafeValue(t){return this._ToSafeValue(this._GetValue(t))}_HasKey(t){const e=this._ParsePath(t);if(!e.length)return!1;const a=e.pop(),s=this._GetValueAtFullPath(e,!1);if(Array.isArray(s)){const t=parseInt(a,10);return t>=0&&t<s.length}return"object"==typeof s&&null!==s&&s.hasOwnProperty(a)}_SetValue(t,e){const a=this._ParsePath(t);if(!a.length)return!1;this._HasValueCache(a,!0)&&this._InvalidateValueCache();const s=a.pop(),r=this._GetValueAtFullPath(a,!0);if(Array.isArray(r)){const t=parseInt(s,10);return!(!isFinite(t)||t<0||t>=r.length)&&(r[t]=e,!0)}return"object"==typeof r&&null!==r&&(r[s]=e,!0)}_DeleteKey(t){const e=this._ParsePath(t);if(!e.length)return!1;this._HasValueCache(e,!0)&&this._InvalidateValueCache();const a=e.pop(),s=this._GetValueAtFullPath(e,!1);return!Array.isArray(s)&&("object"==typeof s&&null!==s&&(delete s[a],!0))}SaveToJson(){return{"path":this._path,"data":this._data}}LoadFromJson(t){this._InvalidateValueCache(),this._InvalidateLocationCache(),this._path=t["path"],this._data=t["data"]}_SanitizeValue(t){return"number"===typeof t?isFinite(t)?t:0:"object"==typeof t?JSON.stringify(t):t+""}GetDebuggerProperties(){const t="plugins.json.debugger";let e;try{e=this._SanitizeValue(this._data)}catch(t){e='"invalid"'}return[{title:t+".title",properties:[{name:t+".data",value:e,onedit:t=>{try{const e=JSON.parse(t);this._SetData(e)}catch(t){}}},{name:t+".path",value:this._path.map(t=>t.replace(/\./g,"\\.")).join(".")}]}]}GetScriptInterfaceClass(){return self.IJSONInstance}};const s=new WeakMap;self.IJSONInstance=class extends a{constructor(){super(),s.set(this,a._GetInitInst().GetSdkInstance())}getJsonDataCopy(){const t=s.get(this)._GetData();return JSON.parse(JSON.stringify(t))}setJsonDataCopy(t){try{const e=JSON.parse(JSON.stringify(t));s.get(this)._SetData(e)}catch(t){throw console.error("[JSON plugin] setJsonData: object is not valid JSON: ",t),t}}setJsonString(t){e.RequireString(t);try{const e=JSON.parse(t);s.get(this)._SetData(e)}catch(t){throw console.error("[JSON plugin] setJsonString: string is not valid JSON: ",t),t}}toCompactString(){return JSON.stringify(s.get(this)._GetData())}toBeautifiedString(){return JSON.stringify(s.get(this)._GetData(),null,4)}}}{const t=self.C3,e=["null","boolean","number","string","object","array"];t.Plugins.Json.Cnds={HasKey(t){return this._HasKey(t)},CompareType(t,a){return this._GetTypeOf(t)===e[a]},CompareValue(e,a,s){return t.compare(this._GetSafeValue(e),a,s)},IsBooleanSet(t){return!0===this._GetValue(t)},ForEach(e){const a=this._GetValue(e);if("object"!=typeof a||null===a)return!1;const s=this._runtime,r=s.GetEventSheetManager(),n=s.GetCurrentEvent(),i=n.GetSolModifiers(),l=s.GetEventStack(),u=l.GetCurrentStackFrame(),h=l.Push(n),o=this._path,c=this._currentKey,_=this._currentValue,p=this._ParsePathUnsafe(e);s.SetDebuggingEnabled(!1);for(const[e,s]of Object.entries(a)){this._path=t.cloneArray(p),this._path.push(e),this._currentKey=e,this._currentValue=s,r.PushCopySol(i);this.GetObjectClass().GetCurrentSol().PickOne(this.GetInstance()),n.Retrigger(u,h),r.PopSol(i)}return s.SetDebuggingEnabled(!0),this._path=o,this._InvalidateLocationCache(),this._currentKey=c,this._currentValue=_,l.Pop(),!1},OnParseError:()=>!0,OnParseSuccess:()=>!0}}{const t=self.C3;t.Plugins.Json.Acts={Parse(e){try{this._SetData(JSON.parse(e)),this.Trigger(t.Plugins.Json.Cnds.OnParseSuccess)}catch(e){console.warn("[JSON plugin] Failed to parse JSON data: ",e),this._SetData({}),this.Trigger(t.Plugins.Json.Cnds.OnParseError)}},SetPath(t){this._SetPath(t)},SetValue(t,e){this._SetValue(t,e)},SetArray(e,a){let s=this._GetValue(e);Array.isArray(s)?t.resizeArray(s,a,0):(s=[],t.extendArray(s,a,0),this._SetValue(e,s))},SetObject(t){this._SetValue(t,{})},SetJSON(e,a){let s=null;try{s=JSON.parse(a),this.Trigger(t.Plugins.Json.Cnds.OnParseSuccess)}catch(e){console.warn("[JSON plugin] Failed to parse JSON data: ",e),this.Trigger(t.Plugins.Json.Cnds.OnParseError)}this._SetValue(e,s)},SetNull(t){this._SetValue(t,null)},SetBoolean(t,e){this._SetValue(t,0!==e)},ToggleBoolean(t){const e=this._GetValue(t);"boolean"==typeof e&&this._SetValue(t,!e)},AddTo(t,e){const a=this._GetValue(t);"number"==typeof a&&this._SetValue(t,a+e)},SubtractFrom(t,e){const a=this._GetValue(t);"number"==typeof a&&this._SetValue(t,a-e)},DeleteKey(t){this._DeleteKey(t)},PushValue(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&(0===t?s.push(a):s.unshift(a),this._InvalidateValueCache())},PopValue(t,e){const a=this._GetValue(e);Array.isArray(a)&&(0===t?a.pop():a.shift(),this._InvalidateValueCache())},InsertValue(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&(s.splice(a,0,t),this._InvalidateValueCache())},RemoveValues(t,e,a){const s=this._GetValue(e);Array.isArray(s)&&t>0&&(s.splice(a,t),this._InvalidateValueCache())}}}self.C3.Plugins.Json.Exps={ToCompactString(){try{return JSON.stringify(this._data)}catch(t){return""}},ToBeautifiedString(){try{return JSON.stringify(this._data,null,4)}catch(t){return""}},Get(t){return this._GetSafeValue(t)},GetAsCompactString(t){const e=this._GetValue(t);return JSON.stringify(e)},GetAsBeautifiedString(t){const e=this._GetValue(t);return JSON.stringify(e,null,4)},Front(t){const e=this._GetValue(t);if(Array.isArray(e)){const t=e[0];return this._ToSafeValue(t)}return-1},Back(t){const e=this._GetValue(t);if(Array.isArray(e)){const t=e.at(-1);return this._ToSafeValue(t)}return-1},Type(t){return this._GetTypeOf(t)},ArraySize(t){const e=this._GetValue(t);return Array.isArray(e)?e.length:-1},Path(){return this._path.map(t=>t.replace(/\./g,"\\.")).join(".")},CurrentKey(){return this._currentKey},CurrentValue(){return this._ToSafeValue(this._currentValue)},CurrentType(){return this._JSONTypeOf(this._currentValue)}};
+}
+
+// scripts/plugins/Audio/c3runtime/runtime.js
+{
+{const t=self.C3,e=[];t.Plugins.Audio=class extends t.SDKPluginBase{constructor(t){super(t)}_AddActionPromise(t){e.push(t)}static async WaitForAllActionPromises(){await Promise.all(e),t.clearArray(e)}Release(){super.Release()}}}{const s=self.C3,i=self.C3X;s.Plugins.Audio.Type=class extends s.SDKTypeBase{constructor(t){super(t)}Release(){super.Release()}OnCreate(){}GetScriptInterfaceClass(){return self.IAudioObjectType}};let a=null;function GetAudioSdkInstance(){return a.GetSingleGlobalInstance().GetSdkInstance()}function GetAudioDOMInterface(){if(self["C3Audio_DOMInterface"])return self["C3Audio_DOMInterface"];throw new Error("audio scripting API cannot be used here - make sure the project is using DOM mode, not worker mode")}self.IAudioObjectType=class extends self.IObjectType{constructor(t){super(t),a=t}get audioContext(){return GetAudioDOMInterface()["GetAudioContextExtern"]()}get destinationNode(){return GetAudioDOMInterface()["GetDestinationNodeExtern"]()}get isSilent(){return GetAudioSdkInstance()._IsSilent()}set isSilent(t){GetAudioSdkInstance()._SetSilent(t)}get masterVolume(){return GetAudioSdkInstance()._GetMasterVolume()}set masterVolume(t){i.RequireFiniteNumber(t),GetAudioSdkInstance()._SetMasterVolume(t)}stopAll(){GetAudioSdkInstance()._StopAll()}}}{const n=self.C3,r="audio",o=["interactive","balanced","playback"];n.Plugins.Audio.Instance=class extends n.SDKInstanceBase{constructor(t,e){super(t,r),this._nextPlayTime=0,this._nextPlayOffset=0,this._triggerTags=[],this._enableMultiTags=!0,this._timeScaleMode=0,this._saveLoadMode=0,this._playInBackground=!1,this._panningModel=1,this._distanceModel=1,this._listenerPos=[this._runtime.GetViewportWidth()/2,this._runtime.GetViewportHeight()/2,600],this._listenerForwardVec=[0,0,-1],this._listenerUpVec=[0,1,0],this._referenceDistance=600,this._maxDistance=1e4,this._rolloffFactor=1,this._listenerInst=null,this._loadListenerUid=-1,this._masterVolume=1,this._isSilent=!1,this._sampleRate=0,this._audioContextState="suspended",this._outputLatency=0,this._effectCount=new Map,this._preloadTotal=0,this._preloadCount=0,this._bufferMetadata=new Map,this._remoteUrls=new Map;let s="interactive";e&&(this._timeScaleMode=e[0],this._saveLoadMode=e[1],this._playInBackground=e[2],s=o[e[3]],this._enableMultiTags=e[4],this._panningModel=e[5],this._distanceModel=e[6],this._listenerPos[2]=e[7],this._referenceDistance=e[8],this._maxDistance=e[9],this._rolloffFactor=e[10]),this._lastAIState=[],this._lastFxState=[],this._lastAnalysersData=[],this.AddDOMMessageHandlers([["state",t=>this._OnUpdateState(t)],["audiocontext-state",t=>this._OnAudioContextStateChanged(t)],["fxstate",t=>this._OnUpdateFxState(t)],["trigger",t=>this._OnTrigger(t)],["buffer-metadata",t=>this._OnBufferMetadata(t)]]);const i=this.GetRuntime().Dispatcher();this._disposables=new n.CompositeDisposable(n.Disposable.From(i,"instancedestroy",t=>this._OnInstanceDestroyed(t.instance)),n.Disposable.From(i,"afterload",()=>this._OnAfterLoad()),n.Disposable.From(i,"suspend",()=>this._OnSuspend()),n.Disposable.From(i,"resume",()=>this._OnResume()));const a=this._runtime.GetExportType(),l="Safari"===n.Platform.Browser,h=this._runtime.IsiOSWebView()||"macos-wkwebview"===a,u=this._runtime.GetAssetManager().IsFileProtocol(),c="playable-ad-single-file"===a,d="cordova"===a&&"Android"===n.Platform.OS,_=l||h||u||c||d;this._runtime.AddLoadPromise(this.PostToDOMAsync("create-audio-context",{"preloadList":this._runtime.GetAssetManager().GetAudioToPreload().map(t=>({"originalUrl":t.originalUrl,"url":t.url,"type":t.type,"fileSize":t.fileSize})),"timeScaleMode":this._timeScaleMode,"latencyHint":s,"panningModel":this._panningModel,"distanceModel":this._distanceModel,"refDistance":this._referenceDistance,"maxDistance":this._maxDistance,"rolloffFactor":this._rolloffFactor,"listenerPos":this._listenerPos,"usePlayMusicAsSoundWorkaround":_}).then(t=>{this._sampleRate=t["sampleRate"],this._audioContextState=t["audioContextState"],this._outputLatency=t["outputLatency"]})),this._StartTicking()}Release(){this._listenerInst=null,super.Release()}_SplitTags(t){return this._enableMultiTags?t.split(" ").filter(t=>!!t):t?[t]:[]}_MatchTagLists(t,e){for(const s of e){let e=!1;for(const i of t)if(n.equalsNoCase(i,s)){e=!0;break}if(!e)return!1}return!0}_MatchTagListToStr(t,e){return this._MatchTagLists(t,this._SplitTags(e))}_AddActionPromise(t){this.GetPlugin()._AddActionPromise(t)}_OnInstanceDestroyed(t){this._listenerInst===t&&(this._listenerInst=null)}DbToLinearNoCap(t){return Math.pow(10,t/20)}DbToLinear(t){const e=this.DbToLinearNoCap(t);return isFinite(e)?Math.max(Math.min(e,1),0):0}LinearToDbNoCap(t){return Math.log(t)/Math.log(10)*20}LinearToDb(t){return this.LinearToDbNoCap(Math.max(Math.min(t,1),0))}_GetScheduledPlayInfo(){let t=0;const e=!!self["C3_GetAudioContextCurrentTime"];return t=e?this._nextPlayTime:this._nextPlayOffset,this._nextPlayTime=0,this._nextPlayOffset=0,{playOffset:t,isTrueClock:e}}_OnSuspend(){this._playInBackground||this.PostToDOM("set-suspended",{"isSuspended":!0})}_OnResume(){this._playInBackground||this.PostToDOM("set-suspended",{"isSuspended":!1})}_OnUpdateState(t){const e=t["tickCount"];this._outputLatency=t["outputLatency"];const s=this._lastAIState.filter(t=>t.hasOwnProperty("placeholder")&&(t["placeholder"]>e||-1===t["placeholder"]));this._lastAIState=t["audioInstances"],this._lastAnalysersData=t["analysers"],s.length>0&&n.appendArray(this._lastAIState,s)}_OnBufferMetadata(t){this._bufferMetadata.set(t["originalUrl"],{duration:t["duration"]})}_OnAudioContextStateChanged(t){this._audioContextState=t["audioContextState"]}GetAudioContextState(){return this._runtime.IsExportToVideo()?"running":this._audioContextState}_OnUpdateFxState(t){this._lastFxState=t["fxstate"]}_GetFirstAudioStateByTags(t){const e=this._SplitTags(t);for(const t of this._lastAIState)if(this._MatchTagLists(t["tags"],e))return t;return null}_IsTagPlaying(t){const e=this._SplitTags(t);return this._lastAIState.some(t=>this._MatchTagLists(t["tags"],e)&&t["isPlaying"])}_MaybeMarkAsPlaying(t,e,s,i,a){if(this._IsTagPlaying(e))return null;const n=this._bufferMetadata.get(t),r={"tags":this._SplitTags(e),"duration":n?n.duration:0,"volume":a,"isPlaying":!0,"playbackTime":0,"playbackRate":1,"uid":-1,"bufferOriginalUrl":t,"bufferUrl":"","bufferType":"","isMusic":s,"isLooping":i,"isMuted":!1,"resumePosition":0,"pan":null,"placeholder":-1};return this._lastAIState.push(r),r}_MaybeMarkAsStopped(t){const e=this._SplitTags(t);for(const t of this._lastAIState)this._MatchTagLists(t["tags"],e)&&(t["isPlaying"]=!1)}async _OnTrigger(t){const e=t["type"];this._triggerTags=t["tags"];const s=t["aiid"];if("ended"===e){for(const t of this._lastAIState)if(t["aiid"]===s){t["isPlaying"]=!1;break}await this.TriggerAsync(n.Plugins.Audio.Cnds.OnEnded)}else"fade-ended"===e&&await this.TriggerAsync(n.Plugins.Audio.Cnds.OnFadeEnded)}_MatchTriggerTag(t){return this._MatchTagListToStr(this._triggerTags,t)}Tick(){const t={"timeScale":this._runtime.GetTimeScale(),"gameTime":this._runtime.GetGameTimeRaw(),"instPans":this.GetInstancePans(),"tickCount":this._runtime.GetTickCountNoSave()};if(this._listenerInst){const e=this._listenerInst.GetWorldInfo();this._listenerPos[0]=e.GetX(),this._listenerPos[1]=e.GetY(),t["listenerPos"]=this._listenerPos,t["listenerOrientation"]=[...this._listenerForwardVec,...this._listenerUpVec]}this.PostToDOM("tick",t)}rotatePtAround(t,e,s,i,a){if(0===s)return[t,e];const n=Math.sin(s),r=Math.cos(s),o=(t-=i)*n;return t=t*r-(e-=a)*n,e=e*r+o,[t+=i,e+=a]}GetInstancePans(){return this._lastAIState.filter(t=>-1!==t["uid"]).map(t=>this._runtime.GetInstanceByUID(t["uid"])).filter(t=>t).map(t=>{const e=t.GetWorldInfo(),s=e.GetLayer().GetAngle(),[i,a]=this.rotatePtAround(e.GetX(),e.GetY(),-s,this._listenerPos[0],this._listenerPos[1]);return{"uid":t.GetUID(),"x":i,"y":a,"z":e.GetTotalZElevation(),"angle":e.GetAngle()-s}})}GetAnalyserData(t,e){for(const s of this._lastAnalysersData)if(s.index===e&&n.equalsNoCase(s["tag"],t))return s;return null}_IncrementEffectCount(t){for(const e of this._SplitTags(t)){const t=e.toLowerCase();this._effectCount.set(t,(this._effectCount.get(t)||0)+1)}}_IsSilent(){return this._isSilent}_SetSilent(t){t=!!t,this._isSilent!==t&&(this._isSilent=t,this.PostToDOM("set-silent",{"isSilent":t}))}_GetMasterVolume(){return this._masterVolume}_SetMasterVolume(t){this._masterVolume!==t&&(this._masterVolume=t,this.PostToDOM("set-master-volume",{"vol":t}))}_StopAll(){this.PostToDOM("stop-all");for(const t of this._lastAIState)t["isPlaying"]=!1}_ShouldSave(t){return!t.hasOwnProperty("placeholder")&&(3!==this._saveLoadMode&&((!t["isMusic"]||1!==this._saveLoadMode)&&!(!t["isMusic"]&&2===this._saveLoadMode)))}SaveToJson(){return{"isSilent":this._isSilent,"masterVolume":this._masterVolume,"listenerZ":this._listenerPos[2],"listenerForwardVec":this._listenerForwardVec,"listenerUpVec":this._listenerUpVec,"listenerUid":this._listenerInst?this._listenerInst.GetUID():-1,"remoteUrls":[...this._remoteUrls.entries()],"playing":this._lastAIState.filter(t=>this._ShouldSave(t)),"effects":this._lastFxState,"analysers":this._lastAnalysersData}}LoadFromJson(t){if(this._isSilent=t["isSilent"],this._masterVolume=t["masterVolume"],this._listenerPos[2]=t["listenerZ"],this._listenerInst=null,this._loadListenerUid=t["listenerUid"],t.hasOwnProperty("listenerForwardVec")?this._listenerForwardVec=t["listenerForwardVec"]:this._listenerForwardVec=[0,0,-1],t.hasOwnProperty("listenerUpVec")?this._listenerUpVec=t["listenerUpVec"]:this._listenerUpVec=[0,1,0],this._remoteUrls.clear(),t["remoteUrls"])for(const[e,s]of t["remoteUrls"])this._remoteUrls.set(e,s);this._lastAIState=t["playing"];for(const t of this._lastAIState)t.hasOwnProperty("tag")&&!t.hasOwnProperty("tags")&&(t["tags"]=[t["tag"]].filter(t=>!!t));this._lastFxState=t["effects"],this._lastAnalysersData=t["analysers"]}_OnAfterLoad(){if(-1!==this._loadListenerUid&&(this._listenerInst=this._runtime.GetInstanceByUID(this._loadListenerUid),this._loadListenerUid=-1,this._listenerInst)){const t=this._listenerInst.GetWorldInfo();this._listenerPos[0]=t.GetX(),this._listenerPos[1]=t.GetY()}for(const t of this._lastAIState){const e=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t["bufferOriginalUrl"]);e?(t["bufferUrl"]=e.url,t["bufferType"]=e.type):t["bufferUrl"]=null}for(const t of Object.values(this._lastFxState))for(const e of t)if(e.hasOwnProperty("bufferOriginalUrl")){const t=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e["bufferOriginalUrl"]);t&&(e["bufferUrl"]=t.url,e["bufferType"]=t.type)}this.PostToDOM("load-state",{"saveLoadMode":this._saveLoadMode,"timeScale":this._runtime.GetTimeScale(),"gameTime":this._runtime.GetGameTimeRaw(),"listenerPos":this._listenerPos,"listenerOrientation":[...this._listenerForwardVec,...this._listenerUpVec],"isSilent":this._isSilent,"masterVolume":this._masterVolume,"playing":this._lastAIState.filter(t=>null!==t["bufferUrl"]),"effects":this._lastFxState})}GetDebuggerProperties(){const t=[];for(const[e,s]of Object.entries(this._lastFxState))t.push({name:"$"+e,value:s.map(t=>t["type"]).join(", ")});const e="plugins.audio.debugger";return[{title:e+".tag-effects",properties:t},{title:e+".currently-playing",properties:[{name:e+".currently-playing-count",value:this._lastAIState.length},...this._lastAIState.map((t,e)=>({name:"$#"+e,value:`${t["bufferOriginalUrl"]} ("${t["tags"]}") ${Math.round(10*t["playbackTime"])/10} / ${Math.round(10*t["duration"])/10}`}))]}]}}}self.C3.Plugins.Audio.Cnds={OnEnded(t){return this._MatchTriggerTag(t)},OnFadeEnded(t){return this._MatchTriggerTag(t)},PreloadsComplete(){return this._preloadCount===this._preloadTotal},AdvancedAudioSupported:()=>!0,IsSilent(){return this._IsSilent()},IsAnyPlaying(){for(const t of this._lastAIState)if(t["isPlaying"])return!0;return!1},IsTagPlaying(t){return this._IsTagPlaying(t)}};{const l=self.C3,h=["lowpass","highpass","bandpass","lowshelf","highshelf","peaking","notch","allpass"];l.Plugins.Audio.Acts={Play(t,e,s,i,a){const n=l.Plugins.Audio.Acts._DoPlay.call(this,t,e,s,i,a);return this._AddActionPromise(n),n},PlayFromTimeline(t,e,s,i){l.Plugins.Audio.Acts._DoPlay.call(this,t,0,e,0,s,i)},async _DoPlay(t,e,s,i,a,n){if(this._isSilent)return;const r=t[1],o=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t[0]);if(!o)return;const{playOffset:h,isTrueClock:u}=this._GetScheduledPlayInfo(),c=this._MaybeMarkAsPlaying(t[0],a,r,0!==e,this.DbToLinear(s));try{await this.PostToDOMAsync("play",{"originalUrl":t[0],"url":o.url,"type":o.type,"isMusic":r,"tags":this._SplitTags(a),"isLooping":0!==e,"vol":this.DbToLinear(s),"stereoPan":l.clamp(i/100,-1,1),"pos":n||0,"off":h,"trueClock":u})}finally{c&&(c["placeholder"]=this._runtime.GetTickCountNoSave())}},async PlayAtPosition(t,e,s,i,a,n,r,o,h,u,c){if(this._isSilent)return;const d=t[1],_=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t[0]);if(!_)return;const{playOffset:f,isTrueClock:p}=this._GetScheduledPlayInfo(),g=this._MaybeMarkAsPlaying(t[0],c,d,0!==e,this.DbToLinear(s));try{await this.PostToDOMAsync("play",{"originalUrl":t[0],"url":_.url,"type":_.type,"isMusic":d,"tags":this._SplitTags(c),"isLooping":0!==e,"vol":this.DbToLinear(s),"pos":0,"off":f,"trueClock":p,"panning":{"x":i,"y":a,"z":n,"angle":l.toRadians(r),"innerAngle":l.toRadians(o),"outerAngle":l.toRadians(h),"outerGain":this.DbToLinear(u)}})}finally{g&&(g["placeholder"]=this._runtime.GetTickCountNoSave())}},async PlayAtObject(t,e,s,i,a,n,r,o){if(this._isSilent)return;if(!i)return;const h=i.GetFirstPicked();if(!h||!h.GetWorldInfo())return;const u=h.GetWorldInfo(),c=u.GetLayer().GetAngle(),[d,_]=this.rotatePtAround(u.GetX(),u.GetY(),-c,this._listenerPos[0],this._listenerPos[1]),f=t[1],p=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t[0]);if(!p)return;const{playOffset:g,isTrueClock:y}=this._GetScheduledPlayInfo(),m=this._MaybeMarkAsPlaying(t[0],o,f,0!==e,this.DbToLinear(s));try{await this.PostToDOMAsync("play",{"originalUrl":t[0],"url":p.url,"type":p.type,"isMusic":f,"tags":this._SplitTags(o),"isLooping":0!==e,"vol":this.DbToLinear(s),"pos":0,"off":g,"trueClock":y,"panning":{"x":d,"y":_,"z":u.GetTotalZElevation(),"angle":u.GetAngle()-c,"innerAngle":l.toRadians(a),"outerAngle":l.toRadians(n),"outerGain":this.DbToLinear(r),"uid":h.GetUID()}})}finally{m&&(m["placeholder"]=this._runtime.GetTickCountNoSave())}},async PlayByName(t,e,s,i,a,n){if(this._isSilent)return;const r=1===t,o=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e)||this._remoteUrls.get(e.toLowerCase());if(!o)return;const{playOffset:h,isTrueClock:u}=this._GetScheduledPlayInfo(),c=this._MaybeMarkAsPlaying(e,n,r,0!==s,this.DbToLinear(i));try{await this.PostToDOMAsync("play",{"originalUrl":e,"url":o.url,"type":o.type,"isMusic":r,"tags":this._SplitTags(n),"isLooping":0!==s,"vol":this.DbToLinear(i),"stereoPan":l.clamp(a/100,-1,1),"pos":0,"off":h,"trueClock":u})}finally{c&&(c["placeholder"]=this._runtime.GetTickCountNoSave())}},async PlayAtPositionByName(t,e,s,i,a,n,r,o,h,u,c,d){if(this._isSilent)return;const _=1===t,f=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e)||this._remoteUrls.get(e.toLowerCase());if(!f)return;const{playOffset:p,isTrueClock:g}=this._GetScheduledPlayInfo(),y=this._MaybeMarkAsPlaying(e,d,_,0!==s,this.DbToLinear(i));try{await this.PostToDOMAsync("play",{"originalUrl":e,"url":f.url,"type":f.type,"isMusic":_,"tags":this._SplitTags(d),"isLooping":0!==s,"vol":this.DbToLinear(i),"pos":0,"off":p,"trueClock":g,"panning":{"x":a,"y":n,"z":r,"angle":l.toRadians(o),"innerAngle":l.toRadians(h),"outerAngle":l.toRadians(u),"outerGain":this.DbToLinear(c)}})}finally{y&&(y["placeholder"]=this._runtime.GetTickCountNoSave())}},async PlayAtObjectByName(t,e,s,i,a,n,r,o,h){if(this._isSilent)return;if(this._isSilent)return;if(!a)return;const u=a.GetFirstPicked();if(!u||!u.GetWorldInfo())return;const c=u.GetWorldInfo(),d=c.GetLayer().GetAngle(),[_,f]=this.rotatePtAround(c.GetX(),c.GetY(),-d,this._listenerPos[0],this._listenerPos[1]),p=1===t,g=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e)||this._remoteUrls.get(e.toLowerCase());if(!g)return;const{playOffset:y,isTrueClock:m}=this._GetScheduledPlayInfo(),T=this._MaybeMarkAsPlaying(e,h,p,0!==s,this.DbToLinear(i));try{await this.PostToDOMAsync("play",{"originalUrl":e,"url":g.url,"type":g.type,"isMusic":p,"tags":this._SplitTags(h),"isLooping":0!==s,"vol":this.DbToLinear(i),"pos":0,"off":y,"trueClock":m,"panning":{"x":_,"y":f,"z":c.GetTotalZElevation(),"angle":c.GetAngle()-d,"innerAngle":l.toRadians(n),"outerAngle":l.toRadians(r),"outerGain":this.DbToLinear(o),"uid":u.GetUID()}})}finally{T&&(T["placeholder"]=this._runtime.GetTickCountNoSave())}},SetLooping(t,e){this.PostToDOM("set-looping",{"tags":this._SplitTags(t),"isLooping":0===e})},SetMuted(t,e){this.PostToDOM("set-muted",{"tags":this._SplitTags(t),"isMuted":0===e})},SetVolume(t,e){this.PostToDOM("set-volume",{"tags":this._SplitTags(t),"vol":this.DbToLinear(e)})},FadeVolume(t,e,s,i){this.PostToDOM("fade-volume",{"tags":this._SplitTags(t),"vol":this.DbToLinear(e),"duration":s,"stopOnEnd":0===i})},SetStereoPan(t,e){this.PostToDOM("set-stereo-pan",{"tags":this._SplitTags(t),"p":l.clamp(e/100,-1,1)})},async Preload(t){const e=t[1],s=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t[0]);s&&(this._preloadTotal++,await this.PostToDOMAsync("preload",{"originalUrl":t[0],"url":s.url,"type":s.type,"isMusic":e}),this._preloadCount++)},async PreloadByName(t,e){const s=1===t,i=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e)||this._remoteUrls.get(e.toLowerCase());i&&(this._preloadTotal++,await this.PostToDOMAsync("preload",{"originalUrl":e,"url":i.url,"type":i.type,"isMusic":s}),this._preloadCount++)},SetPlaybackRate(t,e){this.PostToDOM("set-playback-rate",{"tags":this._SplitTags(t),"rate":Math.max(e,0)})},Stop(t){this._MaybeMarkAsStopped(t),this.PostToDOM("stop",{"tags":this._SplitTags(t)})},StopAll(){this._StopAll()},SetPaused(t,e){this.PostToDOM("set-paused",{"tags":this._SplitTags(t),"paused":0===e})},Seek(t,e){this.PostToDOM("seek",{"tags":this._SplitTags(t),"pos":e})},SetSilent(t){2===t&&(t=this._IsSilent()?1:0),this._SetSilent(0===t)},SetMasterVolume(t){const e=this.DbToLinear(t);this._SetMasterVolume(e)},AddFilterEffect(t,e,s,i,a,n,r){const o=h[e];this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"filter","tags":this._SplitTags(t),"params":[o,s,i,a,n,l.clamp(r/100,0,1)]})},AddDelayEffect(t,e,s,i){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"delay","tags":this._SplitTags(t),"params":[e,this.DbToLinear(s),l.clamp(i/100,0,1)]})},AddFlangerEffect(t,e,s,i,a,n){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"flanger","tags":this._SplitTags(t),"params":[e/1e3,s/1e3,i,a/100,l.clamp(n/100,0,1)]})},AddPhaserEffect(t,e,s,i,a,n,r){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"phaser","tags":this._SplitTags(t),"params":[e,s,i,a,n,l.clamp(r/100,0,1)]})},AddConvolutionEffect(t,e,s,i){const a=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e[0]);a&&(this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"convolution","tags":this._SplitTags(t),"bufferOriginalUrl":e[0],"bufferUrl":a.url,"bufferType":a.type,"params":[0===s,l.clamp(i/100,0,1)]}))},AddGainEffect(t,e){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"gain","tags":this._SplitTags(t),"params":[this.DbToLinear(e)]})},AddStereoPanEffect(t,e){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"stereopan","tags":this._SplitTags(t),"params":[l.clamp(e/100,-1,1)]})},AddMuteEffect(t){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"gain","tags":this._SplitTags(t),"params":[0]})},AddTremoloEffect(t,e,s){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"tremolo","tags":this._SplitTags(t),"params":[e,l.clamp(s/100,0,1)]})},AddRingModEffect(t,e,s){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"ringmod","tags":this._SplitTags(t),"params":[e,l.clamp(s/100,0,1)]})},AddDistortionEffect(t,e,s,i,a,n){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"distortion","tags":this._SplitTags(t),"params":[this.DbToLinearNoCap(e),this.DbToLinearNoCap(s),i,this.DbToLinearNoCap(a),l.clamp(n/100,0,1)]})},AddCompressorEffect(t,e,s,i,a,n){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"compressor","tags":this._SplitTags(t),"params":[e,s,i,a/1e3,n/1e3]})},AddAnalyserEffect(t,e,s){this._IncrementEffectCount(t),this.PostToDOM("add-effect",{"type":"analyser","tags":this._SplitTags(t),"params":[e,s]})},RemoveEffects(t){const e=this._SplitTags(t);for(const t of e)this._effectCount.set(t.toLowerCase(),0);this.PostToDOM("remove-effects",{"tags":e}),this._lastFxState={}},SetEffectParameter(t,e,s,i,a,n){this.PostToDOM("set-effect-param",{"tags":this._SplitTags(t),"index":Math.floor(e),"param":s,"value":i,"ramp":a,"time":n})},SetListenerObject(t){if(!t)return;const e=t.GetFirstPicked();e&&e.GetWorldInfo()&&(this._listenerInst=e)},SetListenerZ(t){this._listenerPos[2]=t},SetListenerOrientation(t,e,s,i,a,n){this._listenerForwardVec[0]=t,this._listenerForwardVec[1]=e,this._listenerForwardVec[2]=-s,this._listenerUpVec[0]=i,this._listenerUpVec[1]=a,this._listenerUpVec[2]=-n},ScheduleNextPlay(t){this._nextPlayTime=Math.max(t,0),this._nextPlayOffset=Math.max(t-performance.now()/1e3,0)},UnloadAudio(t){const e=t[1],s=this._runtime.GetAssetManager().GetProjectAudioFileUrl(t[0]);s&&this.PostToDOM("unload",{"url":s.url,"type":s.type,"isMusic":e})},UnloadAudioByName(t,e){const s=1===t,i=this._runtime.GetAssetManager().GetProjectAudioFileUrl(e)||this._remoteUrls.get(e.toLowerCase());i&&this.PostToDOM("unload",{"url":i.url,"type":i.type,"isMusic":s})},UnloadAll(){this.PostToDOM("unload-all")},AddRemoteURL(t,e,s){this._remoteUrls.set(s.toLowerCase(),{url:t,type:e})}}}{const u=self.C3;u.Plugins.Audio.Exps={Duration(t){const e=this._GetFirstAudioStateByTags(t);return e?e["duration"]:0},PlaybackTime(t){const e=this._GetFirstAudioStateByTags(t);return e?e["playbackTime"]:0},PlaybackRate(t){const e=this._GetFirstAudioStateByTags(t);return e?e["playbackRate"]:0},Volume(t){const e=this._GetFirstAudioStateByTags(t);return e?this.LinearToDb(e["volume"]):0},MasterVolume(){return this.LinearToDb(this._GetMasterVolume())},EffectCount(t){return this._effectCount.get(t.toLowerCase())||0},AnalyserFreqBinCount(t,e){const s=this.GetAnalyserData(t,Math.floor(e));return s?s["binCount"]:0},AnalyserFreqBinAt(t,e,s){const i=this.GetAnalyserData(t,Math.floor(e));return i?(s=Math.floor(s))<0||s>=i["binCount"]?0:i["freqBins"][s]:0},AnalyserPeakLevel(t,e){const s=this.GetAnalyserData(t,Math.floor(e));return s?s["peak"]:0},AnalyserRMSLevel(t,e){const s=this.GetAnalyserData(t,Math.floor(e));return s?s["rms"]:0},SampleRate(){return this._sampleRate},CurrentTime:()=>self["C3_GetAudioContextCurrentTime"]?self["C3_GetAudioContextCurrentTime"]():performance.now()/1e3,OutputLatency(){return this._outputLatency},NormalizedVolume(t,e){return 0===(t=u.clamp(+t,0,100)/100)?-1/0:t<.1?this.LinearToDb(u.lerp(0,this.DbToLinear(e),10*t)):u.lerp(e,0,(t-.1)/.9)}}}
 }
 
 // scripts/behaviors/solid/c3runtime/runtime.js
@@ -1164,9 +1189,9 @@ self["C3_Shaders"]["brightness"] = {
 const C3=self.C3,b2Separator={};C3.Behaviors.Physics.Separator=b2Separator;const GetVec2=C3.Behaviors.Physics.GetVec2,FreeVec2=C3.Behaviors.Physics.FreeVec2;function CloneVec2(e){return GetVec2(e["get_x"](),e["get_y"]())}function SplitConvexPolysOver8Points(e){const t=[];for(const r of e)r.length<=8?t.push(r):t.push.apply(t,SplitConvexPoly(r));return t}function SplitConvexPoly(e){const t=[];t.push(e.splice(0,8));const r=t[0][0];let n=t[0][7];for(;e.length;){const a=e.splice(0,Math.min(e.length,6));let o=a.at(-1);a.push(CloneVec2(r)),a.push(CloneVec2(n)),t.push(a),n=o}return t}b2Separator.det=function(e,t,r,n,a,o){return e*n+r*o+a*t-t*r-n*a-o*e},b2Separator.hitRay=function(e,t,r,n,a,o,s,g){const p=r-e,i=n-t,c=s-a,h=g-o,_=(c*(o-t)-h*(a-e))/(i*c-p*h),u=e+_*p,l=t+_*i,y=b2Separator.isOnSegment(r,n,e,t,u,l),f=b2Separator.isOnSegment(u,l,a,o,s,g);return y&&f?GetVec2(u,l):null},b2Separator.isOnSegment=function(e,t,r,n,a,o){return(r+.1>=e&&e>=a-.1||r-.1<=e&&e<=a+.1)&&(n+.1>=t&&t>=o-.1||n-.1<=t&&t<=o+.1)&&b2Separator.isOnLine(e,t,r,n,a,o)},b2Separator.isOnLine=function(e,t,r,n,a,o){if(Math.abs(a-r)>.1){const s=(o-n)/(a-r)*(e-r)+n;return Math.abs(s-t)<.1}return Math.abs(e-r)<.1},b2Separator.pointsMatch=function(e,t,r,n){return Math.abs(r-e)<.1&&Math.abs(n-t)<.1},b2Separator.Separate=function(e,t){if(3===e.length)return[e.map(e=>GetVec2(e["get_x"](),e["get_y"]()))];const r=b2Separator.calcShapes(e);let n=[];for(let e=0,a=r.length;e<a;++e){const a=r[e],o=[];let s=0;for(let e=0,t=a.length;e<t;++e){const r=a[e],n=a[(e+1)%t];s+=r["get_x"]()*n["get_y"]()-r["get_y"]()*n["get_x"](),o.push(GetVec2(r["get_x"](),r["get_y"]()))}if(s=Math.abs(s/2),s>=.001*t)n.push(o);else for(let e=0,t=o.length;e<t;e++)FreeVec2(o[e])}return n=SplitConvexPolysOver8Points(n),n},b2Separator.calcShapes=function(e){let t,r,n,a,o,s,g,p=[],i=0,c=0,h=0,_=0,u=0,l=0,y=0,f=0,S=0,b=0,x=0,V=0,C=0,v=0,M=0,O=[],P=[],m=!1,G=[],F=[],k=!1;for(F.push(e);F.length;){for(p=F[0],c=p.length,m=!0,i=0;i<c;i++)if(S=i,b=i<c-1?i+1:i+1-c,x=i<c-2?i+2:i+2-c,t=p[S],r=p[b],n=p[x],_=b2Separator.det(t["get_x"](),t["get_y"](),r["get_x"](),r["get_y"](),n["get_x"](),n["get_y"]()),_<0){for(m=!1,f=1e9,h=0;h<c;h++)h!==S&&h!==b&&(V=h,C=h<c-1?h+1:0,a=p[V],o=p[C],s=b2Separator.hitRay(t["get_x"](),t["get_y"](),r["get_x"](),r["get_y"](),a["get_x"](),a["get_y"](),o["get_x"](),o["get_y"]()),s&&(l=r["get_x"]()-s["get_x"](),y=r["get_y"]()-s["get_y"](),u=l*l+y*y,u<f?(M=V,v=C,g=s,f=u):FreeVec2(s)));if(1e9===f)return[];for(O=[],P=[],V=M,C=v,a=p[V],o=p[C],k=!1,b2Separator.pointsMatch(g["get_x"](),g["get_y"](),o["get_x"](),o["get_y"]())||(O.push(g),k=!0),b2Separator.pointsMatch(g["get_x"](),g["get_y"](),a["get_x"](),a["get_y"]())||(P.push(g),k=!0),k||FreeVec2(g),M=-1,v=S;;){if(v===C){if(M<0||M>=c)return[];b2Separator.isOnSegment(o["get_x"](),o["get_y"](),p[M]["get_x"](),p[M]["get_y"](),t["get_x"](),t["get_y"]())||O.push(p[v]);break}O.push(p[v]),M=v,v-1<0?v=c-1:v--}for(O.reverse(),M=-1,v=b;;){if(v===V){if(M<0||M>=c)return[];v!==V||b2Separator.isOnSegment(a["get_x"](),a["get_y"](),p[M]["get_x"](),p[M]["get_y"](),r["get_x"](),r["get_y"]())||P.push(p[v]);break}P.push(p[v]),M=v,v+1>c-1?v=0:v++}F.push(O,P),F.shift();break}m&&G.push(F.shift())}return G};
 }
 
-// scripts/behaviors/Timer/c3runtime/runtime.js
+// scripts/behaviors/LOS/c3runtime/runtime.js
 {
-{const e=self.C3;e.Behaviors.Timer=class extends e.SDKBehaviorBase{constructor(e){super(e)}Release(){super.Release()}}}{const e=self.C3;e.Behaviors.Timer.Type=class extends e.SDKBehaviorTypeBase{constructor(e){super(e)}Release(){super.Release()}OnCreate(){}}}{const e=self.C3,t=self.C3X,r=self.IBehaviorInstance;e.Behaviors.Timer.SingleTimer=class{constructor(t,r,i,s){this._current=e.New(e.KahanSum),this._current.Set(t||0),this._total=e.New(e.KahanSum),this._total.Set(r||0),this._duration=i||0,this._isRegular=!!s,this._isPaused=!1}GetCurrentTime(){return this._current.Get()}GetTotalTime(){return this._total.Get()}GetDuration(){return this._duration}SetPaused(e){this._isPaused=!!e}IsPaused(){return this._isPaused}Add(e){this._current.Add(e),this._total.Add(e)}HasFinished(){return this._current.Get()>=this._duration}Update(){if(this.HasFinished()){if(!this._isRegular)return!0;this._current.Subtract(this._duration)}return!1}SaveToJson(){return{"c":this._current.Get(),"t":this._total.Get(),"d":this._duration,"r":this._isRegular,"p":this._isPaused}}LoadFromJson(e){this._current.Set(e["c"]),this._total.Set(e["t"]),this._duration=e["d"],this._isRegular=!!e["r"],this._isPaused=!!e["p"]}},e.Behaviors.Timer.Instance=class extends e.SDKBehaviorInstanceBase{constructor(e,t){super(e),this._timers=new Map}Release(){this._timers.clear(),super.Release()}_StartTimer(t,r,i){const s=new e.Behaviors.Timer.SingleTimer(0,0,t,i);this._timers.set(r.toLowerCase(),s),this._UpdateTickState()}_StopTimer(e){this._timers.delete(e.toLowerCase()),this._UpdateTickState()}_StopAllTimers(){this._timers.clear(),this._UpdateTickState()}_IsTimerRunning(e){return this._timers.has(e.toLowerCase())}_GetTimerCurrentTime(e){const t=this._timers.get(e.toLowerCase());return t?t.GetCurrentTime():0}_GetTimerNormalizedProgress(e){const t=this._timers.get(e.toLowerCase());return t?t.GetCurrentTime()/t.GetDuration():0}_GetTimerTotalTime(e){const t=this._timers.get(e.toLowerCase());return t?t.GetTotalTime():0}_GetTimerDuration(e){const t=this._timers.get(e.toLowerCase());return t?t.GetDuration():0}_HasTimerFinished(e){const t=this._timers.get(e.toLowerCase());return!!t&&t.HasFinished()}_SetTimerPaused(e,t){const r=this._timers.get(e.toLowerCase());r&&r.SetPaused(t)}_IsTimerPaused(e){const t=this._timers.get(e.toLowerCase());return!!t&&t.IsPaused()}_SetAllTimersPaused(e){for(const t of this._timers.values())t.SetPaused(e)}_UpdateTickState(){this._timers.size>0?(this._StartTicking(),this._StartTicking2()):(this._StopTicking(),this._StopTicking2())}SaveToJson(){const e={};for(const[t,r]of this._timers.entries())e[t]=r.SaveToJson();return e}LoadFromJson(t){this._timers.clear();for(const[r,i]of Object.entries(t)){const t=new e.Behaviors.Timer.SingleTimer;t.LoadFromJson(i),this._timers.set(r,t)}this._UpdateTickState()}Tick(){const e=this._runtime.GetDt(this._inst);for(const[t,r]of this._timers)r.IsPaused()||(r.Add(e),r.HasFinished()&&this.DispatchScriptEvent("timer",!1,{tag:t}))}Tick2(){for(const[e,t]of this._timers.entries()){t.Update()&&this._timers.delete(e)}}GetDebuggerProperties(){return[{title:"behaviors.timer.debugger.timers",properties:[...this._timers.entries()].map(e=>({name:"$"+e[0],value:`${Math.round(10*e[1].GetCurrentTime())/10} / ${Math.round(10*e[1].GetDuration())/10}`}))}]}GetScriptInterfaceClass(){return self.ITimerBehaviorInstance}};const i=["once","regular"];self.ITimerBehaviorInstance=class extends r{#e;constructor(){super(),this.#e=r._GetInitInst().GetSdkInstance()}startTimer(e,r,s="once"){t.RequireFiniteNumber(e),t.RequireString(r);const a=i.indexOf(s);if(-1===a)throw new Error("invalid type");this.#e._StartTimer(e,r,1===a)}setTimerPaused(e,r){t.RequireString(e),this.#e._SetTimerPaused(e,!!r)}setAllTimersPaused(e){this.#e._SetAllTimersPaused(!!e)}stopTimer(e){t.RequireString(e),this.#e._StopTimer(e)}stopAllTimers(){this.#e._StopAllTimers()}isTimerRunning(e){return t.RequireString(e),this.#e._IsTimerRunning(e)}isTimerPaused(e){return t.RequireString(e),this.#e._IsTimerPaused(e)}getCurrentTime(e){return t.RequireString(e),this.#e._GetTimerCurrentTime(e)}getNormalizedProgress(e){return t.RequireString(e),this.#e._GetTimerNormalizedProgress(e)}getTotalTime(e){return t.RequireString(e),this.#e._GetTimerTotalTime(e)}getDuration(e){return t.RequireString(e),this.#e._GetTimerDuration(e)}hasFinished(e){return t.RequireString(e),this.#e._HasTimerFinished(e)}}}self.C3.Behaviors.Timer.Cnds={OnTimer(e){return this._HasTimerFinished(e)},IsTimerRunning(e){return this._IsTimerRunning(e)},IsTimerPaused(e){return this._IsTimerPaused(e)}};self.C3.Behaviors.Timer.Acts={StartTimer(e,t,r){this._StartTimer(e,r,1===t)},StopTimer(e){this._StopTimer(e)},StopAllTimers(){this._StopAllTimers()},PauseResumeTimer(e,t){this._SetTimerPaused(e,0===t)},PauseResumeAllTimers(e){this._SetAllTimersPaused(0===e)}};self.C3.Behaviors.Timer.Exps={CurrentTime(e){return this._GetTimerCurrentTime(e)},NormalizedProgress(e){return this._GetTimerNormalizedProgress(e)},TotalTime(e){return this._GetTimerTotalTime(e)},Duration(e){return this._GetTimerDuration(e)}};
+{const e=self.C3;e.Behaviors.LOS=class extends e.SDKBehaviorBase{constructor(e){super(e)}Release(){super.Release()}}}{const e=self.C3;e.Behaviors.LOS.Type=class extends e.SDKBehaviorTypeBase{constructor(e){super(e),this._obstacleTypes=[]}Release(){e.clearArray(this._obstacleTypes),super.Release()}OnCreate(){}AddObstacle(e){if(!this._obstacleTypes.includes(e)){for(const t of this._obstacleTypes)if(t.IsFamily()&&t.FamilyHasMember(e))return;this._obstacleTypes.push(e)}}ClearObstacles(){e.clearArray(this._obstacleTypes)}GetObstacleTypes(){return this._obstacleTypes}FindLOSBehavior(e){const t=this.GetBehaviorType();for(const s of e.GetBehaviorInstances())if(s.GetBehaviorType()===t)return s.GetSdkInstance();return null}}}{const e=self.C3,t=self.C3X,s=self.IBehaviorInstance,n=0,i=1,r=2,a=3,o=0,l=[];e.Behaviors.LOS.Instance=class extends e.SDKBehaviorInstanceBase{constructor(t,s){super(t),this._obstacleMode=0,this._range=1e4,this._cone=e.toRadians(360),this._useCollisionCells=!0,this._ray=new e.Ray,s&&(this._obstacleMode=s[n],this._range=s[i],this._cone=e.toRadians(s[r]),this._useCollisionCells=s[a])}Release(){super.Release()}SaveToJson(){return{"r":this._range,"c":this._cone,"om":this._obstacleMode,"ucc":this._useCollisionCells,"t":this.GetSdkType().GetObstacleTypes().map(e=>e.GetSID())}}LoadFromJson(t){this._range=t["r"],this._cone=t["c"],this._obstacleMode=t["om"]||0,this._useCollisionCells=!!t["ucc"];const s=this.GetSdkType().GetObstacleTypes();e.clearArray(s);for(const e of t["t"]){const t=this._runtime.GetObjectClassBySID(e);t&&s.push(t)}}HasLOSToInstance(e,t){const s=e.GetUID(),[n,i]=e.GetImagePoint(t);return this.HasLOSTo(n,i)||this._ray.DidCollide()&&this._ray.hitUid===s}HasLOSTo(e,t){const s=this.GetWorldInfo();let n=s.GetAngle();return s.GetWidth()<0&&(n+=Math.PI),this.HasLOSBetweenPositions(s.GetX(),s.GetY(),n,e,t)}HasLOSBetweenPositions(t,s,n,i,r){this._ray.Reset();const a=this._range;if(e.distanceSquared(t,s,i,r)>a*a)return!1;const o=e.angleTo(t,s,i,r);if(e.angleDiff(n,o)>this._cone/2)return!1;return!this.CastRay(t,s,i,r,this._useCollisionCells).DidCollide()}_GetCollisionCandidates(t,s){if(s){const e=this.GetWorldInfo().GetLayer(),s=this._runtime.GetCollisionEngine();return this._obstacleMode===o?s.GetSolidCollisionCandidates(e,t.rect,l):s.GetObjectClassesCollisionCandidates(e,this._GetObstacleTypes(),t.rect,l),l}if(this._obstacleMode===o){const e=this._runtime.GetSolidBehavior();return e?e.GetInstances():l}for(const t of this._GetObstacleTypes())e.appendArray(l,t.GetInstances());return l}_GetObstacleTypes(){return this.GetSdkType().GetObstacleTypes()}CastRay(t,s,n,i,r){const a=this._ray.Set(t,s,n,i),c=this._GetCollisionCandidates(a,r),h=this._runtime.GetCollisionEngine(),u=this._obstacleMode===o,_=this._inst;for(let e=0,t=c.length;e<t;++e){const t=c[e];t!==_&&(u&&!h.IsSolidCollisionAllowed(t,_)||h.TestRayIntersectsInstance(t,a))}return a.Complete(),e.clearArray(l),a}_GetRay(){return this._ray}_GetRayHitX(){const e=this._ray;return e.DidCollide()?e.hitX:0}_GetRayHitY(){const e=this._ray;return e.DidCollide()?e.hitY:0}_GetRayHitDistance(){const e=this._ray;return e.DidCollide()?e.distance:0}_GetRayHitUID(){const e=this._ray;return e.DidCollide()?e.hitUid:-1}_GetRayNormalX(e){const t=this._ray;return t.DidCollide()?t.hitX+e*t.normalX:0}_GetRayNormalY(e){const t=this._ray;return t.DidCollide()?t.hitY+e*t.normalY:0}_GetRayNormalAngle(){const e=this._ray;return e.DidCollide()?e.hitNormal:0}_GetRayReflectionX(e){const t=this._ray;return t.DidCollide()?t.hitX+e*t.reflectionX:0}_GetRayReflectionY(e){const t=this._ray;return t.DidCollide()?t.hitY+e*t.reflectionY:0}_GetRayReflectionAngle(){const e=this._ray;return e.DidCollide()?Math.atan2(e.reflectionY,e.reflectionX):0}_SetRange(e){this._range=e}_GetRange(){return this._range}_SetConeOfView(e){this._cone=e}_GetConeOfView(){return this._cone}GetPropertyValueByIndex(t){switch(t){case n:return this._obstacleMode;case i:return this._range;case r:return e.toDegrees(this._cone);case a:return this._useCollisionCells}}SetPropertyValueByIndex(t,s){switch(t){case n:this._obstacleMode=s;break;case i:this._range=s;break;case r:this._cone=e.toRadians(s);break;case a:this._useCollisionCells=!!s}}GetDebuggerProperties(){const t="behaviors.los.properties";return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:t+".range.name",value:this._GetRange(),onedit:e=>this._SetRange(e)},{name:t+".cone-of-view.name",value:e.toDegrees(this._GetConeOfView()),onedit:t=>this._SetConeOfView(e.toRadians(t))}]}]}GetScriptInterfaceClass(){return self.ILOSBehaviorInstance}};const c=new WeakMap;self.ILOSBehaviorInstance=class extends s{constructor(){super();const e=s._GetInitInst().GetSdkInstance();c.set(this,e),this.ray=new self.ILOSBehaviorRay(e)}set range(e){t.RequireFiniteNumber(e),c.get(this)._SetRange(e)}get range(){return c.get(this)._GetRange()}set coneOfView(e){t.RequireFiniteNumber(e),c.get(this)._SetConeOfView(e)}get coneOfView(){return c.get(this)._GetConeOfView()}hasLOStoPosition(e,s){return t.RequireNumber(e),t.RequireNumber(s),c.get(this).HasLOSTo(e,s)}hasLOSBetweenPositions(e,s,n,i,r){return t.RequireNumber(e),t.RequireNumber(s),t.RequireNumber(n),t.RequireNumber(i),t.RequireNumber(r),c.get(this).HasLOSBetweenPositions(e,s,n,i,r)}castRay(e,s,n,i,r=!0){return t.RequireNumber(e),t.RequireNumber(s),t.RequireNumber(n),t.RequireNumber(i),c.get(this).CastRay(e,s,n,i,r),this.ray}addObstacle(e){const t=c.get(this),s=t.GetRuntime()._UnwrapIObjectClass(e);t.GetSdkType().AddObstacle(s)}clearObstacles(){c.get(this).GetSdkType().ClearObstacles()}},self.ILOSBehaviorRay=class{constructor(e){c.set(this,e)}get didCollide(){return c.get(this)._GetRay().DidCollide()}get hitX(){return c.get(this)._GetRayHitX()}get hitY(){return c.get(this)._GetRayHitY()}getHitPosition(){const e=c.get(this);return[e._GetRayHitX(),e._GetRayHitY()]}get hitDistance(){return c.get(this)._GetRayHitDistance()}get hitUid(){return c.get(this)._GetRayHitUID()}getNormalX(e){return t.RequireFiniteNumber(e),c.get(this)._GetRayNormalX(e)}getNormalY(e){return t.RequireFiniteNumber(e),c.get(this)._GetRayNormalY(e)}getNormal(e){t.RequireFiniteNumber(e);const s=c.get(this);return[s._GetRayNormalX(e),s._GetRayNormalY(e)]}get normalAngle(){return c.get(this)._GetRayNormalAngle()}getReflectionX(e){return t.RequireFiniteNumber(e),c.get(this)._GetRayReflectionX(e)}getReflectionY(e){return t.RequireFiniteNumber(e),c.get(this)._GetRayReflectionY(e)}getReflection(e){t.RequireFiniteNumber(e);const s=c.get(this);return[s._GetRayReflectionX(e),s._GetRayReflectionY(e)]}get reflectionAngle(){return c.get(this)._GetRayReflectionAngle()}}}{const e=self.C3,t=new Set,s=new Set;e.Behaviors.LOS.Cnds={HasLOSToPosition(e,t){return this.HasLOSTo(e,t)},RayIntersected(){return this._ray.DidCollide()},HasLOSBetweenPositions(t,s,n,i,r){return this.HasLOSBetweenPositions(t,s,e.toRadians(n),i,r)},HasLOSToObject(n,i){if(!n)return!1;const r=this._runtime.GetCurrentCondition(),a=r.GetEventBlock().IsOrBlock(),o=r.GetRuntime(),l=r.GetObjectClass().GetCurrentSol(),c=n.GetCurrentSol();let h=l.GetInstances(),u=c.GetInstances();l.IsSelectAll()?e.clearArray(l._GetOwnElseInstances()):a&&(h=o.IsCurrentConditionFirst()&&!l._GetOwnElseInstances().length&&l._GetOwnInstances().length?l._GetOwnInstances():l._GetOwnElseInstances()),c.IsSelectAll()?e.clearArray(c._GetOwnElseInstances()):a&&(u=o.IsCurrentConditionFirst()&&!c._GetOwnElseInstances().length&&c._GetOwnInstances().length?c._GetOwnInstances():c._GetOwnElseInstances());const _=r.IsInverted(),d=this.GetSdkType();for(const n of h){let r=!1;const a=d.FindLOSBehavior(n);if(0===u.length)_&&(r=!0);else for(const t of u)n!==t&&e.xor(a.HasLOSToInstance(t,i),_)&&(r=!0,s.add(t));r&&t.add(n)}return a?(h===l._GetOwnElseInstances()?l.TransferElseInstancesToOwn(t):(l.AddElseInstances(t,h),l.SetSetPicked(t)),u===c._GetOwnElseInstances()?c.TransferElseInstancesToOwn(s):(c.AddElseInstances(s,u),c.SetSetPicked(s))):(l.SetSetPicked(t),c.SetSetPicked(s)),t.clear(),s.clear(),l.HasAnyInstances()}}}{const e=self.C3;e.Behaviors.LOS.Acts={SetRange(e){this._SetRange(e)},SetCone(t){this._SetConeOfView(e.toRadians(t))},CastRay(e,t,s,n,i){this.CastRay(e,t,s,n,i)},AddObstacle(e){this.GetSdkType().AddObstacle(e)},ClearObstacles(){this.GetSdkType().ClearObstacles()}}}{const e=self.C3;e.Behaviors.LOS.Exps={Range(){return this._GetRange()},ConeOfView(){return e.toDegrees(this._GetConeOfView())},HitX(){return this._GetRayHitX()},HitY(){return this._GetRayHitY()},HitDistance(){return this._GetRayHitDistance()},HitUID(){return this._GetRayHitUID()},NormalX(e){return this._GetRayNormalX(e)},NormalY(e){return this._GetRayNormalY(e)},NormalAngle(){return e.toDegrees(this._GetRayNormalAngle())},ReflectionX(e){return this._GetRayReflectionX(e)},ReflectionY(e){return this._GetRayReflectionY(e)},ReflectionAngle(){return e.toDegrees(this._GetRayReflectionAngle())}}}
 }
 
 // scripts/behaviors/Pin/c3runtime/runtime.js
@@ -1287,27 +1312,76 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
-		() => "Basic Handling",
+		() => "Basic Handling / Start of Layout",
+		() => 10,
+		() => 0,
+		() => 25,
+		() => 26,
+		() => "Victory Screen",
+		() => 400,
+		() => 43,
+		() => 155,
+		() => "Pegs",
+		() => "Gameplay",
+		() => 587,
+		() => "",
+		() => 393,
+		() => 632,
+		() => "UI",
+		() => 39,
+		() => 323,
+		() => 38.997931,
+		() => 322.778345,
+		() => 762,
+		() => 305,
+		() => 764,
+		() => 556,
+		() => 490,
+		() => 303,
+		() => 311,
+		() => 363,
+		() => 443,
+		() => 439,
+		() => 16,
+		() => 569,
+		() => 80,
+		() => 135,
+		() => 250,
+		() => 157,
+		() => 288,
+		() => 240,
+		() => 202,
+		() => 340,
+		() => 253,
+		() => 670,
+		() => 74,
+		() => 704,
+		() => 209,
+		() => 338,
+		() => 463,
+		() => 589,
+		() => 721,
+		() => 142,
+		() => 274,
+		() => 527,
+		() => 656,
 		() => 1,
+		() => 315,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => and("Balls: ", v0.GetValue());
+			return () => and("[outlineback=#000000][lineThickness=5]Balls: ", v0.GetValue());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => and("Orange: ", v0.GetValue());
+			return () => and("[outlineback=#000000][lineThickness=5]Orange: ", v0.GetValue());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => and("Turn: ", v0.GetValue());
+			return () => and("[outlineback=#000000][lineThickness=5]Turn ", v0.GetValue());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => and("Score: ", v0.GetValue());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("Current Multiplier: x", v0.GetValue());
+			return () => and("[outlineback=#000000][lineThickness=5]Score: ", v0.GetValue());
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1315,7 +1389,7 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() + 10);
+			return () => (n0.ExpObject() + 15);
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1325,28 +1399,56 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 50);
 		},
-		() => "Victory Screen",
-		() => "Ball (Shooter)",
+		() => "Additional Object Position Handling",
+		() => "25K",
+		() => "50k",
+		() => "100K",
+		() => -67,
+		() => -225.17908,
+		() => 48.061917,
+		() => -250,
+		() => 513,
+		() => 300,
+		() => "EndScreen",
+		() => "MainGameplay",
+		() => "Debug Controls",
+		() => "Ball Shooter",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
 		},
-		() => 0,
-		() => "",
+		() => 0.2,
 		() => 4,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() + 20);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 20);
+		},
+		() => "Menu",
 		() => "Score Modifiers",
 		() => "Multiplier",
 		() => 15,
 		() => 2,
-		() => 10,
 		() => 3,
 		() => 6,
 		() => 5,
 		() => "Free Ball via Points Total",
-		() => 25000,
-		() => 75000,
-		() => 125000,
+		() => 20000,
+		() => 40000,
+		() => 60000,
+		() => 80000,
+		() => 100000,
 		() => "End of Turn Handler",
+		() => "Coin Flip",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(6, 12);
+		},
+		() => 1.5,
+		() => "Score Calculation",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
@@ -1356,19 +1458,58 @@ self.C3_ExpressionFuncs = [
 			return () => ((((v0.GetValue() * 10) + (v1.GetValue() * 100)) * (v2.GetValue() + v3.GetValue())) * v4.GetValue());
 		},
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(6, 12);
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => and((and((and((and("[outlineback=#000000][lineThickness=5](", (v0.GetValue() * 10)) + " + "), (v1.GetValue() * 100)) + ") x "), (v2.GetValue() + v3.GetValue())) + ") x "), v4.GetValue());
 		},
-		() => 1.5,
-		() => "CircleBlueActive",
-		() => "BrickBlueActive",
-		() => "CurveBlueActive",
-		() => "CircleOrangeActive",
-		() => "BrickOrangeActive",
-		() => "CurveOrangeActive",
-		() => "CirclePurpleActive",
-		() => "BrickPurpleActive",
-		() => "CurvePurpleActive",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => (((((v0.GetValue() * 10) + (v1.GetValue() * 100)) * (v2.GetValue() + v3.GetValue())) * v4.GetValue()) * 1.5);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => (and((and((and((and("[outlineback=#000000][lineThickness=5]((", (v0.GetValue() * 10)) + " + "), (v1.GetValue() * 100)) + ") x "), (v2.GetValue() + v3.GetValue())) + ") x "), v4.GetValue()) + ") x 1.5");
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => (((((v0.GetValue() * 10) + (v1.GetValue() * 100)) * (v2.GetValue() + v3.GetValue())) * v4.GetValue()) * 0.5);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const v4 = p._GetNode(4).GetVar();
+			return () => (and((and((and((and("[outlineback=#000000][lineThickness=5]((", (v0.GetValue() * 10)) + " + "), (v1.GetValue() * 100)) + ") x "), (v2.GetValue() + v3.GetValue())) + ") x "), v4.GetValue()) + ") x 0.5");
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		() => 111,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("[outlineback=#000000][lineThickness=5]", v0.GetValue());
+		},
+		() => 10000,
+		() => 30000,
+		() => 50000,
+		() => "Purple and Evil Peg Despawn",
 		() => "CirclePurple",
 		() => "CircleBlue",
 		() => "BrickPurple",
@@ -1378,13 +1519,31 @@ self.C3_ExpressionFuncs = [
 		() => "CircleEvil",
 		() => "BrickEvil",
 		() => "CurveEvil",
+		() => "Peg Destroy",
+		() => "CircleBlueActive",
+		() => "BrickBlueActive",
+		() => "CurveBlueActive",
+		() => "CircleOrangeActive",
+		() => "BrickOrangeActive",
+		() => "CurveOrangeActive",
+		() => "CirclePurpleActive",
+		() => "BrickPurpleActive",
+		() => "CurvePurpleActive",
+		() => "CircleEvilActive",
+		() => "BrickEvilActive",
+		() => "CurveEvilActive",
+		() => 0.05,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => ((v0.GetValue() + v1.GetValue()) + v2.GetValue());
+		},
+		() => "All Above Processes Complete",
+		() => 0.5,
 		() => "Peg Function",
 		() => "Peg Spawning",
 		() => "Orange Peg Spawning",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
 		() => "CircleOrange",
 		() => "BrickOrange",
 		() => "CurveOrange",
@@ -1392,32 +1551,45 @@ self.C3_ExpressionFuncs = [
 		() => "Evil Peg Spawning",
 		() => "Peg Active",
 		() => "Blue Pegs Active",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("[outlineback=#FFFFFF][lineThickness=5] ", v0.GetValue());
+		},
+		() => 16731960,
 		() => "Orange Pegs Active",
+		() => 27872,
 		() => "Purple Pegs Active",
+		() => "[outlineback=#FFFFFF][lineThickness=5] x1.5!",
+		() => 11337907,
 		() => "Evil Peg Active",
-		() => "CircleEvilActive",
-		() => 500,
-		() => "BrickEvilActive",
-		() => "CurveEvilActive",
+		() => "[outlineback=#FFFFFF][lineThickness=5] x0.5...",
+		() => 6579300,
+		() => "[outlineback=#FFFFFF][lineThickness=5] Nevermind...",
+		() => "Continuous Contact w/ Peg",
+		() => 0.8,
+		() => 120,
 		() => "Bucket Function",
 		() => 0.02,
-		() => 2500,
+		() => 1.2,
 		() => 580,
 		() => 684,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 100);
 		},
+		() => "Game End Handler",
 		() => "Victory Handler",
+		() => 552,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() - 100);
+			return () => (n0.ExpObject() + 40);
 		},
+		() => 789,
 		() => "Rainbow Ball Trail",
 		() => 0.1,
 		() => "Brightness",
 		() => 125,
-		() => 50,
+		() => 100,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -1429,15 +1601,38 @@ self.C3_ExpressionFuncs = [
 			return () => f0(f1(f2(255)), f3(f4(255)), f5(f6(255)));
 		},
 		() => "Victory Buckets",
-		() => "10K",
-		() => 10000,
+		() => 25000,
 		() => "50K",
-		() => 50000,
-		() => "100K",
-		() => 100000,
 		() => "Post-Victory Bucket",
 		() => 511,
-		() => "UI",
+		() => "[outlineback=#000000][lineThickness=5]You win! Press R to reset layout.",
+		() => "Losing Handler",
+		() => "[outlineback=#000000][lineThickness=5]You lose! Press R to reset layout.",
+		() => "UI Elements",
+		() => "AdjustHSL",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue() * 4);
+		},
+		() => "CustomizeMenu",
+		() => 75,
+		() => "CustomizeUIButtons",
+		() => 0.0005,
+		() => "Those Dang Sliders",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() * 4);
+		},
+		() => "Buttons",
+		() => "mute",
+		() => "one",
+		() => "two",
+		() => "three",
+		() => -25,
+		() => -20,
+		() => -10,
+		() => "on",
+		() => "off",
 		() => "BallsLeft",
 		() => "Animated",
 		() => "10Ani",
@@ -1453,7 +1648,9 @@ self.C3_ExpressionFuncs = [
 		() => "3Ani",
 		() => "2Ani",
 		() => "1Ani",
+		() => "0Static",
 		() => "Purple",
+		() => 75000,
 		() => "Yellow",
 		() => "Static",
 		() => "10Static",
@@ -1467,7 +1664,6 @@ self.C3_ExpressionFuncs = [
 		() => "2Static",
 		() => "1Static",
 		() => "Fevermeter",
-		() => 25,
 		() => 24,
 		() => 23,
 		() => 22,
@@ -1476,19 +1672,16 @@ self.C3_ExpressionFuncs = [
 		() => 19,
 		() => 18,
 		() => 17,
-		() => 16,
 		() => 14,
 		() => 11,
 		() => 13,
 		() => 12,
-		() => "hello",
-		() => "https://pachingo.onrender.com/",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject("message");
-		},
-		() => "Logout",
-		() => "Login",
+		() => "Music",
+		() => "Demo Level 1",
+		() => "Demo Level 2",
+		() => "Demo Level 3",
+		() => "Demo Level 4",
+		() => "Demo Level 5",
 		() => "username",
 		() => "password",
 		() => "Content-Type",
@@ -1500,6 +1693,10 @@ self.C3_ExpressionFuncs = [
 		() => "message",
 		p => {
 			const n0 = p._GetNode(0);
+			return () => n0.ExpObject("message");
+		},
+		p => {
+			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("token");
 		},
 		() => "error",
@@ -1508,7 +1705,17 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject("error");
 		},
 		() => "register",
-		() => "https://pachingo.onrender.com/api/users/register"
+		() => "https://pachingo.onrender.com/api/users/register",
+		() => "hello",
+		() => "https://pachingo.onrender.com/",
+		() => "Logout",
+		() => "Login",
+		() => "Level Select",
+		() => "Demo1",
+		() => "Demo2",
+		() => "Demo3",
+		() => "Demo4",
+		() => "Demo5"
 ];
 
 
