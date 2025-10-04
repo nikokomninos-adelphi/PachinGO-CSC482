@@ -25,9 +25,9 @@
 			"sid": 463974545145214
 		},
 		{
-			"behaviorId": "Timer",
-			"name": "Timer",
-			"sid": 649967688668046
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 553479168206460
 		}
 	],
 	"effectTypes": [],

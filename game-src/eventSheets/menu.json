@@ -177,20 +177,36 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-on-screen",
-					"objectClass": "bucket",
-					"sid": 731447886054433
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 231938587499284,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Menu\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 746863349902138
 				}
 			],
 			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "bucket",
-					"sid": 190395396153563
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 445467203502339,
+					"parameters": {
+						"audio-file": "PMD2 OST - Top Menu Theme",
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
 				}
 			],
-			"sid": 362628923022170,
-			"disabled": true
+			"sid": 439428249860000
 		},
 		{
 			"eventType": "group",

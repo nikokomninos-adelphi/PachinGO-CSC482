@@ -1,60 +1,46 @@
 {
 	"name": "bucketVictory",
 	"plugin-id": "Sprite",
-	"sid": 118787599441842,
-	"isGlobal": true,
+	"sid": 298495881990134,
+	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "Sin",
-			"name": "Sine",
-			"sid": 995131980573938
-		},
-		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 467075827439004
-		},
-		{
-			"behaviorId": "Physics",
-			"name": "Physics",
-			"sid": 703149000271698
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 169,
-						"height": 25,
+						"width": 970,
+						"height": 147,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4161069,
+						"imageSpriteId": 3240902,
 						"collisionPoly": {
 							"points": [
-								0.7667159537591876,
-								0.9380002288818358,
-								0.8341715750609637,
-								0.6900000190734855,
-								0.8523668187609801,
-								0.14999996185302744,
-								0.9940828402366864,
-								0.96,
+								0.47525773195876286,
+								0.30612244897959184,
+								0.5247422680412371,
+								0.30612244897959184,
+								0.9257731958762887,
+								0.5170068027210885,
+								1,
+								0.6870748299319728,
+								1,
+								1,
 								0,
 								1,
-								0.1289940828402368,
-								0.23200000000000004,
-								0.18165684987807423,
-								0.7429998474121086,
-								0.24630170743141033,
-								0.9530001525878897
+								0,
+								0.6938775510204082,
+								0.07422680412371134,
+								0.5170068027210885,
+								0.10515463917525773,
+								0.4897959183673469
 							]
 						},
 						"useCollisionPoly": true,
@@ -62,7 +48,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 593208083944537,
+				"sid": 513375694399923,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

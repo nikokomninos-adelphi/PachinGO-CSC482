@@ -2,10 +2,21 @@
 	"name": "Bumper",
 	"plugin-id": "Sprite",
 	"sid": 752258232848519,
-	"isGlobal": false,
+	"isGlobal": true,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 152117217465950
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 141658250877173
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
