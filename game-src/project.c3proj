@@ -238,7 +238,8 @@
 					"SatCrystalSlide",
 					"walldecal",
 					"backbbutton",
-					"Savebbutton"
+					"Savebbutton",
+					"PachingoLogo"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -331,6 +332,14 @@
 					"name": "The_Fragrance_of_Black_Coffee.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 306862376164288,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "PMD2 OST - Top Menu Theme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 661745871338010,
 					"file-info": {
 						"purpose": "none"
 					}

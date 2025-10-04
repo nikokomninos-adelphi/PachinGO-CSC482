@@ -44,7 +44,7 @@
 					"locked": false,
 					"world": {
 						"x": 239,
-						"y": 81,
+						"y": -94,
 						"width": 322,
 						"height": 89,
 						"originX": 0,
@@ -97,7 +97,7 @@
 					"locked": false,
 					"world": {
 						"x": 291,
-						"y": 220,
+						"y": 250,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -203,7 +203,7 @@
 					"locked": false,
 					"world": {
 						"x": 291,
-						"y": 286,
+						"y": 310,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -256,7 +256,7 @@
 					"locked": false,
 					"world": {
 						"x": 291,
-						"y": 348,
+						"y": 370,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -309,7 +309,7 @@
 					"locked": false,
 					"world": {
 						"x": 291,
-						"y": 412,
+						"y": 430,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -887,7 +887,7 @@
 					"locked": false,
 					"world": {
 						"x": 292,
-						"y": 476,
+						"y": 490,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -2157,7 +2157,7 @@
 				{
 					"type": "bucketVictoryHitbox",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -2175,12 +2175,49 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -10,
-						"y": 720,
-						"width": 65,
-						"height": 26,
+						"x": 1.5,
+						"y": 751.5,
+						"width": 98,
+						"height": 83,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PachingoLogo",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 81,
+					"sid": 857810176252231,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 857810176252231,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 350,
+						"y": 140,
+						"width": 555,
+						"height": 194,
+						"originX": 0.3261261261261261,
+						"originY": 0.5515463917525774,
 						"color": [
 							1,
 							1,

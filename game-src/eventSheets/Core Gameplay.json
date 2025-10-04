@@ -679,6 +679,14 @@
 							}
 						},
 						{
+							"id": "move-to-layer",
+							"objectClass": "floorui",
+							"sid": 733812827442606,
+							"parameters": {
+								"layer": "\"Pegs\""
+							}
+						},
+						{
 							"id": "set-visible",
 							"objectClass": "ScoreCalcVisible",
 							"sid": 150374604056316,
@@ -729,14 +737,6 @@
 							"id": "set-visible",
 							"objectClass": "FreeBall",
 							"sid": 742365218203849,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Bumper",
-							"sid": 660680950980150,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -952,10 +952,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 775235061086099,
+							"sid": 220063568845913,
 							"parameters": {
 								"object-to-create": "bucketVictory",
-								"layer": "\"Gameplay\"",
+								"layer": "\"Pegs\"",
 								"x": "400",
 								"y": "670",
 								"create-hierarchy": false,
@@ -1009,6 +1009,19 @@
 								"object-to-create": "Bumper",
 								"layer": "\"Gameplay\"",
 								"x": "463",
+								"y": "704",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 295866907883462,
+							"parameters": {
+								"object-to-create": "Bumper",
+								"layer": "\"Gameplay\"",
+								"x": "589",
 								"y": "704",
 								"create-hierarchy": false,
 								"template-name": "\"\""
@@ -1224,15 +1237,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-size",
-									"objectClass": "bucketVictoryHitbox",
-									"sid": 982560130304302,
-									"parameters": {
-										"width": "65",
-										"height": "26"
-									}
-								},
-								{
 									"id": "change-tags",
 									"objectClass": "bucketVictoryHitbox",
 									"sid": 697439302411922,
@@ -1258,15 +1262,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "bucketVictoryHitbox",
-									"sid": 818275193826323,
-									"parameters": {
-										"width": "54",
-										"height": "26"
-									}
-								},
 								{
 									"id": "change-tags",
 									"objectClass": "bucketVictoryHitbox",
@@ -1294,15 +1289,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-size",
-									"objectClass": "bucketVictoryHitbox",
-									"sid": 781715178468098,
-									"parameters": {
-										"width": "49.478453",
-										"height": "26"
-									}
-								},
-								{
 									"id": "change-tags",
 									"objectClass": "bucketVictoryHitbox",
 									"sid": 749248128504361,
@@ -1329,15 +1315,6 @@
 							],
 							"actions": [
 								{
-									"id": "set-size",
-									"objectClass": "bucketVictoryHitbox",
-									"sid": 875074890742301,
-									"parameters": {
-										"width": "54",
-										"height": "26"
-									}
-								},
-								{
 									"id": "change-tags",
 									"objectClass": "bucketVictoryHitbox",
 									"sid": 531344655415854,
@@ -1363,15 +1340,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-size",
-									"objectClass": "bucketVictoryHitbox",
-									"sid": 713123047389301,
-									"parameters": {
-										"width": "65",
-										"height": "26"
-									}
-								},
 								{
 									"id": "change-tags",
 									"objectClass": "bucketVictoryHitbox",
@@ -1777,6 +1745,11 @@
 									"id": "destroy",
 									"objectClass": "PegHitText",
 									"sid": 286479516621463
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 326992386837108
 								},
 								{
 									"id": "go-to-layout",
@@ -3119,10 +3092,19 @@
 														{
 															"id": "has-tags",
 															"objectClass": "ScoreCountUpwards",
-															"sid": 228638240508899,
+															"sid": 744006311301574,
 															"parameters": {
 																"tags": "\"MainGameplay\""
 															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "ScoreCountUpwards",
+															"sid": 648116163570484,
+															"parameters": {
+																"tags": "\"EndScreen\""
+															},
+															"isInverted": true
 														}
 													],
 													"actions": [
@@ -6939,9 +6921,9 @@
 								{
 									"id": "set-y",
 									"objectClass": "bucketVictoryHitbox",
-									"sid": 487128772555484,
+									"sid": 137615872063406,
 									"parameters": {
-										"y": "bucketHitbox.Y+5"
+										"y": "bucketHitbox.Y+40"
 									}
 								},
 								{
@@ -6955,6 +6937,38 @@
 								}
 							],
 							"sid": 238580256553673
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 323996725797637,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 881849810566662
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bumper",
+									"sid": 763887304752225,
+									"parameters": {
+										"y": "789"
+									}
+								}
+							],
+							"sid": 709483027245840
 						},
 						{
 							"eventType": "group",
@@ -7043,9 +7057,9 @@
 										{
 											"id": "set-opacity",
 											"objectClass": "ballTrail",
-											"sid": 721470482417213,
+											"sid": 539295856490197,
 											"parameters": {
-												"opacity": "50"
+												"opacity": "100"
 											}
 										},
 										{
@@ -11867,7 +11881,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 506945744386276,
+							"sid": 616111044023282,
 							"parameters": {
 								"first-value": "LayoutName",
 								"comparison": 0,
@@ -11877,19 +11891,19 @@
 						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 998285283150726
+							"sid": 444076596791234
 						}
 					],
 					"actions": [
 						{
 							"id": "stop-all",
 							"objectClass": "Audio",
-							"sid": 548527009935481
+							"sid": 250291708672257
 						},
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 900586007592701,
+							"sid": 860482796829935,
 							"parameters": {
 								"audio-file": "Gambling",
 								"loop": "not-looping",
@@ -11899,7 +11913,7 @@
 							}
 						}
 					],
-					"sid": 983739130072109
+					"sid": 708231911320896
 				},
 				{
 					"eventType": "block",
