@@ -19,6 +19,7 @@ import userRoutes from "./routes/userRoutes.ts";
 dotenv.config();
 connectDB();
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
@@ -35,4 +36,5 @@ app.use(
 app.use("/api", testRoutes);
 app.use("/api/users", userRoutes);
 
-export default app;
+app.listen(PORT, () => console.log(`Sever running on Port ${PORT}`));
+

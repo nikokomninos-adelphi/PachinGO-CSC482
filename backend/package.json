@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "app.ts",
   "scripts": {
     "test": "jest ./src --watch",
-    "dev": "nodemon ./src/server.ts",
-    "start": "node ./src/server.ts",
-    "build": "tsc ./src"
+    "dev": "nodemon ./src/app.ts",
+    "start": "node ./src/app.ts",
+    "build": "tsc ./src/app.ts"
   },
   "keywords": [],
   "author": "",
