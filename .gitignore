@@ -4,3 +4,4 @@ ts-defs
 **/node_modules/
 **/.env
 todo.md
+**/dist/

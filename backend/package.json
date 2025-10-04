@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest ./src --watch",
     "dev": "nodemon ./src/app.ts",
-    "start": "npx ts-node-esm ./src/app.ts",
-    "build": "tsc ./src/app.ts"
+    "start": "node ./dist/app.cjs",
+    "build": "npx tsup ./src --dts"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "babel-node": "^0.0.1-security",
     "jest": "^30.2.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.3"
   }
 }
