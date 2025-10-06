@@ -22,12 +22,22 @@ export const registerUser = async (req: Request, res: Response) => {
     // Checks if username and password meet requirements
     if (req.body.username.length < 5 || req.body.password.length < 5) {
       return res.status(400).json({
-        error: "Username and password must be at least 5 characters",
+        error: "Username and Password must be at least 5 characters",
       });
     }
     if (req.body.username.length > 50 || req.body.password.length > 50) {
       return res.status(400).json({
-        error: "Username and password must be less than 50 characters",
+        error: "Username and Password must be less than 50 characters",
+      });
+    }
+    if (req.body.username.includes(" ") || req.body.password.includes(" ")) {
+      return res.status(400).json({
+        error: "Username and Password cannot contain spaces",
+      });
+    }
+    if(!/[A-Z]/.test(req.body.password)) {
+      return res.status(400).json({
+        error: "Password must contain at least one uppercase character",
       });
     }
 

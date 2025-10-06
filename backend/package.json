@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "test": "jest ./src --watch",
+    "test": "jest ./tests --watch --coverage",
     "dev": "nodemon ./src/app.ts",
     "start": "node ./dist/app.cjs",
     "build": "npx tsup ./src --dts"
@@ -44,6 +44,7 @@
     "babel-jest": "^30.2.0",
     "babel-node": "^0.0.1-security",
     "jest": "^30.2.0",
+    "mongodb-memory-server-core": "^10.2.2",
     "ts-node": "^10.9.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3"
