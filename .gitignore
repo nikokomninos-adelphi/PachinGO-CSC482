@@ -5,3 +5,4 @@ ts-defs
 **/.env
 todo.md
 **/dist/
+frontend/build/
