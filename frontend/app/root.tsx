@@ -10,12 +10,12 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
-import { rootAuthLoader } from "@clerk/react-router/server";
-import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router'
+//import { rootAuthLoader } from "@clerk/react-router/server";
+//import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router'
 
-export async function loader(args: Route.LoaderArgs) {
-  return rootAuthLoader(args);
-}
+//export async function loader(args: Route.LoaderArgs) {
+//  return rootAuthLoader(args);
+//}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
