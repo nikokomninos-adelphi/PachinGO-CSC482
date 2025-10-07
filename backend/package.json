@@ -34,6 +34,7 @@
     "@babel/preset-typescript": "^7.27.1",
     "@jest/globals": "^30.2.0",
     "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.3",

@@ -1,5 +1,5 @@
 /**
- * userRoutes
+ * authRoutes
  * 
  * Contains routes pertaining to user accounts.
  * 
@@ -7,7 +7,7 @@
  */
 
 import express from "express";
-import { registerUser, loginUser } from "../controllers/userController.ts";
+import { registerUser, loginUser } from "../controllers/authController.ts";
 
 const router = express.Router();
 

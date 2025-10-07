@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { MongoMemoryServer } from "mongodb-memory-server-core";
 import mongoose from "mongoose";
 
-import { registerUser, loginUser } from "../src/controllers/userController.ts";
+import { registerUser, loginUser } from "../src/controllers/authController.ts";
 import User from "../src/models/User.ts";
 
 let mockRequest: Partial<Request>;
@@ -28,6 +28,7 @@ beforeEach(() => {
   mockResponse = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
+    cookie: jest.fn(),
   };
 });
 
@@ -54,7 +55,7 @@ describe("Tests for registerUser", () => {
     const expectedStatus = 201;
 
     mockRequest = {
-      body: { username: "testUser", password: "TestPass" },
+      body: { email: "test@email.com", username: "testUser", password: "TestPass" },
     };
 
     await registerUser(mockRequest as Request, mockResponse as Response);
@@ -63,10 +64,50 @@ describe("Tests for registerUser", () => {
 
   })
 
+  describe("Email Tests", () => {
+    test("Error if Email is invalid", async () => {
+      const expectedError = {
+        message: "Invalid Email",
+      };
+      const expectedStatus = 400;
+
+      mockRequest = {
+        body: { email: "test@email", username: "testUser", password: "TestPass" },
+      };
+
+      await registerUser(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+      expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
+    });
+
+    test("Error if Email already exists", async () => {
+      const expectedError = {
+        message: "Email already exists",
+      };
+      const expectedStatus = 400;
+
+      mockRequest = {
+        body: { email: "test@email.com", username: "testUser2", password: "TestPass" },
+      };
+
+      const fakeUser = new User({
+        email: "test@email.com",
+        username: "testUser",
+        password: "myPassword",
+        role: "user",
+      });
+      await fakeUser.save();
+
+      await registerUser(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+      expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
+    });
+  });
+
   describe("Username Tests", () => {
     test("Error if Username is < 5 characters", async () => {
       const expectedError = {
-        error: "Username and Password must be at least 5 characters",
+        message: "Username and Password must be at least 5 characters",
       };
       const expectedStatus = 400;
 
@@ -81,7 +122,7 @@ describe("Tests for registerUser", () => {
 
     test("Error if Username is > 50 characters", async () => {
       const expectedError = {
-        error: "Username and Password must be less than 50 characters",
+        message: "Username and Password must be less than 50 characters",
       };
       const expectedStatus = 400;
 
@@ -99,7 +140,7 @@ describe("Tests for registerUser", () => {
 
     test("Error if Username contains a space", async () => {
       const expectedError = {
-        error: "Username and Password cannot contain spaces",
+        message: "Username and Password cannot contain spaces",
       };
       const expectedStatus = 400;
 
@@ -114,17 +155,19 @@ describe("Tests for registerUser", () => {
 
     test("Error if Username already exists", async () => {
       const expectedError = {
-        error: "Username already exists",
+        message: "Username already exists",
       };
       const expectedStatus = 400;
 
       mockRequest = {
-        body: { username: "testUser", password: "TestPass" },
+        body: { email: "test@email.com", username: "testUser", password: "TestPass" },
       };
 
       const fakeUser = new User({
+        email: "test@email.com",
         username: "testUser",
         password: "myPassword",
+        role: "user",
       });
       await fakeUser.save();
 
@@ -137,7 +180,7 @@ describe("Tests for registerUser", () => {
   describe("Password Tests", () => {
     test("Error if Password is < 5 characters", async () => {
       const expectedError = {
-        error: "Username and Password must be at least 5 characters",
+        message: "Username and Password must be at least 5 characters",
       };
       const expectedStatus = 400;
 
@@ -152,7 +195,7 @@ describe("Tests for registerUser", () => {
 
     test("Error if Password is > 50 characters", async () => {
       const expectedError = {
-        error: "Username and Password must be less than 50 characters",
+        message: "Username and Password must be less than 50 characters",
       };
       const expectedStatus = 400;
 
@@ -170,7 +213,7 @@ describe("Tests for registerUser", () => {
 
     test("Error if Password contains a space", async () => {
       const expectedError = {
-        error: "Username and Password cannot contain spaces",
+        message: "Username and Password cannot contain spaces",
       };
       const expectedStatus = 400;
 
@@ -185,7 +228,7 @@ describe("Tests for registerUser", () => {
 
     test("Error if Password does not contain at least one uppercase character", async () => {
       const expectedError = {
-        error: "Password must contain at least one uppercase character",
+        message: "Password must contain at least one uppercase character",
       };
       const expectedStatus = 400;
 
@@ -201,36 +244,80 @@ describe("Tests for registerUser", () => {
 });
 
 describe("Tests for loginUser", () => {
-    test("Success if valid credentials", async () => {
+    test("Success if valid credentials (username)", async () => {
       const expectedBody = {
         message: "Login successful",
-        token: expect.anything()
       };
       const expectedStatus = 200;
+      const expectedCookie = ["token", expect.any(String), expect.any(Object)]
 
       mockRequest = {
         body: { username: "testUser", password: "TestPass" },
       };
 
-      let loginMockRequest: Partial<Request> = {
-        body: { username: "testUser", password: "TestPass" },
+      let registerMockRequest: Partial<Request> = {
+        body: { email: "test@email.com", username: "testUser", password: "TestPass" },
       };
 
-      let loginMockResponse: Partial<Response> = {
+      let registerMockResponse: Partial<Response> = {
         status: jest.fn().mockReturnThis(),
         json: jest.fn(),
-      }
+      };
 
-      await registerUser(loginMockRequest as Request, loginMockResponse as Response);
+      await registerUser(registerMockRequest as Request, registerMockResponse as Response);
 
       await loginUser(mockRequest as Request, mockResponse as Response);
       expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
       expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
+      expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
+    });
+
+    test("Success if valid credentials (email)", async () => {
+      const expectedBody = {
+        message: "Login successful",
+      };
+      const expectedStatus = 200;
+      const expectedCookie = ["token", expect.any(String), expect.any(Object)]
+
+      mockRequest = {
+        body: { username: "test@email.com", password: "TestPass" },
+      };
+
+      let registerMockRequest: Partial<Request> = {
+        body: { email: "test@email.com", username: "testUser", password: "TestPass" },
+      };
+
+      let registerMockResponse: Partial<Response> = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      }
+
+      await registerUser(registerMockRequest as Request, registerMockResponse as Response);
+
+      await loginUser(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+      expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
+      expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
     });
   describe("Username Tests", () => {
-    test("Error if user does not exist", async () => {
+    test("Error if user does not exist (email)", async () => {
       const expectedError = {
-        error: "Invalid credentials",
+        message: "Invalid credentials",
+      };
+      const expectedStatus = 401;
+
+      mockRequest = {
+        body: { username: "test@email.com", password: "TestPass" },
+      };
+
+      await loginUser(mockRequest as Request, mockResponse as Response);
+      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+      expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
+    });
+
+    test("Error if user does not exist (username)", async () => {
+      const expectedError = {
+        message: "Invalid credentials",
       };
       const expectedStatus = 401;
 
@@ -242,10 +329,12 @@ describe("Tests for loginUser", () => {
       expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
       expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
     });
+  });
+  describe("Password Tests", () => {
 
     test("Error if passwords do not match", async () => {
       const expectedError = {
-        error: "Invalid credentials",
+        message: "Invalid credentials",
       };
       const expectedStatus = 401;
 
