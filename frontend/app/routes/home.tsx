@@ -1,3 +1,7 @@
+/**
+ * home.tsx - the root route
+ */
+
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
 

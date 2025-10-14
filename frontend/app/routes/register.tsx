@@ -1,3 +1,7 @@
+/**
+ * register.tsx - the registration page route
+ */
+
 import type { Route } from "../+types/root";
 import RegisterBox from "~/components/RegisterBox";
 

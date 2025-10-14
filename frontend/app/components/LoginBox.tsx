@@ -1,3 +1,8 @@
+/**
+ * LoginBox.tsx - a component for the login box,
+ * contains frontend logic for user login
+ */
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
@@ -8,6 +13,8 @@ const LoginBox = () => {
 
   const navigate = useNavigate();
 
+  // Handles submitting a login attempt
+  // Redirects the user to the home page if successful
   const submitLogin = async () => {
     const res = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/v1/auth/login", {
       method: "POST",
@@ -22,9 +29,9 @@ const LoginBox = () => {
   }
 
   return (
-    <div className="mt-30 flex flex-col justify-center items-center text-[#352F36]">
+    <div className="mt-15 flex flex-col justify-center items-center text-[#352F36]">
       <img src="/logo.png" alt="PachinGO! Logo, Large" className="w-75" />
-      <div className="mt-20 w-100 flex flex-col justify-center items-center bg-white drop-shadow-lg rounded-xl p-20">
+      <div className="mt-15 w-100 flex flex-col justify-center items-center bg-white drop-shadow-lg rounded-xl p-20">
         <h1 className="font-semibold text-2xl mb-10">Login</h1>
         <input
           type="text"

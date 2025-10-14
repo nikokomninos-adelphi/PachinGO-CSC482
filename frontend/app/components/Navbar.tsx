@@ -1,6 +1,32 @@
+/**
+ * Navbar.tsx - a component for the site's navbar
+ */
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { checkAuth } from "~/auth/auth";
 
 const Navbar = () => {
+  const [user, setUser] = useState<any>(null);
+
+  // Handles logging the user out when the logout button is clicked
+  const logout = async () => {
+    await fetch(import.meta.env.VITE_BACKEND_URL + "/api/v1/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    setUser(null);
+  };
+
+  // Checks if a user is logged in on initial
+  // navbar render
+  useEffect(() => {
+    (async () => {
+      const loggedIn = await checkAuth();
+      setUser(loggedIn);
+    })();
+  }, []);
+
   return (
     <div className="tracking-tight">
       <nav className="h-12 flex-row justify-between items-center bg-[#11131D] text-[#ebebeb] hidden sm:flex">
@@ -14,18 +40,32 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="mr-5">
-          <Link
-            to="/login"
-            className="font-light text-xs ml-3 mr-3 hover:text-neutral-400 ease-linear duration-75"
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="font-light text-xs ml-3 mr-3 hover:text-neutral-400 ease-linear duration-75"
-          >
-            Register
-          </Link>
+          {user ? (
+            <div className="flex flex-row">
+              <h1 className="font-bold text-xs ml-3 mr-3 ">Hello, {user.username}!</h1>
+              <button
+                onClick={logout}
+                className="font-light text-xs ml-3 mr-3 hover:text-neutral-400 ease-linear duration-75"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div>
+              <Link
+                to="/login"
+                className="font-light text-xs ml-3 mr-3 hover:text-neutral-400 ease-linear duration-75"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="font-light text-xs ml-3 mr-3 hover:text-neutral-400 ease-linear duration-75"
+              >
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
       <nav className=" h-75 sm:h-10 flex sm:flex-row flex-col justify-center items-center gap-5 bg-[#191B2A] text-[#f2f2f2]">
@@ -56,11 +96,11 @@ const Navbar = () => {
             alt="Home"
             className="w-3.5 hidden group-hover:flex brightness-150 ease-linear duration-75"
           />
-          <h1 className="text-sm">Demo Levels</h1>
+          <h1 className="text-sm">Official Demo Levels</h1>
         </Link>
 
-        <a
-          href=""
+        <Link
+          to="/search"
           className="flex group items-center gap-2 ml-2 hover:text-orange-300 ease-linear duration-75"
         >
           <img
@@ -74,7 +114,7 @@ const Navbar = () => {
             className="w-3.5 hidden group-hover:flex brightness-150 ease-linear duration-75"
           />
           <h1 className="text-sm">Search User Levels</h1>
-        </a>
+        </Link>
 
         <a
           href=""

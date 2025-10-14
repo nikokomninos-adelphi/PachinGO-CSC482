@@ -16,6 +16,8 @@ import connectDB from "./config/db.ts";
 
 import testRoutes from "./routes/testRoutes.ts";
 import authRoutes from "./routes/authRoutes.ts";
+import searchRoutes from "./routes/searchRoutes.ts"
+import populateLevels from "./config/populate.ts";
 
 dotenv.config();
 connectDB();
@@ -39,6 +41,6 @@ app.use(
 );
 app.use("/api/v1", testRoutes);
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/search", searchRoutes);
 
 app.listen(PORT, () => console.log(`Sever running on Port ${PORT}`));
-

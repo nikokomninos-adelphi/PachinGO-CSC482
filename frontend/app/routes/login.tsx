@@ -1,3 +1,7 @@
+/**
+ * login.tsx - the login page route
+ */
+
 import type { Route } from "../+types/root";
 import NavbarAlternate from "~/components/NavbarAlternate";
 import LoginBox from "~/components/LoginBox";

@@ -1,0 +1,26 @@
+/**
+ * LevelCard
+ *
+ * A card component that is displayed when rendering the
+ * results of a level search.
+ *
+ * @param name the name of the level
+ * @param author the author of the level
+ * @param desc the description of the level
+ */
+const LevelCard = ({ name, author, desc }: { name: string, author: string, desc: string }) => {
+  return (
+    <div className="flex flex-row w-125 h-50 border-1 border-[#c1c1c8] rounded-lg tracking-tight mb-5">
+      <div className="flex justify-center items-center min-w-50 min-h-50 rounded-lg border-r-1 border-[#c1c1c8]">
+        <h1>Level Thumbnail</h1>
+      </div>
+      <div className="w-75 h-50 p-5">
+        <h1 className="text-2xl font-semibold mb-1">{name}</h1>
+        <h2 className="text-xs mb-3">by {author}</h2>
+        <p className="text-sm line-clamp-2">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+export default LevelCard;

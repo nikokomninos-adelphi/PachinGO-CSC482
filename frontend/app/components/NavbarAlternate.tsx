@@ -1,3 +1,9 @@
+/**
+ * NavbarAlternate.tsx - a component for an alternate
+ * navbar, used in certain pages that do not need the
+ * full navbar
+ */
+
 import { Link } from "react-router";
 
 const NavbarAlternate = () => {

@@ -6,3 +6,4 @@ ts-defs
 todo.md
 **/dist/
 frontend/build/
+**/coverage
