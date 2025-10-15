@@ -14,14 +14,14 @@ const Pagination = ({
   setPage: Function;
 }) => {
   return (
-    <div className="flex flex-row gap-3">
+    <div className="flex flex-row gap-3 p-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl">
       <button
         onClick={() => setPage(page - 1 < 0 ? page : page - 1)}
         className={page === 1 ? "hidden" : ""}
       >
         Previous
       </button>
-      <h1>{page}</h1>
+      {page}
       <button
         onClick={() => setPage(page + 1 > totalPages ? page : page + 1)}
         className={page === totalPages ? "hidden" : ""}

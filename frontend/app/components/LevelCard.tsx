@@ -8,9 +8,26 @@
  * @param author the author of the level
  * @param desc the description of the level
  */
-const LevelCard = ({ name, author, desc }: { name: string, author: string, desc: string }) => {
+
+import { useState } from "react";
+import LevelModal from "./LevelModal";
+
+const LevelCard = ({
+  name,
+  author,
+  desc,
+}: {
+  name: string;
+  author: string;
+  desc: string;
+}) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <div className="flex flex-row w-125 h-50 border-1 border-[#e1e1e1] rounded-lg tracking-tight mb-5 bg-[#fff]">
+    <div
+      onClick={() => setShowModal(true)}
+      className="flex flex-row w-125 h-50 border-1 border-[#e1e1e1] rounded-lg tracking-tight mb-5 bg-[#fff]"
+    >
       <div className="flex justify-center items-center min-w-50 min-h-50 rounded-lg border-r-1 border-[#e1e1e1]">
         <h1>Level Thumbnail</h1>
       </div>
@@ -19,8 +36,17 @@ const LevelCard = ({ name, author, desc }: { name: string, author: string, desc:
         <h2 className="text-xs mb-3">by {author}</h2>
         <p className="text-sm line-clamp-2">{desc}</p>
       </div>
+
+      {showModal && (
+        <LevelModal
+          setShowModal={setShowModal}
+          name={name}
+          author={author}
+          desc={desc}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default LevelCard;
