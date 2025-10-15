@@ -5,8 +5,6 @@
 import type { Route } from "../+types/root";
 import RegisterBox from "~/components/RegisterBox";
 
-import NavbarAlternate from "~/components/NavbarAlternate";
-
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Register - PachinGO!" },
