@@ -1,3 +1,11 @@
+/**
+ * search.tsx
+ *
+ * A route for the search page. Contains logic
+ * for searching a level, and setting the params
+ * in the URL to create a reproducible search
+ */
+
 import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
@@ -15,7 +23,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const Search = () => {
-  // Search params in URL
+  // Search params in URL, to create a reproducible search
   const [searchParams, setSearchParams] = useSearchParams();
 
   const initialTerm = searchParams.get("term") || "";
@@ -25,30 +33,26 @@ const Search = () => {
   const [results, setResults] = useState<any[]>([]);
   const [page, setPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(0);
-  const [hasSearched, setHasSearched] = useState(false);
   const limit = 10;
 
   // Run when page changes — only if a search has been done
   useEffect(() => {
-    if (hasSearched) {
-      handleSearch();
-      setSearchParams({ term, page: page.toString() });
+    const currentTerm = searchParams.get("term");
+    const currentPage = parseInt(searchParams.get("page") || "1", 10);
+    if (currentTerm) {
+      setTerm(currentTerm);
+      setPage(currentPage);
+      handleSearch(currentTerm, currentPage);
+    } else {
+      setResults([]);
     }
-  }, [page]);
-
-  // Run once on load — if URL already has term (like bookmarked URL)
-  useEffect(() => {
-    if (initialTerm) {
-      setHasSearched(true);
-      handleSearch();
-    }
-  }, []);
+  }, [searchParams]);
 
   // Search the database for the search term, paginated
-  const handleSearch = async () => {
+  const handleSearch = async (searchTerm: string, searchPage: number) => {
     const res = await fetch(
       import.meta.env.VITE_BACKEND_URL +
-        `/api/v1/search/searchLevels?page=${page}&limit=${limit}`,
+        `/api/v1/search/searchLevels?page=${searchPage}&limit=${limit}`,
       {
         method: "POST",
         mode: "cors",
@@ -56,56 +60,65 @@ const Search = () => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Credentials": "true",
         },
-        body: JSON.stringify({ term, page, limit }),
+        body: JSON.stringify({ term: searchTerm, page: searchPage, limit }),
       },
     );
     const data = await res.json();
     setResults(data.results);
     setPage(data.currentPage);
     setTotalPages(data.totalPages);
-    setSearchParams({ term: term, page: data.currentPage });
   };
 
   // Search on Enter key down
+  // Set URL params to term and page
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setPage(1);
-      setSearchParams({ term, page: "1" });
-      handleSearch();
+      setSearchParams({ term, page: "1" }, { replace: false });
     }
+  };
+
+  // Set URL params to term and new page
+  const handlePageChange = (newPage: number) => {
+    setSearchParams({ term, page: newPage.toString() }, { replace: false });
   };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-1 p-15 min-h-screen tracking-tighter">
-        <div className="flex flex-col justify-center items-center">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search..."
-            value={term}
-            onChange={(e) => setTerm(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="text-center w-250 p-2 mb-5 border-1 border-[#c1c1c8] rounded-lg drop-shadow-md"
-          />
-          <div className="flex flex-wrap flex-1 grow justify-center gap-5 w-350 h-100 rounded-lg drop-shadow-md p-5">
-            {results.length > 0 ? (
-              // Map the results to the screen
-              results.map((r, i) => (
-                <LevelCard
-                  key={i}
-                  name={r.name}
-                  author={r.author}
-                  desc={r.description}
-                />
-              ))
-            ) : (
-              <h1>No Results</h1>
-            )}
-          </div>
-          <div className={results.length === 0 ? "hidden" : ""}>
-            <Pagination page={page} totalPages={totalPages} setPage={setPage} />
+      <div className="bg-[#FAFAFA]">
+        <div className="bg-[#FFF] flex-1 p-15 min-h-screen ml-[3vw] mr-[3vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter">
+          <div className="flex flex-col justify-center items-center">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search..."
+              value={term}
+              onChange={(e) => setTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="text-center w-250 p-2 mb-5 border-1 border-[#c1c1c8] rounded-lg"
+            />
+            <div className="flex flex-wrap flex-1 grow justify-center gap-5 w-350 h-100 rounded-lg p-5">
+              {results.length > 0 ? (
+                // Map the results to the screen
+                results.map((r, i) => (
+                  <LevelCard
+                    key={i}
+                    name={r.name}
+                    author={r.author}
+                    desc={r.description}
+                  />
+                ))
+              ) : (
+                <h1>No Results</h1>
+              )}
+            </div>
+            <div className={results.length === 0 ? "hidden" : ""}>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                setPage={handlePageChange}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -20,6 +20,6 @@ body {
     color-scheme: dark;
   }*/
 
-  @apply bg-[#F8F8FF] text-[#352F36];
+  @apply bg-[#FFF] text-[#352F36];
   @apply [scrollbar-width:none];
 }

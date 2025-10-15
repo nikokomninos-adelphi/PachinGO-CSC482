@@ -16,7 +16,6 @@ export function meta({}: Route.MetaArgs) {
 const login = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarAlternate />
       <LoginBox />
     </div>
   );

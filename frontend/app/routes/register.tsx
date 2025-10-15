@@ -17,7 +17,6 @@ export function meta({}: Route.MetaArgs) {
 const register = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavbarAlternate />
       <RegisterBox />
     </div>
   );
