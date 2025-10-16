@@ -35,6 +35,13 @@ const Search = () => {
   const [totalPages, setTotalPages] = useState(0);
   const limit = 20;
 
+  // If a term is provided in the URL, but not
+  // a page, automatically append "&page=1" to the URL
+  // on render
+  useEffect(() => {
+    setSearchParams({ term, page: "1" });
+  }, []);
+
   // Run when page changes — only if a search has been done
   useEffect(() => {
     const currentTerm = searchParams.get("term");
@@ -105,15 +112,16 @@ const Search = () => {
                 />
                 <div className="flex flex-wrap flex-1 grow justify-start gap-5">
                   {
-                  // Map the results to the screen
+                    // Map the results to the screen
                     results.map((r, i) => (
-                    <LevelCard
-                      key={i}
-                      name={r.name}
-                      author={r.author}
-                      desc={r.description}
-                    />
-                  ))}
+                      <LevelCard
+                        key={i}
+                        name={r.name}
+                        author={r.author}
+                        desc={r.description}
+                      />
+                    ))
+                  }
                 </div>
                 <div
                   className={
