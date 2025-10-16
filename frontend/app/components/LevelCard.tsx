@@ -26,7 +26,7 @@ const LevelCard = ({
   return (
     <div
       onClick={() => setShowModal(true)}
-      className="flex flex-row w-125 h-50 border-1 border-[#e1e1e1] rounded-lg tracking-tight mb-5 bg-[#fff]"
+      className="flex flex-row w-100 h-50 border-1 border-[#e1e1e1] rounded-lg tracking-tight mb-5 bg-[#fff] cursor-pointer"
     >
       <div className="flex justify-center items-center min-w-50 min-h-50 rounded-lg border-r-1 border-[#e1e1e1]">
         <h1>Level Thumbnail</h1>

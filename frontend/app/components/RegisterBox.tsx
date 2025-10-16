@@ -40,6 +40,12 @@ const RegisterBox = () => {
     else setStatus(data.message);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      submitRegister();
+    }
+  };
+
   return (
     <div className="bg-[#FAFAFA] min-h-screen flex justify-center items-center text-[#352F36]">
       <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
@@ -61,6 +67,7 @@ const RegisterBox = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => handleKeyDown(e)}
               className="w-75 p-2 mb-5 border-1 border-[#E1E1EE] rounded-md"
             />
           </div>
@@ -74,6 +81,7 @@ const RegisterBox = () => {
               name="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={(e) => handleKeyDown(e)}
               className="w-75 p-2 mb-5 border-1 border-[#E1E1EE] rounded-md"
             />
           </div>
@@ -87,6 +95,7 @@ const RegisterBox = () => {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => handleKeyDown(e)}
               className="w-75 p-2 mb-10 border-1 border-[#E1E1EE] rounded-md"
             />
           </div>

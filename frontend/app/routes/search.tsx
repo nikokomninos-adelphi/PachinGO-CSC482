@@ -33,7 +33,7 @@ const Search = () => {
   const [results, setResults] = useState<any[]>([]);
   const [page, setPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(0);
-  const limit = 10;
+  const limit = 20;
 
   // Run when page changes — only if a search has been done
   useEffect(() => {
@@ -86,38 +86,47 @@ const Search = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="bg-[#FAFAFA]">
-        <div className="bg-[#FFF] flex-1 p-15 min-h-screen ml-[3vw] mr-[3vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter">
+        <div className="bg-[#FFF] flex-1 p-15 ml-[3vw] mr-[3vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter">
           <div className="flex flex-col justify-center items-center">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search..."
-              value={term}
-              onChange={(e) => setTerm(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="text-center w-250 p-2 mb-5 border-1 border-[#c1c1c8] rounded-lg"
-            />
-            <div className="flex flex-wrap flex-1 grow justify-center gap-5 w-350 h-100 rounded-lg p-5">
-              {results.length > 0 ? (
-                // Map the results to the screen
-                results.map((r, i) => (
-                  <LevelCard
-                    key={i}
-                    name={r.name}
-                    author={r.author}
-                    desc={r.description}
+            <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">
+              <div className="flex flex-col p-2 border-1 border-[#E1E1EE] w-[15vw] min-h-screen rounded-lg">
+                <h1></h1>
+              </div>
+
+              <div className="flex flex-col flex-1 grow justify-center gap-5 ml-5 w-350 rounded-lg">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Search..."
+                  value={term}
+                  onChange={(e) => setTerm(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="text-center w- h-10 p-2 mb-5 border-1 border-[#e1e1ee] rounded-lg"
+                />
+                <div className="flex flex-wrap flex-1 grow justify-start gap-5">
+                  {
+                  // Map the results to the screen
+                    results.map((r, i) => (
+                    <LevelCard
+                      key={i}
+                      name={r.name}
+                      author={r.author}
+                      desc={r.description}
+                    />
+                  ))}
+                </div>
+                <div
+                  className={
+                    results.length === 0 ? "hidden" : "flex justify-center"
+                  }
+                >
+                  <Pagination
+                    page={page}
+                    totalPages={totalPages}
+                    setPage={handlePageChange}
                   />
-                ))
-              ) : (
-                <h1>No Results</h1>
-              )}
-            </div>
-            <div className={results.length === 0 ? "hidden" : ""}>
-              <Pagination
-                page={page}
-                totalPages={totalPages}
-                setPage={handlePageChange}
-              />
+                </div>
+              </div>
             </div>
           </div>
         </div>

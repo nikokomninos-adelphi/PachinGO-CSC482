@@ -17,10 +17,11 @@ import connectDB from "./config/db.ts";
 import testRoutes from "./routes/testRoutes.ts";
 import authRoutes from "./routes/authRoutes.ts";
 import searchRoutes from "./routes/searchRoutes.ts"
-import populateLevels from "./config/populate.ts";
+//import populateLevels from "./config/populate.ts";
 
 dotenv.config();
 connectDB();
+//populateLevels();
 
 const PORT = process.env.PORT || 3000;
 const app = express();
