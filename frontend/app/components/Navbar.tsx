@@ -2,7 +2,6 @@
  * Navbar.tsx - a component for the site's navbar
  */
 
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import {
   FaPlay,
@@ -33,7 +32,7 @@ const Navbar = () => {
           </Link>
           <div className="flex flex-row gap-3 mt-1 mb-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl p-3">
             <Link
-              to="/search?term=Level&page=1"
+              to="/demo"
               className="flex group items-center gap-2 ml-2 hover:text-blue-500 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
             >
               <FaPlay size={10} />

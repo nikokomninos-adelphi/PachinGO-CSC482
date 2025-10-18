@@ -50,13 +50,14 @@ const RegisterBox = () => {
     <div className="bg-[#FAFAFA] min-h-screen flex justify-center items-center text-[#352F36]">
       <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
         <div className="col-span-1 flex flex-col p-10">
-          <Link to="/" className="mb-20">
+          <Link to="/" className="mb-5">
             <img
               src="/logo_outline.png"
               alt="PachinGO! Logo, Large"
               className="h-20 hover:drop-shadow-lg ease-linear duration-150"
             />
           </Link>
+          <h1 className="mb-10 text-sm font-normal">Ready to become a PachinGOD?</h1>
           <div className="flex flex-col">
             <div className="flex flex-row gap-1 items-center mb-2">
               <MdEmail />

@@ -4,6 +4,9 @@
  * A component that builds a page selector
  */
 
+import { useEffect } from "react";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
+
 const Pagination = ({
   page,
   totalPages,
@@ -13,6 +16,10 @@ const Pagination = ({
   totalPages: number;
   setPage: Function;
 }) => {
+  useEffect(() => {
+    (document.getElementById("pageInput") as HTMLInputElement)!.value =
+      page.toString();
+  }, [page]);
 
   // Handles hitting enter in the page number input box
   // Checks for invalid input, such as input containing
@@ -50,7 +57,7 @@ const Pagination = ({
             : "hover:text-neutral-400 ease-linear duration-75 cursor-pointer"
         }
       >
-        Previous
+        <FaCaretLeft />
       </button>
 
       <input
@@ -74,7 +81,7 @@ const Pagination = ({
             : "hover:text-neutral-400 ease-linear duration-75 cursor-pointer"
         }
       >
-        Next
+        <FaCaretRight />
       </button>
     </div>
   );

@@ -59,7 +59,7 @@ const LevelModal = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-[75vw] h-[75vh] bg-[#fff] border-1 border-[#676767] rounded-lg drop-shadow-2xl"
+        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-[75vw] h-[75vh] bg-[#fff] rounded-lg drop-shadow-2xl"
       >
         <div className="col-span-2 p-10">
           <div className="w-full h-full border-1 border-black flex justify-center items-center rounded-lg">
@@ -78,6 +78,9 @@ const LevelModal = ({
           <h1 className="text-4xl mb-3">{name}</h1>
           <h2 className="text-sm mb-3">by {author}</h2>
           <p className="text-md">{desc}</p>
+          <div className="flex justify-end items-end h-full">
+            <h3 className="text-xs">Level ID: ####</h3>
+          </div>
         </div>
       </div>
     </div>
