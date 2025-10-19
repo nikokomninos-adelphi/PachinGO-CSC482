@@ -13,10 +13,12 @@ import { useState } from "react";
 import LevelModal from "./LevelModal";
 
 const LevelCard = ({
+  id,
   name,
   author,
   desc,
 }: {
+  id: string
   name: string;
   author: string;
   desc: string;
@@ -40,6 +42,7 @@ const LevelCard = ({
       {showModal && (
         <LevelModal
           setShowModal={setShowModal}
+          id={id}
           name={name}
           author={author}
           desc={desc}

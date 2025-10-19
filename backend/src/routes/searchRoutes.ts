@@ -1,17 +1,28 @@
 /**
  * searchRoutes
- * 
+ *
  * Contains routes pertaining to level search
- * 
+ *
  * Uses the functions defined in searchController.ts
  */
 
 import express from "express";
-import { searchLevels, searchUsers } from "../controllers/searchController.ts";
+import {
+  searchLevelName,
+  searchLevelID,
+  searchUsers,
+  getRecentLevels,
+  getMostPlayedLevels,
+  getMostLikedLevels,
+} from "../controllers/searchController.ts";
 
 const router = express.Router();
 
-router.post("/searchLevels", searchLevels);
+router.post("/getRecentLevels", getRecentLevels);
+router.post("/getMostPlayedLevels", getMostPlayedLevels);
+router.post("/getMostLikedLevels", getMostLikedLevels);
+router.post("/searchLevelName", searchLevelName);
+router.post("/searchLevelID", searchLevelID);
 router.post("/searchUsers", searchUsers);
 
 export default router;

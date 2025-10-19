@@ -8,11 +8,13 @@ import { useEffect } from "react";
 
 const LevelModal = ({
   setShowModal,
+  id,
   name,
   author,
   desc,
 }: {
   setShowModal: Function;
+  id: string;
   name: string;
   author: string;
   desc: string;
@@ -79,7 +81,7 @@ const LevelModal = ({
           <h2 className="text-sm mb-3">by {author}</h2>
           <p className="text-md">{desc}</p>
           <div className="flex justify-end items-end h-full">
-            <h3 className="text-xs">Level ID: ####</h3>
+            <h3 className="text-xs">Level ID: {id}</h3>
           </div>
         </div>
       </div>

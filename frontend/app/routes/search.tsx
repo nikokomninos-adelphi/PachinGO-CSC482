@@ -16,8 +16,11 @@ import { useSearchParams } from "react-router";
 import Pagination from "~/components/Pagination";
 import FilterBox from "~/components/FilterBox";
 
+import { FaClock } from "react-icons/fa6";
+
 import { VscSearch } from "react-icons/vsc";
 import UserCard from "~/components/UserCard";
+import { FaHeart, FaPlayCircle } from "react-icons/fa";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -34,6 +37,7 @@ const Search = () => {
   const initialPage = parseInt(searchParams.get("page") || "1", 10);
   const initialSearchType = searchParams.get("searchType") || "levelName";
   const initialSortType = searchParams.get("sortType") || "date";
+  const initialSortOrderType = searchParams.get("sortOrderType") || "desc";
   const initialLimit = searchParams.get("limit") || "25";
 
   const [term, setTerm] = useState(initialTerm);
@@ -43,6 +47,7 @@ const Search = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [searchType, setSearchType] = useState(initialSearchType);
   const [sortType, setSortType] = useState(initialSortType);
+  const [sortOrderType, setSortOrderType] = useState(initialSortOrderType);
   const [limit, setLimit] = useState(initialLimit);
 
   // If a term is provided in the URL, but not
@@ -51,10 +56,39 @@ const Search = () => {
   // automatically prepend "term=" to the URL on render
   useEffect(() => {
     if (initialTerm)
-      setSearchParams({ term, page: "1", limit, searchType, sortType });
-    if (!initialTerm)
-      setSearchParams({ term: "", page: "1", limit, searchType, sortType });
+      setSearchParams({
+        term,
+        page: "1",
+        limit,
+        searchType,
+        sortType,
+        sortOrderType,
+      });
+    if (!initialTerm) handleRecentLevels();
+    //setSearchParams({
+    //  term: "",
+    //  page: "1",
+    //  limit,
+    //  searchType,
+    //  sortType,
+    //  sortOrderType,
+    //});
   }, []);
+
+  // Set a default sort and order type for when
+  // the search type is changed. Prevents invalid
+  // searches for search types that might not
+  // have the sort or order type the user
+  // searched with
+  useEffect(() => {
+    if (searchType === "levelName") {
+      setSortType("date");
+      setSortOrderType("desc");
+    }
+    if (searchType === "users") {
+      setSortType("name");
+    }
+  }, [searchType]);
 
   // Run when page changes — only if a search has been done
   useEffect(() => {
@@ -72,7 +106,8 @@ const Search = () => {
   // Search the database for the search term, paginated
   const handleSearch = async (searchTerm: string, searchPage: number) => {
     let endpoint;
-    if (searchType === "levelName") endpoint = "searchLevels";
+    if (searchType === "levelName") endpoint = "searchLevelName";
+    if (searchType === "levelID") endpoint = "searchLevelID";
     if (searchType === "users") endpoint = "searchUsers";
 
     const res = await fetch(
@@ -88,6 +123,8 @@ const Search = () => {
           term: searchTerm,
           page: searchPage,
           limit,
+          sortType,
+          sortOrderType,
         }),
       },
     );
@@ -103,7 +140,7 @@ const Search = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setSearchParams(
-        { term, page: "1", limit, searchType, sortType },
+        { term, page: "1", limit, searchType, sortType, sortOrderType },
         { replace: false },
       );
     }
@@ -112,7 +149,59 @@ const Search = () => {
   // Set URL params to term and new page
   const handlePageChange = (newPage: number) => {
     setSearchParams(
-      { term, page: newPage.toString(), limit, searchType, sortType },
+      {
+        term,
+        page: newPage.toString(),
+        limit,
+        searchType,
+        sortType,
+        sortOrderType,
+      },
+      { replace: false },
+    );
+  };
+
+  const handleRecentLevels = () => {
+    setSearchType("levelName");
+    setSearchParams(
+      {
+        term: "$recent$",
+        page: "1",
+        limit,
+        searchType,
+        sortType,
+        sortOrderType,
+      },
+      { replace: false },
+    );
+  };
+
+  const handleMostPlayedLevels = () => {
+    setSearchType("levelName");
+    setSearchParams(
+      {
+        term: "$plays$",
+        page: "1",
+        limit,
+        searchType,
+        sortType,
+        sortOrderType,
+      },
+      { replace: false },
+    );
+  };
+
+  const handleMostLikedLevels = () => {
+    setSearchType("levelName");
+    setSearchParams(
+      {
+        term: "$likes$",
+        page: "1",
+        limit,
+        searchType,
+        sortType,
+        sortOrderType,
+      },
       { replace: false },
     );
   };
@@ -123,6 +212,17 @@ const Search = () => {
         return results.map((r: any, i: any) => (
           <LevelCard
             key={i}
+            id={r.levelID}
+            name={r.name}
+            author={r.author}
+            desc={r.description}
+          />
+        ));
+      case "levelID":
+        return results.map((r: any, i: any) => (
+          <LevelCard
+            key={i}
+            id={r.levelID}
             name={r.name}
             author={r.author}
             desc={r.description}
@@ -138,22 +238,49 @@ const Search = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[#FAFAFA]">
+      <div className="bg-[url('./../../public/pattern.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[3vw] mr-[3vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">
-              <FilterBox
-                searchType={searchType}
-                setSearchType={setSearchType}
-                sortType={sortType}
-                setSortType={setSortType}
-                limit={limit}
-                setLimit={setLimit}
-              />
+              <div className="flex flex-col">
+                <button
+                  onClick={handleRecentLevels}
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                >
+                  Recently Uploaded
+                  <FaClock size={14} />
+                </button>
+
+                <button
+                  onClick={handleMostPlayedLevels}
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                >
+                  Most Played
+                  <FaPlayCircle />
+                </button>
+
+                <button
+                  onClick={handleMostLikedLevels}
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                >
+                  Most Liked
+                  <FaHeart />
+                </button>
+                <FilterBox
+                  searchType={searchType}
+                  setSearchType={setSearchType}
+                  sortType={sortType}
+                  setSortType={setSortType}
+                  sortOrderType={sortOrderType}
+                  setSortOrderType={setSortOrderType}
+                  limit={limit}
+                  setLimit={setLimit}
+                />
+              </div>
 
               <div className="flex flex-col flex-1 grow justify-center gap-5 ml-5 w-350 rounded-lg">
                 <div>
-                  <div className="relative w-fit">
+                  <div className="relative w-full">
                     <input
                       type="text"
                       name="search"
@@ -161,7 +288,7 @@ const Search = () => {
                       value={term}
                       onChange={(e) => setTerm(e.target.value)}
                       onKeyDown={handleKeyDown}
-                      className="flex w-205 h-10 p-2 border-1 border-[#e1e1ee] rounded-lg"
+                      className="flex w-full h-10 p-2 border-1 border-[#e1e1ee] rounded-lg"
                     />
                     <VscSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400" />
                   </div>

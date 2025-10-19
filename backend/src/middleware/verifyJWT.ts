@@ -19,9 +19,11 @@ export const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
       (req as any).username = decoded;
       next();
     } catch (e) {
+      console.error(e);
       return res.status(401).json({ message: "Unauthorized" });
     }
   } catch (e) {
+    console.error(e);
     return res.status(500).json({ message: "Internal server error" });
   }
 }

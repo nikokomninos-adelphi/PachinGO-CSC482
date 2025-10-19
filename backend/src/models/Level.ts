@@ -6,8 +6,10 @@
  */
 
 import mongoose from "mongoose";
+import Counter from "./Counter.ts";
 
 const levelSchema = new mongoose.Schema({
+  levelID: { type: Number, unique: true },
   name: { type: String, required: true, min: 1, max: 50 },
   author: { type: String, required: true, min: 1, max: 50 },
   description: { type: String, required: true, min: 0, max: 200 },
@@ -19,8 +21,32 @@ const levelSchema = new mongoose.Schema({
   //dateUploaded: { type: Date, required: true },
   //likes: { type: Number, required: true },
   //dislikes: { type: Number, required: true },
-  //downloads: { type: Number },
+  //plays: { type: Number },
   //scores: { type: Object }
+});
+
+/**
+ * We used how to use ChatGPT to figure out how to
+ * handle auto-incrementation in MongoDB, since it's supported
+ * innately.
+ *
+ * Prompt: "How can I add an auto-incrementing level ID for each
+ * level? This is what my mongoose model looks like *pasted code*"
+ *
+ * The code below was added, it runs before a level is added
+ * to the database.
+ */
+
+levelSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    const counter = await Counter.findByIdAndUpdate(
+      { _id: "levelId" },
+      { $inc: { seq: 1 } },
+      { new: true, upsert: true }
+    );
+    this.levelID = counter.seq;
+  }
+  next();
 });
 
 export default mongoose.model("Level", levelSchema);

@@ -10,6 +10,8 @@ const FilterBox = ({
   setSearchType,
   sortType,
   setSortType,
+  sortOrderType,
+  setSortOrderType,
   limit,
   setLimit,
 }: {
@@ -17,6 +19,8 @@ const FilterBox = ({
   setSearchType: Function;
   sortType: string;
   setSortType: Function;
+  sortOrderType: string;
+  setSortOrderType: Function;
   limit: string;
   setLimit: Function;
 }) => {
@@ -28,6 +32,11 @@ const FilterBox = ({
   const handleSortChange = (e: any) => {
     const newValue = e.target.value;
     setSortType(newValue);
+  };
+
+  const handleSortOrderChange = (e: any) => {
+    const newValue = e.target.value;
+    setSortOrderType(newValue);
   };
 
   const handleLimitChange = (e: any) => {
@@ -111,30 +120,15 @@ const FilterBox = ({
         <div>
           <input
             type="radio"
-            id="ascending"
+            id="name"
             name="sort"
-            value="ascending"
-            checked={sortType === "ascending"}
+            value="name"
+            checked={sortType === "name"}
             onChange={(e) => handleSortChange(e)}
             className="accent-[#352F36]"
           />
-          <label htmlFor="ascending" className="ml-2">
-            Name Ascending
-          </label>
-        </div>
-
-        <div>
-          <input
-            type="radio"
-            id="descending"
-            name="sort"
-            value="descending"
-            checked={sortType === "descending"}
-            onChange={(e) => handleSortChange(e)}
-            className="accent-[#352F36]"
-          />
-          <label htmlFor="descending" className="ml-2">
-            Name Descending
+          <label htmlFor="name" className="ml-2">
+            Name
           </label>
         </div>
 
@@ -165,6 +159,45 @@ const FilterBox = ({
           />
           <label htmlFor="likes" className="ml-2">
             Likes
+          </label>
+        </div>
+      </div>
+
+      <div
+        className={
+          searchType === "levelName" || searchType === "users"
+            ? "mb-5"
+            : "hidden"
+        }
+      >
+        <h1 className="font-bold mb-2">Order By</h1>
+        <div>
+          <input
+            type="radio"
+            id="asc"
+            name="order"
+            value="asc"
+            checked={sortOrderType === "asc"}
+            onChange={(e) => handleSortOrderChange(e)}
+            className="accent-[#352F36]"
+          />
+          <label htmlFor="asc" className="ml-2">
+            Ascending
+          </label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="desc"
+            name="order"
+            value="desc"
+            checked={sortOrderType === "desc"}
+            onChange={(e) => handleSortOrderChange(e)}
+            className="accent-[#352F36]"
+          />
+          <label htmlFor="desc" className="ml-2">
+            Descending
           </label>
         </div>
       </div>

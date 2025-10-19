@@ -83,6 +83,7 @@ export const registerUser = async (req: Request, res: Response) => {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
   } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -138,6 +139,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
     res.status(200).json({ message: "Login successful" });
   } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -154,6 +156,7 @@ export const logoutUser = async (req: Request, res: Response) => {
     res.clearCookie("token");
     res.status(200).json({ message: "Logout successful" });
   } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Internal server error" });
   }
 }
@@ -173,6 +176,7 @@ export const checkAuth = async (req: Request, res: Response) => {
 
   return res.status(200).json({ message: "Authenticated", username, });
   } catch (e) {
+    console.error(e);
     return res.status(500).json({ message: "Internal server error" });
   }
 }

@@ -18,7 +18,7 @@ import testRoutes from "./routes/testRoutes.ts";
 import authRoutes from "./routes/authRoutes.ts";
 import searchRoutes from "./routes/searchRoutes.ts"
 //import { populateUserInfo } from "./config/populate.ts";
-//import populateLevels from "./config/populate.ts";
+//import { populateLevels } from "./config/populate.ts";
 
 dotenv.config();
 connectDB();

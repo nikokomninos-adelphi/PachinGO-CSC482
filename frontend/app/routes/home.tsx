@@ -17,7 +17,7 @@ export function meta({}: Route.MetaArgs) {
 
 const Home = () => {
   return (
-    <div className="bg-[#FAFAFA] min-h-screen flex flex-col justify-center items-center text-[#352F36]">
+    <div className="bg-[url('./../../public/pattern.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex flex-col justify-center items-center text-[#352F36]">
       <NavLoginOnly />
       <div className="m-2 p-20 grid grid-cols-2 gap-10 w-[98vw] h-[96vh] rounded-2xl bg-[#FFF] border-1 border-[#C1C1CC]">
         <div className="col-span-1 flex flex-col justify-center">
