@@ -27,7 +27,7 @@ const levelSchema = new mongoose.Schema({
 
 /**
  * We used how to use ChatGPT to figure out how to
- * handle auto-incrementation in MongoDB, since it's supported
+ * handle auto-incrementation in MongoDB, since it's not supported
  * innately.
  *
  * Prompt: "How can I add an auto-incrementing level ID for each

@@ -50,10 +50,17 @@ const Search = () => {
   const [sortOrderType, setSortOrderType] = useState(initialSortOrderType);
   const [limit, setLimit] = useState(initialLimit);
 
-  // If a term is provided in the URL, but not
-  // a page, automatically append "&page=1" to the URL
-  // on render. If no term is provided, but a page is,
-  // automatically prepend "term=" to the URL on render
+  /* Handles what happens when this route is initially
+   * opened.
+   *
+   * If a term is provided in the URL, but not
+   * a page, automatically append "&page=1" to the URL
+   * on render, to make a proper search.
+   *
+   * If no term is provided, load the most
+   * recently uploaded levels to have presented
+   * to the user
+   */
   useEffect(() => {
     if (initialTerm)
       setSearchParams({
@@ -65,21 +72,17 @@ const Search = () => {
         sortOrderType,
       });
     if (!initialTerm) handleRecentLevels();
-    //setSearchParams({
-    //  term: "",
-    //  page: "1",
-    //  limit,
-    //  searchType,
-    //  sortType,
-    //  sortOrderType,
-    //});
   }, []);
 
-  // Set a default sort and order type for when
-  // the search type is changed. Prevents invalid
-  // searches for search types that might not
-  // have the sort or order type the user
-  // searched with
+  /* Handles what happens when the search type
+   * is changed.
+   *
+   * Set a default sort and order type for when
+   * the search type is changed. Prevents invalid
+   * searches for search types that might not
+   * have the sort or order type the user
+   * searched with
+   */
   useEffect(() => {
     if (searchType === "levelName") {
       setSortType("date");
@@ -90,7 +93,12 @@ const Search = () => {
     }
   }, [searchType]);
 
-  // Run when page changes — only if a search has been done
+  /* Handles what happens when search parameters change.
+   *
+   * If there is a valid term and page in the current search
+   * parameters, handle the search. Otherwise, ignore the
+   * search and set the results to empty
+   */
   useEffect(() => {
     const currentTerm = searchParams.get("term");
     const currentPage = parseInt(searchParams.get("page") || "1", 10);
@@ -103,7 +111,14 @@ const Search = () => {
     }
   }, [searchParams, limit]);
 
-  // Search the database for the search term, paginated
+  /* Handles a search.
+   *
+   * The search endpoint is decided based on the chosen
+   * search type. The search term, current page,
+   * results per page limit, sort type, and order type
+   * are sent to the endpoint, and the response is handled
+   * accordingly
+   */
   const handleSearch = async (searchTerm: string, searchPage: number) => {
     let endpoint;
     if (searchType === "levelName") endpoint = "searchLevelName";
@@ -135,8 +150,10 @@ const Search = () => {
     setTotalPages(data.totalPages);
   };
 
-  // Search on Enter key down
-  // Set URL params to term and page
+  /* Handles when the enter key is pressed.
+   *
+   * Search on Enter key down and set URL params accordingly
+   */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setSearchParams(
@@ -146,7 +163,11 @@ const Search = () => {
     }
   };
 
-  // Set URL params to term and new page
+  /*
+   * Handles when the page is changed
+   *
+   * Set URL params accordingly
+   */
   const handlePageChange = (newPage: number) => {
     setSearchParams(
       {
@@ -161,6 +182,7 @@ const Search = () => {
     );
   };
 
+  // Gets a list of the most recent levels uploaded
   const handleRecentLevels = () => {
     setSearchType("levelName");
     setSearchParams(
@@ -176,6 +198,7 @@ const Search = () => {
     );
   };
 
+  // Gets a list of the most played levels
   const handleMostPlayedLevels = () => {
     setSearchType("levelName");
     setSearchParams(
@@ -191,6 +214,7 @@ const Search = () => {
     );
   };
 
+  // Gets a list of the most liked levels
   const handleMostLikedLevels = () => {
     setSearchType("levelName");
     setSearchParams(
@@ -206,6 +230,14 @@ const Search = () => {
     );
   };
 
+  /* Handles rendering the results to the screen.
+   *
+   * Renders the proper components based on the search type.
+   * The value of the results is memoized with useMemo() as
+   * to ensure that they are not re-rendered when other stateful
+   * values are changed, and only when the search params are fully
+   * updated
+   */
   const renderResults = useMemo(() => {
     switch (searchType) {
       case "levelName":

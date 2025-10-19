@@ -21,10 +21,12 @@ const Pagination = ({
       page.toString();
   }, [page]);
 
-  // Handles hitting enter in the page number input box
-  // Checks for invalid input, such as input containing
-  // letters, or input that is below or above the max
-  // number of pages for the search query
+  /* Handles hitting enter in the page number input box.
+   *
+   * Checks for invalid input, such as input containing
+   * letters, or input that is below or above the max
+   * number of pages for the search query
+   */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const input = document.getElementById("pageInput") as HTMLInputElement;

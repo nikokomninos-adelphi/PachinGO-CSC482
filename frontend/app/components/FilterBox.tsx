@@ -45,7 +45,7 @@ const FilterBox = ({
   };
 
   return (
-    <div className="flex flex-col p-8 border-1 border-[#E1E1EE] w-[15vw] h-fit rounded-lg">
+    <div className="flex flex-col p-4 border-1 border-[#E1E1EE] w-[15vw] h-fit rounded-lg">
       <div className="mb-5">
         <h1 className="font-bold mb-2">Search Type</h1>
         <div>

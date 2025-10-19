@@ -13,6 +13,11 @@ import UserInfo from "../models/UserInfo.ts";
  * getRecentLevels
  *
  * Returns all levels, ordered by date uploaded, descending
+ * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
+ * @param {Response} res, contains HTTP body with: status code, results,
+ * current page, total pages
+ * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
+ * 500 and error otherwise
  */
 export const getRecentLevels = async (req: Request, res: Response) => {
   try {
@@ -38,6 +43,16 @@ export const getRecentLevels = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * getMostPlayedLevels
+ *
+ * Returns all levels, ordered by plays, descending
+ * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
+ * @param {Response} res, contains HTTP body with: status code, results,
+ * current page, total pages
+ * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
+ * 500 and error otherwise
+ */
 export const getMostPlayedLevels = async (req: Request, res: Response) => {
   try {
     const page = req.body.page || 1;
@@ -62,6 +77,17 @@ export const getMostPlayedLevels = async (req: Request, res: Response) => {
   }
 };
 
+
+/**
+ * getMostLikedLevels
+ *
+ * Returns all levels, ordered by liked, descending
+ * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
+ * @param {Response} res, contains HTTP body with: status code, results,
+ * current page, total pages
+ * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
+ * 500 and error otherwise
+ */
 export const getMostLikedLevels = async (req: Request, res: Response) => {
   try {
     const page = req.body.page || 1;
@@ -94,7 +120,7 @@ export const getMostLikedLevels = async (req: Request, res: Response) => {
  * The request body will determine what page of the
  * results to display
  *
- * @param {Request} req, contains HTTP body with: page, limit, term
+ * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
  * @param {Response} res, contains HTTP body with: status code, results,
  * current page, total pages
  * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
