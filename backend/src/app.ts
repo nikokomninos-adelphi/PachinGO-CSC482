@@ -38,7 +38,8 @@ app.use(
       "http://localhost:5173",
       "https://preview.construct.net",
       "https://pachingo.onrender.com",
-      "https://playpachingo.vercel.app"
+      "https://playpachingo.vercel.app",
+      "*.vercel.app",
     ],
     credentials: true,
   })
