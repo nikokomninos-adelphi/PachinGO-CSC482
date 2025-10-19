@@ -6,5 +6,7 @@ export default [
   route("register", "routes/register.tsx"),
   route("demo", "routes/demo.tsx"),
   route("my_levels", "routes/my_levels.tsx"),
-  route("search", "routes/search.tsx")
+  route("search", "routes/search.tsx"),
+  route("users/:username", "routes/user.tsx"),
+  route("error", "routes/error.tsx")
 ] satisfies RouteConfig;

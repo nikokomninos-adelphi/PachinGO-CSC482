@@ -2,7 +2,7 @@
  * authController
  *
  * Contains logic relating to the /api/auth endpoint.
- * Handles user registration and login
+ * Handles user registration, login, and authentication
  */
 
 import bcrypt from "bcrypt";

@@ -5,6 +5,7 @@
  */
 
 import { useEffect } from "react";
+import { Link } from "react-router";
 
 const LevelModal = ({
   setShowModal,
@@ -78,7 +79,15 @@ const LevelModal = ({
             </button>
           </div>
           <h1 className="text-4xl mb-3">{name}</h1>
-          <h2 className="text-sm mb-3">by {author}</h2>
+          <h2 className="text-sm mb-3">
+            by{" "}
+            <Link
+              to={`/users/${author}`}
+              className="underline text-neutral-500"
+            >
+              {author}
+            </Link>
+          </h2>
           <p className="text-md">{desc}</p>
           <div className="flex justify-end items-end h-full">
             <h3 className="text-xs">Level ID: {id}</h3>

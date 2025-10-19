@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="bg-[#FAFAFA] border-b-1 border-b-[#E1E1EE] p-1 mb-3">
-        <div className="mr-[3vw]">
+        <div className="mr-[6vw]">
           <NavLoginOnly />
         </div>
       </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
               className="flex group items-center gap-2 ml-2 hover:text-orange-500 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
             >
               <FaSearch size={11} />
-              <h1 className="text-sm">User Levels</h1>
+              <h1 className="text-sm">Search</h1>
             </Link>
 
             <Link

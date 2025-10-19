@@ -36,9 +36,9 @@ const NavLoginOnly = () => {
     <div className="w-full flex justify-end mr-[3vw] tracking-tight">
       {user ? (
         <div className="flex flex-row">
-          <h1 className="font-semibold text-xs ml-2 mr-2">
+          <Link to={`/users/${user.username}`} className="underline font-semibold text-xs ml-2 mr-2">
             Hello, {user.username}!
-          </h1>
+          </Link>
           <button
             onClick={logout}
             className="font-light text-xs ml-2 mr-2 hover:text-neutral-400 ease-linear duration-75"

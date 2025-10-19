@@ -62,15 +62,15 @@ const Search = () => {
    * to the user
    */
   useEffect(() => {
-    if (initialTerm)
-      setSearchParams({
-        term,
-        page: "1",
-        limit,
-        searchType,
-        sortType,
-        sortOrderType,
-      });
+    //if (initialTerm)
+    //  setSearchParams({
+    //    term,
+    //    page: "1",
+    //    limit,
+    //    searchType,
+    //    sortType,
+    //    sortOrderType,
+    //  });
     if (!initialTerm) handleRecentLevels();
   }, []);
 
@@ -270,14 +270,14 @@ const Search = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[url('./../../public/pattern.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
-        <div className="bg-[#FFF] flex-1 p-15 ml-[3vw] mr-[3vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
+      <div className="bg-[url('./../../public/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
+        <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">
               <div className="flex flex-col">
                 <button
                   onClick={handleRecentLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-indigo-500"
                 >
                   Recently Uploaded
                   <FaClock size={14} />
@@ -285,7 +285,7 @@ const Search = () => {
 
                 <button
                   onClick={handleMostPlayedLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-green-500"
                 >
                   Most Played
                   <FaPlayCircle />
@@ -293,7 +293,7 @@ const Search = () => {
 
                 <button
                   onClick={handleMostLikedLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer"
+                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-red-500"
                 >
                   Most Liked
                   <FaHeart />
@@ -340,7 +340,7 @@ const Search = () => {
                 </div>
                 <div
                   className={
-                    results.length === 0 ? "hidden" : "flex justify-center"
+                    (totalResults < +limit) ? "hidden" : "flex justify-center"
                   }
                 >
                   <Pagination
