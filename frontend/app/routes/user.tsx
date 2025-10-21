@@ -72,7 +72,7 @@ const user = () => {
       <Navbar />
       <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
-          <div className="flex flex-row justify-start items-start ml-[2vw] mr-[2vw] gap-10">
+          <div className="flex flex-row justify-start items-start ml-[3vw] mr-[3vw] gap-10">
             <div className="flex flex-col justify-start items-start gap-5 border-1 border-[#E1E1EE] p-5 rounded-lg h-fit">
               <div className="flex justify-center items-center w-50 h-50 rounded-lg border-1 border-[#e1e1e1]">
                 <p className="text-2xl">PFP</p>
@@ -95,7 +95,7 @@ const user = () => {
                 <p className="text-xs text-neutral-500">####</p>
               </div>
             </div>
-            <div className="flex border-1 border-[#E1E1EE] p-5 rounded-lg w-full min-h-fit">
+            <div className="flex w-full min-h-fit">
               <div className="flex flex-wrap justify-center gap-5">
                 {results.map((r: any, i: any) => (
                   <LevelCard

@@ -77,7 +77,7 @@ const UserMenu = ({
         <FaCaretDown />
       </button>
       {showMenu && (
-        <div className="absolute -translate-x-1/2 mt-2 border-1 border-[#e1e1e1] w-50 drop-shadow-lg p-2 z-10 bg-[#fff]">
+        <div className="absolute -translate-x-1/2 mt-2 border-1 border-[#e1e1e1] w-50 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
           <Link to={`/users/${user.username}`}>
             <div className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer">
               <p className="text-xs">My Profile</p>
