@@ -289,13 +289,13 @@ export const searchUsers = async (req: Request, res: Response) => {
       .populate({
         path: "user",
         match: { username: new RegExp(req.body.term, "i") },
+        select: "username"
       })
       .sort(sort as any)
       .skip(skip)
       .limit(limit as number);
     const filtered = populated.filter((info) => info.user);
 
-    // Then handle pagination manually
     const total = filtered.length;
     const results = filtered.slice(skip, skip + (limit as number));
 

@@ -3,10 +3,10 @@ import User from "../models/User.ts";
 import UserInfo from "../models/UserInfo.ts";
 
 export const populateLevels = async () => {
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 9; i++) {
     const newLevel = new Level({
-      name: "Level " + i,
-      author: "Author " + i,
+      name: "My Level " + i,
+      author: "testUser",
       description: "Desc " + i,
     });
     await newLevel.save();

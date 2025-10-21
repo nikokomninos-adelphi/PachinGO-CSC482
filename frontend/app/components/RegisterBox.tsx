@@ -3,20 +3,28 @@
  * contains frontend logic for user registration
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import { IoMdContact } from "react-icons/io";
 import { MdPassword } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
+import { useAuthStore } from "~/stores/useAuthStore";
 
 const RegisterBox = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuthStore();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) navigate("/");
+    setIsLoading(false);
+  }, [user]);
 
   // Handles submitting a registration
   // attempt. Redirects to login page
@@ -46,8 +54,10 @@ const RegisterBox = () => {
     }
   };
 
+  if (isLoading) return null;
+
   return (
-    <div className="bg-[#FAFAFA] min-h-screen flex justify-center items-center text-[#352F36]">
+    <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex justify-center items-center text-[#352F36]">
       <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
         <div className="col-span-1 flex flex-col p-10">
           <Link to="/" className="mb-5">

@@ -3,17 +3,25 @@
  * contains frontend logic for user login
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { IoMdContact } from "react-icons/io";
 import { MdPassword } from "react-icons/md";
+import { useAuthStore } from "~/stores/useAuthStore";
 
 const LoginBox = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const { user, checkAuth } = useAuthStore();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) navigate("/");
+    setIsLoading(false);
+  }, [user]);
 
   // Handles submitting a login attempt
   // Redirects the user to the home page if successful
@@ -32,8 +40,10 @@ const LoginBox = () => {
       },
     );
     const data = await res.json();
-    if (data.message === "Login successful") navigate("/");
-    else setStatus(data.message);
+    if (data.message === "Login successful") {
+      await checkAuth();
+      navigate("/");
+    } else setStatus(data.message);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -42,8 +52,10 @@ const LoginBox = () => {
     }
   };
 
+  if (isLoading) return null;
+
   return (
-    <div className="bg-[#FAFAFA] min-h-screen flex justify-center items-center text-[#352F36]">
+    <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex justify-center items-center text-[#352F36]">
       <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
         <div className="col-span-1 flex flex-col p-10">
           <Link to="/" className="mb-20">

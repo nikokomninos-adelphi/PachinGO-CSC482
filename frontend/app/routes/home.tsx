@@ -17,7 +17,7 @@ export function meta({}: Route.MetaArgs) {
 
 const Home = () => {
   return (
-    <div className="bg-[url('./../../public/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex flex-col justify-center items-center text-[#352F36]">
+    <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex flex-col justify-center items-center text-[#352F36]">
       <NavLoginOnly />
       <div className="m-2 p-20 grid grid-cols-2 gap-10 w-[98vw] h-[96vh] rounded-2xl bg-[#FFF] border-1 border-[#C1C1CC]">
         <div className="col-span-1 flex flex-col justify-center">
@@ -52,7 +52,7 @@ const Home = () => {
               <h1 className="text-lg">Make Your Own Levels</h1>
             </Link>
             <Link
-              to="/"
+              to="/about"
               className="flex justify-start items-center p-3 bg-[#343434] hover:bg-neutral-500 drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 w-65 h-20 gap-2"
             >
               <FaInfoCircle />

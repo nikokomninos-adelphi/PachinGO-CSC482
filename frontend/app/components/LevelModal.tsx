@@ -4,8 +4,10 @@
  * A modal that appears when a LevelCard is clicked
  */
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
+import { useAuthStore } from "~/stores/useAuthStore";
 
 const LevelModal = ({
   setShowModal,
@@ -20,6 +22,8 @@ const LevelModal = ({
   author: string;
   desc: string;
 }) => {
+  const { user } = useAuthStore();
+
   // Prevent scrolling when modal is open
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -29,6 +33,25 @@ const LevelModal = ({
       document.body.style.overflow = "auto";
     };
   }, []);
+
+  const handleDeletion = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/deleteLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+        body: JSON.stringify({
+          levelID: id,
+        }),
+      },
+    );
+    const data = await res.json();
+    window.location.reload();
+  };
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Escape") {
@@ -70,7 +93,12 @@ const LevelModal = ({
           </div>
         </div>
         <div className="col-span-1 p-10 flex flex-col">
-          <div className="flex justify-end items-center">
+          <div className="flex flex-row gap-5 justify-end items-center">
+            <DeleteButton
+              user={user}
+              author={author}
+              handleDeletion={handleDeletion}
+            />
             <button
               onClick={() => setShowModal(false)}
               className="text-sm hover:text-neutral-400 cursor-pointer ease-linear duration-75"
@@ -84,6 +112,7 @@ const LevelModal = ({
             <Link
               to={`/users/${author}`}
               className="underline text-neutral-500"
+              onClick={() => setShowModal(false)}
             >
               {author}
             </Link>
@@ -94,6 +123,58 @@ const LevelModal = ({
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+// A mini modal that's displayed when hitting the delete button,
+// as to avoid using the alert() function
+const DeleteButton = ({
+  user,
+  author,
+  handleDeletion,
+}: {
+  user: any;
+  author: string;
+  handleDeletion: Function;
+}) => {
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  return (
+    <div className="relative inline-block">
+      <button
+        onClick={() => setShowConfirm((prev) => !prev)} // toggle popup
+        className={
+          (user as any)?.username === author
+            ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+            : "hidden"
+        }
+      >
+        <FaTrash />
+      </button>
+
+      {showConfirm && (
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border-1 border-[#e1e1e1] rounded-lg shadow-lg p-2 text-sm z-10">
+          <p className="mb-2 text-center">Are you sure?</p>
+          <div className="flex justify-between">
+            <button
+              onClick={() => {
+                handleDeletion();
+                setShowConfirm(false);
+              }}
+              className="p-1 mr-2 rounded-md border-1 border-[#e1e1e1] hover:bg-[#fafafa] ease-linear duration-75 cursor-pointer"
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => setShowConfirm(false)}
+              className="p-1 rounded-md border-1 border-[#e1e1e1] hover:bg-[#fafafa] ease-linear duration-75 cursor-pointer"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

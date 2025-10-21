@@ -6,41 +6,39 @@
  * Goes on top of the Navbar.
  */
 
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
-
-import { checkAuth } from "~/auth/auth";
+import { useAuthStore } from "~/stores/useAuthStore";
 
 const NavLoginOnly = () => {
-  const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const { user, logout, checkAuth } = useAuthStore();
+
+  const navigate = useNavigate();
 
   // Handles logging the user out when the logout button is clicked
-  const logout = async () => {
-    await fetch(import.meta.env.VITE_BACKEND_URL + "/api/v1/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    });
-    setUser(null);
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
   };
 
-  // Checks if a user is logged in on initial
-  // navbar render
+  // Handles client side flicker. Will not render
+  // login controls until login state is checked.
   useEffect(() => {
-    (async () => {
-      const loggedIn = await checkAuth();
-      setUser(loggedIn);
-    })();
-  }, []);
+    setIsLoading(false);
+  }, [user])
+
+  if (isLoading) return null;
 
   return (
     <div className="w-full flex justify-end mr-[3vw] tracking-tight">
       {user ? (
         <div className="flex flex-row">
-          <Link to={`/users/${user.username}`} className="underline font-semibold text-xs ml-2 mr-2">
-            Hello, {user.username}!
+          <Link to={`/users/${(user as any).username}`} className="underline font-semibold text-xs ml-2 mr-2">
+            Hello, {(user as any).username}!
           </Link>
           <button
-            onClick={logout}
+            onClick={() => handleLogout()}
             className="font-light text-xs ml-2 mr-2 hover:text-neutral-400 ease-linear duration-75"
           >
             Logout

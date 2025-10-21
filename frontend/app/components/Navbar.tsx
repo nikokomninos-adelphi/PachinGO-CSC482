@@ -57,7 +57,7 @@ const Navbar = () => {
           </div>
           <div className="flex flex-row justify-center items-center gap-2 mt-1 mb-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl p-3 text-sm">
             <Link
-              to=""
+              to="/about"
               className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
             >
               <FaInfoCircle size={12} />

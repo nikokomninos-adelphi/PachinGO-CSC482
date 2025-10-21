@@ -10,17 +10,16 @@ import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import LevelCard from "~/components/LevelCard";
-
-import { useEffect, useState, useMemo } from "react";
-import { useSearchParams } from "react-router";
+import UserCard from "~/components/UserCard";
 import Pagination from "~/components/Pagination";
 import FilterBox from "~/components/FilterBox";
 
-import { FaClock } from "react-icons/fa6";
+import { useEffect, useState, useMemo } from "react";
+import { useSearchParams } from "react-router";
 
-import { VscSearch } from "react-icons/vsc";
-import UserCard from "~/components/UserCard";
+import { FaClock } from "react-icons/fa6";
 import { FaHeart, FaPlayCircle } from "react-icons/fa";
+import { VscSearch } from "react-icons/vsc";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -62,15 +61,6 @@ const Search = () => {
    * to the user
    */
   useEffect(() => {
-    //if (initialTerm)
-    //  setSearchParams({
-    //    term,
-    //    page: "1",
-    //    limit,
-    //    searchType,
-    //    sortType,
-    //    sortOrderType,
-    //  });
     if (!initialTerm) handleRecentLevels();
   }, []);
 
@@ -270,7 +260,7 @@ const Search = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[url('./../../public/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
+      <div className="bg-[url('pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">

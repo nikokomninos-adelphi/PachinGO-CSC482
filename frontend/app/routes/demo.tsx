@@ -1,4 +1,12 @@
+import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Demo Levels - PachinGO!" },
+    { name: "description", content: "Peggle Reborn" },
+  ];
+}
 
 const demo = () => {
   return (
