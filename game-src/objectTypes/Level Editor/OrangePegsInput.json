@@ -1,0 +1,17 @@
+{
+	"name": "OrangePegsInput",
+	"plugin-id": "TextBox",
+	"sid": 570905782182401,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "OrangePegCount",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 689177261552085
+		}
+	],
+	"behaviorTypes": []
+}

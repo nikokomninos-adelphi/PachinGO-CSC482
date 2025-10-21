@@ -239,6 +239,33 @@
 					],
 					"actions": [
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 174299292422652,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 199581006967554,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 568277412993636,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 917720950876221,
@@ -272,6 +299,33 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 611183435109920,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 379202995325606,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 582137716049054,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
@@ -307,6 +361,33 @@
 					],
 					"actions": [
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 922618876491262,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 486228628015266,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 588967275259523,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 846680141436335,
@@ -340,6 +421,33 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 935086204669842,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 590859539776336,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 404789632791023,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
@@ -375,6 +483,33 @@
 					],
 					"actions": [
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 886400765929399,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 231917169186091,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 457828890927787,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 640281487458983,
@@ -384,6 +519,67 @@
 						}
 					],
 					"sid": 822174619137198
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 655811850944564,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LevelText"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "LevelText",
+							"sid": 559472160758948,
+							"parameters": {
+								"tags": "\"LevelEditor\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 325681762016505,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 825062443722457,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 194829728487145,
+							"parameters": {
+								"variable": "NumberOfOrangePegsInLevel",
+								"value": "25"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 140058869548171,
+							"parameters": {
+								"layout": "Level Editor"
+							}
+						}
+					],
+					"sid": 690821874253091
 				}
 			],
 			"sid": 336832917900890

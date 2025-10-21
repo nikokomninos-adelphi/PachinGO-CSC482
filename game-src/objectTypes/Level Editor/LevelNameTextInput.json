@@ -1,0 +1,17 @@
+{
+	"name": "LevelNameTextInput",
+	"plugin-id": "TextBox",
+	"sid": 387420654184286,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "CharacterCount",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 623801683377785
+		}
+	],
+	"behaviorTypes": []
+}

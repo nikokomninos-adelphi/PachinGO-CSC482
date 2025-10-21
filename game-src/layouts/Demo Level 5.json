@@ -121,6 +121,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -188,6 +201,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -257,6 +283,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -324,6 +363,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -393,6 +445,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -460,6 +525,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -529,6 +607,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -596,6 +687,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -665,6 +769,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -732,6 +849,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -801,6 +931,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -868,6 +1011,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -937,6 +1093,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1004,6 +1173,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1073,6 +1255,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1140,6 +1335,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1209,6 +1417,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1276,6 +1497,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1345,6 +1579,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1412,6 +1659,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1481,6 +1741,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1548,6 +1821,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1617,6 +1903,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1684,6 +1983,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1753,6 +2065,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1820,6 +2145,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -1889,6 +2227,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1956,6 +2307,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2025,6 +2389,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2092,6 +2469,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2161,6 +2551,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2228,6 +2631,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2297,6 +2713,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2364,6 +2793,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2433,6 +2875,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2500,6 +2955,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2569,6 +3037,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2636,6 +3117,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2705,6 +3199,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2772,6 +3279,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2841,6 +3361,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -2908,6 +3441,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -2977,6 +3523,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3044,6 +3603,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3113,6 +3685,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3180,6 +3765,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3249,6 +3847,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3316,6 +3927,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3385,6 +4009,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3452,6 +4089,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3521,6 +4171,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3588,6 +4251,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3657,6 +4333,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3724,6 +4413,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3793,6 +4495,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3860,6 +4575,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -3929,6 +4657,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -3996,6 +4737,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4065,6 +4819,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4132,6 +4899,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4201,6 +4981,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4268,6 +5061,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4337,6 +5143,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4404,6 +5223,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4473,6 +5305,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4540,6 +5385,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4609,6 +5467,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4676,6 +5547,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4745,6 +5629,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4812,6 +5709,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -4881,6 +5791,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -4948,6 +5871,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5017,6 +5953,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5084,6 +6033,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5153,6 +6115,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5220,6 +6195,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5289,6 +6277,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5356,6 +6357,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5425,6 +6439,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5492,6 +6519,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5561,6 +6601,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5628,6 +6681,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5697,6 +6763,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5764,6 +6843,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5833,6 +6925,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -5900,6 +7005,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -5969,6 +7087,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6036,6 +7167,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6105,6 +7249,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6172,6 +7329,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6241,6 +7411,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6308,6 +7491,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6377,6 +7573,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6444,6 +7653,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6513,6 +7735,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6580,6 +7815,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6649,6 +7897,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6716,6 +7977,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6785,6 +8059,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6852,6 +8139,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -6921,6 +8221,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -6988,6 +8301,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7057,6 +8383,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7124,6 +8463,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7193,6 +8545,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7260,6 +8625,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7329,6 +8707,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7396,6 +8787,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7465,6 +8869,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7532,6 +8949,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -7601,6 +9031,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7669,6 +9112,19 @@
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -7736,6 +9192,19 @@
 								"range": 10000,
 								"cone-of-view": 360,
 								"use-collision-cells": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"ShadowCaster": {
+							"properties": {
+								"height": 100,
+								"tag": "",
+								"enabled": true
 							}
 						}
 					},
@@ -9049,5 +10518,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Core Gameplay"
+	"eventSheet": "Gameplay"
 }

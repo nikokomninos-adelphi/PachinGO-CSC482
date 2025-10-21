@@ -1,0 +1,17 @@
+{
+	"name": "LvlDescriptionTextInput",
+	"plugin-id": "TextBox",
+	"sid": 379908287389004,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "OrangePegCount",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 314306240378766
+		}
+	],
+	"behaviorTypes": []
+}

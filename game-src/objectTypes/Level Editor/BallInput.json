@@ -1,0 +1,17 @@
+{
+	"name": "BallInput",
+	"plugin-id": "TextBox",
+	"sid": 904525784435254,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "BallCount",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 634667280056561
+		}
+	],
+	"behaviorTypes": []
+}

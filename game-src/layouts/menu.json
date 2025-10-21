@@ -2157,7 +2157,7 @@
 				{
 					"type": "bucketVictoryHitbox",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -2218,6 +2218,59 @@
 						"height": 194,
 						"originX": 0.3261261261261261,
 						"originY": 0.5515463917525774,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LevelText",
+					"properties": {
+						"text": "Level Editor",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 208,
+					"sid": 578647461386761,
+					"tags": "LevelEditor",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 578647461386761,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 24,
+						"y": 494,
+						"width": 98,
+						"height": 98,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -2301,7 +2354,16 @@
 		"subfolders": []
 	},
 	"sid": 882620627203211,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "Dictionary",
+			"properties": {},
+			"uid": 346,
+			"sid": 587332634324581,
+			"tags": "",
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 800,
 	"height": 600,

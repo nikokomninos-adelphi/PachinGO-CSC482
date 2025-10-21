@@ -1,0 +1,16 @@
+{
+	"name": "LevelEditorTextObject",
+	"plugin-id": "Text",
+	"sid": 897647333778689,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 208492386866594
+		}
+	],
+	"effectTypes": []
+}

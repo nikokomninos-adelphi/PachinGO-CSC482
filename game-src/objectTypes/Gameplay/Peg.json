@@ -28,6 +28,16 @@
 			"behaviorId": "LOS",
 			"name": "LineOfSight",
 			"sid": 553479168206460
+		},
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 917051541759484
+		},
+		{
+			"behaviorId": "shadowcaster",
+			"name": "ShadowCaster",
+			"sid": 146403941113277
 		}
 	],
 	"effectTypes": [],

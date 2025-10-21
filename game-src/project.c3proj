@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 44902,
+	"savedWithRelease": 45800,
 	"name": "PachinGO!",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -17,6 +17,13 @@
 			"type": "plugin",
 			"id": "Audio",
 			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -78,6 +85,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
@@ -108,6 +122,13 @@
 			"type": "behavior",
 			"id": "Sin",
 			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "shadowcaster",
+			"name": "Shadow caster",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -185,7 +206,9 @@
 					"GameEndText",
 					"ScoreCountUpwards",
 					"PegHitText",
-					"ScoreCalcVisible"
+					"ScoreCalcVisible",
+					"CustomLevelName",
+					"LevelEditorTextObject"
 				],
 				"subfolders": [],
 				"name": "Text"
@@ -250,6 +273,18 @@
 				],
 				"subfolders": [],
 				"name": "FX"
+			},
+			{
+				"items": [
+					"LevelNameTextInput",
+					"LevelEditorButtons",
+					"OrangePegsInput",
+					"BallInput",
+					"LvlDescriptionTextInput",
+					"Dictionary"
+				],
+				"subfolders": [],
+				"name": "Level Editor"
 			}
 		]
 	},
@@ -272,13 +307,15 @@
 			"Demo Level 2",
 			"Demo Level 3",
 			"Demo Level 4",
-			"Demo Level 5"
+			"Demo Level 5",
+			"Level Editor",
+			"Level Editor Play"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Core Gameplay",
+			"Gameplay",
 			"Login",
 			"Register",
 			"Menu"
@@ -340,6 +377,14 @@
 					"name": "PMD2 OST - Top Menu Theme.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 661745871338010,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Super Smash Bros. Brawl Stage Builder.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 770114058184591,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -474,8 +519,8 @@
 		],
 		"orientations": "landscape",
 		"webgpu": "auto",
+		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
-		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"sampling": "nearest",
 		"downscaling": "medium",
@@ -486,10 +531,11 @@
 		"maxSpriteSheetSize": 2048,
 		"loaderStyle": "none",
 		"preloadSounds": true,
+		"uidAllocationMode": "increment",
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
 		"exportFileStructure": "folders",
-		"uidAllocationMode": "increment"
+		"scriptsType": "module"
 	},
 	"viewportWidth": 800,
 	"viewportHeight": 600,
