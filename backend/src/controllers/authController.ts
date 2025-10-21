@@ -1,8 +1,8 @@
 /**
  * authController
  *
- * Contains logic relating to the /api/users endpoint.
- * Handles user registration and login
+ * Contains logic relating to the /api/auth endpoint.
+ * Handles user registration, login, and authentication
  */
 
 import bcrypt from "bcrypt";
@@ -14,8 +14,10 @@ import User from "../models/User.ts";
 
 /**
  * Register a user
- * @param {Request} req
- * @param {Response} res
+ * @param {Request} req, contains HTTP body with: email, username and password
+ * @param {Response} res, contains HTTP body with: status code and status message
+ * @returns an HTTP status code of 201 if successful,
+ * different if unsuccessful
  */
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -81,15 +83,18 @@ export const registerUser = async (req: Request, res: Response) => {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
   } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
 /**
  * Log a user in
- * @param {Request} req
- * @param {Response} res
- * @returns
+ * @param {Request} req, contains HTTP body with: email/username and password
+ * @param {Response} res, contains HTTP body with: status code, status message 
+ * and a cookie containing a JWT
+ * @returns an HTTP status code of 200 and a cookie containing a JWT if successful,
+ * a different code otherwise
  */
 export const loginUser = async (req: Request, res: Response) => {
   try {
@@ -122,6 +127,9 @@ export const loginUser = async (req: Request, res: Response) => {
     // Generate JWT token for authentication
     const token = jwt.sign({ username: user.username }, "secret", { expiresIn: "1h" });
 
+    // Put the JWT in an HTTP cookie that
+    // will be included in all future
+    // request bodies
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
@@ -131,6 +139,44 @@ export const loginUser = async (req: Request, res: Response) => {
 
     res.status(200).json({ message: "Login successful" });
   } catch (e) {
-    res.status(500).json({ message: e });
+    console.error(e);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
+
+/**
+ * Logs a user out
+ * @param {Request} req, contains an HTTP body with: a cookie containing a JWT
+ * @param {Response} res, contains an HTTP body with: a status message and an empty auth cookie
+ * @returns an HTTP status code of 200 if successful,
+ * a different one otherwise, and an empty auth cookie
+ */
+export const logoutUser = async (req: Request, res: Response) => {
+  try {
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logout successful" });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+/**
+ * Checks if a user is authenticated
+ * @param {Request} req, contains an HTTP body with: a cookie containing a JWT (or not)
+ * @param {Response} res, contains an HTTP body with: a success status message and the username
+ * of the authenticated user, otherwise a message containing an error
+ */
+export const checkAuth = async (req: Request, res: Response) => {
+  try {
+  const username = (req as any).username;
+  if (!username) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  return res.status(200).json({ message: "Authenticated", username, });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}

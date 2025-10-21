@@ -11,7 +11,7 @@ import mongoose from "mongoose";
 
 const userInfoSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
-  levels: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: "Level" }]
+  levels: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: "Level" }]
 });
 
 export default mongoose.model("UserInfo", userInfoSchema);

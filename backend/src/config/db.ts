@@ -1,5 +1,5 @@
 /**
- * db.js
+ * db.ts
  * 
  * Contains logic to start bootstrap connection
  * to remote MongoDB database (MongoDB Atlas)

@@ -1,7 +1,9 @@
-import type { Route } from "../+types/root";
-import RegisterBox from "~/components/RegisterBox";
+/**
+ * register.tsx - the registration page route
+ */
 
-import NavbarAlternate from "~/components/NavbarAlternate";
+import type { Route } from "../+types/root";
+import RegisterBox from "~/components/auth/RegisterBox";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,8 +14,7 @@ export function meta({}: Route.MetaArgs) {
 
 const register = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <NavbarAlternate />
+    <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex justify-center items-center text-[#352F36]">
       <RegisterBox />
     </div>
   );

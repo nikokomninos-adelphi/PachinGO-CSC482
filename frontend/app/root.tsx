@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { useEffect } from "react";
+import { useAuthStore } from "./stores/useAuthStore";
 
 //import { rootAuthLoader } from "@clerk/react-router/server";
 //import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/react-router'
@@ -49,6 +51,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App({ loaderData }: Route.ComponentProps) {
+  const { checkAuth } = useAuthStore();
+
+  useEffect(() => {
+    (async () => {
+      await checkAuth();
+    })();
+  }, [checkAuth]);
+
   return <Outlet />;
   //return (
   //  <ClerkProvider loaderData={loaderData}>

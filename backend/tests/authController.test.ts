@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { MongoMemoryServer } from "mongodb-memory-server-core";
 import mongoose from "mongoose";
 
-import { registerUser, loginUser } from "../src/controllers/authController.ts";
+import { registerUser, loginUser, logoutUser } from "../src/controllers/authController.ts";
 import User from "../src/models/User.ts";
 
 let mockRequest: Partial<Request>;
@@ -29,6 +29,7 @@ beforeEach(() => {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
     cookie: jest.fn(),
+    clearCookie: jest.fn(),
   };
 });
 
@@ -244,62 +245,77 @@ describe("Tests for registerUser", () => {
 });
 
 describe("Tests for loginUser", () => {
-    test("Success if valid credentials (username)", async () => {
-      const expectedBody = {
-        message: "Login successful",
+  test("Success if valid credentials (username)", async () => {
+    const expectedBody = {
+      message: "Login successful",
+    };
+    const expectedStatus = 200;
+    const expectedCookie = ["token", expect.any(String), expect.any(Object)]
+
+    mockRequest = {
+      body: { username: "testUser", password: "TestPass" },
+    };
+
+    let registerMockRequest: Partial<Request> = {
+      body: { email: "test@email.com", username: "testUser", password: "TestPass" },
+    };
+
+    let registerMockResponse: Partial<Response> = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    };
+
+    await registerUser(registerMockRequest as Request, registerMockResponse as Response);
+
+    await loginUser(mockRequest as Request, mockResponse as Response);
+    expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+    expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
+    expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
+  });
+
+  test("Success if valid credentials (email)", async () => {
+    const expectedBody = {
+      message: "Login successful",
+    };
+    const expectedStatus = 200;
+    const expectedCookie = ["token", expect.any(String), expect.any(Object)]
+
+    mockRequest = {
+      body: { username: "test@email.com", password: "TestPass" },
+    };
+
+    let registerMockRequest: Partial<Request> = {
+      body: { email: "test@email.com", username: "testUser", password: "TestPass" },
+    };
+
+    let registerMockResponse: Partial<Response> = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    }
+
+    await registerUser(registerMockRequest as Request, registerMockResponse as Response);
+
+    await loginUser(mockRequest as Request, mockResponse as Response);
+    expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+    expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
+    expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
+  });
+  describe("Username Tests", () => {
+    test("Error if user does not exist (username)", async () => {
+      const expectedError = {
+        message: "Invalid credentials",
       };
-      const expectedStatus = 200;
-      const expectedCookie = ["token", expect.any(String), expect.any(Object)]
+      const expectedStatus = 401;
 
       mockRequest = {
         body: { username: "testUser", password: "TestPass" },
       };
 
-      let registerMockRequest: Partial<Request> = {
-        body: { email: "test@email.com", username: "testUser", password: "TestPass" },
-      };
-
-      let registerMockResponse: Partial<Response> = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      };
-
-      await registerUser(registerMockRequest as Request, registerMockResponse as Response);
-
       await loginUser(mockRequest as Request, mockResponse as Response);
       expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
-      expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
-      expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
+      expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
     });
 
-    test("Success if valid credentials (email)", async () => {
-      const expectedBody = {
-        message: "Login successful",
-      };
-      const expectedStatus = 200;
-      const expectedCookie = ["token", expect.any(String), expect.any(Object)]
-
-      mockRequest = {
-        body: { username: "test@email.com", password: "TestPass" },
-      };
-
-      let registerMockRequest: Partial<Request> = {
-        body: { email: "test@email.com", username: "testUser", password: "TestPass" },
-      };
-
-      let registerMockResponse: Partial<Response> = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      }
-
-      await registerUser(registerMockRequest as Request, registerMockResponse as Response);
-
-      await loginUser(mockRequest as Request, mockResponse as Response);
-      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
-      expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
-      expect(mockResponse.cookie).toHaveBeenCalledWith(expectedCookie[0], expectedCookie[1], expectedCookie[2]);
-    });
-  describe("Username Tests", () => {
     test("Error if user does not exist (email)", async () => {
       const expectedError = {
         message: "Invalid credentials",
@@ -315,21 +331,8 @@ describe("Tests for loginUser", () => {
       expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
     });
 
-    test("Error if user does not exist (username)", async () => {
-      const expectedError = {
-        message: "Invalid credentials",
-      };
-      const expectedStatus = 401;
-
-      mockRequest = {
-        body: { username: "testUser", password: "TestPass" },
-      };
-
-      await loginUser(mockRequest as Request, mockResponse as Response);
-      expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
-      expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
-    });
   });
+
   describe("Password Tests", () => {
 
     test("Error if passwords do not match", async () => {
@@ -357,5 +360,24 @@ describe("Tests for loginUser", () => {
       expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
       expect(mockResponse.json).toHaveBeenCalledWith(expectedError);
     });
+  });
+});
+
+describe("Tests for logoutUser", () => {
+  test("Successful logout", async () => {
+    const expectedBody = {
+      message: "Logout successful",
+    };
+    const expectedStatus = 200;
+    const expectedCookie = "token";
+
+    mockRequest = {
+      body: { username: "testUser", password: "TestPass" },
+    };
+
+    await logoutUser(mockRequest as Request, mockResponse as Response);
+    expect(mockResponse.status).toHaveBeenCalledWith(expectedStatus);
+    expect(mockResponse.json).toHaveBeenCalledWith(expectedBody);
+    expect(mockResponse.clearCookie).toHaveBeenCalledWith(expectedCookie);
   });
 });
