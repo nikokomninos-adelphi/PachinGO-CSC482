@@ -26,8 +26,8 @@ const user = () => {
     (async () => {
       const exists = await checkUserExits();
       if (exists) {
+        await getUserLevels();
         setIsLoading(false);
-        getUserLevels();
       } else navigate("/error", { replace: true });
     })();
   }, []);
@@ -52,7 +52,7 @@ const user = () => {
 
   const getUserLevels = async () => {
     const res = await fetch(
-      import.meta.env.VITE_BACKEND_URL + `/api/v1/users/getUserLevels`,
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/users/getUserLevels?username=${username}`,
       {
         method: "GET",
         mode: "cors",
@@ -74,10 +74,10 @@ const user = () => {
       <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-row justify-start items-start ml-[3vw] mr-[3vw] gap-10">
-            <UserBox username={username as string} />
+            <UserBox username={username} />
             <div className="flex w-full min-h-fit">
               <div className="flex flex-wrap justify-center gap-5">
-                {results.map((r: any, i: any) => (
+                { results.length > 0 ? results.map((r: any, i: any) => (
                   <LevelCard
                     key={i}
                     id={r.levelID}
@@ -85,7 +85,7 @@ const user = () => {
                     author={r.author}
                     desc={r.description}
                   />
-                ))}
+                )) : <h1 className="text-xl">This user has not uploaded any levels yet.</h1> }
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@ const SearchBar = ({
           placeholder="Search..."
           value={term}
           onChange={(e) => setTerm(e.target.value)}
-          onKeyDown={() => handleKeyDown()}
+          onKeyDown={(e) => handleKeyDown(e)}
           className="flex w-full h-10 p-2 border-1 border-[#e1e1ee] rounded-lg"
         />
         <VscSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400" />

@@ -253,6 +253,8 @@ const Search = () => {
         return results.map((r: any, i: any) => (
           <UserCard key={i} username={r.user?.username} />
         ));
+      default:
+        return null;
     }
   }, [results]);
 

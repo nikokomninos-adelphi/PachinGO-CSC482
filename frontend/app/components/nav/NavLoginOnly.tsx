@@ -9,8 +9,10 @@
 import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { useAuthStore } from "~/stores/useAuthStore";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaMoon } from "react-icons/fa";
 import { IoIosExit, IoMdContact, IoMdSettings } from "react-icons/io";
+import { FaSun } from "react-icons/fa";
+import { MdMonitor } from "react-icons/md";
 
 const NavLoginOnly = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,14 +37,18 @@ const NavLoginOnly = () => {
   return (
     <div className="w-full flex justify-end mr-[3vw] tracking-tight">
       {user ? (
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center gap-2">
+          <ThemeMenu />
           <UserMenu user={user} handleLogout={handleLogout} />
         </div>
       ) : (
-        <div>
+        <div className="flex flex-row items-center gap-2">
+          <button className="p-1 border-1 border-[#e1e1e1] bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 rounded-sm ease-linear duration-75 cursor-pointer">
+            <FaSun size={11} />
+          </button>
           <Link
             to="/login"
-            className="font-light text-xs hover:text-neutral-400 ease-linear duration-75 mr-3"
+            className="font-light text-xs hover:text-neutral-400 ease-linear duration-75"
           >
             Login
           </Link>
@@ -52,6 +58,39 @@ const NavLoginOnly = () => {
           >
             Register
           </Link>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ThemeMenu = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  return (
+    <div className="relative inline-block">
+      <button
+        onClick={() => setShowMenu((prev) => !prev)}
+        className="p-1 border-1 border-[#e1e1e1] bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 rounded-sm ease-linear duration-75 cursor-pointer"
+      >
+        <FaSun size={11} />
+      </button>
+      {showMenu && (
+        <div className="absolute -translate-x-1/2 mt-2 border-1 border-[#e1e1e1] w-20 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
+          <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+              <p className="text-xs">Light</p>
+              <FaSun size={12} />
+          </button>
+
+          <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+              <p className="text-xs">Dark</p>
+              <FaMoon size={12} />
+          </button>
+
+          <button className="flex flex-row justify-between items-center hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+              <p className="text-xs">System</p>
+              <MdMonitor size={13} />
+          </button>
         </div>
       )}
     </div>

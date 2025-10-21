@@ -1,4 +1,10 @@
-const UserBox = ({ username }: { username: string }) => {
+/**
+ * UserBox
+ *
+ * A component that holds a user's public info 
+ * for their profile
+ */
+const UserBox = ({ username }: { username: any }) => {
   return (
     <div className="flex flex-col justify-start items-start gap-5 border-1 border-[#E1E1EE] p-5 rounded-lg h-fit">
       <div className="flex justify-center items-center w-50 h-50 rounded-lg border-1 border-[#e1e1e1]">
