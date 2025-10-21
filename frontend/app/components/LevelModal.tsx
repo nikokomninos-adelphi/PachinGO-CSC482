@@ -145,7 +145,7 @@ const DeleteButton = ({
       <button
         onClick={() => setShowConfirm((prev) => !prev)} // toggle popup
         className={
-          (user as any)?.username === author
+          user?.username === author
             ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
             : "hidden"
         }
@@ -154,7 +154,7 @@ const DeleteButton = ({
       </button>
 
       {showConfirm && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border-1 border-[#e1e1e1] rounded-lg shadow-lg p-2 text-sm z-10">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#fff] border-1 border-[#e1e1e1] rounded-lg drop-shadow-lg p-2 text-sm z-10">
           <p className="mb-2 text-center">Are you sure?</p>
           <div className="flex justify-between">
             <button

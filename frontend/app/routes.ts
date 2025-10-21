@@ -6,6 +6,7 @@ export default [
   route("login", "routes/login.tsx"),
   route("register", "routes/register.tsx"),
   route("users/:username", "routes/user.tsx"),
+  route("/account", "routes/account.tsx"),
 
   route("demo", "routes/demo.tsx"),
   route("search", "routes/search.tsx"),

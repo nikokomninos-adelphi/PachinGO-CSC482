@@ -67,7 +67,9 @@ const RegisterBox = () => {
               className="h-20 hover:drop-shadow-lg ease-linear duration-150"
             />
           </Link>
-          <h1 className="mb-10 text-sm font-normal">Ready to become a PachinGOD?</h1>
+          <h1 className="mb-10 text-sm font-normal">
+            Ready to become a PachinGOD?
+          </h1>
           <div className="flex flex-col">
             <div className="flex flex-row gap-1 items-center mb-2">
               <MdEmail />
@@ -118,9 +120,15 @@ const RegisterBox = () => {
             >
               Register
             </button>
-            <h1 className={status ? "mb-10 text-red-400" : "hidden"}>
-              {status}
-            </h1>
+            <div
+              className={
+                status
+                  ? "mb-10 border-1 border-red-200 animate-pulse rounded-md p-4 w-75 text-center"
+                  : "hidden"
+              }
+            >
+              <h1>{status}</h1>
+            </div>
           </div>
         </div>
         <div className="col-span-2">

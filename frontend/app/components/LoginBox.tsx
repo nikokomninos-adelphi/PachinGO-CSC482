@@ -101,9 +101,15 @@ const LoginBox = () => {
             >
               Login
             </button>
-            <h1 className={status ? "mb-10 text-red-400" : "hidden"}>
-              {status}
-            </h1>
+            <div
+              className={
+                status
+                  ? "mb-10 border-1 border-red-200 animate-pulse rounded-md p-4 w-75 text-center"
+                  : "hidden"
+              }
+            >
+              <h1>{status}</h1>
+            </div>
             Don't have an account?
             <Link
               to="/register"
