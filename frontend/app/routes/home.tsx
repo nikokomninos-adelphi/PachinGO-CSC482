@@ -6,7 +6,7 @@ import type { Route } from "./+types/home";
 import { Link } from "react-router";
 import { FaPlay, FaSearch, FaWrench, FaInfoCircle } from "react-icons/fa";
 
-import NavLoginOnly from "~/components/NavLoginOnly";
+import NavLoginOnly from "~/components/nav/NavLoginOnly";
 
 export function meta({}: Route.MetaArgs) {
   return [

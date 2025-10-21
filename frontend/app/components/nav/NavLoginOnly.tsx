@@ -14,7 +14,7 @@ import { IoIosExit, IoMdContact, IoMdSettings } from "react-icons/io";
 
 const NavLoginOnly = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { user, logout, checkAuth } = useAuthStore();
+  const { user, logout } = useAuthStore();
 
   const navigate = useNavigate();
 
@@ -71,7 +71,7 @@ const UserMenu = ({
     <div className="relative inline-block">
       <button
         onClick={() => setShowMenu((prev) => !prev)}
-        className="flex flex-row items-center gap-1 font-semibold text-xs cursor-pointer"
+        className="flex flex-row items-center gap-1 font-semibold text-xs cursor-pointer hover:text-neutral-400 ease-linear duration-75"
       >
         Hello, {user?.username}!
         <FaCaretDown />

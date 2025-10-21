@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
-import Footer from "~/components/Footer";
-import Navbar from "~/components/Navbar";
+import Footer from "~/components/nav/Footer";
+import Navbar from "~/components/nav/Navbar";
 
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";

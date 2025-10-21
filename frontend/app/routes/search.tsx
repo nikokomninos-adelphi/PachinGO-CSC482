@@ -7,19 +7,18 @@
  */
 
 import type { Route } from "./+types/home";
-import Navbar from "~/components/Navbar";
-import Footer from "~/components/Footer";
-import LevelCard from "~/components/LevelCard";
-import UserCard from "~/components/UserCard";
-import Pagination from "~/components/Pagination";
-import FilterBox from "~/components/FilterBox";
+import Navbar from "~/components/nav/Navbar";
+import Footer from "~/components/nav/Footer";
+import LevelCard from "~/components/level/LevelCard";
+import UserCard from "~/components/user/UserCard";
+import Pagination from "~/components/search/Pagination";
+import FilterBox from "~/components/search/FilterBox";
+import PremadeSearchButtons from "~/components/search/PremadeSearchButtons";
+import SearchBar from "~/components/search/SearchBar";
 
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router";
 
-import { FaClock } from "react-icons/fa6";
-import { FaHeart, FaPlayCircle } from "react-icons/fa";
-import { VscSearch } from "react-icons/vsc";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -265,29 +264,11 @@ const Search = () => {
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">
               <div className="flex flex-col">
-                <button
-                  onClick={handleRecentLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-indigo-500"
-                >
-                  Recently Uploaded
-                  <FaClock size={14} />
-                </button>
-
-                <button
-                  onClick={handleMostPlayedLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-green-500"
-                >
-                  Most Played
-                  <FaPlayCircle />
-                </button>
-
-                <button
-                  onClick={handleMostLikedLevels}
-                  className="flex flex-row justify-between items-center p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-red-500"
-                >
-                  Most Liked
-                  <FaHeart />
-                </button>
+                <PremadeSearchButtons
+                  handleRecentLevels={handleRecentLevels}
+                  handleMostPlayedLevels={handleMostPlayedLevels}
+                  handleMostLikedLevels={handleMostLikedLevels}
+                />
                 <FilterBox
                   searchType={searchType}
                   setSearchType={setSearchType}
@@ -301,36 +282,21 @@ const Search = () => {
               </div>
 
               <div className="flex flex-col flex-1 grow justify-center gap-5 ml-5 w-350 rounded-lg">
-                <div>
-                  <div className="relative w-full">
-                    <input
-                      type="text"
-                      name="search"
-                      placeholder="Search..."
-                      value={term}
-                      onChange={(e) => setTerm(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                      className="flex w-full h-10 p-2 border-1 border-[#e1e1ee] rounded-lg"
-                    />
-                    <VscSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-                  </div>
-                  <h1 className={"text-xs ml-1 mt-1"}>
-                    Showing results{" "}
-                    {results.length === 0 ? "0" : +limit * (page - 1) || "1"} -{" "}
-                    {results.length + +limit > totalResults
-                      ? results.length
-                      : +limit * page > totalResults
-                        ? totalResults
-                        : +limit * page}{" "}
-                    of {totalResults}
-                  </h1>
-                </div>
+                <SearchBar
+                  term={term}
+                  setTerm={setTerm}
+                  handleKeyDown={handleKeyDown}
+                  results={results}
+                  limit={limit}
+                  page={page}
+                  totalResults={totalResults}
+                />
                 <div className="flex flex-wrap flex-1 grow justify-start gap-5">
                   {renderResults}
                 </div>
                 <div
                   className={
-                    (totalResults < +limit) ? "hidden" : "flex justify-center"
+                    totalResults < +limit ? "hidden" : "flex justify-center"
                   }
                 >
                   <Pagination
@@ -348,5 +314,6 @@ const Search = () => {
     </div>
   );
 };
+
 
 export default Search;

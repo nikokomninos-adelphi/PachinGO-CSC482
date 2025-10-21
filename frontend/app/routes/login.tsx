@@ -3,7 +3,7 @@
  */
 
 import type { Route } from "../+types/root";
-import LoginBox from "~/components/LoginBox";
+import LoginBox from "~/components/auth/LoginBox";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,7 +14,7 @@ export function meta({}: Route.MetaArgs) {
 
 const login = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex justify-center items-center text-[#352F36]">
       <LoginBox />
     </div>
   );
