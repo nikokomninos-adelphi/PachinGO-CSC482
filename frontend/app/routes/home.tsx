@@ -19,12 +19,17 @@ const Home = () => {
   return (
     <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite] min-h-screen flex flex-col justify-center items-center text-[#352F36]">
       <div className="flex w-full justify-end mr-[5vw]">
-      <NavLoginOnly/>
+        <NavLoginOnly />
       </div>
       <div className="m-2 p-20 grid grid-cols-2 gap-10 w-[90vw] h-[90vh] rounded-2xl bg-[#FFF] border-1 border-[#C1C1CC]">
         <div className="col-span-1 flex flex-col justify-center">
-          {<img src="/logo_outline.png" alt="PachinGO! Logo, Large" className="mb-10 w-125" />}
-          {/*<h1 className="text-7xl font-semibold mb-5">PachinGO!</h1>*/}
+          {
+            <img
+              src="/logo_outline.png"
+              alt="PachinGO! Logo, Large"
+              className="mb-10 w-125"
+            />
+          }
           <h2 className="text-3xl mb-15 text-gray-600">
             A spiritual successor to <i>Peggle</i>, now featuring a level
             editor.
@@ -65,7 +70,9 @@ const Home = () => {
         <div className="col-span-1 flex flex-col justify-center items-center">
           <div className="bg-[#FAFAFA] flex flex-col justify-center items-center w-[100%] h-[100%] border-1 border-black rounded-xl">
             <h1>Future Gameplay GIF</h1>
-            <h1>Will be a level with pegs that spell out <i>PachinGO!</i></h1>
+            <h1>
+              Will be a level with pegs that spell out <i>PachinGO!</i>
+            </h1>
           </div>
         </div>
       </div>
@@ -74,98 +81,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*export default function Home() {
-  return (
-    <div>
-      <Navbar />
-      <div className="p-15 tracking-tighter"></div>
-      <div className="flex flex-col justify-center items-center">
-        <img src="/logo.png" alt="PachinGO! Logo, Large" className="mb-10" />
-        {/* <h1 className="text-7xl mb-10">PachinGO!</h1> }
-        <h2 className="text-3xl mb-15 text-gray-600">
-          A spiritual successor to <i>Peggle</i>, now featuring a level editor.
-        </h2>
-        <div className="flex flex-row justify-center items-center mb-30">
-          <Link
-            to="/demo"
-            className="p-3 bg-[#575e8f] hover:bg-[#363a59] drop-shadow-lg ease-linear duration-75 text-white rounded-2xl ml-5 mr-5"
-          >
-            <h1 className="text-lg">Play The Official Demo Levels</h1>
-          </Link>
-          <Link
-            to="/search"
-            className="p-3 bg-[#8f5757] hover:bg-[#593636] drop-shadow-lg ease-linear duration-75 text-white rounded-2xl ml-5 mr-5"
-          >
-            <h1 className="text-lg">Play User Created Levels</h1>
-          </Link>
-          <Link
-            to="/"
-            className="p-3 bg-[#8f5787] hover:bg-[#593659] drop-shadow-lg ease-linear duration-75 text-white rounded-2xl ml-5 mr-5"
-          >
-            <h1 className="text-lg">Make Your Own Levels</h1>
-          </Link>
-        </div>
-        <div className="flex justify-center items-center text-xl border-t-2 border-l-2 border-r-2 border-black w-200 h-100">
-          Future Gameplay GIF
-        </div>
-      </div>
-      <div className="flex flex-col bg-[#545578] text-white p-5 tracking-tighter">
-        <h1 className="text-5xl mt-10 mb-10 text-center font-bold">
-          What is PachinGO?
-        </h1>
-        <div className="flex flex-col text-center items-center text-gray-200 mb-10">
-          <p className="text-lg mb-10 max-w-[50%]">
-            <i>PachinGO!</i> is a spiritual successor to <s>EA's</s> PopCap's
-            beloved franchise <i>Peggle</i>. The Peggle franchise has lay
-            relatively dormant, with later entries straying further from the
-            identity and solid gameplay that fans loved from both <i>Peggle</i>{" "}
-            and <i>Peggle Nights</i>. <i>PachinGO!</i> aims to bring life back
-            to the franchise, promising:
-          </p>
-          <ul className="text-lg text-center ml-10">
-            <li className="mb-3">
-              An artstyle akin to the original <i>Peggle</i>
-            </li>
-            <li className="mb-3">
-              Demo levels featuring the core gameplay you know and love
-            </li>
-            <li className="mb-3">
-              A fully-featured level editor, with the ability to upload and
-              download user levels
-            </li>
-            <li className="mb-3">And much more down the line...</li>
-          </ul>
-        </div>
-      </div>
-      <div className="h-100">
-        <h1 className="text-4xl text-center font-bold mt-10 mb-10">
-          The Team Behind PachinGO!
-        </h1>
-        <div className="grid grid-cols-3">
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
-              nk
-            </div>
-            <p className="mt-10 text-xl">Nikolaos Komninos</p>
-          </div>
-
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
-              tp
-            </div>
-            <p className="mt-10 text-xl">Tahir Peele</p>
-          </div>
-
-          <div className="flex flex-col justify-center items-center mt-5">
-            <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
-              mvw
-            </div>
-            <p className="mt-10 text-xl">Michael Weiss</p>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-}*/

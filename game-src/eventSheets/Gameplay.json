@@ -402,6 +402,16 @@
 			"sid": 515339521783256
 		},
 		{
+			"eventType": "variable",
+			"name": "PegData",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 771528245848803
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "DEBUG CONTROLS",
@@ -1388,6 +1398,24 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Load the level editor peg layout into the",
+										"// gameplay test layout",
+										"",
+										"const dict = JSON.parse(runtime.globalVars.PegData).data;",
+										"",
+										"for (const key in dict) {",
+										"    const pegData = JSON.parse(dict[key]);",
+										"",
+										"    const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"    newPeg.angle = pegData.angle;",
+										"    newPeg.setAnimation(pegData.animation);",
+										"}"
+									]
 								},
 								{
 									"type": "comment",
@@ -9390,11 +9418,29 @@
 													"sid": 453952626128726
 												},
 												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 524349298785997,
+													"parameters": {
+														"group-name": "\"CORE GAMEPLAY\"",
+														"state": "deactivated"
+													}
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 289099538986344,
+													"parameters": {
+														"group-name": "\"LEVEL EDITOR\"",
+														"state": "activated"
+													}
+												},
+												{
 													"id": "go-to-layout",
 													"objectClass": "System",
-													"sid": 395670383114794,
+													"sid": 184712726381808,
 													"parameters": {
-														"layout": "Menu"
+														"layout": "Level Editor"
 													}
 												}
 											],
@@ -12196,6 +12242,23 @@
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Load the previous state of the level editor peg layout",
+										"",
+										"const pegDict = JSON.parse(runtime.globalVars.PegData).data;",
+										"",
+										"for (const key in pegDict) {",
+										"    const pegData = JSON.parse(pegDict[key]);",
+										"",
+										"    const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"    newPeg.angle = pegData.angle;",
+										"    newPeg.setAnimation(pegData.animation);",
+										"}"
+									]
 								}
 							],
 							"sid": 159058310515392
@@ -12250,6 +12313,29 @@
 								}
 							],
 							"sid": 855190164211877
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-changed",
+									"objectClass": "FileChooser",
+									"sid": 913782739348381
+								}
+							],
+							"actions": [
+								{
+									"id": "load-image-from-url",
+									"objectClass": "Sprite",
+									"sid": 552129079426072,
+									"parameters": {
+										"uri": "FileChooser.FileURLAt(0)",
+										"size": "keep-current-size",
+										"cross-origin": "anonymous"
+									}
+								}
+							],
+							"sid": 509449725768384
 						}
 					],
 					"sid": 327337716187992
@@ -16603,6 +16689,37 @@
 									],
 									"actions": [
 										{
+											"type": "script",
+											"language": "javascript",
+											"script": [
+												"// Save the peg layout into a JSON",
+												"",
+												"const pegDict = {",
+												"    c2dictionary: true,",
+												"    data: {}",
+												"};",
+												"",
+												"for (const peg of runtime.objects.Peg.getAllInstances()) {",
+												"    const key = \"Peg\" + peg.uid;",
+												"",
+												"    if(peg.animationName === \"CircleBlueActive\") peg.setAnimation(\"CircleBlue\");",
+												"    if(peg.animationName === \"BrickBlueActive\") peg.setAnimation(\"BrickBlue\");",
+												"    if(peg.animationName === \"CurveBlueActive\") peg.setAnimation(\"CurveBlue\");",
+												"",
+												"    const pegData = {",
+												"        x: peg.x,",
+												"        y: peg.y,",
+												"        angle: peg.angle,",
+												"        animation: peg.animationName",
+												"    };",
+												"",
+												"    pegDict.data[key] = JSON.stringify(pegData);",
+												"}",
+												"",
+												"runtime.globalVars.PegData = JSON.stringify(pegDict);"
+											]
+										},
+										{
 											"id": "set-group-active",
 											"objectClass": "System",
 											"sid": 505000041529365,
@@ -16626,14 +16743,6 @@
 											"sid": 561659104404259,
 											"parameters": {
 												"layout": "Level Editor Play"
-											}
-										},
-										{
-											"id": "download",
-											"objectClass": "Dictionary",
-											"sid": 198295535916718,
-											"parameters": {
-												"filename": "\"\""
 											}
 										}
 									],
@@ -17194,6 +17303,101 @@
 										}
 									],
 									"sid": 367391725008260
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 641918440494420,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 972425545109350,
+											"parameters": {
+												"animation": "\"Upload\""
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 160279217576626,
+											"parameters": {
+												"tags": "\"UploadUI\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"language": "javascript",
+											"script": [
+												"// Save the peg layout into a JSON",
+												"",
+												"const pegDict = {",
+												"    c2dictionary: true,",
+												"    data: {}",
+												"};",
+												"",
+												"for (const peg of runtime.objects.Peg.getAllInstances()) {",
+												"    const key = \"Peg\" + peg.uid;",
+												"",
+												"    if(peg.animationName === \"CircleBlueActive\") peg.setAnimation(\"CircleBlue\");",
+												"    if(peg.animationName === \"BrickBlueActive\") peg.setAnimation(\"BrickBlue\");",
+												"    if(peg.animationName === \"CurveBlueActive\") peg.setAnimation(\"CurveBlue\");",
+												"",
+												"    const pegData = {",
+												"        x: peg.x,",
+												"        y: peg.y,",
+												"        angle: peg.angle,",
+												"        animation: peg.animationName",
+												"    };",
+												"",
+												"    pegDict.data[key] = JSON.stringify(pegData);",
+												"}",
+												"",
+												"runtime.globalVars.PegData = JSON.stringify(pegDict);"
+											]
+										},
+										{
+											"type": "script",
+											"language": "javascript",
+											"script": [
+												"const pegs = JSON.parse(runtime.globalVars.PegData).data;",
+												"console.log(pegs);",
+												"",
+												"const upload = async () => { ",
+												"    const res = await fetch(\"http://localhost:3000/api/v1/level/uploadLevel\", {",
+												"    method: \"POST\",",
+												"    mode: \"cors\",",
+												"    headers: {",
+												"        \"Content-Type\": \"application/json\",",
+												"        \"Access-Control-Allow-Credentials\": \"true\",",
+												"        },",
+												"    body: JSON.stringify({",
+												"        name: runtime.globalVars.CustomLevelName,",
+												"        author: \"testUser\",",
+												"        desc: runtime.globalVars.CustomLevelDesc,",
+												"        pegLayout: pegs,",
+												"    })",
+												"    });",
+												"",
+												"    const data = res.json();",
+												"    console.log(data);",
+												"}",
+												"",
+												"await upload();"
+											]
+										}
+									],
+									"sid": 593700620177363
 								}
 							],
 							"sid": 543182586608401
@@ -17831,6 +18035,12 @@
 				}
 			],
 			"sid": 989794631279745
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 952868540153462
 		}
 	],
 	"sid": 277583079393040

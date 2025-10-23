@@ -113,59 +113,6 @@
 					}
 				},
 				{
-					"type": "Login",
-					"properties": {
-						"text": "Login",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 24,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "right",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
-						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
-					},
-					"uid": 357,
-					"sid": 353903560919838,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 353903560919838,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 668,
-						"y": 544,
-						"width": 105,
-						"height": 41,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "LevelText",
 					"properties": {
 						"text": "Demo Level 2",
@@ -2360,6 +2307,22 @@
 			"properties": {},
 			"uid": 346,
 			"sid": 587332634324581,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "PegLayout",
+			"properties": {},
+			"uid": 347,
+			"sid": 946319488270063,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "PegLayoutGameplay",
+			"properties": {},
+			"uid": 348,
+			"sid": 620266520937624,
 			"tags": "",
 			"instanceVariables": {}
 		}

@@ -43,9 +43,7 @@ const NavLoginOnly = () => {
         </div>
       ) : (
         <div className="flex flex-row items-center gap-2">
-          <button className="p-1 border-1 border-[#e1e1e1] bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 rounded-sm ease-linear duration-75 cursor-pointer">
-            <FaSun size={11} />
-          </button>
+          <ThemeMenu />
           <Link
             to="/login"
             className="font-light text-xs hover:text-neutral-400 ease-linear duration-75"
@@ -76,7 +74,7 @@ const ThemeMenu = () => {
         <FaSun size={11} />
       </button>
       {showMenu && (
-        <div className="absolute -translate-x-1/2 mt-2 border-1 border-[#e1e1e1] w-20 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
+        <div className="absolute -translate-x-1/2 left-1/2 mt-1 border-1 border-[#e1e1e1] w-20 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
           <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
               <p className="text-xs">Light</p>
               <FaSun size={12} />
@@ -84,7 +82,7 @@ const ThemeMenu = () => {
 
           <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
               <p className="text-xs">Dark</p>
-              <FaMoon size={12} />
+              <FaMoon size={11} />
           </button>
 
           <button className="flex flex-row justify-between items-center hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">

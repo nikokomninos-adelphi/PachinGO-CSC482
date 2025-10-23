@@ -75,8 +75,9 @@ const user = () => {
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-row justify-start items-start ml-[3vw] mr-[3vw] gap-10">
             <UserBox username={username} />
-            <div className="flex w-full min-h-fit">
-              <div className="flex flex-wrap justify-center gap-5">
+            <div className="flex flex-col w-full min-h-fit">
+              <h1 className="text-2xl font-semibold mb-5">{username}'s Levels</h1>
+              <div className="flex flex-wrap gap-5">
                 { results.length > 0 ? results.map((r: any, i: any) => (
                   <LevelCard
                     key={i}

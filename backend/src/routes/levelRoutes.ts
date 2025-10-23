@@ -7,10 +7,11 @@
  */
 
 import express from "express";
-import { deleteLevel } from "../controllers/levelController.ts";
+import { deleteLevel, uploadLevel } from "../controllers/levelController.ts";
 
 const router = express.Router();
 
 router.post("/deleteLevel", deleteLevel);
+router.post("/uploadLevel", uploadLevel);
 
 export default router;

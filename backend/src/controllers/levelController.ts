@@ -30,3 +30,20 @@ export const deleteLevel = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const uploadLevel = async (req: Request, res: Response) => {
+  try {
+    const { name, author, desc, pegLayout } = req.body;
+    await Level.create({
+      name: name,
+      author: author,
+      description: desc,
+      pegLayout: pegLayout
+    });
+    return res.status(201).json({ message: "Level uploaded successfully" });
+
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

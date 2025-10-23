@@ -14,7 +14,7 @@ const levelSchema = new mongoose.Schema({
   author: { type: String, required: true, min: 1, max: 50 },
   description: { type: String, required: true, min: 0, max: 200 },
   //thumbnail: { type: String, required: true },
-  //pegLayout: { type: Object, required: true },
+  pegLayout: { type: Object, required: true },
   //backgroundImage: { type: String, required: true },
   //numOrange: { type: Number, required: true },
   //uiColors: { type: Object, required: true },

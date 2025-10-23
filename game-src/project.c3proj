@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "filechooser",
+			"name": "File chooser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "sliderbar",
 			"name": "Slider bar",
 			"author": "Scirra",
@@ -179,7 +186,8 @@
 					"Bumper",
 					"demo4bg",
 					"shootervisual",
-					"bucketVictory"
+					"bucketVictory",
+					"PegLayoutGameplay"
 				],
 				"subfolders": [],
 				"name": "Gameplay"
@@ -262,7 +270,8 @@
 					"walldecal",
 					"backbbutton",
 					"Savebbutton",
-					"PachingoLogo"
+					"PachingoLogo",
+					"ConnectorWallUI"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -281,7 +290,10 @@
 					"OrangePegsInput",
 					"BallInput",
 					"LvlDescriptionTextInput",
-					"Dictionary"
+					"Dictionary",
+					"PegLayout",
+					"FileChooser",
+					"Sprite"
 				],
 				"subfolders": [],
 				"name": "Level Editor"
@@ -301,8 +313,6 @@
 	"layouts": {
 		"items": [
 			"Menu",
-			"Login",
-			"Register",
 			"Demo Level 1",
 			"Demo Level 2",
 			"Demo Level 3",
@@ -316,8 +326,6 @@
 	"eventSheets": {
 		"items": [
 			"Gameplay",
-			"Login",
-			"Register",
 			"Menu"
 		],
 		"subfolders": []

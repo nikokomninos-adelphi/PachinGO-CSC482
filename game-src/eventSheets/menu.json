@@ -5,62 +5,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 944405673923685,
-					"disabled": true
-				}
-			],
-			"actions": [
-				{
-					"id": "request-url",
-					"objectClass": "AJAX",
-					"sid": 743683016860749,
-					"parameters": {
-						"tag": "\"hello\"",
-						"url": "\"https://pachingo.onrender.com/\""
-					}
-				}
-			],
-			"sid": 271520582768697
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 738962672149262,
-					"disabled": true,
-					"parameters": {
-						"tag": "\"hello\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "parse",
-					"objectClass": "JSON",
-					"sid": 989389732305675,
-					"parameters": {
-						"data": "AJAX.LastData"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "AJAXTest",
-					"sid": 942964255278861,
-					"parameters": {
-						"text": "JSON.Get(\"message\")"
-					}
-				}
-			],
-			"sid": 527936196588861
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
 					"sid": 118866481387612,
@@ -69,44 +13,14 @@
 						"click-type": "clicked",
 						"object-clicked": "Login"
 					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 676255446273962,
-					"parameters": {
-						"variable": "JWT",
-						"comparison": 0,
-						"value": "\"\""
-					}
 				}
 			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 883088959808817,
-					"parameters": {
-						"layout": "Login"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 658862930484277
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 845768728895360,
-					"parameters": {
-						"variable": "JWT",
-						"comparison": 1,
-						"value": "\"\""
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "set-text",
@@ -131,37 +45,9 @@
 						"click-type": "clicked",
 						"object-clicked": "Login"
 					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 981754939653851,
-					"parameters": {
-						"variable": "JWT",
-						"comparison": 1,
-						"value": "\"\""
-					}
 				}
 			],
 			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 968681713088996,
-					"parameters": {
-						"variable": "Username",
-						"value": "\"\""
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 954984632744487,
-					"parameters": {
-						"variable": "JWT",
-						"value": "\"\""
-					}
-				},
 				{
 					"id": "set-text",
 					"objectClass": "Login",

@@ -87,18 +87,15 @@ const LevelModal = ({
         onClick={(e) => e.stopPropagation()}
         className="fixed grid grid-cols-3 top-1/8 left-1/8 w-[75vw] h-[75vh] bg-[#fff] rounded-lg drop-shadow-2xl"
       >
-        <div className="col-span-2 p-10">
-          <div className="w-full h-full border-1 border-black flex justify-center items-center rounded-lg">
-            Level Thumbnail
-          </div>
+        <div className="col-span-2 w-7/8 h-7/8 m-auto flex justify-center items-center">
+          <img
+            src="/thumbnail.jpg"
+            className="border-1 border-[#c1c1c1] rounded-lg"
+          />
         </div>
-        <div className="col-span-1 p-10 flex flex-col">
-          <div className="flex flex-row gap-5 justify-end items-center">
-            <DeleteButton
-              user={user}
-              author={author}
-              handleDeletion={handleDeletion}
-            />
+
+        <div className="col-span-1 pr-10 py-10 flex flex-col">
+          <div className="flex justify-end items-center">
             <button
               onClick={() => setShowModal(false)}
               className="text-sm hover:text-neutral-400 cursor-pointer ease-linear duration-75"
@@ -106,7 +103,7 @@ const LevelModal = ({
               Back
             </button>
           </div>
-          <h1 className="text-4xl mb-3">{name}</h1>
+          <h1 className="text-4xl font-semibold mb-3">{name}</h1>
           <h2 className="text-sm mb-3">
             by{" "}
             <Link
@@ -118,7 +115,12 @@ const LevelModal = ({
             </Link>
           </h2>
           <p className="text-md">{desc}</p>
-          <div className="flex justify-end items-end h-full">
+          <div className="flex flex-col gap-3 justify-end items-end h-full">
+            <DeleteButton
+              user={user}
+              author={author}
+              handleDeletion={handleDeletion}
+            />
             <h3 className="text-xs">Level ID: {id}</h3>
           </div>
         </div>
@@ -154,7 +156,7 @@ const DeleteButton = ({
       </button>
 
       {showConfirm && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#fff] border-1 border-[#e1e1e1] rounded-lg drop-shadow-lg p-2 text-sm z-10">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#fff] border-1 border-[#e1e1e1] rounded-lg drop-shadow-lg p-2 text-sm z-10">
           <p className="mb-2 text-center">Are you sure?</p>
           <div className="flex justify-between">
             <button
