@@ -471,7 +471,8 @@
 					"sid": 521725714550218,
 					"tags": "Master",
 					"instanceVariables": {
-						"ContinuousContactTimer": -7
+						"ContinuousContactTimer": -7,
+						"Active": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -552,7 +553,8 @@
 					"sid": 159903491558348,
 					"tags": "Master",
 					"instanceVariables": {
-						"ContinuousContactTimer": -7
+						"ContinuousContactTimer": -7,
+						"Active": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -633,7 +635,8 @@
 					"sid": 357976730398630,
 					"tags": "Master",
 					"instanceVariables": {
-						"ContinuousContactTimer": -7
+						"ContinuousContactTimer": -7,
+						"Active": 0
 					},
 					"behaviors": {
 						"Solid": {
