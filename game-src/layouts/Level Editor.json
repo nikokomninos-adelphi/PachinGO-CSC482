@@ -7,7 +7,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Sprite",
+					"type": "CustomBG",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -92,6 +92,16 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
+					"effects": {
+						"AdjustHSL": {
+							"isEnabled": true,
+							"parameters": {
+								"hue": 0,
+								"saturation": 1,
+								"luminosity": 1
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 647718752296441,
 						"expanded": true
@@ -380,7 +390,7 @@
 			"global": false
 		},
 		{
-			"name": "UI",
+			"name": "UI Lvl Editor",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
@@ -498,7 +508,7 @@
 						"LineOfSight": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 10000,
+								"range": 26,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -580,7 +590,7 @@
 						"LineOfSight": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 10000,
+								"range": 26,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -662,7 +672,7 @@
 						"LineOfSight": {
 							"properties": {
 								"obstacles": "custom",
-								"range": 10000,
+								"range": 26,
 								"cone-of-view": 360,
 								"use-collision-cells": true
 							}
@@ -1164,9 +1174,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -64.68129938299057,
-						"y": 605.3669988458807,
-						"width": 383.0000000000005,
+						"x": -39.22675392844508,
+						"y": 580.821544300426,
+						"width": 321.18181818181876,
 						"height": 111.63636363636374,
 						"originX": 0,
 						"originY": 0,
@@ -1201,7 +1211,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 602.526715177969,
+						"x": 612.526715177969,
 						"y": 27.49568002111257,
 						"width": 31.64062617020586,
 						"height": 32.40383584792517,
@@ -1215,41 +1225,6 @@
 						],
 						"angle": 0,
 						"zElevation": 0
-					}
-				},
-				{
-					"type": "FileChooser",
-					"properties": {
-						"accept": "",
-						"select": "single",
-						"initially-visible": true,
-						"id": "",
-						"class": ""
-					},
-					"uid": 349,
-					"sid": 463833924882196,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 463833924882196,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 121,
-						"y": 229,
-						"width": 200,
-						"height": 25,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
 					}
 				}
 			],
@@ -1855,7 +1830,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 460,
+						"x": 470,
 						"y": 16,
 						"width": 134.0000000000001,
 						"height": 26,
@@ -1866,6 +1841,43 @@
 							1,
 							1,
 							1
+						],
+						"angle": 6.281916423289426,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "RightClickBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 496,
+					"sid": 200958747033055,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 200958747033055,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 301.8181818181818,
+						"y": 628.5454545454545,
+						"width": 28.099857549568497,
+						"height": 35.0998575495685,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -1940,6 +1952,599 @@
 					"global": false
 				},
 				{
+					"name": "BGHandler",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "ImageHere",
+							"properties": {
+								"accept": "",
+								"select": "single",
+								"initially-visible": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 349,
+							"sid": 463833924882196,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 463833924882196,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 145,
+								"y": 224,
+								"width": 91,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Upload Background Image:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 483,
+							"sid": 197184553543966,
+							"tags": "BGHandler",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 197184553543966,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 103,
+								"y": 187,
+								"width": 229.0000000000001,
+								"height": 23,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Background Image Opacity:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 484,
+							"sid": 911002597525259,
+							"tags": "BGHandler",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 911002597525259,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 103,
+								"y": 305,
+								"width": 226.0000000000001,
+								"height": 23,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Background Color:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 485,
+							"sid": 651812760392953,
+							"tags": "BGHandler",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 651812760392953,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 443,
+								"y": 187,
+								"width": 229.0000000000001,
+								"height": 23,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Exit2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 486,
+							"sid": 252298339047284,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 252298339047284,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 400,
+								"y": 454,
+								"width": 37.049619406692,
+								"height": 37.94330045885876,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Clear",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 487,
+							"sid": 698673119031698,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 698673119031698,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 267,
+								"y": 234,
+								"width": 30.038024221709698,
+								"height": 30.76257722714811,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.25
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "CustomBGOpacity",
+							"properties": {
+								"value": 100,
+								"minimum": 0,
+								"maximum": 100,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 488,
+							"sid": 276572175631590,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 276572175631590,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 116,
+								"y": 355,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] 100%",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 491,
+							"sid": 342207081878231,
+							"tags": "BGHandler2",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 342207081878231,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 117,
+								"y": 333,
+								"width": 199.0000000000001,
+								"height": 23,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LumBGSlide",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 255,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 492,
+							"sid": 798672093463091,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 798672093463091,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 484,
+								"y": 357,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "HSLUI",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 493,
+							"sid": 945265635676505,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 945265635676505,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 466,
+								"y": 317,
+								"width": 32.27120355757681,
+								"height": 149.02184555622443,
+								"originX": 0.9925373134328358,
+								"originY": 0.5667613636363636,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "HueBGSlide",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 255,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 494,
+							"sid": 310606357336649,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 310606357336649,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 484,
+								"y": 235,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "SatBGSlide",
+							"properties": {
+								"value": 0,
+								"minimum": 0,
+								"maximum": 255,
+								"step": 1,
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 495,
+							"sid": 782051552220726,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 782051552220726,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 484,
+								"y": 294,
+								"width": 200,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						}
+					],
+					"sid": 104442825682623,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
 					"name": "InfoControls",
 					"overriden": 0,
 					"subLayers": [],
@@ -1947,7 +2552,7 @@
 						{
 							"type": "LevelEditorTextObject",
 							"properties": {
-								"text": "[outlineback=#000000][lineThickness=5] Use the Arrows (on-screen or keyboard) to move selected Pegs\n\n Hold CTRL while moving selected Pegs to move them a single pixel\n\n Use the Circular Arrows to rotate selected Pegs\n\n Hold CTRL while rotating selected Pegs to rotate them a single pixel\n\n Hold Shift when rotating a Peg to rotate it 45 degrees\n\n Hold CTRL when clicking a Peg to duplicate it\n\n Press Z to select all Pegs\n\n Press X to de-select all Pegs\n",
+								"text": "[outlineback=#000000][lineThickness=5] Right click to create a box to highlight and activate Pegs\n\n Use the Arrows (on-screen or keyboard) to move selected Pegs\n\n Hold CTRL while moving selected Pegs to move them a single pixel\n\n Use the Circular Arrows (or the Comma and Period keys) to rotate \n selected Pegs\n\n Hold CTRL while rotating selected Pegs to rotate them a single pixel\n\n Hold Shift when rotating a Peg to rotate it 45 degrees\n\n Hold CTRL when clicking a Peg to duplicate it\n\n Press Z to select all Pegs\n\n Press X to de-select all Pegs\n",
 								"enable-bbcode": true,
 								"font": "Arial",
 								"size": 12,
@@ -1971,7 +2576,7 @@
 							},
 							"uid": 344,
 							"sid": 360285150060424,
-							"tags": "Settings",
+							"tags": "Controls",
 							"instanceVariables": {},
 							"behaviors": {
 								"Fade": {
@@ -1993,9 +2598,9 @@
 							"locked": false,
 							"world": {
 								"x": 133,
-								"y": 138,
+								"y": 123,
 								"width": 561.0000000000001,
-								"height": 356,
+								"height": 410,
 								"originX": 0,
 								"originY": 0,
 								"color": [
@@ -2030,7 +2635,7 @@
 							"locked": false,
 							"world": {
 								"x": 400,
-								"y": 482,
+								"y": 519,
 								"width": 37.049619406692,
 								"height": 37.94330045885876,
 								"originX": 0.5,
@@ -2047,6 +2652,512 @@
 						}
 					],
 					"sid": 541396511101948,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "Music",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Exit2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 619,
+							"sid": 373701785254441,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 373701785254441,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 400,
+								"y": 472,
+								"width": 37.049619406692,
+								"height": 37.94330045885876,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "World 1",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 620,
+							"sid": 576006092949264,
+							"tags": "World1",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 576006092949264,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 147,
+								"y": 226,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] PachinGO!\nOriginal Soundtrack Selection:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 698,
+							"sid": 124211366591725,
+							"tags": "Music",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 124211366591725,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 225,
+								"y": 160,
+								"width": 354.4545454545456,
+								"height": 47,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "World 2",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 621,
+							"sid": 839112484149769,
+							"tags": "World2",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 839112484149769,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 342,
+								"y": 226,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "World 3",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 622,
+							"sid": 109012583582508,
+							"tags": "World3",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 109012583582508,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 533,
+								"y": 226,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "World 4",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 623,
+							"sid": 495355367455919,
+							"tags": "World4",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 495355367455919,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 147,
+								"y": 288,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "World 5",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 697,
+							"sid": 836292426643803,
+							"tags": "World5",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 836292426643803,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 342,
+								"y": 288,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "MusicSelect",
+							"properties": {
+								"type": "button",
+								"text": "Level Editor",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": false,
+								"auto-font-size": true,
+								"checked": false,
+								"id": "",
+								"class": ""
+							},
+							"uid": 710,
+							"sid": 547037654745673,
+							"tags": "LevelEditor",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 547037654745673,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 533,
+								"y": 288,
+								"width": 113.81818181818181,
+								"height": 24,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Import Music:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 711,
+							"sid": 248259828665446,
+							"tags": "Music",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 248259828665446,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 330,
+								"y": 356,
+								"width": 136.4545454545456,
+								"height": 17,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "MusicHere",
+							"properties": {
+								"accept": "",
+								"select": "single",
+								"initially-visible": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 712,
+							"sid": 463887812980747,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 463887812980747,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 356,
+								"y": 388,
+								"width": 86,
+								"height": 25,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
+						},
+						{
+							"type": "Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 713,
+							"sid": 407939090426401,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 407939090426401,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 464,
+								"y": 400,
+								"width": 30.402338189198584,
+								"height": 30.402338189198584,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 518145137092746,
 					"effectTypes": [],
 					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,

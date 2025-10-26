@@ -1,49 +1,32 @@
 {
-	"name": "ConnectorWallUI",
+	"name": "RightClickBox",
 	"plugin-id": "Sprite",
-	"sid": 373776882704702,
+	"sid": 231654119612170,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
-	"effectTypes": [
-		{
-			"effectId": "hsladjust",
-			"name": "AdjustHSL"
-		}
-	],
+	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 394,
-						"height": 48,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 7334879,
-						"collisionPoly": {
-							"points": [
-								0,
-								0,
-								1,
-								0,
-								1,
-								1,
-								0,
-								0.9956868489583334
-							]
-						},
+						"imageSpriteId": 8944978,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 819739069990731,
+				"sid": 782626537238090,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

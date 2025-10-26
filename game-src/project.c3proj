@@ -22,6 +22,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
@@ -293,7 +300,15 @@
 					"LvlDescriptionTextInput",
 					"Dictionary",
 					"PegLayout",
-					"FileChooser",
+					"ImageHere",
+					"CustomBG",
+					"CustomBGOpacity",
+					"SatBGSlide",
+					"LumBGSlide",
+					"HueBGSlide",
+					"RightClickBox",
+					"MusicSelect",
+					"MusicHere",
 					"Sprite"
 				],
 				"subfolders": [],
@@ -320,7 +335,8 @@
 			"Demo Level 4",
 			"Demo Level 5",
 			"Level Editor",
-			"Level Editor Play"
+			"Level Editor Play",
+			"Level Editor Online"
 		],
 		"subfolders": []
 	},

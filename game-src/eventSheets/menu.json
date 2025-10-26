@@ -152,6 +152,15 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 625365742622170,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "1"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 917720950876221,
@@ -210,6 +219,15 @@
 							"parameters": {
 								"variable": "NumberOfOrangePegsInLevel",
 								"value": "25"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 911491833242964,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "2"
 							}
 						},
 						{
@@ -274,6 +292,15 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 880973112751596,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "3"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 846680141436335,
@@ -335,6 +362,15 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 591219387575082,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "4"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 391018087850071,
@@ -393,6 +429,15 @@
 							"parameters": {
 								"variable": "NumberOfOrangePegsInLevel",
 								"value": "25"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 969729130842703,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "5"
 							}
 						},
 						{
