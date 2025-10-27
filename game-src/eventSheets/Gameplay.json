@@ -4222,6 +4222,21 @@
 											}
 										},
 										{
+											"id": "clear-obstacles",
+											"objectClass": "Peg",
+											"sid": 400174894785074,
+											"behaviorType": "LineOfSight"
+										},
+										{
+											"id": "set-range",
+											"objectClass": "Peg",
+											"sid": 457787931417469,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"range": "26"
+											}
+										},
+										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
 											"sid": 614746591311607,
@@ -18071,476 +18086,6 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "Upload",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 604265100692439,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "LevelEditorButtons"
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 956203927380230,
-											"parameters": {
-												"animation": "\"Background\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 678186978634647,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 543503265572432,
-											"parameters": {
-												"layer": "\"Name\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 958079737201399,
-											"parameters": {
-												"tags": "\"Settings\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 429206824610426,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 619484860960108,
-											"parameters": {
-												"layer": "\"Settings\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 251541643602322,
-											"parameters": {
-												"text": "\"[outlineback=#000000][lineThickness=5] Number of Pegs in Layout:\r\n \"&Peg.Count - 3 & \"\n\r\n\r\n Number of Orange Pegs in Layout:\r\n\r\n \r\n\r\n Number of Balls on Start:\""
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "OrangePegsInput",
-											"sid": 405506123880700,
-											"parameters": {
-												"mode": "enabled"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "BallInput",
-											"sid": 206270505663393,
-											"parameters": {
-												"mode": "enabled"
-											}
-										}
-									],
-									"sid": 897285497981314,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 134894098238141,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "LevelEditorButtons"
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 383390632689791,
-											"parameters": {
-												"animation": "\"Accept2\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 802439334559786,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 828426654775869,
-											"parameters": {
-												"layer": "\"Settings\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 351686876718123,
-											"parameters": {
-												"layer": "\"Settings\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 193185843391611,
-											"parameters": {
-												"variable": "BallCount",
-												"value": "BallInput.Text"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 128388793960856,
-											"parameters": {
-												"variable": "NumberOfOrangePegsInLevel",
-												"value": "OrangePegsInput.Text"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 895227153707409,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 261899604966084,
-											"parameters": {
-												"layer": "\"Settings\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "OrangePegsInput",
-											"sid": 452694724162716,
-											"parameters": {
-												"mode": "disabled"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "BallInput",
-											"sid": 366162010859901,
-											"parameters": {
-												"mode": "disabled"
-											}
-										}
-									],
-									"sid": 224165871401831,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 369053190184649,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "LevelEditorButtons"
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 299366013102443,
-											"parameters": {
-												"animation": "\"Exit2\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 703645272109884,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 508613800717692,
-											"parameters": {
-												"layer": "\"Settings\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 250473116555330,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 730031319931616,
-											"parameters": {
-												"layer": "\"Settings\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "OrangePegsInput",
-											"sid": 167617196228969,
-											"parameters": {
-												"mode": "disabled"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "BallInput",
-											"sid": 758485479718072,
-											"parameters": {
-												"mode": "disabled"
-											}
-										}
-									],
-									"sid": 764900817811538,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "cursor-is-over-object",
-											"objectClass": "Mouse",
-											"sid": 891417469258836,
-											"parameters": {
-												"object": "LevelEditorButtons"
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 130339090034953,
-											"parameters": {
-												"animation": "\"Upload\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 653497362332808,
-											"parameters": {
-												"tags": "\"UploadUI\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 134173711387579,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 126649750783518,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 830323553577786
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "cursor-is-over-object",
-											"objectClass": "Mouse",
-											"sid": 115296248973659,
-											"parameters": {
-												"object": "LevelEditorButtons"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 229233552455481,
-											"parameters": {
-												"animation": "\"Upload\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 805862730431353,
-											"parameters": {
-												"tags": "\"UploadUI\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 830468896632187,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 367391725008260
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 641918440494420,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "LevelEditorButtons"
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 972425545109350,
-											"parameters": {
-												"animation": "\"Upload\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "LevelEditorTextObject",
-											"sid": 160279217576626,
-											"parameters": {
-												"tags": "\"UploadUI\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"type": "script",
-											"language": "javascript",
-											"script": [
-												"// Save the peg layout into a JSON",
-												"",
-												"const pegDict = {",
-												"    c2dictionary: true,",
-												"    data: {}",
-												"};",
-												"",
-												"for (const peg of runtime.objects.Peg.getAllInstances()) {",
-												"    const key = \"Peg\" + peg.uid;",
-												"",
-												"    if(peg.animationName === \"CircleBlueActive\") peg.setAnimation(\"CircleBlue\");",
-												"    if(peg.animationName === \"BrickBlueActive\") peg.setAnimation(\"BrickBlue\");",
-												"    if(peg.animationName === \"CurveBlueActive\") peg.setAnimation(\"CurveBlue\");",
-												"",
-												"    const pegData = {",
-												"        x: peg.x,",
-												"        y: peg.y,",
-												"        angle: peg.angle,",
-												"        animation: peg.animationName",
-												"    };",
-												"",
-												"    pegDict.data[key] = JSON.stringify(pegData);",
-												"}",
-												"",
-												"runtime.globalVars.PegData = JSON.stringify(pegDict);"
-											]
-										},
-										{
-											"type": "script",
-											"language": "javascript",
-											"script": [
-												"const pegs = JSON.parse(runtime.globalVars.PegData).data;",
-												"console.log(pegs);",
-												"",
-												"const upload = async () => { ",
-												"    const res = await fetch(\"http://localhost:3000/api/v1/level/uploadLevel\", {",
-												"    method: \"POST\",",
-												"    mode: \"cors\",",
-												"    headers: {",
-												"        \"Content-Type\": \"application/json\",",
-												"        \"Access-Control-Allow-Credentials\": \"true\",",
-												"        },",
-												"    body: JSON.stringify({",
-												"        name: runtime.globalVars.CustomLevelName,",
-												"        author: \"testUser\",",
-												"        desc: runtime.globalVars.CustomLevelDesc,",
-												"        pegLayout: pegs,",
-												"    })",
-												"    });",
-												"",
-												"    const data = res.json();",
-												"    console.log(data);",
-												"}",
-												"",
-												"await upload();"
-											]
-										}
-									],
-									"sid": 593700620177363
-								}
-							],
-							"sid": 543182586608401
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
 							"title": "Delete",
 							"description": "",
 							"isActiveOnStart": true,
@@ -19535,14 +19080,6 @@
 											"parameters": {
 												"layer": "\"Settings\""
 											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 514498560460054,
-											"parameters": {
-												"layer": "\"Settings\""
-											}
 										}
 									],
 									"actions": [
@@ -19632,14 +19169,6 @@
 											"id": "layer-is-visible",
 											"objectClass": "System",
 											"sid": 609042179289663,
-											"parameters": {
-												"layer": "\"Settings\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 756159656751276,
 											"parameters": {
 												"layer": "\"Settings\""
 											}
@@ -19741,6 +19270,22 @@
 									],
 									"actions": [
 										{
+											"id": "set-text",
+											"objectClass": "BallInput",
+											"sid": 544302439568315,
+											"parameters": {
+												"text": "BallCountOnStart"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "OrangePegsInput",
+											"sid": 770549667551190,
+											"parameters": {
+												"text": "NumberOfOrangePegsInLevel"
+											}
+										},
+										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 389485581681279,
@@ -19814,6 +19359,22 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "BallInput",
+											"sid": 856092460734226,
+											"parameters": {
+												"text": "BallCountOnStart"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "OrangePegsInput",
+											"sid": 366752043179444,
+											"parameters": {
+												"text": "NumberOfOrangePegsInLevel"
+											}
+										},
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
@@ -19940,6 +19501,76 @@
 										}
 									],
 									"sid": 191634900121637
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 866049793010581,
+											"parameters": {
+												"variable": "BallCountOnStart",
+												"comparison": 2,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 691246030091398,
+											"parameters": {
+												"variable": "BallCountOnStart",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "BallInput",
+											"sid": 322606033576126,
+											"parameters": {
+												"text": "BallCountOnStart"
+											}
+										}
+									],
+									"sid": 866146632885632
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 400962338747565,
+											"parameters": {
+												"variable": "NumberOfOrangePegsInLevel",
+												"comparison": 2,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 797312978714713,
+											"parameters": {
+												"variable": "NumberOfOrangePegsInLevel",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "OrangePegsInput",
+											"sid": 889385335115978,
+											"parameters": {
+												"text": "NumberOfOrangePegsInLevel"
+											}
+										}
+									],
+									"sid": 705880011851598
 								}
 							],
 							"sid": 534459054640233
@@ -20169,6 +19800,14 @@
 									],
 									"actions": [
 										{
+											"id": "set-text",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 621959471468251,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5] - You have more Orange Pegs set to spawn than there are Pegs in the layout!\""
+											}
+										},
+										{
 											"id": "set-visible",
 											"objectClass": "LevelEditorTextObject",
 											"sid": 766288969577052,
@@ -20178,6 +19817,73 @@
 										}
 									],
 									"sid": 892819782888451
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 982974463308650,
+											"parameters": {
+												"object": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 984481515461038,
+											"parameters": {
+												"animation": "\"Play\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 351113410821625,
+											"parameters": {
+												"variable": "NumberOfOrangePegsInLevel",
+												"comparison": 3,
+												"value": "Peg.Count - 3"
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 506512355765765,
+											"parameters": {
+												"tags": "\"Play\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 856160145616709,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 448339625295914,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5] - Playtest your Level\""
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 883277756921943,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 821348139961674
 								},
 								{
 									"eventType": "block",
@@ -20198,17 +19904,6 @@
 											"parameters": {
 												"animation": "\"Play\""
 											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 666741611107709,
-											"parameters": {
-												"variable": "NumberOfOrangePegsInLevel",
-												"comparison": 3,
-												"value": "Peg.Count - 3"
-											},
-											"isInverted": true
 										},
 										{
 											"id": "has-tags",
@@ -20267,6 +19962,1123 @@
 								}
 							],
 							"sid": 775093855732837
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Upload",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 780948802932953,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 253244279434551,
+											"parameters": {
+												"animation": "\"Upload\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 302926871736438,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 557117371298029,
+											"parameters": {
+												"layer": "\"Upload\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-opacity",
+											"objectClass": "LevelEditorButtons",
+											"sid": 672107655852077,
+											"parameters": {
+												"comparison": 0,
+												"opacity": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 326305493116722,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 909372505185223,
+											"parameters": {
+												"layer": "\"Upload\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 712313425428372
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 816693036546098,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 622103111632193,
+											"parameters": {
+												"animation": "\"Exit2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 557844571913450,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 652326365026981,
+											"parameters": {
+												"layer": "\"Upload\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 834930385340914,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 268029598853952,
+											"parameters": {
+												"layer": "\"Upload\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 690832277450381
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 220143294421777,
+											"parameters": {
+												"key": 27
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 144183546912192,
+											"parameters": {
+												"animation": "\"Exit2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 888649020310151,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 903480303249926,
+											"parameters": {
+												"layer": "\"Upload\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 168093321202460,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 356362993453823,
+											"parameters": {
+												"layer": "\"Upload\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 367321464345436
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 767984128847611,
+											"parameters": {
+												"animation": "\"Accept2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 672017576578891,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 562790362673877,
+											"parameters": {
+												"layer": "\"Upload\""
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 651187155615387,
+											"parameters": {
+												"tags": "\"Upload2\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 722678906826467,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 544154901993658,
+													"parameters": {
+														"key": 13
+													}
+												},
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 329892411666253,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "LevelEditorButtons"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 671687771943467,
+													"parameters": {
+														"text": "\"Uploading...\""
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 865310669295571,
+													"parameters": {
+														"layer": "\"Upload\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 716120737081854,
+													"parameters": {
+														"layer": "\"Upload2\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"type": "script",
+													"language": "javascript",
+													"script": [
+														"// Save the peg layout into a JSON",
+														"",
+														"const pegDict = {",
+														"    c2dictionary: true,",
+														"    data: {}",
+														"};",
+														"",
+														"for (const peg of runtime.objects.Peg.getAllInstances()) {",
+														"    const key = \"Peg\" + peg.uid;",
+														"",
+														"    if(peg.animationName === \"CircleBlueActive\") peg.setAnimation(\"CircleBlue\");",
+														"    if(peg.animationName === \"BrickBlueActive\") peg.setAnimation(\"BrickBlue\");",
+														"    if(peg.animationName === \"CurveBlueActive\") peg.setAnimation(\"CurveBlue\");",
+														"",
+														"    const pegData = {",
+														"        x: peg.x,",
+														"        y: peg.y,",
+														"        angle: peg.angle,",
+														"        animation: peg.animationName",
+														"    };",
+														"",
+														"    pegDict.data[key] = JSON.stringify(pegData);",
+														"}",
+														"",
+														"runtime.globalVars.PegData = JSON.stringify(pegDict);"
+													]
+												},
+												{
+													"type": "script",
+													"language": "javascript",
+													"script": [
+														"const pegs = JSON.parse(runtime.globalVars.PegData).data;",
+														"console.log(pegs);",
+														"",
+														"const upload = async () => { ",
+														"    const res = await fetch(\"http://localhost:3000/api/v1/level/uploadLevel\", {",
+														"    method: \"POST\",",
+														"    mode: \"cors\",",
+														"    headers: {",
+														"        \"Content-Type\": \"application/json\",",
+														"        \"Access-Control-Allow-Credentials\": \"true\",",
+														"        },",
+														"    body: JSON.stringify({",
+														"        name: runtime.globalVars.CustomLevelName,",
+														"        author: \"testUser\",",
+														"        desc: runtime.globalVars.CustomLevelDesc,",
+														"        pegLayout: pegs,",
+														"    })",
+														"    });",
+														"",
+														"    const data = res.json();",
+														"    console.log(data);",
+														"}",
+														"",
+														"await upload();"
+													]
+												}
+											],
+											"sid": 419749200765633,
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "THIS IS WHERE THE HANDLER STUFF GOES"
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Upload Handlers",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Successful Upload",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-set",
+															"objectClass": "JSON",
+															"sid": 268355962099900,
+															"disabled": true,
+															"parameters": {
+																"path": "\"IT UPLOADED YAY\""
+															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 394416815115511,
+															"parameters": {
+																"tags": "\"Upload2\""
+															}
+														},
+														{
+															"id": "layer-is-visible",
+															"objectClass": "System",
+															"sid": 325502011625321,
+															"parameters": {
+																"layer": "\"Upload2\""
+															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "LevelEditorButtons",
+															"sid": 181586158040001,
+															"parameters": {
+																"tags": "\"Upload2\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-font-color",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 712626225274062,
+															"parameters": {
+																"color": "rgb(214, 215, 25)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 784199800488753,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5] Level Upload Success!\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 715334620503377,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5] Your custom level is now available for play on the PachinGO! website. \r\n\r\nThank you for your contribution!\""
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 707156327904972,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 691258955531804,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelEditorButtons",
+															"sid": 323425744136108,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 382276357709459
+												}
+											],
+											"sid": 715940711640560
+										},
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Failed Upload",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-set",
+															"objectClass": "JSON",
+															"sid": 127371411423946,
+															"parameters": {
+																"path": "\"IT FAILED OH NO\""
+															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 265578255127833,
+															"parameters": {
+																"tags": "\"Upload2\""
+															}
+														},
+														{
+															"id": "layer-is-visible",
+															"objectClass": "System",
+															"sid": 777750593643155,
+															"parameters": {
+																"layer": "\"Upload2\""
+															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "LevelEditorButtons",
+															"sid": 497254930053624,
+															"parameters": {
+																"tags": "\"Upload2\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-font-color",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 163732610891280,
+															"parameters": {
+																"color": "rgb(255, 66, 66)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 987963847143086,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5] Level Upload Failed!\""
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 356076115949210,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5] Your level name or level description contains innapropriate text and/or content. \n\nPlease behave!\""
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelUploadSuccess",
+															"sid": 819437894422090,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelEditorTextObject",
+															"sid": 120191678069057,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "LevelEditorButtons",
+															"sid": 220877951807135,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 651245624313651
+												}
+											],
+											"sid": 410354926544776
+										}
+									],
+									"sid": 824211637992062
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Upload 2 Close Button",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 775676953781483,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "LevelEditorButtons"
+													}
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 244916151641957
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorButtons",
+													"sid": 544147543962969,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 389964941510430,
+													"parameters": {
+														"layer": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 781646820495926,
+													"parameters": {
+														"layer": "\"Black Screen\""
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 430151518553959,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 426603358294850,
+													"parameters": {
+														"layer": "\"Upload2\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 496803938125910,
+													"parameters": {
+														"layer": "\"Black Screen\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelUploadSuccess",
+													"sid": 393922880382833,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 688150321374261,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 257272080492898,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 450542482461453
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 905853255611925,
+													"parameters": {
+														"key": 13
+													}
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 569448619054650
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorButtons",
+													"sid": 431169734203558,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 908518416933275,
+													"parameters": {
+														"layer": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 398353162243540,
+													"parameters": {
+														"layer": "\"Black Screen\""
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 780995873952082,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 790142300749858,
+													"parameters": {
+														"layer": "\"Upload2\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 830180412784528,
+													"parameters": {
+														"layer": "\"Black Screen\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelUploadSuccess",
+													"sid": 141734448488769,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 148854157600626,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 995857874990923,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 907474680764419
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 491019420785221,
+													"parameters": {
+														"key": 27
+													}
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 475932931260137
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorButtons",
+													"sid": 755852300205954,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 198930092629729,
+													"parameters": {
+														"layer": "\"Upload2\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 308025367916144,
+													"parameters": {
+														"layer": "\"Black Screen\""
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 986691883327790,
+													"parameters": {
+														"tags": "\"Upload2\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 255906085244453,
+													"parameters": {
+														"layer": "\"Upload2\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 329166939475722,
+													"parameters": {
+														"layer": "\"Black Screen\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelUploadSuccess",
+													"sid": 574096011659761,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 366821843074778,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorButtons",
+													"sid": 823087148463369,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 416912501226245
+										}
+									],
+									"sid": 203980588044144
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Upload Text Graphic & Opacity",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "LevelEditorButtons",
+													"sid": 800967985178123,
+													"parameters": {
+														"animation": "\"Upload\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 438110741818616,
+													"parameters": {
+														"variable": "NumberOfOrangePegsInLevel",
+														"comparison": 3,
+														"value": "Peg.Count - 3"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "LevelEditorButtons",
+													"sid": 278043047842956,
+													"parameters": {
+														"opacity": "25"
+													}
+												}
+											],
+											"sid": 869768491241469
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "LevelEditorButtons",
+													"sid": 547975168266702,
+													"parameters": {
+														"animation": "\"Upload\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 463793637487409,
+													"parameters": {
+														"variable": "NumberOfOrangePegsInLevel",
+														"comparison": 3,
+														"value": "Peg.Count - 3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "LevelEditorButtons",
+													"sid": 317226090956963,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 655705530087889
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 900065685271735,
+													"parameters": {
+														"object": "LevelEditorButtons"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "LevelEditorButtons",
+													"sid": 553525244100535,
+													"parameters": {
+														"animation": "\"Upload\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 266373852266076,
+													"parameters": {
+														"variable": "NumberOfOrangePegsInLevel",
+														"comparison": 3,
+														"value": "Peg.Count - 3"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 799377476149212,
+													"parameters": {
+														"tags": "\"UploadUI\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 176818832193185,
+													"parameters": {
+														"layer": "\"Black Screen\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 130877017907354,
+													"parameters": {
+														"text": "\"[outlineback=#000000][lineThickness=5] You have more Orange Pegs set to spawn than there are Pegs in the layout! \""
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 841418476738400,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 105432749591286
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 870533959666530,
+													"parameters": {
+														"object": "LevelEditorButtons"
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "LevelEditorButtons",
+													"sid": 678981876531094,
+													"parameters": {
+														"animation": "\"Upload\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 840453414872845,
+													"parameters": {
+														"variable": "NumberOfOrangePegsInLevel",
+														"comparison": 3,
+														"value": "Peg.Count - 3"
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 514027036703393,
+													"parameters": {
+														"tags": "\"UploadUI\""
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 193911451395959,
+													"parameters": {
+														"layer": "\"Black Screen\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 282263588739451,
+													"parameters": {
+														"text": "\"[outlineback=#000000][lineThickness=5] Upload your level! \""
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 540255453698486,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 633982858596066
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 253355590968185,
+													"parameters": {
+														"object": "LevelEditorButtons"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "LevelEditorButtons",
+													"sid": 243312293885497,
+													"parameters": {
+														"animation": "\"Upload\""
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 894975525591749,
+													"parameters": {
+														"tags": "\"UploadUI\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "LevelEditorTextObject",
+													"sid": 411454325029330,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 278204233806526
+										}
+									],
+									"sid": 281596900600313
+								}
+							],
+							"sid": 361001311678681
 						}
 					],
 					"sid": 385645939401514

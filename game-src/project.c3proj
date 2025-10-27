@@ -223,7 +223,8 @@
 					"PegHitText",
 					"ScoreCalcVisible",
 					"CustomLevelName",
-					"LevelEditorTextObject"
+					"LevelEditorTextObject",
+					"LevelUploadSuccess"
 				],
 				"subfolders": [],
 				"name": "Text"

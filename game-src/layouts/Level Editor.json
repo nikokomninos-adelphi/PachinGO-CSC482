@@ -1657,7 +1657,7 @@
 				{
 					"type": "LevelEditorTextObject",
 					"properties": {
-						"text": "[outlineback=#000000][lineThickness=5] Upload Your Level!",
+						"text": "[outlineback=#000000][lineThickness=5] Upload Your Level! ",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 11,
@@ -1670,7 +1670,7 @@
 							0.09803921568627451,
 							1
 						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "right",
 						"vertical-alignment": "top",
 						"wrapping": "word",
 						"text-direction": "ltr",
@@ -1702,9 +1702,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 642,
+						"x": 98,
 						"y": 58,
-						"width": 154.0000000000001,
+						"width": 670.0000000000001,
 						"height": 26,
 						"originX": 0,
 						"originY": 0,
@@ -1940,6 +1940,507 @@
 						1
 					],
 					"isTransparent": false,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "Upload",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Exit2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 714,
+							"sid": 299158445992818,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 299158445992818,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 362,
+								"y": 486,
+								"width": 37.049619406692,
+								"height": 37.94330045885876,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Accept2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 715,
+							"sid": 716532385066018,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 716532385066018,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 437,
+								"y": 486,
+								"width": 37.049619406692,
+								"height": 37.94330045885876,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=6] Are you sure you're ready to upload your level? Make sure you've done the following:",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 716,
+							"sid": 366175783884061,
+							"tags": "Delete",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 366175783884061,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 205.04132231404964,
+								"y": 158.56584882495198,
+								"width": 387.0000000000001,
+								"height": 55,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=6]\n- Given your level a name and level description\n- Set how many Orange Pegs and Balls on start you want\n- Set your background up as you like\n- Given your level desired music\n- Level meets Content Guidelines",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 10,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 719,
+							"sid": 372856237151798,
+							"tags": "Delete",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 372856237151798,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 218,
+								"y": 208,
+								"width": 387.0000000000001,
+								"height": 118.9917355371901,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=7]NOTE: PachinGO! has full authority to moderate and delete user created levels if we find such violates our Content Guidelines, which can be found on our website. \nPlease behave!",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									0.25882352941176473,
+									0.25882352941176473,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 720,
+							"sid": 755892020166021,
+							"tags": "Delete",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 755892020166021,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 218,
+								"y": 342,
+								"width": 387.0000000000001,
+								"height": 102.46280991735534,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 779166072438362,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "Upload2",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "LevelEditorTextObject",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Your custom level is now available for play on the PachinGO! website. \n\nThank you for your contribution!",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 724,
+							"sid": 417714476802678,
+							"tags": "Upload2",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 417714476802678,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 209,
+								"y": 286,
+								"width": 387.0000000000001,
+								"height": 120,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelEditorButtons",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Exit2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 725,
+							"sid": 590780658493126,
+							"tags": "Upload2",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 590780658493126,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 400,
+								"y": 433,
+								"width": 37.049619406692,
+								"height": 37.94330045885876,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "LevelUploadSuccess",
+							"properties": {
+								"text": "[outlineback=#000000][lineThickness=5] Level Upload Success!",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 20,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0.8392156862745098,
+									0.8431372549019608,
+									0.09803921568627451,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 722,
+							"sid": 138560754653497,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Fade": {
+									"properties": {
+										"fade-in-time": 0,
+										"wait-time": 0,
+										"fade-out-time": 1,
+										"destroy": false,
+										"enabled": false,
+										"live-preview": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 138560754653497,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 198,
+								"y": 207,
+								"width": 403,
+								"height": 56,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
+					"sid": 400131219448251,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
 					"parallaxX": 1,
 					"parallaxY": 1,
 					"scaleRate": 1,
@@ -3142,8 +3643,8 @@
 							"world": {
 								"x": 464,
 								"y": 400,
-								"width": 30.402338189198584,
-								"height": 30.402338189198584,
+								"width": 30.40233818919858,
+								"height": 30.40233818919858,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [

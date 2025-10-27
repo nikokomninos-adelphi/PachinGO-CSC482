@@ -1,0 +1,16 @@
+{
+	"name": "LevelUploadSuccess",
+	"plugin-id": "Text",
+	"sid": 868379370204725,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 479940889822852
+		}
+	],
+	"effectTypes": []
+}
