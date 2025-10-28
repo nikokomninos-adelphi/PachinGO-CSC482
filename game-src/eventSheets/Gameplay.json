@@ -13626,14 +13626,6 @@
 											],
 											"actions": [
 												{
-													"id": "set-visible",
-													"objectClass": "RightClickBox",
-													"sid": 800796912532086,
-													"parameters": {
-														"visibility": "visible"
-													}
-												},
-												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
 													"sid": 356679013531467,
@@ -13658,6 +13650,14 @@
 													"parameters": {
 														"x": "Mouse.X",
 														"y": "Mouse.Y"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "RightClickBox",
+													"sid": 563422689557412,
+													"parameters": {
+														"visibility": "visible"
 													}
 												}
 											],
