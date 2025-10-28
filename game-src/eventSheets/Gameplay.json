@@ -963,6 +963,19 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
+									"sid": 693709732843471,
+									"parameters": {
+										"object-to-create": "ConnectorWallUI",
+										"layer": "\"BG\"",
+										"x": "400",
+										"y": "23.25",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
 									"sid": 182378543770396,
 									"parameters": {
 										"object-to-create": "scorebug",
@@ -10778,14 +10791,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 311881687191441,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 950044722244386,
@@ -10817,14 +10822,6 @@
 										{
 											"eventType": "block",
 											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 493069634465209,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
@@ -10858,14 +10855,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 523655737596514,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 206882611717930,
@@ -10897,14 +10886,6 @@
 										{
 											"eventType": "block",
 											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 490996329112724,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
@@ -10938,14 +10919,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 435418595726323,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 978550905008155,
@@ -10977,14 +10950,6 @@
 										{
 											"eventType": "block",
 											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 125995024454534,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
@@ -11018,14 +10983,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 222426012852939,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 728467761996561,
@@ -11057,14 +11014,6 @@
 										{
 											"eventType": "block",
 											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 808054529705380,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
@@ -11098,14 +11047,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 862387073337996,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 397478519776681,
@@ -11138,14 +11079,6 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 938147261321726,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
-												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
 													"sid": 312857765243175,
@@ -11177,14 +11110,6 @@
 										{
 											"eventType": "block",
 											"conditions": [
-												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 614495442468101,
-													"parameters": {
-														"variable": "EndOfTurnHappening"
-													}
-												},
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
