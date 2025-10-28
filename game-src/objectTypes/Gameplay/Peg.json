@@ -11,13 +11,6 @@
 			"desc": "",
 			"show": true,
 			"sid": 662178842357804
-		},
-		{
-			"name": "Active",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 278648736343979
 		}
 	],
 	"behaviorTypes": [

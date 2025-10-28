@@ -91,8 +91,7 @@
 					"sid": 153705919385889,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -173,8 +172,7 @@
 					"sid": 426228941172781,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -255,8 +253,7 @@
 					"sid": 513959557536434,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -337,8 +334,7 @@
 					"sid": 203504374874958,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -419,8 +415,7 @@
 					"sid": 195804978224517,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -501,8 +496,7 @@
 					"sid": 665522159316284,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -583,8 +577,7 @@
 					"sid": 672744504851470,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -665,8 +658,7 @@
 					"sid": 712469251091892,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -747,8 +739,7 @@
 					"sid": 525352813187307,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -829,8 +820,7 @@
 					"sid": 154365733176224,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -911,8 +901,7 @@
 					"sid": 747321170526715,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -993,8 +982,7 @@
 					"sid": 319253615048638,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1075,8 +1063,7 @@
 					"sid": 487515487415767,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1157,8 +1144,7 @@
 					"sid": 259565432936789,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1239,8 +1225,7 @@
 					"sid": 499028782252038,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1321,8 +1306,7 @@
 					"sid": 516868157146740,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1403,8 +1387,7 @@
 					"sid": 808126117869451,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1485,8 +1468,7 @@
 					"sid": 842799758876397,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1567,8 +1549,7 @@
 					"sid": 240362959333102,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1649,8 +1630,7 @@
 					"sid": 532848532624833,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1731,8 +1711,7 @@
 					"sid": 639942997871492,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1813,8 +1792,7 @@
 					"sid": 580020011622610,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1895,8 +1873,7 @@
 					"sid": 708376011987426,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -1977,8 +1954,7 @@
 					"sid": 568924332295969,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2059,8 +2035,7 @@
 					"sid": 358912988081963,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2141,8 +2116,7 @@
 					"sid": 618176213760410,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2223,8 +2197,7 @@
 					"sid": 583133312226480,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2305,8 +2278,7 @@
 					"sid": 421670140189044,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2387,8 +2359,7 @@
 					"sid": 945447372452115,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2469,8 +2440,7 @@
 					"sid": 909113481488859,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2551,8 +2521,7 @@
 					"sid": 963224417411508,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2633,8 +2602,7 @@
 					"sid": 572083335797324,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2715,8 +2683,7 @@
 					"sid": 796075649434687,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2797,8 +2764,7 @@
 					"sid": 924750013902777,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2879,8 +2845,7 @@
 					"sid": 753791500520654,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -2961,8 +2926,7 @@
 					"sid": 776575481890003,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3043,8 +3007,7 @@
 					"sid": 932433341763470,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3125,8 +3088,7 @@
 					"sid": 317237556112309,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3207,8 +3169,7 @@
 					"sid": 200573392283768,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3289,8 +3250,7 @@
 					"sid": 600487663356158,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3371,8 +3331,7 @@
 					"sid": 671733962685459,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3453,8 +3412,7 @@
 					"sid": 423943744528231,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3535,8 +3493,7 @@
 					"sid": 150936775213859,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3617,8 +3574,7 @@
 					"sid": 585096979680166,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3699,8 +3655,7 @@
 					"sid": 937788685414045,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3781,8 +3736,7 @@
 					"sid": 388781587702963,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3863,8 +3817,7 @@
 					"sid": 860865637283168,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -3945,8 +3898,7 @@
 					"sid": 237414515048271,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4027,8 +3979,7 @@
 					"sid": 636274828913598,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4109,8 +4060,7 @@
 					"sid": 349464676180258,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4191,8 +4141,7 @@
 					"sid": 452660424818909,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4273,8 +4222,7 @@
 					"sid": 698869991160322,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4355,8 +4303,7 @@
 					"sid": 476359746413617,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4437,8 +4384,7 @@
 					"sid": 379969867531677,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4519,8 +4465,7 @@
 					"sid": 996974512699366,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4601,8 +4546,7 @@
 					"sid": 990474122189281,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4683,8 +4627,7 @@
 					"sid": 631618642774322,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4765,8 +4708,7 @@
 					"sid": 704943558346005,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4847,8 +4789,7 @@
 					"sid": 412514543525705,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -4929,8 +4870,7 @@
 					"sid": 895853436435271,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5011,8 +4951,7 @@
 					"sid": 866415459153034,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5093,8 +5032,7 @@
 					"sid": 786651692265624,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5175,8 +5113,7 @@
 					"sid": 403862575194377,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5257,8 +5194,7 @@
 					"sid": 235960876026461,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5339,8 +5275,7 @@
 					"sid": 228977298149633,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5421,8 +5356,7 @@
 					"sid": 985308621968932,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5503,8 +5437,7 @@
 					"sid": 197386406752909,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5585,8 +5518,7 @@
 					"sid": 950494733743762,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5667,8 +5599,7 @@
 					"sid": 544531314779044,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5749,8 +5680,7 @@
 					"sid": 779963386991446,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5831,8 +5761,7 @@
 					"sid": 982594787118210,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5913,8 +5842,7 @@
 					"sid": 959808603360870,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -5995,8 +5923,7 @@
 					"sid": 511197964302290,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6077,8 +6004,7 @@
 					"sid": 441693143403761,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6159,8 +6085,7 @@
 					"sid": 844592163002445,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6241,8 +6166,7 @@
 					"sid": 264481028695826,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6323,8 +6247,7 @@
 					"sid": 152018478136789,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6405,8 +6328,7 @@
 					"sid": 459337659615505,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6487,8 +6409,7 @@
 					"sid": 164681636176479,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6569,8 +6490,7 @@
 					"sid": 239378874720976,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6651,8 +6571,7 @@
 					"sid": 354926007621421,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6733,8 +6652,7 @@
 					"sid": 925110273028735,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6815,8 +6733,7 @@
 					"sid": 477270317691182,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6897,8 +6814,7 @@
 					"sid": 882586416369704,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -6979,8 +6895,7 @@
 					"sid": 564490606230426,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7061,8 +6976,7 @@
 					"sid": 139358984745713,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7143,8 +7057,7 @@
 					"sid": 755303181211774,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7225,8 +7138,7 @@
 					"sid": 513966075318025,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7307,8 +7219,7 @@
 					"sid": 156129958570769,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7389,8 +7300,7 @@
 					"sid": 956974749278115,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7471,8 +7381,7 @@
 					"sid": 549802430488752,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7553,8 +7462,7 @@
 					"sid": 989967116399046,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7635,8 +7543,7 @@
 					"sid": 899483916497402,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7717,8 +7624,7 @@
 					"sid": 315623511572450,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7799,8 +7705,7 @@
 					"sid": 592737277884534,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7881,8 +7786,7 @@
 					"sid": 370994078953080,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -7963,8 +7867,7 @@
 					"sid": 703541995851131,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8045,8 +7948,7 @@
 					"sid": 647816842530238,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8127,8 +8029,7 @@
 					"sid": 400675025453000,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8209,8 +8110,7 @@
 					"sid": 663475841629159,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8291,8 +8191,7 @@
 					"sid": 961319470366858,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8373,8 +8272,7 @@
 					"sid": 230373023290647,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8455,8 +8353,7 @@
 					"sid": 248140821657815,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8537,8 +8434,7 @@
 					"sid": 672045610511104,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8619,8 +8515,7 @@
 					"sid": 876907442487703,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8701,8 +8596,7 @@
 					"sid": 741138959434112,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8783,8 +8677,7 @@
 					"sid": 130961354335254,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8865,8 +8758,7 @@
 					"sid": 136827573733541,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -8947,8 +8839,7 @@
 					"sid": 714274559622120,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -9029,8 +8920,7 @@
 					"sid": 234855289847493,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -9111,8 +9001,7 @@
 					"sid": 731470156935193,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -9193,8 +9082,7 @@
 					"sid": 330090586107877,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {
@@ -9275,8 +9163,7 @@
 					"sid": 977388091826881,
 					"tags": "",
 					"instanceVariables": {
-						"ContinuousContactTimer": 0,
-						"Active": 0
+						"ContinuousContactTimer": 0
 					},
 					"behaviors": {
 						"Solid": {

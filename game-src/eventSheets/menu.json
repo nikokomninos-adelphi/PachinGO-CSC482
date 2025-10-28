@@ -502,6 +502,15 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 951847466303811,
+							"parameters": {
+								"variable": "MusicSelect",
+								"value": "0"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 140058869548171,

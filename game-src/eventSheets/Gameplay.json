@@ -835,9 +835,9 @@
 								{
 									"id": "move-to-layer",
 									"objectClass": "floorui",
-									"sid": 171113941388010,
+									"sid": 968405042063002,
 									"parameters": {
-										"layer": "\"Pegs\""
+										"layer": "\"BG\""
 									}
 								},
 								{
@@ -4390,6 +4390,322 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "FX Events",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 567220512834458,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 137311947272077,
+											"parameters": {
+												"animation": "\"CircleOrange\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 734944022725698,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 307266015592703,
+											"parameters": {
+												"object": "orange",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 283523642229961
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 173012671581511,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 340366860501221,
+											"parameters": {
+												"animation": "\"BrickOrange\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 155399258489768,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 861593222578632,
+											"parameters": {
+												"object": "orange",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 209005075532768
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 810831610587429,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 920315417015374,
+											"parameters": {
+												"animation": "\"CurveOrange\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 781575019801347,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 518281269519011,
+											"parameters": {
+												"object": "orange",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 379602913262429
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 186013117181581,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 782578417668485,
+											"parameters": {
+												"animation": "\"CirclePurple\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 190922983774491,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 428092431588487,
+											"parameters": {
+												"object": "purple",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 914641508637719
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 100844114645075,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 830829957685726,
+											"parameters": {
+												"animation": "\"BrickPurple\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 407178341782663,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 673984063867491,
+											"parameters": {
+												"object": "purple",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 841466977440354
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 318081762371409,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 198501521083407,
+											"parameters": {
+												"animation": "\"CurvePurple\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 958310386678842,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 164279141379779,
+											"parameters": {
+												"object": "purple",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 796382301424543
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "orange",
+											"sid": 804736825500407,
+											"parameters": {
+												"animation": "\"Animation 1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "orange",
+											"sid": 399276406425974
+										}
+									],
+									"sid": 483877891181001
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "purple",
+											"sid": 672523546158059,
+											"parameters": {
+												"animation": "\"Animation 1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "purple",
+											"sid": 382556332513727
+										}
+									],
+									"sid": 766353845526176
+								}
+							],
+							"sid": 386004339246307
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Peg Spawning",
 							"description": "",
 							"isActiveOnStart": true,
@@ -5015,15 +5331,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 622976874770615,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 190874156570171
@@ -5102,15 +5409,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 454017551818180,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 440330649276752
@@ -5188,15 +5486,6 @@
 													"sid": 643923160101381,
 													"parameters": {
 														"angle": "0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 493205523079998,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
 													}
 												}
 											],
@@ -5295,15 +5584,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 778584625420522,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 974683977273787
@@ -5391,15 +5671,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 151008815534288,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 581686259976683
@@ -5486,15 +5757,6 @@
 													"sid": 815110645671686,
 													"parameters": {
 														"angle": "0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 751008912018787,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
 													}
 												}
 											],
@@ -5593,15 +5855,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 852722600544253,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 650479587212396
@@ -5688,15 +5941,6 @@
 													"sid": 835774581827196,
 													"parameters": {
 														"angle": "0"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 920759097151645,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
 													}
 												}
 											],
@@ -5785,15 +6029,6 @@
 													"parameters": {
 														"angle": "0"
 													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 436722045880920,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 168610862849186
@@ -5860,15 +6095,6 @@
 													"id": "destroy",
 													"objectClass": "ball",
 													"sid": 454425324994774
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 865027882293088,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 786968019567530,
@@ -5922,15 +6148,6 @@
 															"parameters": {
 																"angle": "0"
 															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 408475821413756,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
-															}
 														}
 													],
 													"sid": 654163632503648
@@ -5982,15 +6199,6 @@
 															"sid": 374887515194291,
 															"parameters": {
 																"angle": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 282803747709661,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
 															}
 														}
 													],
@@ -6050,15 +6258,6 @@
 													"id": "destroy",
 													"objectClass": "ball",
 													"sid": 712804264943851
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 961030297776152,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 394116511770184,
@@ -6112,15 +6311,6 @@
 															"parameters": {
 																"angle": "0"
 															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 100409349849258,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
-															}
 														}
 													],
 													"sid": 955831800881696
@@ -6172,15 +6362,6 @@
 															"sid": 175296962599858,
 															"parameters": {
 																"angle": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 293069470332318,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
 															}
 														}
 													],
@@ -6240,15 +6421,6 @@
 													"id": "destroy",
 													"objectClass": "ball",
 													"sid": 960255935472969
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Peg",
-													"sid": 115165630392371,
-													"parameters": {
-														"instance-variable": "Active",
-														"value": "1"
-													}
 												}
 											],
 											"sid": 298934154701133,
@@ -6302,15 +6474,6 @@
 															"parameters": {
 																"angle": "0"
 															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 735495707876850,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
-															}
 														}
 													],
 													"sid": 491872998598988
@@ -6362,15 +6525,6 @@
 															"sid": 709539329887168,
 															"parameters": {
 																"angle": "0"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Peg",
-															"sid": 933553556734149,
-															"parameters": {
-																"instance-variable": "Active",
-																"value": "1"
 															}
 														}
 													],
@@ -12127,364 +12281,6 @@
 						}
 					],
 					"sid": 406872678734302
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "FX Events",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 421620183136744,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 896745007484436,
-									"parameters": {
-										"animation": "\"CircleOrangeActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 219591483152766,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 268811498275589
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 875867968253613,
-									"parameters": {
-										"object": "orange",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 287475352920976
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 813006735102198,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 180379197263965,
-									"parameters": {
-										"animation": "\"BrickOrangeActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 863654296035058,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 908485808708708
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 573471579822390,
-									"parameters": {
-										"object": "orange",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 829818720975530
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 549942063506389,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 259889808619450,
-									"parameters": {
-										"animation": "\"CurveOrangeActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 417443389967265,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 102167728198978
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 949667924118292,
-									"parameters": {
-										"object": "orange",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 698641817736632
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 417850002717198,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 910420985899359,
-									"parameters": {
-										"animation": "\"CirclePurpleActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 246218723940863,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 355616489506425
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 325947044053782,
-									"parameters": {
-										"object": "purple",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 631012409282819
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 573268325330731,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 196100130826550,
-									"parameters": {
-										"animation": "\"BrickPurpleActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 236657964232488,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 256914150118151
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 787838713289530,
-									"parameters": {
-										"object": "purple",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 214989166073535
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Peg",
-									"sid": 498193150440522,
-									"parameters": {
-										"instance-variable": "Active",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Peg",
-									"sid": 338629644516992,
-									"parameters": {
-										"animation": "\"CurvePurpleActive\""
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 402798218139661,
-									"parameters": {
-										"variable": "FX"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 261857086741427
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Peg",
-									"sid": 319538580932202,
-									"parameters": {
-										"object": "purple",
-										"layer": "4",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								}
-							],
-							"sid": 603058084810245
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-animation-finished",
-									"objectClass": "orange",
-									"sid": 788528547044902,
-									"parameters": {
-										"animation": "\"Animation 1\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "orange",
-									"sid": 455765029577034
-								}
-							],
-							"sid": 881473474251067
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-animation-finished",
-									"objectClass": "purple",
-									"sid": 189880623744909,
-									"parameters": {
-										"animation": "\"Animation 1\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "purple",
-									"sid": 675033444934545
-								}
-							],
-							"sid": 593041747872485
-						}
-					],
-					"sid": 827849840813853
 				}
 			],
 			"sid": 593355243017208
@@ -12634,6 +12430,58 @@
 								}
 							],
 							"sid": 159058310515392
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "WallUI",
+									"sid": 646699916197982,
+									"parameters": {
+										"comparison": 0,
+										"width": "-250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "WallUI",
+									"sid": 676565116785090,
+									"parameters": {
+										"x": "513",
+										"y": "300"
+									}
+								}
+							],
+							"sid": 505851655808179
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "WallUI",
+									"sid": 180799766894969,
+									"parameters": {
+										"comparison": 0,
+										"width": "250"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "WallUI",
+									"sid": 900704815661983,
+									"parameters": {
+										"x": "288",
+										"y": "300"
+									}
+								}
+							],
+							"sid": 763004436233833
 						},
 						{
 							"eventType": "block",
