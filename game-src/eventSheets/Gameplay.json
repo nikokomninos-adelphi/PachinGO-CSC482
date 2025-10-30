@@ -4545,6 +4545,138 @@
 										{
 											"id": "on-collision-with-another-object",
 											"objectClass": "ball",
+											"sid": 687926786791884,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 778688373017881,
+											"parameters": {
+												"animation": "\"CircleBlue\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 650162014082639,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 320455236355765,
+											"parameters": {
+												"object": "blue",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 988771280370112
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 218484443754245,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 994551093594039,
+											"parameters": {
+												"animation": "\"BrickBlue\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 862918409968288,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 568802786943038,
+											"parameters": {
+												"object": "blue",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 960260571153457
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 803961355753184,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 403171305416822,
+											"parameters": {
+												"animation": "\"CurveBlue\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 547195872398482,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 818744795625389,
+											"parameters": {
+												"object": "blue",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 578712847172801
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
 											"sid": 186013117181581,
 											"parameters": {
 												"object": "Peg"
@@ -4675,6 +4807,138 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 261738105201242,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 260488382295961,
+											"parameters": {
+												"animation": "\"CircleEvil\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 623141898143613,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 524924075285991,
+											"parameters": {
+												"object": "eeevill",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 749493688002020
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 352636292517972,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 201114120115327,
+											"parameters": {
+												"animation": "\"BrickEvil\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 958567887737438,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 991487812212049,
+											"parameters": {
+												"object": "eeevill",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 210201075720698
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-collision-with-another-object",
+											"objectClass": "ball",
+											"sid": 492742510772187,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Peg",
+											"sid": 136947371659765,
+											"parameters": {
+												"animation": "\"CurveEvil\""
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 904625175930775,
+											"parameters": {
+												"variable": "FX"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Peg",
+											"sid": 954439787958704,
+											"parameters": {
+												"object": "eeevill",
+												"layer": "4",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 260581665804992
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "on-animation-finished",
 											"objectClass": "orange",
 											"sid": 804736825500407,
@@ -4712,6 +4976,48 @@
 										}
 									],
 									"sid": 766353845526176
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "blue",
+											"sid": 196306271100774,
+											"parameters": {
+												"animation": "\"Animation 1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "blue",
+											"sid": 743657768338473
+										}
+									],
+									"sid": 282391748074021
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-animation-finished",
+											"objectClass": "eeevill",
+											"sid": 746931754295480,
+											"parameters": {
+												"animation": "\"Animation 1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "eeevill",
+											"sid": 166122358214540
+										}
+									],
+									"sid": 991408548498859
 								}
 							],
 							"sid": 386004339246307
@@ -17647,6 +17953,34 @@
 														"variable": "MusicSelect",
 														"value": "6"
 													}
+												},
+												{
+													"id": "stop-all",
+													"objectClass": "Audio",
+													"sid": 749605928853148
+												},
+												{
+													"id": "add-remote-url",
+													"objectClass": "Audio",
+													"sid": 105113329992608,
+													"parameters": {
+														"url": "MusicHere.FileURLAt(0)",
+														"type": "\"audio/mpeg\"",
+														"name": "\"ImportedFile\""
+													}
+												},
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 105137035896073,
+													"parameters": {
+														"folder": "music",
+														"audio-file-name": "\"ImportedFile\"",
+														"loop": "looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 778442245059578
@@ -21132,11 +21466,12 @@
 							"sid": 435949370166571
 						},
 						{
-							"id": "play",
+							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 916698316959332,
+							"sid": 741144343577849,
 							"parameters": {
-								"audio-file": "The_Fragrance_of_Black_Coffee",
+								"folder": "music",
+								"audio-file-name": "\"ImportedFile\"",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
