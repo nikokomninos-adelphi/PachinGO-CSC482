@@ -7,9 +7,11 @@
  * - Express server routes
  */
 
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
 import connectDB from "./config/db.ts";
@@ -22,7 +24,6 @@ import levelRoutes from "./routes/levelRoutes.ts"
 //import { populateUserInfo } from "./config/populate.ts";
 //import { populateLevels } from "./config/populate.ts";
 
-dotenv.config();
 connectDB();
 //populateLevels();
 //populateUserInfo();
