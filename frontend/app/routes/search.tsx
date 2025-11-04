@@ -261,7 +261,7 @@ const Search = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[url('pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
+      <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row flex-1 justify-center items-start grow w-[72vw]">
