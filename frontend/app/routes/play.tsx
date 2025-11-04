@@ -1,8 +1,7 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/nav/Navbar";
-import { useState, useEffect, useRef } from "react";
-import { useAuthStore } from "~/stores/useAuthStore";
-import { useNavigate } from "react-router";
+import { useEffect, useRef } from "react";
+import { useParams } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,20 +11,14 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const play = () => {
-  const { user } = useAuthStore();
-  const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    if (!user) navigate("/login");
-    setIsLoading(false);
+    localStorage.setItem("levelID", id!);
     localStorage.setItem("layout", "Level Editor Online");
-  }, [user]);
-
-  useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
-  }, [isLoading]);
+  }, []);
 
   // Ensure that arrow keys do not follow
   // normal browser behavior when game
