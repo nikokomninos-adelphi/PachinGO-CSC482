@@ -30,7 +30,7 @@ const Footer = () => {
       </Link>
 
       <Link
-        to=""
+        to="/editor"
         className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
       >
         Level Editor

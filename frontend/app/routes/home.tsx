@@ -52,7 +52,7 @@ const Home = () => {
           </div>
           <div className="flex flex-row">
             <Link
-              to="/"
+              to="/editor"
               className="flex justify-start items-center p-3 bg-[#343434] hover:bg-[#8f5787] drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 mr-2 w-65 h-20 gap-2"
             >
               <FaWrench />
