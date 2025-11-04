@@ -65,7 +65,8 @@ export const uploadLevel = [
       let backgroundUrl: string = "N/A";
       let musicUrl: string = "N/A";
 
-      const levelID = (await Counter.findOne({}))!.seq + 1;
+      const counter = await Counter.findOne({});
+      const levelID = (counter?.seq ?? 0) + 1;
       const dateUploaded = new Date();
 
       // If a background image is included
