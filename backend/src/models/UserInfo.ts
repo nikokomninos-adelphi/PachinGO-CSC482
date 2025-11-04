@@ -11,7 +11,8 @@ import mongoose from "mongoose";
 
 const userInfoSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
-  levels: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: "Level" }]
+  dateJoined: { type: Date, required: true },
+  role: { type: String, required: true },
 });
 
 export default mongoose.model("UserInfo", userInfoSchema);

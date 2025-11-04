@@ -11,6 +11,7 @@ import jwt from "jsonwebtoken";
 import type { Request, Response } from "express";
 
 import User from "../models/User.ts";
+import UserInfo from "../models/UserInfo.ts";
 
 /**
  * Register a user
@@ -78,9 +79,17 @@ export const registerUser = async (req: Request, res: Response) => {
       email: req.body.email,
       username: req.body.username,
       password: hashedPassword,
-      role: "user"
     });
     await newUser.save();
+
+    const newUserInfo = new UserInfo({
+      user: newUser,
+      dateJoined: new Date(),
+      role: "Member",
+      levels: []
+    })
+    await newUserInfo.save();
+
     res.status(201).json({ message: "User registered successfully" });
   } catch (e) {
     console.error(e);

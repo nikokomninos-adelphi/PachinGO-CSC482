@@ -513,6 +513,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "R2URL",
+			"type": "string",
+			"initialValue": "https://pub-562122f32271414bacf25950b437b9c9.r2.dev",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 793956993038269
+		},
+		{
+			"eventType": "variable",
 			"name": "UploadStatus",
 			"type": "boolean",
 			"initialValue": "false",
@@ -957,8 +967,8 @@
 										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
 										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
 										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
-										"    runtime.callFunction(\"SetBG\", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundImage}`);",
-										"    runtime.callFunction(\"SetMusic\", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundMusic}`);",
+										"    runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
+										"    runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
 										"}",
 										"",
 										"if (runtime.layout.name === \"Level Editor Play\") {",
@@ -20583,7 +20593,7 @@
 														"    res.ok ? runtime.globalVars.UploadStatus = true : runtime.globalVars.UploadStatus = false;",
 														"}",
 														"",
-														"await upload();"
+														"runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = false;"
 													]
 												}
 											],

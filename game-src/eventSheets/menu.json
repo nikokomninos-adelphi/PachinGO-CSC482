@@ -219,8 +219,8 @@
 					"type": "script",
 					"language": "javascript",
 					"script": [
-						"//localStorage.setItem(\"layout\", \"Level Editor Online\");",
-						"//localStorage.setItem(\"levelID\", 20);",
+						"localStorage.setItem(\"layout\", \"Level Editor Online\");",
+						"localStorage.setItem(\"levelID\", 21);",
 						"const layout = localStorage.getItem(\"layout\");",
 						"runtime.callFunction(\"CheckLayout\", layout);"
 					]

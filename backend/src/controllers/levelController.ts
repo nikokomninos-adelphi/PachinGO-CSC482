@@ -8,8 +8,10 @@
 import type { Request, Response } from "express";
 import Level from "../models/Level.ts";
 import Counter from "../models/Counter.ts";
+import UserInfo from "../models/UserInfo.ts";
 import { uploadToR2 } from "../config/r2.ts";
 import multer from "multer";
+import User from "../models/User.ts";
 
 const upload = multer();
 
@@ -97,6 +99,14 @@ export const uploadLevel = [
       });
       await newLevel.save();
 
+      /*
+      const user = await User.findOne({ username: author });
+      await UserInfo.updateOne(
+        { user: user!._id },
+        { $push: { levels: levelID } },
+      );
+      */
+
       return res.status(201).json({
         message: "Level uploaded successfully",
         backgroundUrl,
@@ -109,6 +119,13 @@ export const uploadLevel = [
   },
 ];
 
+/**
+ * loadLevel
+ *
+ * Retrieves a level's info, to be loaded into Construct
+ * @param {Request} req a request body containing: levelID
+ * @param {Response} res a response body containing: message, level
+ */
 export const loadLevel = async (req: Request, res: Response) => {
   try {
     const level = await Level.findOne({ levelID: req.query.levelID });

@@ -29,8 +29,8 @@
 					"world": {
 						"x": 400,
 						"y": 321,
-						"width": 642,
-						"height": 536,
+						"width": 646,
+						"height": 538,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2457,7 +2457,7 @@
 						{
 							"type": "ImageHere",
 							"properties": {
-								"accept": "",
+								"accept": "image/*",
 								"select": "single",
 								"initially-visible": true,
 								"id": "",
@@ -3585,7 +3585,7 @@
 						{
 							"type": "MusicHere",
 							"properties": {
-								"accept": "",
+								"accept": "audio/*",
 								"select": "single",
 								"initially-visible": true,
 								"id": "",

@@ -20,6 +20,7 @@ const user = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
+  const [userInfo, setUserInfo] = useState<any>();
   const [results, setResults] = useState<any>([]);
 
   useEffect(() => {
@@ -47,7 +48,10 @@ const user = () => {
     );
     const data = await res.json();
     if (data.result === "Not Found") return false;
-    else return true;
+    else {
+      setUserInfo(data.result);
+      return true;
+    } 
   };
 
   const getUserLevels = async () => {
@@ -73,8 +77,8 @@ const user = () => {
       <Navbar />
       <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
-          <div className="flex flex-row justify-start items-start ml-[3vw] mr-[3vw] gap-10">
-            <UserBox username={username} />
+          <div className="flex flex-row justify-start items-start gap-10">
+            <UserBox username={username} dateJoined={userInfo.dateJoined} numLevels={results.length} />
             <div className="flex flex-col w-full min-h-fit">
               <h1 className="text-2xl font-semibold mb-5">{username}'s Levels</h1>
               <div className="flex flex-wrap gap-5">
