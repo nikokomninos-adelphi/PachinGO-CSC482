@@ -524,12 +524,12 @@
 		{
 			"eventType": "variable",
 			"name": "UploadStatus",
-			"type": "boolean",
-			"initialValue": "false",
+			"type": "number",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 242929118425661
+			"sid": 544876844528001
 		},
 		{
 			"eventType": "group",
@@ -20590,10 +20590,10 @@
 														"    body: formData,",
 														"    });",
 														"",
-														"    res.ok ? runtime.globalVars.UploadStatus = true : runtime.globalVars.UploadStatus = false;",
+														"    res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;",
 														"}",
 														"",
-														"runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = false;"
+														"runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;"
 													]
 												}
 											],
@@ -20626,11 +20626,11 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 394920785660947,
+															"sid": 399936503420982,
 															"parameters": {
 																"first-value": "UploadStatus",
 																"comparison": 0,
-																"second-value": "1"
+																"second-value": "2"
 															}
 														},
 														{
@@ -20726,11 +20726,11 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 947903637558640,
+															"sid": 480606590372815,
 															"parameters": {
 																"first-value": "UploadStatus",
 																"comparison": 0,
-																"second-value": "0"
+																"second-value": "1"
 															}
 														},
 														{

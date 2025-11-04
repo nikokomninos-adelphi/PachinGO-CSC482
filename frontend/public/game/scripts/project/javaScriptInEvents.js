@@ -119,10 +119,10 @@ const upload = async () => {
     body: formData,
     });
 
-    res.ok ? runtime.globalVars.UploadStatus = true : runtime.globalVars.UploadStatus = false;
+    res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;
 }
 
-runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = false;
+runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
 	async Menu_Event1_Act5(runtime, localVars)
