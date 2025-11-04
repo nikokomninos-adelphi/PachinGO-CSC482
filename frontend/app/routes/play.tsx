@@ -34,8 +34,6 @@ const play = () => {
     iframe?.addEventListener("mouseover", () => iframe.contentWindow?.focus());
   });
 
-  if (isLoading) return null;
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
