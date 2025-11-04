@@ -122,7 +122,7 @@ const upload = async () => {
     res.ok ? runtime.globalVars.UploadStatus = true : runtime.globalVars.UploadStatus = false;
 }
 
-await upload();
+runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = false;
 	},
 
 	async Menu_Event1_Act5(runtime, localVars)
@@ -158,8 +158,8 @@ const load = async () => {
     runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;
     runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;
     runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;
-    runtime.callFunction("SetBG", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundImage}`);
-    runtime.callFunction("SetMusic", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundMusic}`);
+    runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
+    runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
 }
 
 if (runtime.layout.name === "Level Editor Play") {
@@ -184,8 +184,8 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	async Menu_Event5_Act1(runtime, localVars)
 	{
-		//localStorage.setItem("layout", "Level Editor Online");
-		//localStorage.setItem("levelID", 20);
+		localStorage.setItem("layout", "Level Editor Online");
+		localStorage.setItem("levelID", 21);
 		const layout = localStorage.getItem("layout");
 		runtime.callFunction("CheckLayout", layout);
 	}

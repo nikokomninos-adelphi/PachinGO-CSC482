@@ -309,6 +309,7 @@ self.C3_JsPropNameTable = [
 	{SBGColor: 0},
 	{LBGColor: 0},
 	{BackendURL: 0},
+	{R2URL: 0},
 	{UploadStatus: 0},
 	{url: 0},
 	{Layout: 0}
