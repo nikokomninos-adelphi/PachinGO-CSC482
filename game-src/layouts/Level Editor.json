@@ -3050,7 +3050,7 @@
 						{
 							"type": "LevelEditorTextObject",
 							"properties": {
-								"text": "[outlineback=#000000][lineThickness=5] Right click to create a box to highlight and activate Pegs\n\n Use the Arrows (on-screen or keyboard) to move selected Pegs\n\n Hold CTRL while moving selected Pegs to move them a single pixel\n\n Use the Circular Arrows (or the Comma and Period keys) to rotate \n selected Pegs\n\n Hold CTRL while rotating selected Pegs to rotate them a single pixel\n\n Hold Shift when rotating a Peg to rotate it 45 degrees\n\n Hold CTRL when clicking a Peg to duplicate it\n\n Press Z to select all Pegs\n\n Press X to de-select all Pegs\n",
+								"text": "[outlineback=#000000][lineThickness=5] Right click to create a box to highlight and activate Pegs\n\n Use the Arrows (on-screen or keyboard) to move selected Pegs\n\n Hold CTRL while moving selected Pegs to move them a single pixel\n\n Use the Circular Arrows (or the Comma and Period keys) to rotate \n selected Pegs\n\n Hold CTRL while rotating selected Pegs to rotate them a single pixel\n\n Hold Shift when rotating a Peg to rotate it 45 degrees\n\n Hold Shift when clicking a Peg to duplicate it\n\n Press Z to select all Pegs\n\n Press X to de-select all Pegs\n",
 								"enable-bbcode": true,
 								"font": "Arial",
 								"size": 12,
