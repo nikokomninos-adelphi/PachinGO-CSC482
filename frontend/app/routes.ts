@@ -9,7 +9,9 @@ export default [
   route("account", "routes/account.tsx"),
 
   route("demo", "routes/demo.tsx"),
+  route("play/:id", "routes/play.tsx"),
   route("search", "routes/search.tsx"),
+  route("editor", "routes/editor.tsx"),
   route("about", "routes/about.tsx"),
 
   route("error", "routes/error.tsx")

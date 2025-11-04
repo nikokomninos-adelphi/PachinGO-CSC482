@@ -18,7 +18,7 @@ const LevelCard = ({
   author,
   desc,
 }: {
-  id: string
+  id: string;
   name: string;
   author: string;
   desc: string;
@@ -31,7 +31,10 @@ const LevelCard = ({
       className="flex flex-row w-100 h-45 border-1 border-[#e1e1e1] rounded-lg tracking-tight bg-[#fff] cursor-pointer hover:bg-[#fafafa] ease-linear duration-75"
     >
       <div className="flex justify-center items-center ml-3 min-w-40 min-h-40">
-        <img src="/thumbnail.jpg" className="w-40 h-40 rounded-sm border-1 border-[#c1c1c1]" />
+        <img
+          src="/thumbnail.jpg"
+          className="w-40 h-40 rounded-sm border-1 border-[#c1c1c1]"
+        />
       </div>
       <div className="w-60 h-50 p-5">
         <h1 className="text-lg font-semibold mb-1">{name}</h1>

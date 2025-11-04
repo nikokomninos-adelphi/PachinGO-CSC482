@@ -10,21 +10,28 @@
  */
 
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME } from "./env.ts";
+import {
+  R2_ACCOUNT_ID,
+  R2_ACCESS_KEY_ID,
+  R2_SECRET_ACCESS_KEY,
+  R2_BUCKET_NAME,
+} from "./env.ts";
 
 const r2 = new S3Client({
   region: "auto",
   endpoint: `https://${R2_ACCOUNT_ID!}.r2.cloudflarestorage.com`,
   credentials: {
     accessKeyId: `${R2_ACCESS_KEY_ID}`,
-    secretAccessKey: `${R2_SECRET_ACCESS_KEY}`
+    secretAccessKey: `${R2_SECRET_ACCESS_KEY}`,
   },
 });
 
 export const uploadToR2 = async (
-  file: Express.Multer.File
+  file: Express.Multer.File,
+  type: string,
+  levelID: string,
 ): Promise<string> => {
-  const key = `levels/${Date.now()}-${file.originalname}`;
+  const key = `${type}/${levelID}`;
   const fileBuffer = file.buffer;
   const mimeType = file.mimetype;
 
@@ -38,6 +45,5 @@ export const uploadToR2 = async (
   await r2.send(command);
 
   // Return the public URL (if bucket has public access enabled)
-  return `${R2_BUCKET_NAME}/${key}`;
-}
-
+  return `${key}`;
+};

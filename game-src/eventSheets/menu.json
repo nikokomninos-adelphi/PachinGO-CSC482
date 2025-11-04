@@ -5,64 +5,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 118866481387612,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Login"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 658862930484277
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "Login",
-					"sid": 156791993673462,
-					"parameters": {
-						"text": "\"Logout\""
-					}
-				}
-			],
-			"sid": 971075468573938
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 855799891685740,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Login"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "Login",
-					"sid": 298188040975389,
-					"parameters": {
-						"text": "\"Login\""
-					}
-				}
-			],
-			"sid": 957930628998676
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "compare-two-values",
 					"objectClass": "System",
 					"sid": 231938587499284,
@@ -83,6 +25,7 @@
 					"id": "play",
 					"objectClass": "Audio",
 					"sid": 445467203502339,
+					"disabled": true,
 					"parameters": {
 						"audio-file": "PMD2 OST - Top Menu Theme",
 						"loop": "not-looping",
@@ -90,9 +33,200 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 634623718982091,
+					"parameters": {
+						"group-name": "\"CORE GAMEPLAY\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 621944551320703,
+					"parameters": {
+						"group-name": "\"LEVEL EDITOR\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 239038155350488,
+					"disabled": true,
+					"parameters": {
+						"variable": "NumberOfOrangePegsInLevel",
+						"value": "25"
+					}
+				},
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"localStorage.setItem(\"layout\", \"Level Editor\");",
+						"if (localStorage.getItem(\"layout\") === \"Level Editor\") {",
+						"    runtime.callFunction(\"SetGroupActive\", \"CORE GAMEPLAY\", false);",
+						"    runtime.callFunction(\"SetGroupActive\", \"LEVEL EDITOR\", true);",
+						"    runtime.goToLayout(\"Level Editor\");",
+						"}",
+						"",
+						"if (localStorage.getItem(\"layout\") === \"Level Editor Online\") {",
+						"    runtime.callFunction(\"SetGroupActive\", \"CORE GAMEPLAY\", true);",
+						"    runtime.callFunction(\"SetGroupActive\", \"LEVEL EDITOR\", false);",
+						"    runtime.goToLayout(\"Level Editor Online\");",
+						"}"
+					]
 				}
 			],
-			"sid": 439428249860000
+			"sid": 439428249860000,
+			"disabled": true
+		},
+		{
+			"functionName": "CheckLayout",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Layout",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 465936539688848
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 378494251687097,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 543261285763511,
+							"parameters": {
+								"variable": "Layout",
+								"comparison": 0,
+								"value": "\"Level Editor\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 530435758408476,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 436447801655219,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 187587844297359,
+							"parameters": {
+								"layout": "Level Editor"
+							}
+						}
+					],
+					"sid": 680313353853697
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 603380659492656,
+							"parameters": {
+								"variable": "Layout",
+								"comparison": 0,
+								"value": "\"Level Editor Online\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 540150402217213,
+							"parameters": {
+								"group-name": "\"CORE GAMEPLAY\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 929953799024736,
+							"parameters": {
+								"group-name": "\"LEVEL EDITOR\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 472253618466508,
+							"parameters": {
+								"layout": "Level Editor Online"
+							}
+						}
+					],
+					"sid": 934682086177555
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 964133693197206,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Menu\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 235387562241164
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"//localStorage.setItem(\"layout\", \"Level Editor Online\");",
+						"//localStorage.setItem(\"levelID\", 20);",
+						"const layout = localStorage.getItem(\"layout\");",
+						"runtime.callFunction(\"CheckLayout\", layout);"
+					]
+				}
+			],
+			"sid": 212614408436257
 		},
 		{
 			"eventType": "group",

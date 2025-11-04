@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
 import { useAuthStore } from "~/stores/useAuthStore";
+import { useNavigate } from "react-router";
 
 const LevelModal = ({
   setShowModal,
@@ -23,6 +24,7 @@ const LevelModal = ({
   desc: string;
 }) => {
   const { user } = useAuthStore();
+  const navigate = useNavigate();
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -33,6 +35,12 @@ const LevelModal = ({
       document.body.style.overflow = "auto";
     };
   }, []);
+
+  const handlePlay = () => {
+    //localStorage.setItem("levelID", id);
+    //localStorage.setItem("layout", "Level Editor Online");
+    navigate(`/play/${id}`);
+  };
 
   const handleDeletion = async () => {
     const res = await fetch(
@@ -114,7 +122,13 @@ const LevelModal = ({
               {author}
             </Link>
           </h2>
-          <p className="text-md">{desc}</p>
+          <p className="text-md mb-10">{desc}</p>
+          <button
+            onClick={() => handlePlay()}
+            className="flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+          >
+            Play
+          </button>
           <div className="flex flex-col gap-3 justify-end items-end h-full">
             <DeleteButton
               user={user}

@@ -8,6 +8,11 @@ export const populateLevels = async () => {
       name: "My Level " + i,
       author: "testUser",
       description: "Desc " + i,
+      pegLayout: {"Peg1":"Test"},
+      backgroundImage: "image",
+      backgroundAudio: "audio",
+      numOrange: "25",
+      dateUploaded: new Date(),
     });
     await newLevel.save();
   }

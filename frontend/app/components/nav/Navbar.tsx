@@ -48,7 +48,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to=""
+              to="/editor"
               className="flex group items-center gap-2 ml-2 hover:text-purple-500 ease-linear duration-75"
             >
               <FaWrench size={12} />

@@ -35,6 +35,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
       const data = await res.json();
       set({ user: data.username });
+      return data.username;
     } catch (err) {
       console.error("Auth check failed:", err);
       set({ user: null });

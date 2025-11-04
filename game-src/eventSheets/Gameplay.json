@@ -433,6 +433,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "CustomerLevelAuthor",
+			"type": "string",
+			"initialValue": "PachinGO!",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 298890704852313
+		},
+		{
+			"eventType": "variable",
 			"name": "PegData",
 			"type": "string",
 			"initialValue": "\"\"",
@@ -485,11 +495,31 @@
 			"eventType": "variable",
 			"name": "MusicSelect",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "99",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 997260515299183
+		},
+		{
+			"eventType": "variable",
+			"name": "BackendURL",
+			"type": "string",
+			"initialValue": "http://localhost:3000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 668613552038821
+		},
+		{
+			"eventType": "variable",
+			"name": "UploadStatus",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 242929118425661
 		},
 		{
 			"eventType": "group",
@@ -505,6 +535,89 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 444832895045950
+						},
+						{
+							"functionName": "SetBG",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "url",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 901217479062722
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "load-image-from-url",
+									"objectClass": "CustomBG",
+									"sid": 789033001291170,
+									"parameters": {
+										"uri": "url",
+										"size": "keep-current-size",
+										"cross-origin": "anonymous"
+									}
+								}
+							],
+							"sid": 418824665691086
+						},
+						{
+							"functionName": "SetMusic",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "url",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 601007789098781
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-remote-url",
+									"objectClass": "Audio",
+									"sid": 856059965787757,
+									"parameters": {
+										"url": "url",
+										"type": "\"audio/mpeg; codecs=opus\"",
+										"name": "\"ImportedMusic\""
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 726097004933550,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "\"ImportedMusic\"",
+										"loop": "looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 734850400798924
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -813,6 +926,60 @@
 								{
 									"type": "comment",
 									"text": "Spawning various objects on start"
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Load the level editor peg layout into the",
+										"// gameplay test layout",
+										"",
+										"const load = async () => {",
+										"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem(\"levelID\")}`, {",
+										"    method: \"GET\",",
+										"    mode: \"cors\",",
+										"    });",
+										"    ",
+										"    const data = await res.json();",
+										"    const layout = data.level.pegLayout.data;",
+										"",
+										"    for (const key in layout) {",
+										"        const pegData = JSON.parse(layout[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"",
+										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
+										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
+										"    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;",
+										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
+										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
+										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
+										"    runtime.callFunction(\"SetBG\", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundImage}`);",
+										"    runtime.callFunction(\"SetMusic\", `https://pub-562122f32271414bacf25950b437b9c9.r2.dev/${data.level.backgroundMusic}`);",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Play\") {",
+										"  const dict = JSON.parse(runtime.globalVars.PegData).data;",
+										"",
+										"    for (const key in dict) {",
+										"        const pegData = JSON.parse(dict[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Online\") {",
+										"    await load();",
+										"    const menu = runtime.objects.backtohome.getFirstInstance();",
+										"    menu.destroy();",
+										"}",
+										""
+									]
 								},
 								{
 									"id": "set-position",
@@ -1271,24 +1438,6 @@
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
-								},
-								{
-									"type": "script",
-									"language": "javascript",
-									"script": [
-										"// Load the level editor peg layout into the",
-										"// gameplay test layout",
-										"",
-										"const dict = JSON.parse(runtime.globalVars.PegData).data;",
-										"",
-										"for (const key in dict) {",
-										"    const pegData = JSON.parse(dict[key]);",
-										"",
-										"    const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
-										"    newPeg.angle = pegData.angle;",
-										"    newPeg.setAnimation(pegData.animation);",
-										"}"
-									]
 								},
 								{
 									"type": "comment",
@@ -12646,7 +12795,9 @@
 									"type": "script",
 									"language": "javascript",
 									"script": [
-										"// Load the previous state of the level editor peg layout",
+										"// Gets the logged in user, and loads the previous state of the level editor peg layout",
+										"",
+										"runtime.globalVars.CustomerLevelAuthor = localStorage.getItem(\"user\") || \"PachinGO!\";",
 										"",
 										"const pegDict = JSON.parse(runtime.globalVars.PegData).data;",
 										"",
@@ -20394,22 +20545,26 @@
 														"const upload = async () => { ",
 														"    const formData = new FormData();",
 														"",
-														"    formData.append(\"name\", runtime.globalVars.CustomLevelName);",
-														"    formData.append(\"author\", \"testUser\");",
-														"    formData.append(\"desc\", runtime.globalVars.CustomLevelDesc);",
-														"    formData.append(\"pegLayout\", JSON.stringify(pegs));",
+														"    formData.append(\"name\", runtime.globalVars.CustomLevelName || \"Custom Level\");",
+														"    formData.append(\"author\", localStorage.getItem(\"user\"));",
+														"    formData.append(\"desc\", runtime.globalVars.CustomLevelDesc || \"This level is so fun!\");",
+														"    formData.append(\"pegLayout\", runtime.globalVars.PegData);",
+														"    formData.append(\"numOrange\", runtime.globalVars.NumberOfOrangePegsInLevel);",
+														"    formData.append(\"backgroundImageOpacity\", runtime.globalVars.BGIMageOpacity);",
+														"    formData.append(\"backgroundImageHSL\", JSON.stringify({\"H\": runtime.globalVars.HBGColor, \"S\": runtime.globalVars.SBGColor, \"L\": runtime.globalVars.SBGColor}));",
+														"    formData.append(\"musicSelect\", runtime.globalVars.MusicSelect);",
 														"",
 														"    const backgroundPicker = runtime.objects.ImageHere;",
 														"    const musicPicker = runtime.objects.MusicHere;",
 														"",
 														"    const backgroundPickerInst = backgroundPicker.getFirstInstance();",
-														"    //const musicPickerInst = musicPickerInst.getFirstInstance();",
+														"    const musicPickerInst = musicPicker.getFirstInstance();",
 														"",
-														"    let backgroundFile;",
-														"    let musicFile;",
+														"    let backgroundFile = \"\";",
+														"    let musicFile = \"\";",
 														"",
 														"    if (backgroundPickerInst) backgroundFile = backgroundPickerInst.getFiles()[0];",
-														"    //if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];",
+														"    if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];",
 														"",
 														"    if (backgroundFile) {",
 														"        formData.append(\"background\", backgroundFile, backgroundFile.name || \"background.png\");",
@@ -20419,14 +20574,13 @@
 														"        formData.append(\"music\", musicFile, musicFile.name || \"music.mp3\");",
 														"    }",
 														"",
-														"    const res = await fetch(\"http://localhost:3000/api/v1/level/uploadLevel\", {",
+														"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/uploadLevel`, {",
 														"    method: \"POST\",",
 														"    mode: \"cors\",",
 														"    body: formData,",
 														"    });",
 														"",
-														"    const data = res.json();",
-														"    console.log(data);",
+														"    res.ok ? runtime.globalVars.UploadStatus = true : runtime.globalVars.UploadStatus = false;",
 														"}",
 														"",
 														"await upload();"
@@ -20460,12 +20614,13 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-boolean-set",
-															"objectClass": "JSON",
-															"sid": 268355962099900,
-															"disabled": true,
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 394920785660947,
 															"parameters": {
-																"path": "\"IT UPLOADED YAY\""
+																"first-value": "UploadStatus",
+																"comparison": 0,
+																"second-value": "1"
 															}
 														},
 														{
@@ -20559,11 +20714,13 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-boolean-set",
-															"objectClass": "JSON",
-															"sid": 127371411423946,
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 947903637558640,
 															"parameters": {
-																"path": "\"IT FAILED OH NO\""
+																"first-value": "UploadStatus",
+																"comparison": 0,
+																"second-value": "0"
 															}
 														},
 														{

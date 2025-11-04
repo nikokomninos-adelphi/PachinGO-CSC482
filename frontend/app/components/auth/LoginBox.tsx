@@ -41,7 +41,8 @@ const LoginBox = () => {
     );
     const data = await res.json();
     if (data.message === "Login successful") {
-      await checkAuth();
+      const username = JSON.stringify(await checkAuth());
+      localStorage.setItem("user", JSON.parse(username).username);
       navigate("/");
     } else setStatus(data.message);
   };

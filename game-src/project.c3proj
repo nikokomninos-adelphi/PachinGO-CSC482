@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
@@ -205,7 +212,8 @@
 					"LevelText",
 					"AJAX",
 					"AJAXTest",
-					"Login"
+					"Login",
+					"LocalStorage"
 				],
 				"subfolders": [],
 				"name": "Menu"
@@ -567,5 +575,5 @@
 	},
 	"viewportWidth": 800,
 	"viewportHeight": 600,
-	"firstLayout": null
+	"firstLayout": "Menu"
 }
