@@ -20,7 +20,7 @@ const play = () => {
   useEffect(() => {
     if (!user) navigate("/login");
     setIsLoading(false);
-    localStorage.setItem("layout", "Level Editor");
+    localStorage.setItem("layout", "Level Editor Online");
   }, [user]);
 
   useEffect(() => {
