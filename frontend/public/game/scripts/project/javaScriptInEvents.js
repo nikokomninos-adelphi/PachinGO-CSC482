@@ -184,8 +184,6 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	async Menu_Event5_Act1(runtime, localVars)
 	{
-		localStorage.setItem("layout", "Level Editor Online");
-		localStorage.setItem("levelID", 21);
 		const layout = localStorage.getItem("layout");
 		runtime.callFunction("CheckLayout", layout);
 	}

@@ -505,7 +505,7 @@
 			"eventType": "variable",
 			"name": "BackendURL",
 			"type": "string",
-			"initialValue": "https://playpachingo.vercel.app",
+			"initialValue": "https://pachingo.onrender.com",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
