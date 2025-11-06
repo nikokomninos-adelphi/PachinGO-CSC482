@@ -35,6 +35,29 @@ const Footer = () => {
       >
         Level Editor
       </Link>
+
+      <Link
+        to="/about"
+        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+      >
+        About
+      </Link>
+
+      <Link
+        to="https://docs.google.com/forms/d/e/1FAIpQLScM2HxSCttdwolVOBKbx0y5S_n04KVshtFBkdbr9Q_ysmhAug/viewform?usp=dialog"
+        target="_blank"
+        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+      >
+        Contact
+      </Link>
+
+      <Link
+        to="https://ko-fi.com/nikokomninos"
+        target="_blank"
+        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+      >
+        Donate
+      </Link>
     </div>
   );
 };
