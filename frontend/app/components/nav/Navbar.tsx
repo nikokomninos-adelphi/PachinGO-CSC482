@@ -10,6 +10,7 @@ import {
   FaInfoCircle,
   FaMoneyBillWave,
 } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
 
 import NavLoginOnly from "./NavLoginOnly";
 
@@ -65,7 +66,17 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to=""
+              to="https://docs.google.com/forms/d/e/1FAIpQLScM2HxSCttdwolVOBKbx0y5S_n04KVshtFBkdbr9Q_ysmhAug/viewform?usp=dialog"
+              target="_blank"
+              className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
+            >
+              <IoMail size={13} />
+              <h1 className="text-sm">Contact</h1>
+            </Link>
+
+            <Link
+              to="https://ko-fi.com/nikokomninos"
+              target="_blank"
               className="flex group items-center gap-2 ml-2 hover:text-green-400 ease-linear duration-75"
             >
               <FaMoneyBillWave size={14} />
