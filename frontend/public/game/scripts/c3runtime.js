@@ -1424,7 +1424,7 @@ self.C3_ExpressionFuncs = [
 		() => 305,
 		() => 764,
 		() => 556,
-		() => 23.25,
+		() => 24,
 		() => 490,
 		() => 303,
 		() => 311,
@@ -1509,6 +1509,9 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 0.2,
 		() => 4,
+		() => 165,
+		() => 270,
+		() => 15,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 20);
@@ -1520,7 +1523,6 @@ self.C3_ExpressionFuncs = [
 		() => "Menu",
 		() => "Score Modifiers",
 		() => "Multiplier",
-		() => 15,
 		() => 2,
 		() => 3,
 		() => 6,
@@ -1635,6 +1637,7 @@ self.C3_ExpressionFuncs = [
 		() => "Animation 1",
 		() => "Peg Spawning",
 		() => "Orange Peg Spawning",
+		() => "Master",
 		() => "Purple Peg Spawning",
 		() => "Evil Peg Spawning",
 		() => "Peg Active",
@@ -1753,7 +1756,6 @@ self.C3_ExpressionFuncs = [
 		() => "2Static",
 		() => "1Static",
 		() => "Fevermeter",
-		() => 24,
 		() => 23,
 		() => 22,
 		() => 21,
@@ -1768,15 +1770,24 @@ self.C3_ExpressionFuncs = [
 		() => "Basic Handling",
 		() => "Level Editor",
 		() => "Level BG",
+		() => "BGHandler2",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (and("[outlineback=#000000][lineThickness=5] ", n0.ExpObject()) + "%");
+		},
+		() => "[outlineback=#000000][lineThickness=5] Custom Level",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ("[outlineback=#000000][lineThickness=5] " + v0.GetValue());
+		},
 		() => "Black Screen",
 		() => "Peg Placement",
 		() => "Drop Drag",
-		() => "Master",
 		() => 37,
+		() => 150,
 		() => 42,
-		() => 207,
 		() => 41,
-		() => 260,
+		() => 255,
 		() => "Setting Active",
 		() => "Right Click Mouse Box",
 		p => {
@@ -1827,11 +1838,6 @@ self.C3_ExpressionFuncs = [
 		() => "BGHandler",
 		() => "BackgroundUI",
 		() => "BG Opacity Slider",
-		() => "BGHandler2",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => (and("[outlineback=#000000][lineThickness=5] ", n0.ExpObject()) + "%");
-		},
 		() => "BG Image Related",
 		() => "Clear",
 		p => {
@@ -1839,6 +1845,8 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject(0);
 		},
 		() => "BG Color Slider",
+		() => "Borders",
+		() => "BorderUI",
 		() => "Music Button",
 		() => "Music",
 		() => "MusicUI",

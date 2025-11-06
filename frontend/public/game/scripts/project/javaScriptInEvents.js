@@ -2,135 +2,18 @@
 
 const scriptsInEvents = {
 
-	async Gameplay_Event289_Act12(runtime, localVars)
-	{
-		// Gets the logged in user, and loads the previous state of the level editor peg layout
-		
-		runtime.globalVars.CustomerLevelAuthor = localStorage.getItem("user") || "PachinGO!";
-		
-		const pegDict = JSON.parse(runtime.globalVars.PegData).data;
-		
-		for (const key in pegDict) {
-		    const pegData = JSON.parse(pegDict[key]);
-		
-		    const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
-		    newPeg.angle = pegData.angle;
-		    newPeg.setAnimation(pegData.animation);
-		}
-	},
-
-	async Gameplay_Event438_Act3(runtime, localVars)
-	{
-		// Save the peg layout into a JSON
-		
-		const pegDict = {
-		    c2dictionary: true,
-		    data: {}
-		};
-		
-		for (const peg of runtime.objects.Peg.getAllInstances()) {
-		    const key = "Peg" + peg.uid;
-		
-		    if(peg.animationName === "CircleBlueActive") peg.setAnimation("CircleBlue");
-		    if(peg.animationName === "BrickBlueActive") peg.setAnimation("BrickBlue");
-		    if(peg.animationName === "CurveBlueActive") peg.setAnimation("CurveBlue");
-		
-		    const pegData = {
-		        x: peg.x,
-		        y: peg.y,
-		        angle: peg.angle,
-		        animation: peg.animationName
-		    };
-		
-		    pegDict.data[key] = JSON.stringify(pegData);
-		}
-		
-		runtime.globalVars.PegData = JSON.stringify(pegDict);
-	},
-
-	async Gameplay_Event449_Act4(runtime, localVars)
-	{
-		// Save the peg layout into a JSON
-		
-		const pegDict = {
-		    c2dictionary: true,
-		    data: {}
-		};
-		
-		for (const peg of runtime.objects.Peg.getAllInstances()) {
-		    const key = "Peg" + peg.uid;
-		
-		    if(peg.animationName === "CircleBlueActive") peg.setAnimation("CircleBlue");
-		    if(peg.animationName === "BrickBlueActive") peg.setAnimation("BrickBlue");
-		    if(peg.animationName === "CurveBlueActive") peg.setAnimation("CurveBlue");
-		
-		    const pegData = {
-		        x: peg.x,
-		        y: peg.y,
-		        angle: peg.angle,
-		        animation: peg.animationName
-		    };
-		
-		    pegDict.data[key] = JSON.stringify(pegData);
-		}
-		
-		runtime.globalVars.PegData = JSON.stringify(pegDict);
-	},
-
-	async Gameplay_Event449_Act5(runtime, localVars)
-	{
-const pegs = JSON.parse(runtime.globalVars.PegData).data;
-
-const upload = async () => { 
-    const formData = new FormData();
-
-    formData.append("name", runtime.globalVars.CustomLevelName || "Custom Level");
-    formData.append("author", localStorage.getItem("user"));
-    formData.append("desc", runtime.globalVars.CustomLevelDesc || "This level is so fun!");
-    formData.append("pegLayout", runtime.globalVars.PegData);
-    formData.append("numOrange", runtime.globalVars.NumberOfOrangePegsInLevel);
-    formData.append("backgroundImageOpacity", runtime.globalVars.BGIMageOpacity);
-    formData.append("backgroundImageHSL", JSON.stringify({"H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.SBGColor}));
-    formData.append("musicSelect", runtime.globalVars.MusicSelect);
-
-    const backgroundPicker = runtime.objects.ImageHere;
-    const musicPicker = runtime.objects.MusicHere;
-
-    const backgroundPickerInst = backgroundPicker.getFirstInstance();
-    const musicPickerInst = musicPicker.getFirstInstance();
-
-    let backgroundFile = "";
-    let musicFile = "";
-
-    if (backgroundPickerInst) backgroundFile = backgroundPickerInst.getFiles()[0];
-    if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];
-
-    if (backgroundFile) {
-        formData.append("background", backgroundFile, backgroundFile.name || "background.png");
-    }
-
-    if (musicFile) {
-        formData.append("music", musicFile, musicFile.name || "music.mp3");
-    }
-
-    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/uploadLevel`, {
-    method: "POST",
-    mode: "cors",
-    body: formData,
-    });
-
-    res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;
-}
-
-runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
-	},
-
 	async Menu_Event1_Act5(runtime, localVars)
 	{
 
 	},
 
-	async Gameplay_Event6_Act37(runtime, localVars)
+	async Menu_Event5_Act1(runtime, localVars)
+	{
+		const layout = localStorage.getItem("layout");
+		runtime.callFunction("CheckLayout", layout);
+	},
+
+	async Gameplay_Event5_Act37(runtime, localVars)
 	{
 // Load the level editor peg layout into the
 // gameplay test layout
@@ -182,10 +65,127 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	},
 
-	async Menu_Event5_Act1(runtime, localVars)
+	async Gameplay_Event290_Act15(runtime, localVars)
 	{
-		const layout = localStorage.getItem("layout");
-		runtime.callFunction("CheckLayout", layout);
+		// Gets the logged in user, and loads the previous state of the level editor peg layout
+		
+		runtime.globalVars.CustomerLevelAuthor = localStorage.getItem("user") || "PachinGO!";
+		
+		const pegDict = JSON.parse(runtime.globalVars.PegData).data;
+		
+		for (const key in pegDict) {
+		    const pegData = JSON.parse(pegDict[key]);
+		
+		    const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
+		    newPeg.angle = pegData.angle;
+		    newPeg.setAnimation(pegData.animation);
+		}
+	},
+
+	async Gameplay_Event450_Act3(runtime, localVars)
+	{
+		// Save the peg layout into a JSON
+		
+		const pegDict = {
+		    c2dictionary: true,
+		    data: {}
+		};
+		
+		for (const peg of runtime.objects.Peg.getAllInstances()) {
+		    const key = "Peg" + peg.uid;
+		
+		    if(peg.animationName === "CircleBlueActive") peg.setAnimation("CircleBlue");
+		    if(peg.animationName === "BrickBlueActive") peg.setAnimation("BrickBlue");
+		    if(peg.animationName === "CurveBlueActive") peg.setAnimation("CurveBlue");
+		
+		    const pegData = {
+		        x: peg.x,
+		        y: peg.y,
+		        angle: peg.angle,
+		        animation: peg.animationName
+		    };
+		
+		    pegDict.data[key] = JSON.stringify(pegData);
+		}
+		
+		runtime.globalVars.PegData = JSON.stringify(pegDict);
+	},
+
+	async Gameplay_Event461_Act4(runtime, localVars)
+	{
+		// Save the peg layout into a JSON
+		
+		const pegDict = {
+		    c2dictionary: true,
+		    data: {}
+		};
+		
+		for (const peg of runtime.objects.Peg.getAllInstances()) {
+		    const key = "Peg" + peg.uid;
+		
+		    if(peg.animationName === "CircleBlueActive") peg.setAnimation("CircleBlue");
+		    if(peg.animationName === "BrickBlueActive") peg.setAnimation("BrickBlue");
+		    if(peg.animationName === "CurveBlueActive") peg.setAnimation("CurveBlue");
+		
+		    const pegData = {
+		        x: peg.x,
+		        y: peg.y,
+		        angle: peg.angle,
+		        animation: peg.animationName
+		    };
+		
+		    pegDict.data[key] = JSON.stringify(pegData);
+		}
+		
+		runtime.globalVars.PegData = JSON.stringify(pegDict);
+	},
+
+	async Gameplay_Event461_Act5(runtime, localVars)
+	{
+const pegs = JSON.parse(runtime.globalVars.PegData).data;
+
+const upload = async () => { 
+    const formData = new FormData();
+
+    formData.append("name", runtime.globalVars.CustomLevelName || "Custom Level");
+    formData.append("author", localStorage.getItem("user"));
+    formData.append("desc", runtime.globalVars.CustomLevelDesc || "This level is so fun!");
+    formData.append("pegLayout", runtime.globalVars.PegData);
+    formData.append("numOrange", runtime.globalVars.NumberOfOrangePegsInLevel);
+    formData.append("backgroundImageOpacity", runtime.globalVars.BGIMageOpacity);
+    formData.append("backgroundImageHSL", JSON.stringify({"H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.SBGColor}));
+    formData.append("musicSelect", runtime.globalVars.MusicSelect);
+
+    const backgroundPicker = runtime.objects.ImageHere;
+    const musicPicker = runtime.objects.MusicHere;
+
+    const backgroundPickerInst = backgroundPicker.getFirstInstance();
+    const musicPickerInst = musicPicker.getFirstInstance();
+
+    let backgroundFile = "";
+    let musicFile = "";
+
+    if (backgroundPickerInst) backgroundFile = backgroundPickerInst.getFiles()[0];
+    if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];
+
+    if (backgroundFile) {
+        formData.append("background", backgroundFile, backgroundFile.name || "background.png");
+    }
+
+    if (musicFile) {
+        formData.append("music", musicFile, musicFile.name || "music.mp3");
+    }
+
+    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/uploadLevel`, {
+    method: "POST",
+    mode: "cors",
+    body: formData,
+    });
+
+    res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;
+}
+
+runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	}
 };
 
