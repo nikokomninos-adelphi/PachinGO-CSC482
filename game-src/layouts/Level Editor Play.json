@@ -149,10 +149,10 @@
 					"world": {
 						"x": 400,
 						"y": 43,
-						"width": 91.19205028905168,
-						"height": 92.18532858068426,
-						"originX": -0.0078125,
-						"originY": 0.49206349206349204,
+						"width": 59.84478300219016,
+						"height": 95.11184694832502,
+						"originX": 0,
+						"originY": 0.48846153846153845,
 						"color": [
 							1,
 							1,
@@ -245,53 +245,6 @@
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
-				{
-					"type": "ConnectorWallUI",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 372,
-					"sid": 247925668846078,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"effects": {
-						"AdjustHSL": {
-							"isEnabled": true,
-							"parameters": {
-								"hue": 0,
-								"saturation": 1,
-								"luminosity": 1
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 247925668846078,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 406,
-						"y": 23.266113376863764,
-						"width": 422.92574896694236,
-						"height": 54.13384757318471,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": -1
-					}
-				},
 				{
 					"type": "WallUI",
 					"properties": {

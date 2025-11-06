@@ -5,7 +5,18 @@
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 817679712877264
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 219405141371524
+		}
+	],
 	"effectTypes": [
 		{
 			"effectId": "hsladjust",

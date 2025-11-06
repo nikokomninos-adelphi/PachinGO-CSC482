@@ -415,7 +415,7 @@
 			"eventType": "variable",
 			"name": "CustomLevelName",
 			"type": "string",
-			"initialValue": "Custom Level",
+			"initialValue": "",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -425,7 +425,7 @@
 			"eventType": "variable",
 			"name": "CustomLevelDesc",
 			"type": "string",
-			"initialValue": "This level is so fun!",
+			"initialValue": "",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -545,12 +545,6 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 444832895045950
-						},
 						{
 							"functionName": "SetBG",
 							"functionDescription": "",
@@ -1140,12 +1134,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 693709732843471,
+									"sid": 282397593757122,
 									"parameters": {
 										"object-to-create": "ConnectorWallUI",
 										"layer": "\"BG\"",
 										"x": "400",
-										"y": "23.25",
+										"y": "24",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -1554,6 +1548,30 @@
 									"parameters": {
 										"x": "bucket.X-58",
 										"y": "bucket.Y-50"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Peg",
+									"sid": 838530832905509,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "clear-obstacles",
+									"objectClass": "Peg",
+									"sid": 147568919597431,
+									"behaviorType": "LineOfSight"
+								},
+								{
+									"id": "set-range",
+									"objectClass": "Peg",
+									"sid": 426515042963564,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"range": "26"
 									}
 								}
 							],
@@ -1982,6 +2000,56 @@
 										}
 									],
 									"sid": 165312446643008
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "shooter",
+											"sid": 417110259778987,
+											"parameters": {
+												"first-angle": "165",
+												"second-angle": "270"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "shooter",
+											"sid": 624941714362708,
+											"parameters": {
+												"angle": "165"
+											}
+										}
+									],
+									"sid": 873020754623125
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "shooter",
+											"sid": 514230139465612,
+											"parameters": {
+												"first-angle": "270",
+												"second-angle": "15"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "shooter",
+											"sid": 395994603068660,
+											"parameters": {
+												"angle": "15"
+											}
+										}
+									],
+									"sid": 687550982008126
 								}
 							]
 						},
@@ -1992,21 +2060,40 @@
 									"id": "on-created",
 									"objectClass": "shootervisual",
 									"sid": 594653528449163
+								},
+								{
+									"id": "is-between-angles",
+									"objectClass": "shooter",
+									"sid": 398052417368727,
+									"parameters": {
+										"first-angle": "165",
+										"second-angle": "270"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-between-angles",
+									"objectClass": "shooter",
+									"sid": 194293278484624,
+									"parameters": {
+										"first-angle": "270",
+										"second-angle": "15"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
 									"id": "set-instvar-value",
 									"objectClass": "shootervisual",
-									"sid": 289147093946404,
+									"sid": 361950279506956,
 									"parameters": {
 										"instance-variable": "ShooterAngle",
 										"value": "shooter.Angle"
 									}
 								}
 							],
-							"sid": 662591739250687,
-							"isOrBlock": true
+							"sid": 662591739250687
 						},
 						{
 							"eventType": "block",
@@ -2069,6 +2156,26 @@
 									"id": "is-on-screen",
 									"objectClass": "shootervisual",
 									"sid": 731954036488578,
+									"isInverted": true
+								},
+								{
+									"id": "is-between-angles",
+									"objectClass": "shooter",
+									"sid": 580661548562311,
+									"parameters": {
+										"first-angle": "165",
+										"second-angle": "270"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-between-angles",
+									"objectClass": "shooter",
+									"sid": 836786568403465,
+									"parameters": {
+										"first-angle": "270",
+										"second-angle": "15"
+									},
 									"isInverted": true
 								}
 							],
@@ -2867,11 +2974,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 554165593271745,
+											"sid": 140380668420772,
 											"parameters": {
 												"variable": "TurnCount",
 												"comparison": 0,
-												"value": "1"
+												"value": "0"
 											},
 											"isInverted": true
 										},
@@ -5245,6 +5352,15 @@
 															"parameters": {
 																"object": "Peg"
 															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "Peg",
+															"sid": 659762250803492,
+															"parameters": {
+																"tags": "\"Master\""
+															},
+															"isInverted": true
 														}
 													],
 													"actions": [],
@@ -5417,6 +5533,15 @@
 															"parameters": {
 																"object": "Peg"
 															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "Peg",
+															"sid": 612292515463602,
+															"parameters": {
+																"tags": "\"Master\""
+															},
+															"isInverted": true
 														}
 													],
 													"actions": [],
@@ -5589,6 +5714,15 @@
 															"parameters": {
 																"object": "Peg"
 															}
+														},
+														{
+															"id": "has-tags",
+															"objectClass": "Peg",
+															"sid": 814211451485040,
+															"parameters": {
+																"tags": "\"Master\""
+															},
+															"isInverted": true
 														}
 													],
 													"actions": [],
@@ -12729,8 +12863,24 @@
 								},
 								{
 									"id": "set-text",
+									"objectClass": "LevelNameTextInput",
+									"sid": 579713223063751,
+									"parameters": {
+										"text": "CustomLevelName"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "LvlDescriptionTextInput",
+									"sid": 278829816430902,
+									"parameters": {
+										"text": "CustomLevelDesc"
+									}
+								},
+								{
+									"id": "set-text",
 									"objectClass": "OrangePegsInput",
-									"sid": 627712840424745,
+									"sid": 750657775129229,
 									"parameters": {
 										"text": "NumberOfOrangePegsInLevel"
 									}
@@ -12802,6 +12952,14 @@
 									}
 								},
 								{
+									"id": "set-visible",
+									"objectClass": "ScoreCalcVisible",
+									"sid": 585556343282593,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
 									"type": "script",
 									"language": "javascript",
 									"script": [
@@ -12821,7 +12979,86 @@
 									]
 								}
 							],
-							"sid": 159058310515392
+							"sid": 159058310515392,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 696985234975134,
+											"parameters": {
+												"tags": "\"BGHandler2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 802314274070009,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5] \" &CustomBGOpacity.Value &\"%\""
+											}
+										}
+									],
+									"sid": 471585957917381
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 940827283972670,
+											"parameters": {
+												"variable": "CustomLevelName",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "CustomLevelName",
+											"sid": 538405664475057,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5] Custom Level\""
+											}
+										}
+									],
+									"sid": 877335476084647
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 216695023354531,
+											"parameters": {
+												"variable": "CustomLevelName",
+												"comparison": 0,
+												"value": "\"\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "CustomLevelName",
+											"sid": 730813253109806,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5] \" &CustomLevelName"
+											}
+										}
+									],
+									"sid": 419774424344952
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -13063,12 +13300,12 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 259076858832018,
+											"sid": 469157338003887,
 											"parameters": {
 												"object-to-create": "Peg",
 												"layer": "\"Pegs\"",
 												"x": "37",
-												"y": "155",
+												"y": "150",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -13133,12 +13370,12 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 931016097571111,
+											"sid": 903498125235377,
 											"parameters": {
 												"object-to-create": "Peg",
 												"layer": "\"Pegs\"",
 												"x": "42",
-												"y": "207",
+												"y": "202",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -13203,12 +13440,12 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 161363277080495,
+											"sid": 405427176921811,
 											"parameters": {
 												"object-to-create": "Peg",
 												"layer": "\"Pegs\"",
 												"x": "41",
-												"y": "260",
+												"y": "255",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -13227,7 +13464,7 @@
 								},
 								{
 									"eventType": "comment",
-									"text": "Cloning at exact position"
+									"text": "Cloning at exact position "
 								},
 								{
 									"eventType": "block",
@@ -13237,14 +13474,6 @@
 											"objectClass": "Peg",
 											"sid": 444320073014827,
 											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 400372660243149,
-											"parameters": {
-												"animation": "\"CircleBlue\""
-											}
 										},
 										{
 											"id": "has-tags",
@@ -13263,499 +13492,233 @@
 												"layer": "\"Black Screen\""
 											},
 											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 668379416355009,
-											"parameters": {
-												"key": 16
-											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 963158499445854,
+									"children": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 220414871144166,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 423536582730689,
-											"parameters": {
-												"animation": "\"CircleBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 789490815261816,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 693089398107765,
-											"parameters": {
-												"animation": "\"CircleBlue\"",
-												"from": "beginning"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 151343996682337,
+													"parameters": {
+														"key": 16
+													}
+												},
+												{
+													"id": "key-is-down",
+													"objectClass": "Keyboard",
+													"sid": 225818977299183,
+													"parameters": {
+														"key": 17
+													}
+												}
+											],
+											"actions": [],
+											"sid": 485545931019034,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 635791933552362,
+															"parameters": {
+																"animation": "\"CircleBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 590733578894363,
+															"parameters": {
+																"animation": "\"CircleBlueActive\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 764035515006176,
+															"parameters": {
+																"variable": "TempPegRotationStore",
+																"value": "Peg.Angle"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 107267433791286,
+															"parameters": {
+																"animation": "\"CircleBlue\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 407505937022966,
+															"parameters": {
+																"object-to-create": "Peg",
+																"layer": "\"Pegs\"",
+																"x": "Peg.X",
+																"y": "Peg.Y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 781049672994006,
+															"parameters": {
+																"animation": "\"CircleBlue\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 462506578885615,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 762390342813567,
+															"parameters": {
+																"animation": "\"BrickBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 669962467716615,
+															"parameters": {
+																"animation": "\"BrickBlueActive\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 666029849120217,
+															"parameters": {
+																"variable": "TempPegRotationStore",
+																"value": "Peg.Angle"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 158422518881332,
+															"parameters": {
+																"animation": "\"BrickBlue\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 389113195800995,
+															"parameters": {
+																"object-to-create": "Peg",
+																"layer": "\"Pegs\"",
+																"x": "Peg.X",
+																"y": "Peg.Y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 929290909302278,
+															"parameters": {
+																"animation": "\"BrickBlue\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 479431644355426,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 543902444195942,
+															"parameters": {
+																"animation": "\"CurveBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 806771514127261,
+															"parameters": {
+																"animation": "\"CurveBlueActive\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 518580520778010,
+															"parameters": {
+																"variable": "TempPegRotationStore",
+																"value": "Peg.Angle"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 332938373917333,
+															"parameters": {
+																"animation": "\"CurveBlue\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 311167946294409,
+															"parameters": {
+																"object-to-create": "Peg",
+																"layer": "\"Pegs\"",
+																"x": "Peg.X",
+																"y": "Peg.Y",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Peg",
+															"sid": 360733794939519,
+															"parameters": {
+																"animation": "\"CurveBlue\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 417665664336501,
+													"isOrBlock": true
+												}
+											],
+											"isOrBlock": true
 										}
-									],
-									"sid": 963158499445854
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-drag-start",
-											"objectClass": "Peg",
-											"sid": 757536670467640,
-											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 432120083650944,
-											"parameters": {
-												"animation": "\"CircleBlueActive\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "Peg",
-											"sid": 737469921584144,
-											"parameters": {
-												"tags": "\"Master\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 889813259415934,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 220748436273330,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 132621211726732,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 465733072177207,
-											"parameters": {
-												"animation": "\"CircleBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 890423642559500,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 551264847932407,
-											"parameters": {
-												"animation": "\"CircleBlue\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 482041959180584
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-drag-start",
-											"objectClass": "Peg",
-											"sid": 968781329428642,
-											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 442316010367529,
-											"parameters": {
-												"animation": "\"BrickBlue\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "Peg",
-											"sid": 740730891955814,
-											"parameters": {
-												"tags": "\"Master\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 376258947485094,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 780746433696852,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 595122104956639,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 871549199485498,
-											"parameters": {
-												"animation": "\"BrickBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 723320124070205,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 808910358696936,
-											"parameters": {
-												"animation": "\"BrickBlue\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 139593588869311
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-drag-start",
-											"objectClass": "Peg",
-											"sid": 414558297979345,
-											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 825053059155983,
-											"parameters": {
-												"animation": "\"BrickBlueActive\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "Peg",
-											"sid": 183523522700368,
-											"parameters": {
-												"tags": "\"Master\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 849883134710661,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 194637050916920,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 492403981191615,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 302320089698603,
-											"parameters": {
-												"animation": "\"BrickBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 805497779235349,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 811344787071352,
-											"parameters": {
-												"animation": "\"BrickBlue\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 806909755360639
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-drag-start",
-											"objectClass": "Peg",
-											"sid": 638846221829045,
-											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 363714853535029,
-											"parameters": {
-												"animation": "\"CurveBlue\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "Peg",
-											"sid": 324368957445885,
-											"parameters": {
-												"tags": "\"Master\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 744942344787656,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 798986369081925,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 975862468337505,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 788500059453974,
-											"parameters": {
-												"animation": "\"CurveBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 663935457549138,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 904205969840333,
-											"parameters": {
-												"animation": "\"CurveBlue\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 932430847122653
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-drag-start",
-											"objectClass": "Peg",
-											"sid": 962994162142764,
-											"behaviorType": "DragDrop"
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Peg",
-											"sid": 146014198734597,
-											"parameters": {
-												"animation": "\"CurveBlueActive\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "Peg",
-											"sid": 570316192337265,
-											"parameters": {
-												"tags": "\"Master\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 838829366549181,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "key-is-down",
-											"objectClass": "Keyboard",
-											"sid": 821962457134362,
-											"parameters": {
-												"key": 16
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 590724513603518,
-											"parameters": {
-												"variable": "TempPegRotationStore",
-												"value": "Peg.Angle"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 162927287129237,
-											"parameters": {
-												"animation": "\"CurveBlue\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 146567764940420,
-											"parameters": {
-												"object-to-create": "Peg",
-												"layer": "\"Pegs\"",
-												"x": "Peg.X",
-												"y": "Peg.Y",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Peg",
-											"sid": 550510818522487,
-											"parameters": {
-												"animation": "\"CurveBlue\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 354270215299663
+									]
 								}
 							],
 							"sid": 946733997596030
@@ -14266,6 +14229,14 @@
 													"sid": 800941577058575,
 													"parameters": {
 														"object": "floorui"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Peg",
+													"sid": 454413902009035,
+													"parameters": {
+														"object": "ConnectorWallUI"
 													}
 												},
 												{
@@ -17009,22 +16980,6 @@
 												"layer": "\"BGHandler\"",
 												"visibility": "visible"
 											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "OrangePegsInput",
-											"sid": 773147161303073,
-											"parameters": {
-												"mode": "enabled"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "BallInput",
-											"sid": 659254621950831,
-											"parameters": {
-												"mode": "enabled"
-											}
 										}
 									],
 									"sid": 327211384590916
@@ -17575,6 +17530,344 @@
 						{
 							"eventType": "group",
 							"disabled": false,
+							"title": "Borders",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 673786029575938,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 339187813768812,
+											"parameters": {
+												"animation": "\"Background\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 781174105889622,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 641501690210061,
+											"parameters": {
+												"layer": "\"Borders\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 635571256349465,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 471895613935845,
+											"parameters": {
+												"layer": "\"Borders\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 893698609294594
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 279344097357194,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 247481896726898,
+											"parameters": {
+												"animation": "\"Exit2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 256673715345621,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 980491931970680,
+											"parameters": {
+												"layer": "\"Borders\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 677354163781629,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 629933673956618,
+											"parameters": {
+												"layer": "\"Borders\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 859123432293946
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 953667358201937,
+											"parameters": {
+												"key": 13
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 336161231307567,
+											"parameters": {
+												"animation": "\"Exit2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 468074232205104,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 296286456309205,
+											"parameters": {
+												"layer": "\"Borders\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 544169261153723,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 806230052736626,
+											"parameters": {
+												"layer": "\"Borders\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 224689996254761
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 876231117368135,
+											"parameters": {
+												"key": 27
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 581851468254161,
+											"parameters": {
+												"animation": "\"Exit2\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 683692914537453,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 723844530263684,
+											"parameters": {
+												"layer": "\"Borders\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 672469948263681,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 616430020247913,
+											"parameters": {
+												"layer": "\"Borders\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 844993558104861
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 280264914651514,
+											"parameters": {
+												"object": "LevelEditorButtons"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 850843660950959,
+											"parameters": {
+												"animation": "\"Borders\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 937195769245144,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 193813952171513,
+											"parameters": {
+												"tags": "\"BorderUI\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 433878544522678,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 153604098696989
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 367079487861248,
+											"parameters": {
+												"object": "LevelEditorButtons"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "LevelEditorButtons",
+											"sid": 924437916754359,
+											"parameters": {
+												"animation": "\"Borders\""
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 909820169640816,
+											"parameters": {
+												"tags": "\"BorderUI\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "LevelEditorTextObject",
+											"sid": 126144682848201,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 889501916950362
+								}
+							],
+							"sid": 212461438079579
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
 							"title": "Music Button",
 							"description": "",
 							"isActiveOnStart": true,
@@ -17623,18 +17916,18 @@
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 484240643361756,
+											"sid": 266552171062171,
 											"parameters": {
-												"layer": "\"Black Screen\"",
+												"layer": "\"Music\"",
 												"visibility": "visible"
 											}
 										},
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 752032105513637,
+											"sid": 484240643361756,
 											"parameters": {
-												"layer": "\"Music\"",
+												"layer": "\"Black Screen\"",
 												"visibility": "visible"
 											}
 										},
@@ -17691,18 +17984,18 @@
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 862024048859151,
+											"sid": 180924178139851,
 											"parameters": {
-												"layer": "\"Black Screen\"",
+												"layer": "\"Music\"",
 												"visibility": "invisible"
 											}
 										},
 										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
-											"sid": 999535626241861,
+											"sid": 862024048859151,
 											"parameters": {
-												"layer": "\"Music\"",
+												"layer": "\"Black Screen\"",
 												"visibility": "invisible"
 											}
 										},
@@ -17716,6 +18009,122 @@
 										}
 									],
 									"sid": 679096336350310
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 521367232119956,
+											"parameters": {
+												"key": 13
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 760465578687427,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 783491421837710,
+											"parameters": {
+												"layer": "\"Music\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 570630776242629,
+											"parameters": {
+												"layer": "\"Music\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 718165966538407,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "MusicSelect",
+											"sid": 664729307903465,
+											"parameters": {
+												"mode": "disabled"
+											}
+										}
+									],
+									"sid": 667775909779938
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 616286267668847,
+											"parameters": {
+												"key": 27
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 529061197518286,
+											"parameters": {
+												"layer": "\"Black Screen\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 303336038661115,
+											"parameters": {
+												"layer": "\"Music\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 379541801042315,
+											"parameters": {
+												"layer": "\"Music\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 915739375961925,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "MusicSelect",
+											"sid": 363873815463055,
+											"parameters": {
+												"mode": "disabled"
+											}
+										}
+									],
+									"sid": 450852334243682
 								},
 								{
 									"eventType": "block",

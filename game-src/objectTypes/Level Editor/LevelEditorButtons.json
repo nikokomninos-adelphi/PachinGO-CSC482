@@ -560,7 +560,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 1596104,
+						"imageSpriteId": 3118835,
 						"collisionPoly": {
 							"points": [
 								0.388671875,
@@ -806,6 +806,63 @@
 				],
 				"sid": 531563026998762,
 				"name": "Clear",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 512,
+						"height": 512,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9987632,
+						"collisionPoly": {
+							"points": [
+								0.388671875,
+								0.01171875,
+								0.6171875,
+								0.013671875,
+								0.8203125,
+								0.115234375,
+								0.951171875,
+								0.28125,
+								1,
+								0.515625,
+								0.94921875,
+								0.72265625,
+								0.8046875,
+								0.8984375,
+								0.615234375,
+								0.98828125,
+								0.373046875,
+								0.984375,
+								0.181640625,
+								0.88671875,
+								0.044921875,
+								0.7109375,
+								0,
+								0.4921875,
+								0.05078125,
+								0.27734375,
+								0.189453125,
+								0.107421875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 859985487308706,
+				"name": "Borders",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

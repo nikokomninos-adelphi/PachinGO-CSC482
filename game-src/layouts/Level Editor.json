@@ -91,7 +91,28 @@
 					"sid": 647718752296441,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						},
+						"Physics": {
+							"properties": {
+								"immovable": true,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": true
+							}
+						}
+					},
 					"effects": {
 						"AdjustHSL": {
 							"isEnabled": true,
@@ -209,10 +230,10 @@
 					"world": {
 						"x": 400,
 						"y": 43,
-						"width": 91.19205028905168,
-						"height": 92.18532858068426,
-						"originX": -0.0078125,
-						"originY": 0.49206349206349204,
+						"width": 59.84478300219016,
+						"height": 95.11184694832502,
+						"originX": 0,
+						"originY": 0.48846153846153845,
 						"color": [
 							1,
 							1,
@@ -534,7 +555,7 @@
 					"locked": false,
 					"world": {
 						"x": 37,
-						"y": 155,
+						"y": 150,
 						"width": 20,
 						"height": 20,
 						"originX": 0.5,
@@ -615,7 +636,7 @@
 					"locked": false,
 					"world": {
 						"x": 42,
-						"y": 207,
+						"y": 202,
 						"width": 34,
 						"height": 22,
 						"originX": 0.6124567474048445,
@@ -696,7 +717,7 @@
 					"locked": false,
 					"world": {
 						"x": 41,
-						"y": 260,
+						"y": 255,
 						"width": 38,
 						"height": 21,
 						"originX": 0.5894736842105265,
@@ -769,8 +790,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 36.528324627383164,
-						"y": 395.77167537261687,
+						"x": 37,
+						"y": 428,
 						"width": 32.60569320265852,
 						"height": 40.53193906407828,
 						"originX": 0.5,
@@ -806,8 +827,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 37,
-						"y": 343.45384615384614,
+						"x": 38,
+						"y": 328,
 						"width": 33.430972590635506,
 						"height": 33.43097259063551,
 						"originX": 0.5,
@@ -880,8 +901,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 36.579683208411545,
-						"y": 457.1430260187496,
+						"x": 37,
+						"y": 482,
 						"width": 35.82955212802054,
 						"height": 35.829552128020545,
 						"originX": 0.5,
@@ -1098,7 +1119,7 @@
 							1
 						],
 						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
+						"vertical-alignment": "top",
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": -1,
@@ -1118,10 +1139,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 74.24160796273571,
-						"y": 12.746927178253031,
-						"width": 200,
-						"height": 30,
+						"x": 82,
+						"y": 16.33333333333333,
+						"width": 152,
+						"height": 97.66666666666667,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1212,6 +1233,43 @@
 						"y": 27.49568002111257,
 						"width": 31.64062617020586,
 						"height": 32.40383584792517,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LevelEditorButtons",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Borders",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 728,
+					"sid": 459848322780621,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 459848322780621,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 38,
+						"y": 379,
+						"width": 31.545080883218674,
+						"height": 31.54508088321868,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -1444,7 +1502,7 @@
 					"locked": false,
 					"world": {
 						"x": 62,
-						"y": 447,
+						"y": 472,
 						"width": 263.0000000000001,
 						"height": 26,
 						"originX": 0,
@@ -1508,7 +1566,7 @@
 					"locked": false,
 					"world": {
 						"x": 62,
-						"y": 388,
+						"y": 420,
 						"width": 279.0000000000001,
 						"height": 26,
 						"originX": 0,
@@ -1572,7 +1630,7 @@
 					"locked": false,
 					"world": {
 						"x": 62,
-						"y": 333,
+						"y": 318,
 						"width": 279.0000000000001,
 						"height": 26,
 						"originX": 0,
@@ -1875,6 +1933,70 @@
 							1,
 							1,
 							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LevelEditorTextObject",
+					"properties": {
+						"text": "[outlineback=#000000][lineThickness=5] - Change Border Colors",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 11,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.8392156862745098,
+							0.8431372549019608,
+							0.09803921568627451,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": false,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 729,
+					"sid": 439565322004497,
+					"tags": "BorderUI",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 2,
+								"fade-out-time": 1,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 439565322004497,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 62,
+						"y": 369,
+						"width": 279.0000000000001,
+						"height": 26,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -2421,6 +2543,40 @@
 						}
 					],
 					"sid": 400131219448251,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "Borders",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [],
+					"sid": 146808668103281,
 					"effectTypes": [],
 					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,
