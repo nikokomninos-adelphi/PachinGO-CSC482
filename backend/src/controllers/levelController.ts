@@ -60,6 +60,9 @@ export const uploadLevel = [
         backgroundImageOpacity,
         backgroundImageHSL,
         musicSelect,
+        wallHSL,
+        scoreHSL,
+        crystalHSL,
         numOrange,
       } = req.body;
       let backgroundUrl: string = "N/A";
@@ -95,6 +98,9 @@ export const uploadLevel = [
         backgroundImageHSL: JSON.parse(backgroundImageHSL),
         backgroundMusic: musicUrl,
         musicSelect: musicSelect,
+        wallHSL: JSON.parse(wallHSL),
+        scoreHSL: JSON.parse(scoreHSL),
+        crystalHSL: JSON.parse(crystalHSL),
         numOrange: numOrange,
         dateUploaded: dateUploaded,
       });

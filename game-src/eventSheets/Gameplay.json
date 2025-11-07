@@ -532,6 +532,16 @@
 			"sid": 544876844528001
 		},
 		{
+			"eventType": "variable",
+			"name": "ResetStatus",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 487256127898832
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "CORE GAMEPLAY",
@@ -839,10 +849,10 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 726097004933550,
+									"sid": 715944316670865,
 									"parameters": {
 										"folder": "music",
-										"audio-file-name": "\"ImportedMusic\"",
+										"audio-file-name": "\"ImportedFile\"",
 										"loop": "looping",
 										"volume": "0",
 										"stereo-pan": "0",
@@ -853,15 +863,433 @@
 							"sid": 734850400798924
 						},
 						{
+							"functionName": "SetBGHSL",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "CustomBG",
+									"sid": 302985488351206,
+									"parameters": {
+										"opacity": "BGIMageOpacity"
+									}
+								},
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 461594611610547,
+									"parameters": {
+										"layer": "\"BG\"",
+										"color": "rgb(HBGColor, SBGColor, LBGColor)"
+									}
+								}
+							],
+							"sid": 810389959358439
+						},
+						{
+							"functionName": "SetUIHSL",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-value",
+									"objectClass": "HueWallSlide",
+									"sid": 207511105531187,
+									"parameters": {
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueScoreSlide",
+									"sid": 884113425084745,
+									"parameters": {
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueCrystalSlide",
+									"sid": 398360873302189,
+									"parameters": {
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatWallSlide",
+									"sid": 130136627494539,
+									"parameters": {
+										"value": "SWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatScoreSlide",
+									"sid": 622405286855532,
+									"parameters": {
+										"value": "SScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatCrystalSlide",
+									"sid": 617874502571591,
+									"parameters": {
+										"value": "SCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumWallSlide",
+									"sid": 648064729753520,
+									"parameters": {
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumScoreSlide",
+									"sid": 207545807520449,
+									"parameters": {
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumCrystalSlide",
+									"sid": 616537141659620,
+									"parameters": {
+										"value": "LCrystal"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 452796929184797,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 632695721134626,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SWall * 4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 936697690745157,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 391138460900361,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 832880514523139,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SWall * 4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 777921421833677,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 619534359943779,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 731829708156645,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SScore*4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 440649978170216,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 714035332527134,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 960633861978834,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SScore*4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 485486997573996,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 814735372407858,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 144815961278594,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SCrystal *4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 955959302280727,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LCrystal"
+									}
+								}
+							],
+							"sid": 527616420602420
+						},
+						{
+							"functionName": "SetNumOrange",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "numOrange",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 796993919582560
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 299899540039224,
+									"parameters": {
+										"variable": "NumberOfOrangePegsInLevel",
+										"value": "numOrange"
+									}
+								}
+							],
+							"sid": 729746609237462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 224882657834253
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 897287307479088,
+									"parameters": {
+										"variable": "ResetStatus",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 129916050214855,
+									"parameters": {
+										"variable": "ResetStatus",
+										"value": "1"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 727405902653388
+								}
+							],
+							"sid": 218851302910369
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "on-start-of-layout",
 									"objectClass": "System",
 									"sid": 137084448230092
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 493961874327417,
+									"parameters": {
+										"variable": "ResetStatus",
+										"comparison": 0,
+										"value": "1"
+									}
 								}
 							],
 							"actions": [
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Load the level editor peg layout into the",
+										"// gameplay test layout",
+										"",
+										"const load = async () => {",
+										"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem(\"levelID\")}`, {",
+										"    method: \"GET\",",
+										"    mode: \"cors\",",
+										"    });",
+										"    ",
+										"    const data = await res.json();",
+										"    const layout = data.level.pegLayout.data;",
+										"",
+										"    for (const key in layout) {",
+										"        const pegData = JSON.parse(layout[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"",
+										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
+										"    //runtime.callFunction(\"SetNumOrange\", data.level.numOrange);",
+										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
+										"",
+										"    runtime.globalVars.HWall = data.level.wallHSL.H;",
+										"    runtime.globalVars.SWall = data.level.wallHSL.S;",
+										"    runtime.globalVars.LWall = data.level.wallHSL.L;",
+										"",
+										"    runtime.globalVars.HScore = data.level.scoreHSL.H;",
+										"    runtime.globalVars.SScore = data.level.scoreHSL.S;",
+										"    runtime.globalVars.LScore = data.level.scoreHSL.L;",
+										"",
+										"    runtime.globalVars.HCrystal = data.level.crystalHSL.H;",
+										"    runtime.globalVars.SCrystal = data.level.crystalHSL.S;",
+										"    runtime.globalVars.LCrystal = data.level.crystalHSL.L;",
+										"    //runtime.callFunction(\"SetUIHSL\");",
+										"",
+										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
+										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
+										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
+										"    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;",
+										"    //runtime.callFunction(\"SetBGHSL\");",
+										"",
+										"    if (data.level.backgroundImage !== \"N/A\") runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
+										"    if (data.level.backgroundMusic !== \"N/A\" && runtime.globalVars.MusicSelect === 6) runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
+										"",
+										"    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction(\"SetMusicNonCustom\", runtime.globalVars.MusicSelect);",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Play\") {",
+										"  const dict = JSON.parse(runtime.globalVars.PegData).data;",
+										"",
+										"    for (const key in dict) {",
+										"        const pegData = JSON.parse(dict[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Online\") {",
+										"    await load();",
+										"    const menu = runtime.objects.backtohome.getFirstInstance();",
+										"    menu.destroy();",
+										"}",
+										""
+									]
+								},
 								{
 									"type": "comment",
 									"text": "Resetting all gameplay related booleans"
@@ -1162,62 +1590,6 @@
 									"text": "Spawning various objects on start"
 								},
 								{
-									"type": "script",
-									"language": "javascript",
-									"script": [
-										"// Load the level editor peg layout into the",
-										"// gameplay test layout",
-										"",
-										"const load = async () => {",
-										"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem(\"levelID\")}`, {",
-										"    method: \"GET\",",
-										"    mode: \"cors\",",
-										"    });",
-										"    ",
-										"    const data = await res.json();",
-										"    const layout = data.level.pegLayout.data;",
-										"",
-										"    for (const key in layout) {",
-										"        const pegData = JSON.parse(layout[key]);",
-										"",
-										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
-										"        newPeg.angle = pegData.angle;",
-										"        newPeg.setAnimation(pegData.animation);",
-										"    }",
-										"",
-										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
-										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
-										"    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;",
-										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
-										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
-										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
-										"    if (data.level.backgroundImage !== \"N/A\") runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
-										"    if (data.level.backgroundMusic !== \"N/A\" && runtime.globalVars.MusicSelect === 6) runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
-										"",
-										"    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction(\"SetMusicNonCustom\", runtime.globalVars.MusicSelect);",
-										"}",
-										"",
-										"if (runtime.layout.name === \"Level Editor Play\") {",
-										"  const dict = JSON.parse(runtime.globalVars.PegData).data;",
-										"",
-										"    for (const key in dict) {",
-										"        const pegData = JSON.parse(dict[key]);",
-										"",
-										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
-										"        newPeg.angle = pegData.angle;",
-										"        newPeg.setAnimation(pegData.animation);",
-										"    }",
-										"}",
-										"",
-										"if (runtime.layout.name === \"Level Editor Online\") {",
-										"    await load();",
-										"    const menu = runtime.objects.backtohome.getFirstInstance();",
-										"    menu.destroy();",
-										"}",
-										""
-									]
-								},
-								{
 									"id": "set-position",
 									"objectClass": "shooter",
 									"sid": 557002141059823,
@@ -1247,6 +1619,14 @@
 									"id": "set-visible",
 									"objectClass": "ScoreCalcVisible",
 									"sid": 867128282079798,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "FreeBall",
+									"sid": 798352715135091,
 									"parameters": {
 										"visibility": "invisible"
 									}
@@ -1288,14 +1668,6 @@
 										"y": "632",
 										"create-hierarchy": false,
 										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "FreeBall",
-									"sid": 226649404395151,
-									"parameters": {
-										"visibility": "invisible"
 									}
 								},
 								{
@@ -2198,11 +2570,70 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "is-between-angles",
+											"objectClass": "shooter",
+											"sid": 440137535948183,
+											"parameters": {
+												"first-angle": "165",
+												"second-angle": "270"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "shooter",
+											"sid": 778407446738436,
+											"parameters": {
+												"angle": "165"
+											}
+										}
+									],
+									"sid": 694116461358437
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-between-angles",
+											"objectClass": "shooter",
+											"sid": 517959769149640,
+											"parameters": {
+												"first-angle": "270",
+												"second-angle": "15"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "shooter",
+											"sid": 729007046597661,
+											"parameters": {
+												"angle": "15"
+											}
+										}
+									],
+									"sid": 589204364957562
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "every-x-seconds",
 											"objectClass": "System",
 											"sid": 529778927422353,
 											"parameters": {
 												"interval-seconds": "0.2"
+											}
+										},
+										{
+											"id": "is-between-angles",
+											"objectClass": "shooter",
+											"sid": 926684892985215,
+											"parameters": {
+												"first-angle": "14.5",
+												"second-angle": "165.5"
 											}
 										}
 									],
@@ -2220,6 +2651,15 @@
 											}
 										},
 										{
+											"id": "set-world-gravity",
+											"objectClass": "shootervisual",
+											"sid": 202864996606425,
+											"behaviorType": "Physics",
+											"parameters": {
+												"gravity": "10"
+											}
+										},
+										{
 											"id": "apply-impulse-at-angle",
 											"objectClass": "shootervisual",
 											"sid": 796872262750578,
@@ -2232,56 +2672,6 @@
 										}
 									],
 									"sid": 165312446643008
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-between-angles",
-											"objectClass": "shooter",
-											"sid": 417110259778987,
-											"parameters": {
-												"first-angle": "165",
-												"second-angle": "270"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-angle",
-											"objectClass": "shooter",
-											"sid": 624941714362708,
-											"parameters": {
-												"angle": "165"
-											}
-										}
-									],
-									"sid": 873020754623125
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-between-angles",
-											"objectClass": "shooter",
-											"sid": 514230139465612,
-											"parameters": {
-												"first-angle": "270",
-												"second-angle": "15"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-angle",
-											"objectClass": "shooter",
-											"sid": 395994603068660,
-											"parameters": {
-												"angle": "15"
-											}
-										}
-									],
-									"sid": 687550982008126
 								}
 							]
 						},
@@ -2292,26 +2682,6 @@
 									"id": "on-created",
 									"objectClass": "shootervisual",
 									"sid": 594653528449163
-								},
-								{
-									"id": "is-between-angles",
-									"objectClass": "shooter",
-									"sid": 398052417368727,
-									"parameters": {
-										"first-angle": "165",
-										"second-angle": "270"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-between-angles",
-									"objectClass": "shooter",
-									"sid": 194293278484624,
-									"parameters": {
-										"first-angle": "270",
-										"second-angle": "15"
-									},
-									"isInverted": true
 								}
 							],
 							"actions": [
@@ -2330,6 +2700,15 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "shootervisual",
+									"sid": 617029863297698,
+									"disabled": true,
+									"parameters": {
+										"object": "ConnectorWallUI"
+									}
+								},
 								{
 									"id": "on-collision-with-another-object",
 									"objectClass": "shootervisual",
@@ -2388,26 +2767,6 @@
 									"id": "is-on-screen",
 									"objectClass": "shootervisual",
 									"sid": 731954036488578,
-									"isInverted": true
-								},
-								{
-									"id": "is-between-angles",
-									"objectClass": "shooter",
-									"sid": 580661548562311,
-									"parameters": {
-										"first-angle": "165",
-										"second-angle": "270"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-between-angles",
-									"objectClass": "shooter",
-									"sid": 836786568403465,
-									"parameters": {
-										"first-angle": "270",
-										"second-angle": "15"
-									},
 									"isInverted": true
 								}
 							],
@@ -7684,11 +8043,11 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "Peg",
-																			"sid": 179796215310498,
+																			"sid": 465254281836870,
 																			"parameters": {
 																				"instance-variable": "ContinuousContactTimer",
 																				"comparison": 5,
-																				"value": "120"
+																				"value": "80"
 																			}
 																		},
 																		{
@@ -13354,6 +13713,14 @@
 									"parameters": {
 										"layer": "\"Black Screen\""
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 697936048453479,
+									"parameters": {
+										"layer": "\"Black Screen 2\""
+									}
 								}
 							],
 							"actions": [
@@ -13367,7 +13734,8 @@
 									}
 								}
 							],
-							"sid": 481261307556013
+							"sid": 481261307556013,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -13378,6 +13746,15 @@
 									"sid": 337976069095708,
 									"parameters": {
 										"layer": "\"Black Screen\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 619357912102100,
+									"parameters": {
+										"layer": "\"Black Screen 2\""
 									},
 									"isInverted": true
 								}
@@ -13394,6 +13771,241 @@
 								}
 							],
 							"sid": 855190164211877
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 610211784404363
+								}
+							],
+							"actions": [
+								{
+									"id": "set-value",
+									"objectClass": "HueWallSlide",
+									"sid": 557051538507034,
+									"parameters": {
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueScoreSlide",
+									"sid": 279297881264941,
+									"parameters": {
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "HueCrystalSlide",
+									"sid": 312737869357903,
+									"parameters": {
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatWallSlide",
+									"sid": 205914216584492,
+									"parameters": {
+										"value": "SWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatScoreSlide",
+									"sid": 942022063803136,
+									"parameters": {
+										"value": "SScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "SatCrystalSlide",
+									"sid": 815717571021441,
+									"parameters": {
+										"value": "SCrystal"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumWallSlide",
+									"sid": 810284769292116,
+									"parameters": {
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumScoreSlide",
+									"sid": 346763668443703,
+									"parameters": {
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-value",
+									"objectClass": "LumCrystalSlide",
+									"sid": 427196689226363,
+									"parameters": {
+										"value": "LCrystal"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 604169787688252,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 248034737947292,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SWall * 4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "WallUI",
+									"sid": 305898192029973,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 689260170280495,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 619264358981965,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SWall * 4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "floorui",
+									"sid": 442996999953398,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LWall"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 733928045287729,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 494712403818959,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SScore*4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "scorebug",
+									"sid": 394493088185061,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 712915527590382,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 753367407829766,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SScore*4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "ConnectorWallUI",
+									"sid": 159876470766524,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LScore"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 353574576465048,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "0",
+										"value": "HCrystal"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 568217620741299,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "1",
+										"value": "SCrystal *4"
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "crystals",
+									"sid": 998149611720549,
+									"parameters": {
+										"effect": "\"AdjustHSL\"",
+										"parameter-index": "2",
+										"value": "LCrystal"
+									}
+								}
+							],
+							"sid": 966670925284691
 						}
 					],
 					"sid": 327337716187992
@@ -17782,9 +18394,9 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "LevelEditorButtons",
-											"sid": 339187813768812,
+											"sid": 863764814420857,
 											"parameters": {
-												"animation": "\"Background\""
+												"animation": "\"Borders\""
 											}
 										},
 										{
@@ -17808,6 +18420,16 @@
 									],
 									"actions": [
 										{
+											"id": "move-layer",
+											"objectClass": "System",
+											"sid": 558146020504583,
+											"parameters": {
+												"layer": "\"Black Screen\"",
+												"insert-by": "\"Level BG\"",
+												"where": "above"
+											}
+										},
+										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 635571256349465,
@@ -17824,6 +18446,24 @@
 												"layer": "\"Borders\"",
 												"visibility": "visible"
 											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 836144279407091,
+											"parameters": {
+												"layer": "\"UI Lvl Editor\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 458378933099874,
+											"parameters": {
+												"layer": "\"Pegs\"",
+												"visibility": "invisible"
+											}
 										}
 									],
 									"sid": 893698609294594
@@ -17831,16 +18471,6 @@
 								{
 									"eventType": "block",
 									"conditions": [
-										{
-											"id": "on-object-clicked",
-											"objectClass": "Mouse",
-											"sid": 279344097357194,
-											"parameters": {
-												"mouse-button": "left",
-												"click-type": "clicked",
-												"object-clicked": "LevelEditorButtons"
-											}
-										},
 										{
 											"id": "is-animation-playing",
 											"objectClass": "LevelEditorButtons",
@@ -17866,143 +18496,172 @@
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 859123432293946,
+									"children": [
 										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 677354163781629,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 629933673956618,
-											"parameters": {
-												"layer": "\"Borders\"",
-												"visibility": "invisible"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-object-clicked",
+													"objectClass": "Mouse",
+													"sid": 806826762055446,
+													"parameters": {
+														"mouse-button": "left",
+														"click-type": "clicked",
+														"object-clicked": "LevelEditorButtons"
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 477460968875130,
+													"parameters": {
+														"key": 13
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 634141271017461,
+													"parameters": {
+														"key": 27
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 963038471066797,
+													"parameters": {
+														"layer": "\"Black Screen\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 521865162604086,
+													"parameters": {
+														"layer": "\"Borders\"",
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 845981173760345,
+													"parameters": {
+														"layer": "\"UI Lvl Editor\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 798511489334943,
+													"parameters": {
+														"layer": "\"Pegs\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "move-layer",
+													"objectClass": "System",
+													"sid": 185870263332259,
+													"parameters": {
+														"layer": "\"Black Screen\"",
+														"insert-by": "\"Upload\"",
+														"where": "below"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 459858042717496,
+													"parameters": {
+														"variable": "HWall",
+														"value": "HueWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 985437984233507,
+													"parameters": {
+														"variable": "HScore",
+														"value": "HueScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 890531921635350,
+													"parameters": {
+														"variable": "HCrystal",
+														"value": "HueCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 781882589662008,
+													"parameters": {
+														"variable": "LWall",
+														"value": "LumWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 980856702685194,
+													"parameters": {
+														"variable": "LScore",
+														"value": "LumScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 741618680481078,
+													"parameters": {
+														"variable": "LCrystal",
+														"value": "LumCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 476080933118816,
+													"parameters": {
+														"variable": "SWall",
+														"value": "SatWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 684850221734364,
+													"parameters": {
+														"variable": "SScore",
+														"value": "SatScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 762581021521739,
+													"parameters": {
+														"variable": "SCrystal",
+														"value": "SatCrystalSlide.Value"
+													}
+												}
+											],
+											"sid": 302474606556159,
+											"isOrBlock": true
 										}
-									],
-									"sid": 859123432293946
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 953667358201937,
-											"parameters": {
-												"key": 13
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 336161231307567,
-											"parameters": {
-												"animation": "\"Exit2\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 468074232205104,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 296286456309205,
-											"parameters": {
-												"layer": "\"Borders\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 544169261153723,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 806230052736626,
-											"parameters": {
-												"layer": "\"Borders\"",
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 224689996254761
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 876231117368135,
-											"parameters": {
-												"key": 27
-											}
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "LevelEditorButtons",
-											"sid": 581851468254161,
-											"parameters": {
-												"animation": "\"Exit2\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 683692914537453,
-											"parameters": {
-												"layer": "\"Black Screen\""
-											}
-										},
-										{
-											"id": "layer-is-visible",
-											"objectClass": "System",
-											"sid": 723844530263684,
-											"parameters": {
-												"layer": "\"Borders\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 672469948263681,
-											"parameters": {
-												"layer": "\"Black Screen\"",
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 616430020247913,
-											"parameters": {
-												"layer": "\"Borders\"",
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 844993558104861
+									]
 								},
 								{
 									"eventType": "block",
@@ -18093,6 +18752,283 @@
 										}
 									],
 									"sid": 889501916950362
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
+									"title": "Sliders",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueWallSlide",
+													"sid": 382978105790256
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 859942406994910,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "floorui",
+													"sid": 712310746925438,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueWallSlide.Value"
+													}
+												}
+											],
+											"sid": 456154909462550
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatWallSlide",
+													"sid": 931155330694564
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 939947554708477,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatWallSlide.Value * 4"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "floorui",
+													"sid": 873043821579953,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatWallSlide.Value * 4"
+													}
+												}
+											],
+											"sid": 795092104713995
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumWallSlide",
+													"sid": 748986468961871
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "WallUI",
+													"sid": 480624196394741,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumWallSlide.Value"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "floorui",
+													"sid": 480546520322447,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumWallSlide.Value"
+													}
+												}
+											],
+											"sid": 541947338065540
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueScoreSlide",
+													"sid": 745110786679631
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 951214068352448,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "ConnectorWallUI",
+													"sid": 638026666348603,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueScoreSlide.Value"
+													}
+												}
+											],
+											"sid": 821245507996000
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatScoreSlide",
+													"sid": 911133040085076
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 226248854424853,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatScoreSlide.Value*4"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "ConnectorWallUI",
+													"sid": 145641931116672,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatScoreSlide.Value*4"
+													}
+												}
+											],
+											"sid": 657658535000209
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumScoreSlide",
+													"sid": 373062097502148
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "scorebug",
+													"sid": 277114286264153,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumScoreSlide.Value"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "ConnectorWallUI",
+													"sid": 953762792247599,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumScoreSlide.Value"
+													}
+												}
+											],
+											"sid": 595267025913502
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "HueCrystalSlide",
+													"sid": 936096403161237
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 184938740638214,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "0",
+														"value": "HueCrystalSlide.Value"
+													}
+												}
+											],
+											"sid": 686215933428009
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "SatCrystalSlide",
+													"sid": 512874719228980
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 860954048257669,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "1",
+														"value": "SatCrystalSlide.Value *4"
+													}
+												}
+											],
+											"sid": 299418464536191
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-changing",
+													"objectClass": "LumCrystalSlide",
+													"sid": 101337398139483
+												}
+											],
+											"actions": [
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "crystals",
+													"sid": 135444969290059,
+													"parameters": {
+														"effect": "\"AdjustHSL\"",
+														"parameter-index": "2",
+														"value": "LumCrystalSlide.Value"
+													}
+												}
+											],
+											"sid": 731800642752393
+										}
+									],
+									"sid": 611669076728922
 								}
 							],
 							"sid": 212461438079579
@@ -21202,8 +22138,11 @@
 														"    formData.append(\"pegLayout\", runtime.globalVars.PegData);",
 														"    formData.append(\"numOrange\", runtime.globalVars.NumberOfOrangePegsInLevel);",
 														"    formData.append(\"backgroundImageOpacity\", runtime.globalVars.BGIMageOpacity);",
-														"    formData.append(\"backgroundImageHSL\", JSON.stringify({\"H\": runtime.globalVars.HBGColor, \"S\": runtime.globalVars.SBGColor, \"L\": runtime.globalVars.SBGColor}));",
+														"    formData.append(\"backgroundImageHSL\", JSON.stringify({ \"H\": runtime.globalVars.HBGColor, \"S\": runtime.globalVars.SBGColor, \"L\": runtime.globalVars.SBGColor }));",
 														"    formData.append(\"musicSelect\", runtime.globalVars.MusicSelect);",
+														"    formData.append(\"wallHSL\", JSON.stringify({ \"H\": runtime.globalVars.HWall, \"S\": runtime.globalVars.SWall, \"L\": runtime.globalVars.LWall }));",
+														"    formData.append(\"scoreHSL\", JSON.stringify({ \"H\": runtime.globalVars.HScore, \"S\": runtime.globalVars.SWall, \"L\": runtime.globalVars.LWall }));",
+														"    formData.append(\"crystalHSL\", JSON.stringify({ \"H\": runtime.globalVars.HCrystal, \"S\": runtime.globalVars.SCrystal, \"L\": runtime.globalVars.LCrystal }));",
 														"",
 														"    const backgroundPicker = runtime.objects.ImageHere;",
 														"    const musicPicker = runtime.objects.MusicHere;",

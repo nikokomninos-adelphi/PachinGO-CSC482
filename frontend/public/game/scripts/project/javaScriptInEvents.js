@@ -9,63 +9,13 @@ const scriptsInEvents = {
 
 	async Menu_Event5_Act1(runtime, localVars)
 	{
+		localStorage.setItem("levelID", "32");
+		localStorage.setItem("layout", "Level Editor Online");
 		const layout = localStorage.getItem("layout");
 		runtime.callFunction("CheckLayout", layout);
 	},
 
-	async Gameplay_Event5_Act37(runtime, localVars)
-	{
-// Load the level editor peg layout into the
-// gameplay test layout
-
-const load = async () => {
-    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem("levelID")}`, {
-    method: "GET",
-    mode: "cors",
-    });
-    
-    const data = await res.json();
-    const layout = data.level.pegLayout.data;
-
-    for (const key in layout) {
-        const pegData = JSON.parse(layout[key]);
-
-        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
-        newPeg.angle = pegData.angle;
-        newPeg.setAnimation(pegData.animation);
-    }
-
-    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;
-    runtime.globalVars.MusicSelect = data.level.musicSelect;
-    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;
-    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;
-    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;
-    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;
-    runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
-    runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
-}
-
-if (runtime.layout.name === "Level Editor Play") {
-  const dict = JSON.parse(runtime.globalVars.PegData).data;
-
-    for (const key in dict) {
-        const pegData = JSON.parse(dict[key]);
-
-        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
-        newPeg.angle = pegData.angle;
-        newPeg.setAnimation(pegData.animation);
-    }
-}
-
-if (runtime.layout.name === "Level Editor Online") {
-    await load();
-    const menu = runtime.objects.backtohome.getFirstInstance();
-    menu.destroy();
-}
-
-	},
-
-	async Gameplay_Event290_Act15(runtime, localVars)
+	async Gameplay_Event301_Act15(runtime, localVars)
 	{
 		// Gets the logged in user, and loads the previous state of the level editor peg layout
 		
@@ -82,7 +32,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		}
 	},
 
-	async Gameplay_Event450_Act3(runtime, localVars)
+	async Gameplay_Event471_Act3(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -111,7 +61,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event461_Act4(runtime, localVars)
+	async Gameplay_Event482_Act4(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -140,7 +90,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event461_Act5(runtime, localVars)
+	async Gameplay_Event482_Act5(runtime, localVars)
 	{
 const pegs = JSON.parse(runtime.globalVars.PegData).data;
 
@@ -153,8 +103,11 @@ const upload = async () => {
     formData.append("pegLayout", runtime.globalVars.PegData);
     formData.append("numOrange", runtime.globalVars.NumberOfOrangePegsInLevel);
     formData.append("backgroundImageOpacity", runtime.globalVars.BGIMageOpacity);
-    formData.append("backgroundImageHSL", JSON.stringify({"H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.SBGColor}));
+    formData.append("backgroundImageHSL", JSON.stringify({ "H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.SBGColor }));
     formData.append("musicSelect", runtime.globalVars.MusicSelect);
+    formData.append("wallHSL", JSON.stringify({ "H": runtime.globalVars.HWall, "S": runtime.globalVars.SWall, "L": runtime.globalVars.LWall }));
+    formData.append("scoreHSL", JSON.stringify({ "H": runtime.globalVars.HScore, "S": runtime.globalVars.SWall, "L": runtime.globalVars.LWall }));
+    formData.append("crystalHSL", JSON.stringify({ "H": runtime.globalVars.HCrystal, "S": runtime.globalVars.SCrystal, "L": runtime.globalVars.LCrystal }));
 
     const backgroundPicker = runtime.objects.ImageHere;
     const musicPicker = runtime.objects.MusicHere;
@@ -186,6 +139,77 @@ const upload = async () => {
 }
 
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
+	},
+
+	async Gameplay_Event16_Act1(runtime, localVars)
+	{
+// Load the level editor peg layout into the
+// gameplay test layout
+
+const load = async () => {
+    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem("levelID")}`, {
+    method: "GET",
+    mode: "cors",
+    });
+    
+    const data = await res.json();
+    const layout = data.level.pegLayout.data;
+
+    for (const key in layout) {
+        const pegData = JSON.parse(layout[key]);
+
+        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
+        newPeg.angle = pegData.angle;
+        newPeg.setAnimation(pegData.animation);
+    }
+
+    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;
+    //runtime.callFunction("SetNumOrange", data.level.numOrange);
+    runtime.globalVars.MusicSelect = data.level.musicSelect;
+
+    runtime.globalVars.HWall = data.level.wallHSL.H;
+    runtime.globalVars.SWall = data.level.wallHSL.S;
+    runtime.globalVars.LWall = data.level.wallHSL.L;
+
+    runtime.globalVars.HScore = data.level.scoreHSL.H;
+    runtime.globalVars.SScore = data.level.scoreHSL.S;
+    runtime.globalVars.LScore = data.level.scoreHSL.L;
+
+    runtime.globalVars.HCrystal = data.level.crystalHSL.H;
+    runtime.globalVars.SCrystal = data.level.crystalHSL.S;
+    runtime.globalVars.LCrystal = data.level.crystalHSL.L;
+    //runtime.callFunction("SetUIHSL");
+
+    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;
+    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;
+    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;
+    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;
+    //runtime.callFunction("SetBGHSL");
+
+    if (data.level.backgroundImage !== "N/A") runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
+    if (data.level.backgroundMusic !== "N/A" && runtime.globalVars.MusicSelect === 6) runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
+
+    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction("SetMusicNonCustom", runtime.globalVars.MusicSelect);
+}
+
+if (runtime.layout.name === "Level Editor Play") {
+  const dict = JSON.parse(runtime.globalVars.PegData).data;
+
+    for (const key in dict) {
+        const pegData = JSON.parse(dict[key]);
+
+        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
+        newPeg.angle = pegData.angle;
+        newPeg.setAnimation(pegData.animation);
+    }
+}
+
+if (runtime.layout.name === "Level Editor Online") {
+    await load();
+    const menu = runtime.objects.backtohome.getFirstInstance();
+    menu.destroy();
+}
+
 	}
 };
 

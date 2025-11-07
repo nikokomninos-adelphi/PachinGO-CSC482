@@ -18,8 +18,17 @@ const Navbar = () => {
   return (
     <div>
       <div className="bg-[#FAFAFA] border-b-1 border-b-[#E1E1EE] p-1 mb-3">
-        <div className="mr-[6vw]">
-          <NavLoginOnly />
+        <div className="flex flex-row justify-between">
+          <div className="ml-[6vw]">
+            <h1 className="text-xs font-light">
+              🎉 PachinGO's open beta is now available to play! We hope you
+              enjoy! 🎉
+            </h1>
+          </div>
+
+          <div className="mr-[6vw]">
+            <NavLoginOnly />
+          </div>
         </div>
       </div>
       <div>
