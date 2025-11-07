@@ -98,7 +98,7 @@ const LevelModal = ({
         <div className="col-span-2 w-7/8 h-7/8 m-auto flex justify-center items-center">
           <img
             src="/thumbnail.jpg"
-            className="border-1 border-[#c1c1c1] rounded-lg"
+            className="max-w-full max-h-full object-contain border-1 border-[#c1c1c1] rounded-lg"
           />
         </div>
 
