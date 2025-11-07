@@ -121,10 +121,7 @@ const LoginBox = () => {
       </div>
       <div className="col-span-2">
         <div className="w-full h-full flex flex-col justify-center items-center border-l-1 border-l-[#C1C1CC] rounded-2xl">
-          <h1>Future Gameplay GIF</h1>
-          <h1>
-            Will be a level with pegs that spell out <i>Login</i>
-          </h1>
+          <h1>GIF Coming Soon!</h1>
         </div>
       </div>
     </div>

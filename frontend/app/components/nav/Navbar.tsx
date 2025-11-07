@@ -27,7 +27,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               src="/logo_outline.png"
-              alt="PachinGO! Logo, Large"
+              alt="PachinGO! Logo, Small"
               className="h-10 mb-3 hover:drop-shadow-lg ease-linear duration-150"
             />
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
               className="flex group items-center gap-2 ml-2 hover:text-orange-500 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
             >
               <FaSearch size={11} />
-              <h1 className="text-sm">Search</h1>
+              <h1 className="text-sm">User Levels</h1>
             </Link>
 
             <Link

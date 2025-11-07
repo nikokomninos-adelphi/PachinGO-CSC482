@@ -4,9 +4,16 @@
 
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
-import { FaPlay, FaSearch, FaWrench, FaInfoCircle } from "react-icons/fa";
+import {
+  FaPlay,
+  FaSearch,
+  FaWrench,
+  FaInfoCircle,
+  FaMoneyBillWave,
+} from "react-icons/fa";
 
 import NavLoginOnly from "~/components/nav/NavLoginOnly";
+import { IoMail } from "react-icons/io5";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -42,6 +49,7 @@ const Home = () => {
               <FaPlay />
               <h1 className="text-lg">Play The Demo Levels</h1>
             </Link>
+
             <Link
               to="/search"
               className="flex justify-start items-center p-3 bg-[#343434] hover:bg-[#8f5757] drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 w-65 h-20 gap-2"
@@ -58,6 +66,7 @@ const Home = () => {
               <FaWrench />
               <h1 className="text-lg">Make Your Own Levels</h1>
             </Link>
+
             <Link
               to="/about"
               className="flex justify-start items-center p-3 bg-[#343434] hover:bg-neutral-500 drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 w-65 h-20 gap-2"
@@ -66,13 +75,29 @@ const Home = () => {
               <h1 className="text-lg">About The Project</h1>
             </Link>
           </div>
+          <div className="flex flex-row">
+            <Link
+              to="https://docs.google.com/forms/d/e/1FAIpQLScM2HxSCttdwolVOBKbx0y5S_n04KVshtFBkdbr9Q_ysmhAug/viewform?usp=dialog"
+              target="_blank"
+              className="flex justify-start items-center p-3 bg-[#343434] hover:bg-neutral-500 drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 mr-2 w-65 h-20 gap-2"
+            >
+              <IoMail />
+              <h1 className="text-lg">Contact Us</h1>
+            </Link>
+
+            <Link
+              to="https://ko-fi.com/nikokomninos"
+              target="_blank"
+              className="flex justify-start items-center p-3 bg-[#343434] hover:bg-[#4B9B6E] drop-shadow-sm ease-linear duration-75 text-white rounded-md mb-5 w-65 h-20 gap-2"
+            >
+              <FaMoneyBillWave />
+              <h1 className="text-lg">Support The Project</h1>
+            </Link>
+          </div>
         </div>
         <div className="col-span-1 flex flex-col justify-center items-center">
           <div className="bg-[#FAFAFA] flex flex-col justify-center items-center w-[100%] h-[100%] border-1 border-black rounded-xl">
-            <h1>Future Gameplay GIF</h1>
-            <h1>
-              Will be a level with pegs that spell out <i>PachinGO!</i>
-            </h1>
+            <h1>GIF Coming Soon!</h1>
           </div>
         </div>
       </div>
