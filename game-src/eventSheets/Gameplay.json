@@ -578,6 +578,231 @@
 							"sid": 418824665691086
 						},
 						{
+							"functionName": "SetMusicNonCustom",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 566687258255067,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 291101191291644,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 157530669722056
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 660737476353785,
+											"parameters": {
+												"audio-file": "Super Smash Bros. Brawl Stage Builder",
+												"loop": "looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 409987821386808
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 870050647101694,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 882621526541119
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 458781202700433,
+											"parameters": {
+												"audio-file": "Gambling",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 893390516346413
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 758719702352819,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 617837405328214
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 520328095546271,
+											"parameters": {
+												"audio-file": "Yakuza 0 OST - Disco Queen",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 751144809925276
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 596004036226231,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 565790426245766
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 292677278900275,
+											"parameters": {
+												"audio-file": "Reptile Eater",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 307783733028942
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 177419022415117,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 543562658153586
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 615876728083045,
+											"parameters": {
+												"audio-file": "Yakuza 0 OST - Friday Night",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 523867322141946
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 620067068957641,
+											"parameters": {
+												"variable": "MusicSelect",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 994908181497977
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 423307507014375,
+											"parameters": {
+												"audio-file": "The_Fragrance_of_Black_Coffee",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 236295015377780
+								}
+							]
+						},
+						{
 							"functionName": "SetMusic",
 							"functionDescription": "",
 							"functionCategory": "",
@@ -597,13 +822,18 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 362902835315089
+								},
+								{
 									"id": "add-remote-url",
 									"objectClass": "Audio",
-									"sid": 856059965787757,
+									"sid": 846904740913333,
 									"parameters": {
 										"url": "url",
 										"type": "\"audio/mpeg; codecs=opus\"",
-										"name": "\"ImportedMusic\""
+										"name": "\"ImportedFile\""
 									}
 								},
 								{
@@ -961,8 +1191,10 @@
 										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
 										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
 										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
-										"    runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
-										"    runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
+										"    if (data.level.backgroundImage !== \"N/A\") runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
+										"    if (data.level.backgroundMusic !== \"N/A\" && runtime.globalVars.MusicSelect === 6) runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
+										"",
+										"    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction(\"SetMusicNonCustom\", runtime.globalVars.MusicSelect);",
 										"}",
 										"",
 										"if (runtime.layout.name === \"Level Editor Play\") {",
@@ -22079,7 +22311,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "DEBUG CONTROLS",
 			"description": "",
 			"isActiveOnStart": true,
@@ -22103,7 +22335,8 @@
 							}
 						}
 					],
-					"sid": 976573314261908
+					"sid": 976573314261908,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22128,7 +22361,8 @@
 							}
 						}
 					],
-					"sid": 171640072368903
+					"sid": 171640072368903,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22153,7 +22387,8 @@
 							}
 						}
 					],
-					"sid": 227123293719606
+					"sid": 227123293719606,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22178,7 +22413,8 @@
 							}
 						}
 					],
-					"sid": 243536268950250
+					"sid": 243536268950250,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22203,7 +22439,8 @@
 							}
 						}
 					],
-					"sid": 121276055968729
+					"sid": 121276055968729,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22252,7 +22489,8 @@
 							}
 						}
 					],
-					"sid": 179498141628454
+					"sid": 179498141628454,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -22309,7 +22547,8 @@
 							}
 						}
 					],
-					"sid": 211081082695007
+					"sid": 211081082695007,
+					"disabled": true
 				}
 			],
 			"sid": 678078900678172
