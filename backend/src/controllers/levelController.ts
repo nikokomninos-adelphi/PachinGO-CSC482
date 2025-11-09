@@ -8,10 +8,14 @@
 import type { Request, Response } from "express";
 import Level from "../models/Level.ts";
 import Counter from "../models/Counter.ts";
-import UserInfo from "../models/UserInfo.ts";
-import { uploadToR2 } from "../config/r2.ts";
+import { uploadFilePathToR2, uploadToR2 } from "../config/r2.ts";
 import multer from "multer";
-import User from "../models/User.ts";
+import { spawn } from "child_process";
+import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
+import os from "os";
+import { PYTHON_PATH } from "../config/env.ts";
 
 const upload = multer();
 
@@ -67,10 +71,37 @@ export const uploadLevel = [
       } = req.body;
       let backgroundUrl: string = "N/A";
       let musicUrl: string = "N/A";
+      let thumbnailUrl: string = "N/A";
 
       const counter = await Counter.findOne({});
       const levelID = (counter?.seq ?? 0) + 1;
       const dateUploaded = new Date();
+
+      // Helper to generate thumbnails
+      const runThumbnailGeneration = (
+        pythonPath: any,
+        scriptPath: any,
+        args: any,
+      ) => {
+        return new Promise<void>((resolve, reject) => {
+          const process = spawn(
+            pythonPath,
+            [path.join(scriptPath, "thumbnail.py"), ...args],
+            {
+              cwd: scriptPath,
+            },
+          );
+
+          process.stdout.on("data", (data) => console.log(data.toString()));
+          process.stderr.on("data", (err) => console.error(err.toString()));
+
+          process.on("close", (code) => {
+            console.log(`Python exited with code ${code}`);
+            if (code === 0) resolve();
+            else reject(new Error(`Python script exited with code ${code}`));
+          });
+        });
+      };
 
       // If a background image is included
       if (req.files && "background" in req.files) {
@@ -78,6 +109,61 @@ export const uploadLevel = [
         backgroundUrl = await uploadToR2(
           bgFile,
           "bg-image",
+          levelID!.toString(),
+        );
+
+        // Create temp dir to save background file
+        const tempDir = os.tmpdir();
+        const tempPath = path.join(
+          tempDir,
+          `${levelID}-${bgFile.originalname}`,
+        );
+        fs.writeFileSync(tempPath, bgFile.buffer);
+
+        const __filename = fileURLToPath(import.meta.url);
+        const __dirname = path.dirname(__filename);
+        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
+        const scriptPath = path.resolve(__dirname, "../config/scripts");
+        const outputFileName = `thumbnail_${levelID}.png`;
+
+        await runThumbnailGeneration(pythonPath, scriptPath, [
+          tempPath,
+          pegLayout,
+          backgroundImageOpacity,
+          backgroundImageHSL,
+          outputFileName,
+        ]);
+
+        thumbnailUrl = await uploadFilePathToR2(
+          path.join(scriptPath, outputFileName),
+          levelID!.toString(),
+        );
+
+        fs.unlink(tempPath, (err) => {
+          if (err) console.error("Failed to delete temp file:", err);
+        });
+
+        fs.unlink(path.join(scriptPath, outputFileName), (err) => {
+          if (err) console.error("Failed to delete thumbnail:", err);
+        });
+      } else {
+        // If there is no user-uploaded background image,
+        // still generate the thumbnail
+        const __filename = fileURLToPath(import.meta.url);
+        const __dirname = path.dirname(__filename);
+        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
+        const scriptPath = path.resolve(__dirname, "../config/scripts");
+        const outputFileName = `thumbnail_${levelID}.png`;
+
+        await runThumbnailGeneration(pythonPath, scriptPath, [
+          "",
+          pegLayout,
+          backgroundImageOpacity,
+          backgroundImageHSL,
+        ]);
+
+        thumbnailUrl = await uploadFilePathToR2(
+          path.join(scriptPath, outputFileName),
           levelID!.toString(),
         );
       }
@@ -92,6 +178,7 @@ export const uploadLevel = [
         name: name,
         author: author,
         description: desc,
+        thumbnail: thumbnailUrl,
         pegLayout: JSON.parse(pegLayout),
         backgroundImage: backgroundUrl,
         backgroundImageOpacity: backgroundImageOpacity,

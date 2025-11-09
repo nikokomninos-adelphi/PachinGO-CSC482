@@ -9,6 +9,7 @@
  * how to work with the AWS SDK.
  */
 
+import fs from "fs/promises";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import {
   R2_ACCOUNT_ID,
@@ -47,3 +48,23 @@ export const uploadToR2 = async (
   // Return the public URL (if bucket has public access enabled)
   return `${key}`;
 };
+
+export const uploadFilePathToR2 = async (
+  filePath: string,
+  levelID: string,
+): Promise<string> => {
+  // Read the PNG file as binary data
+  const fileBuffer = await fs.readFile(filePath);
+
+  const command = new PutObjectCommand({
+    Bucket: R2_BUCKET_NAME,
+    Key: `thumbnail/${levelID}.png`, // add .png extension for clarity
+    Body: fileBuffer,
+    ContentType: "image/png",
+  });
+
+  await r2.send(command);
+
+  return `thumbnail/${levelID}.png`;
+};
+

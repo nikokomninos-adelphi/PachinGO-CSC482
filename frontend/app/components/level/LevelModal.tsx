@@ -16,12 +16,14 @@ const LevelModal = ({
   name,
   author,
   desc,
+  thumbnail,
 }: {
   setShowModal: Function;
   id: string;
   name: string;
   author: string;
   desc: string;
+  thumbnail: string;
 }) => {
   const { user } = useAuthStore();
   const navigate = useNavigate();
@@ -97,8 +99,8 @@ const LevelModal = ({
       >
         <div className="col-span-2 w-7/8 h-7/8 m-auto flex justify-center items-center">
           <img
-            src="/thumbnail.jpg"
-            className="max-w-full max-h-full object-contain border-1 border-[#c1c1c1] rounded-lg"
+            src={thumbnail}
+            className="min-w-full min-h-full object-contain rounded-sm"
           />
         </div>
 

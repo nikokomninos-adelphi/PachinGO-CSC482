@@ -19,7 +19,6 @@ import SearchBar from "~/components/search/SearchBar";
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router";
 
-
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Search - PachinGO!" },
@@ -237,6 +236,11 @@ const Search = () => {
             name={r.name}
             author={r.author}
             desc={r.description}
+            thumbnail={
+              r.thumbnail
+                ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
+                : "/thumbnail.jpg"
+            }
           />
         ));
       case "levelID":
@@ -247,6 +251,11 @@ const Search = () => {
             name={r.name}
             author={r.author}
             desc={r.description}
+            thumbnail={
+              r.thumbnail
+                ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
+                : "/thumbnail.jpg"
+            }
           />
         ));
       case "users":
@@ -316,6 +325,5 @@ const Search = () => {
     </div>
   );
 };
-
 
 export default Search;

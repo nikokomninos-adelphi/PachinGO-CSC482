@@ -51,12 +51,13 @@ const user = () => {
     else {
       setUserInfo(data.result);
       return true;
-    } 
+    }
   };
 
   const getUserLevels = async () => {
     const res = await fetch(
-      import.meta.env.VITE_BACKEND_URL + `/api/v1/users/getUserLevels?username=${username}`,
+      import.meta.env.VITE_BACKEND_URL +
+        `/api/v1/users/getUserLevels?username=${username}`,
       {
         method: "GET",
         mode: "cors",
@@ -78,19 +79,36 @@ const user = () => {
       <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
           <div className="flex flex-row justify-start items-start gap-10">
-            <UserBox username={username} dateJoined={userInfo.dateJoined} numLevels={results.length} />
+            <UserBox
+              username={username}
+              dateJoined={userInfo.dateJoined}
+              numLevels={results.length}
+            />
             <div className="border-1 border-[#e1e1ee] rounded-lg p-5 flex flex-col items-center w-full min-h-fit">
-              <h1 className="text-2xl font-semibold mb-5">{username}'s Levels</h1>
+              <h1 className="text-2xl font-semibold mb-5">
+                {username}'s Levels
+              </h1>
               <div className="flex flex-wrap justify-center gap-5">
-                { results.length > 0 ? results.map((r: any, i: any) => (
-                  <LevelCard
-                    key={i}
-                    id={r.levelID}
-                    name={r.name}
-                    author={r.author}
-                    desc={r.description}
-                  />
-                )) : <h1 className="text-xl">This user has not uploaded any levels yet.</h1> }
+                {results.length > 0 ? (
+                  results.map((r: any, i: any) => (
+                    <LevelCard
+                      key={i}
+                      id={r.levelID}
+                      name={r.name}
+                      author={r.author}
+                      desc={r.description}
+                      thumbnail={
+                        r.thumbnail
+                          ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
+                          : "/thumbnail.jpg"
+                      }
+                    />
+                  ))
+                ) : (
+                  <h1 className="text-xl">
+                    This user has not uploaded any levels yet.
+                  </h1>
+                )}
               </div>
             </div>
           </div>
