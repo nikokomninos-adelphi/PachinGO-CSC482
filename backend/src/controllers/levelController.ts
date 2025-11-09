@@ -77,6 +77,17 @@ export const uploadLevel = [
       const levelID = (counter?.seq ?? 0) + 1;
       const dateUploaded = new Date();
 
+      const getCurrentDir = (importMetaUrl?: string) => {
+        if (importMetaUrl) {
+          // ESM environment
+          const __filename = fileURLToPath(importMetaUrl);
+          return path.dirname(__filename);
+        } else {
+          // CommonJS (production) fallback
+          return __dirname;
+        }
+      };
+
       // Helper to generate thumbnails
       const runThumbnailGeneration = (
         pythonPath: any,
@@ -122,8 +133,10 @@ export const uploadLevel = [
 
         //const __filename = fileURLToPath(import.meta.url);
         //const __dirname = path.dirname(__filename);
-        const __dirname = path.resolve();
         //const pythonPath = path.resolve(__dirname, "../../scripts", PYTHON_PATH!);
+        const __dirname = getCurrentDir(
+          typeof import.meta !== "undefined" ? import.meta.url : undefined,
+        );
         const pythonPath =
           PYTHON_PATH === "python3"
             ? "python3"
