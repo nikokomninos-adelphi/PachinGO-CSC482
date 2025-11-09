@@ -120,15 +120,15 @@ export const uploadLevel = [
         );
         fs.writeFileSync(tempPath, bgFile.buffer);
 
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
+        //const __filename = fileURLToPath(import.meta.url);
+        //const __dirname = path.dirname(__filename);
+        const __dirname = path.resolve();
         //const pythonPath = path.resolve(__dirname, "../../scripts", PYTHON_PATH!);
         const pythonPath =
           PYTHON_PATH === "python3"
             ? "python3"
             : path.resolve(__dirname, PYTHON_PATH!);
         const scriptPath = path.resolve(__dirname, "../../scripts");
-
 
         const outputFileName = `thumbnail_${levelID}.png`;
 
