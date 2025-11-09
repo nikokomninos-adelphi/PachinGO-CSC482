@@ -122,8 +122,14 @@ export const uploadLevel = [
 
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
-        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
-        const scriptPath = path.resolve(__dirname, "../config/scripts");
+        //const pythonPath = path.resolve(__dirname, "../../scripts", PYTHON_PATH!);
+        const pythonPath =
+          PYTHON_PATH === "python3"
+            ? "python3"
+            : path.resolve(__dirname, PYTHON_PATH!);
+        const scriptPath = path.resolve(__dirname, "../../scripts");
+
+
         const outputFileName = `thumbnail_${levelID}.png`;
 
         await runThumbnailGeneration(pythonPath, scriptPath, [
@@ -151,8 +157,12 @@ export const uploadLevel = [
         // still generate the thumbnail
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
-        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
-        const scriptPath = path.resolve(__dirname, "../config/scripts");
+        const pythonPath = path.resolve(
+          __dirname,
+          "../../scripts",
+          PYTHON_PATH!,
+        );
+        const scriptPath = path.resolve(__dirname, "../../scripts");
         const outputFileName = `thumbnail_${levelID}.png`;
 
         await runThumbnailGeneration(pythonPath, scriptPath, [

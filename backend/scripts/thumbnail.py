@@ -8,6 +8,7 @@ from PIL import Image
 import sys
 import os
 import json
+import math
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
     layout_json = json.loads(sys.argv[2])
     layout_raw = layout_json.get("data", {})
     layout = {peg: json.loads(pegData) for peg, pegData in layout_raw.items()}
+    print(layout_json)
 
     # The level's bg opacity
     opacity_raw = sys.argv[3]
@@ -63,9 +65,13 @@ def main():
             case _:
                 continue
 
-        rotated = pegImage.rotate(pegData["angle"], expand=True)
-        x = pegData["x"] - 80 - rotated.width / 2
-        y = pegData["y"] - 55 - rotated.height / 2
+        degrees = pegData["angle"] * (180/math.pi)
+
+        rotated = pegImage.rotate(-degrees, expand=True)
+
+        x = pegData["x"] - 80 - (pegImage.width / 2)
+        y = pegData["y"] - 55 - (pegImage.height / 2)
+
         image.paste(rotated, (int(x), int(y)), rotated)
 
     image.save(output_filename, "PNG")
