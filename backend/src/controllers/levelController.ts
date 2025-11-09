@@ -15,7 +15,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 import os from "os";
-import { PYTHON_PATH } from "../config/env.ts";
+import { PYTHON_PATH, SCRIPT_PATH } from "../config/env.ts";
 
 const upload = multer();
 
@@ -123,11 +123,8 @@ export const uploadLevel = [
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
         //const pythonPath = path.resolve(__dirname, "../../scripts", PYTHON_PATH!);
-        const pythonPath =
-          PYTHON_PATH === "python3"
-            ? "python3"
-            : path.resolve(__dirname, PYTHON_PATH!);
-        const scriptPath = path.resolve(__dirname, "../../scripts");
+        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
+        const scriptPath = path.resolve(__dirname, SCRIPT_PATH!);
 
 
         const outputFileName = `thumbnail_${levelID}.png`;

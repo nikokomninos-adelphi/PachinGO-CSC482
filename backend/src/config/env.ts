@@ -8,4 +8,5 @@ export const {
   R2_ACCOUNT_ID,
   R2_BUCKET_NAME,
   PYTHON_PATH,
+  SCRIPT_PATH,
 } = process.env as Record<string, string>;
