@@ -8,7 +8,7 @@
 import type { Request, Response } from "express";
 import Level from "../models/Level.ts";
 import Counter from "../models/Counter.ts";
-import { uploadFilePathToR2, uploadToR2 } from "../config/r2.ts";
+import { removeFromR2, uploadThumbnailToR2, uploadToR2 } from "../config/r2.ts";
 import multer from "multer";
 import { spawn } from "child_process";
 import path from "path";
@@ -33,6 +33,10 @@ export const deleteLevel = async (req: Request, res: Response) => {
     if (!result) {
       return res.status(204).json({ message: "Level not deleted" });
     }
+
+    removeFromR2(`bg-image/${req.body.levelID}`);
+    removeFromR2(`bg-audio/${req.body.levelID}`);
+    removeFromR2(`thumbnail/${req.body.levelID}.png`);
 
     return res.status(200).json({ message: "Level deleted successfuly" });
   } catch (e) {
@@ -126,7 +130,6 @@ export const uploadLevel = [
         const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
         const scriptPath = path.resolve(__dirname, SCRIPT_PATH!);
 
-
         const outputFileName = `thumbnail_${levelID}.png`;
 
         await runThumbnailGeneration(pythonPath, scriptPath, [
@@ -137,7 +140,7 @@ export const uploadLevel = [
           outputFileName,
         ]);
 
-        thumbnailUrl = await uploadFilePathToR2(
+        thumbnailUrl = await uploadThumbnailToR2(
           path.join(scriptPath, outputFileName),
           levelID!.toString(),
         );
@@ -154,12 +157,8 @@ export const uploadLevel = [
         // still generate the thumbnail
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
-        const pythonPath = path.resolve(
-          __dirname,
-          "../../scripts",
-          PYTHON_PATH!,
-        );
-        const scriptPath = path.resolve(__dirname, "../../scripts");
+        const pythonPath = path.resolve(__dirname, PYTHON_PATH!);
+        const scriptPath = path.resolve(__dirname, SCRIPT_PATH!);
         const outputFileName = `thumbnail_${levelID}.png`;
 
         await runThumbnailGeneration(pythonPath, scriptPath, [
@@ -167,12 +166,17 @@ export const uploadLevel = [
           pegLayout,
           backgroundImageOpacity,
           backgroundImageHSL,
+          outputFileName,
         ]);
 
-        thumbnailUrl = await uploadFilePathToR2(
+        thumbnailUrl = await uploadThumbnailToR2(
           path.join(scriptPath, outputFileName),
           levelID!.toString(),
         );
+
+        fs.unlink(path.join(scriptPath, outputFileName), (err) => {
+          if (err) console.error("Failed to delete thumbnail:", err);
+        });
       }
 
       // If a music file is included
@@ -212,6 +216,7 @@ export const uploadLevel = [
         message: "Level uploaded successfully",
         backgroundUrl,
         musicUrl,
+        levelID,
       });
     } catch (e) {
       console.error(e);

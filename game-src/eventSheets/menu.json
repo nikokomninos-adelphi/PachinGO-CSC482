@@ -22,19 +22,6 @@
 			],
 			"actions": [
 				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 445467203502339,
-					"disabled": true,
-					"parameters": {
-						"audio-file": "PMD2 OST - Top Menu Theme",
-						"loop": "not-looping",
-						"volume": "-10",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
 					"id": "set-group-active",
 					"objectClass": "System",
 					"sid": 634623718982091,

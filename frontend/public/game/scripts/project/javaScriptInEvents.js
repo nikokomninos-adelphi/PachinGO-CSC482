@@ -2,7 +2,7 @@
 
 const scriptsInEvents = {
 
-	async Menu_Event1_Act5(runtime, localVars)
+	async Menu_Event1_Act4(runtime, localVars)
 	{
 
 	},
@@ -104,7 +104,7 @@ const upload = async () => {
     formData.append("backgroundImageHSL", JSON.stringify({ "H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.LBGColor }));
     formData.append("musicSelect", runtime.globalVars.MusicSelect);
     formData.append("wallHSL", JSON.stringify({ "H": runtime.globalVars.HWall, "S": runtime.globalVars.SWall, "L": runtime.globalVars.LWall }));
-    formData.append("scoreHSL", JSON.stringify({ "H": runtime.globalVars.HScore, "S": runtime.globalVars.SWall, "L": runtime.globalVars.LWall }));
+    formData.append("scoreHSL", JSON.stringify({ "H": runtime.globalVars.HScore, "S": runtime.globalVars.SScore, "L": runtime.globalVars.LScore }));
     formData.append("crystalHSL", JSON.stringify({ "H": runtime.globalVars.HCrystal, "S": runtime.globalVars.SCrystal, "L": runtime.globalVars.LCrystal }));
 
     const backgroundPicker = runtime.objects.ImageHere;
@@ -133,13 +133,20 @@ const upload = async () => {
     body: formData,
     });
 
+    const data = await res.json();
     res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;
+    if (res.ok) localStorage.setItem("levelID", data.levelID);
 }
 
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
-	async Gameplay_Event16_Act28(runtime, localVars)
+	async Gameplay_Event485_Act8(runtime, localVars)
+	{
+		localStorage.setItem("uploaded", "true");
+	},
+
+	async Gameplay_Event16_Act3(runtime, localVars)
 	{
 // Load the level editor peg layout into the
 // gameplay test layout
@@ -162,7 +169,7 @@ const load = async () => {
     }
 
     runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;
-    //runtime.callFunction("SetNumOrange", data.level.numOrange);
+    runtime.callFunction("SetNumOrange", data.level.numOrange);
     runtime.globalVars.MusicSelect = data.level.musicSelect;
 
     runtime.globalVars.HWall = data.level.wallHSL.H;
@@ -176,15 +183,20 @@ const load = async () => {
     runtime.globalVars.HCrystal = data.level.crystalHSL.H;
     runtime.globalVars.SCrystal = data.level.crystalHSL.S;
     runtime.globalVars.LCrystal = data.level.crystalHSL.L;
-    //runtime.callFunction("SetUIHSL");
+    runtime.callFunction("SetUIHSL");
 
     runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;
     runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;
     runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;
     runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;
-    //runtime.callFunction("SetBGHSL");
+    runtime.callFunction("SetBGHSL");
 
-    if (data.level.backgroundImage !== "N/A") runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
+    //if (data.level.backgroundImage !== "N/A") runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
+    if (data.level.backgroundImage !== "N/A") {
+        setTimeout(() => {
+            runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
+        }, 50);
+    }
     if (data.level.backgroundMusic !== "N/A" && runtime.globalVars.MusicSelect === 6) runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
 
     if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction("SetMusicNonCustom", runtime.globalVars.MusicSelect);
@@ -203,6 +215,7 @@ if (runtime.layout.name === "Level Editor Play") {
 }
 
 if (runtime.layout.name === "Level Editor Online") {
+    runtime.globalVars.MusicSelect = 99;
     await load();
     const menu = runtime.objects.backtohome.getFirstInstance();
     menu.destroy();

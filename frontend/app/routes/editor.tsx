@@ -16,12 +16,41 @@ const editor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [uploaded, setUploaded] = useState(
+    localStorage.getItem("uploaded") || "false",
+  );
 
   useEffect(() => {
     if (!user) navigate("/login");
     setIsLoading(false);
     localStorage.setItem("layout", "Level Editor");
   }, [user]);
+
+  // Redirect to play page when upload is complete
+  useEffect(() => {
+    const checkUploadStatus = () => {
+      const value = localStorage.getItem("uploaded");
+      if (value === "true") {
+        localStorage.setItem("uploaded", "false");
+        setUploaded("false");
+        navigate(`/play/${localStorage.getItem("levelID")}`);
+      }
+    };
+
+    const interval = setInterval(checkUploadStatus, 500);
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === "uploaded" && event.newValue === "true") {
+        checkUploadStatus();
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("storage", handleStorage);
+    };
+  }, [navigate]);
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);

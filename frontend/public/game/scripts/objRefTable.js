@@ -38,9 +38,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.JavaScriptInEvents.Gameplay_Event16_Act3,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.System.Acts.ResetEventVar,
-		C3.JavaScriptInEvents.Gameplay_Event16_Act28,
 		C3.Behaviors.DragnDrop.Acts.SetEnabled,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Behaviors.LOS.Acts.ClearObstacles,
@@ -147,6 +147,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.JavaScriptInEvents.Gameplay_Event471_Act3,
 		C3.JavaScriptInEvents.Gameplay_Event482_Act4,
 		C3.JavaScriptInEvents.Gameplay_Event482_Act5,
+		C3.JavaScriptInEvents.Gameplay_Event485_Act8,
 		C3.JavaScriptInEvents.Menu_Event5_Act1
 	];
 };

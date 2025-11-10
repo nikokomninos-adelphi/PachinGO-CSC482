@@ -21,7 +21,6 @@ def main():
     layout_json = json.loads(sys.argv[2])
     layout_raw = layout_json.get("data", {})
     layout = {peg: json.loads(pegData) for peg, pegData in layout_raw.items()}
-    print(layout_json)
 
     # The level's bg opacity
     opacity_raw = sys.argv[3]

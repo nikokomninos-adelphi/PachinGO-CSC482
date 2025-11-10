@@ -495,7 +495,7 @@
 			"eventType": "variable",
 			"name": "MusicSelect",
 			"type": "number",
-			"initialValue": "99",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -623,11 +623,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 660737476353785,
+											"sid": 839949641983991,
 											"parameters": {
-												"audio-file": "Super Smash Bros. Brawl Stage Builder",
+												"audio-file": "Level_editor",
 												"loop": "looping",
-												"volume": "-5",
+												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -658,11 +658,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 458781202700433,
+											"sid": 325111021471512,
 											"parameters": {
-												"audio-file": "Gambling",
+												"audio-file": "Lets_Go_Cruisin",
 												"loop": "looping",
-												"volume": "-10",
+												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -693,11 +693,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 520328095546271,
+											"sid": 717964670318527,
 											"parameters": {
-												"audio-file": "Yakuza 0 OST - Disco Queen",
+												"audio-file": "PegTastic",
 												"loop": "looping",
-												"volume": "-10",
+												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -728,9 +728,9 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 292677278900275,
+											"sid": 849219522698737,
 											"parameters": {
-												"audio-file": "Reptile Eater",
+												"audio-file": "Saturday_Evening",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
@@ -763,11 +763,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 615876728083045,
+											"sid": 155872143661642,
 											"parameters": {
-												"audio-file": "Yakuza 0 OST - Friday Night",
+												"audio-file": "PachiNgo",
 												"loop": "looping",
-												"volume": "-10",
+												"volume": "0",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -798,9 +798,9 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 423307507014375,
+											"sid": 253019928693852,
 											"parameters": {
-												"audio-file": "The_Fragrance_of_Black_Coffee",
+												"audio-file": "Peggle Nights Beat 2",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
@@ -1222,6 +1222,95 @@
 									"text": "Resetting all gameplay related booleans"
 								},
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 492152757241286,
+									"disabled": true,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"type": "script",
+									"language": "javascript",
+									"script": [
+										"// Load the level editor peg layout into the",
+										"// gameplay test layout",
+										"",
+										"const load = async () => {",
+										"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem(\"levelID\")}`, {",
+										"    method: \"GET\",",
+										"    mode: \"cors\",",
+										"    });",
+										"    ",
+										"    const data = await res.json();",
+										"    const layout = data.level.pegLayout.data;",
+										"",
+										"    for (const key in layout) {",
+										"        const pegData = JSON.parse(layout[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"",
+										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
+										"    runtime.callFunction(\"SetNumOrange\", data.level.numOrange);",
+										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
+										"",
+										"    runtime.globalVars.HWall = data.level.wallHSL.H;",
+										"    runtime.globalVars.SWall = data.level.wallHSL.S;",
+										"    runtime.globalVars.LWall = data.level.wallHSL.L;",
+										"",
+										"    runtime.globalVars.HScore = data.level.scoreHSL.H;",
+										"    runtime.globalVars.SScore = data.level.scoreHSL.S;",
+										"    runtime.globalVars.LScore = data.level.scoreHSL.L;",
+										"",
+										"    runtime.globalVars.HCrystal = data.level.crystalHSL.H;",
+										"    runtime.globalVars.SCrystal = data.level.crystalHSL.S;",
+										"    runtime.globalVars.LCrystal = data.level.crystalHSL.L;",
+										"    runtime.callFunction(\"SetUIHSL\");",
+										"",
+										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
+										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
+										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
+										"    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;",
+										"    runtime.callFunction(\"SetBGHSL\");",
+										"",
+										"    //if (data.level.backgroundImage !== \"N/A\") runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
+										"    if (data.level.backgroundImage !== \"N/A\") {",
+										"        setTimeout(() => {",
+										"            runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
+										"        }, 50);",
+										"    }",
+										"    if (data.level.backgroundMusic !== \"N/A\" && runtime.globalVars.MusicSelect === 6) runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
+										"",
+										"    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction(\"SetMusicNonCustom\", runtime.globalVars.MusicSelect);",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Play\") {",
+										"  const dict = JSON.parse(runtime.globalVars.PegData).data;",
+										"",
+										"    for (const key in dict) {",
+										"        const pegData = JSON.parse(dict[key]);",
+										"",
+										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
+										"        newPeg.angle = pegData.angle;",
+										"        newPeg.setAnimation(pegData.animation);",
+										"    }",
+										"}",
+										"",
+										"if (runtime.layout.name === \"Level Editor Online\") {",
+										"    runtime.globalVars.MusicSelect = 99;",
+										"    await load();",
+										"    const menu = runtime.objects.backtohome.getFirstInstance();",
+										"    menu.destroy();",
+										"}",
+										""
+									]
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 973567615911199,
@@ -1445,79 +1534,6 @@
 									"text": "Variables set, mostly for dealing w/ continuous ball contact on peg "
 								},
 								{
-									"type": "script",
-									"language": "javascript",
-									"script": [
-										"// Load the level editor peg layout into the",
-										"// gameplay test layout",
-										"",
-										"const load = async () => {",
-										"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/loadLevel?levelID=${localStorage.getItem(\"levelID\")}`, {",
-										"    method: \"GET\",",
-										"    mode: \"cors\",",
-										"    });",
-										"    ",
-										"    const data = await res.json();",
-										"    const layout = data.level.pegLayout.data;",
-										"",
-										"    for (const key in layout) {",
-										"        const pegData = JSON.parse(layout[key]);",
-										"",
-										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
-										"        newPeg.angle = pegData.angle;",
-										"        newPeg.setAnimation(pegData.animation);",
-										"    }",
-										"",
-										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
-										"    //runtime.callFunction(\"SetNumOrange\", data.level.numOrange);",
-										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
-										"",
-										"    runtime.globalVars.HWall = data.level.wallHSL.H;",
-										"    runtime.globalVars.SWall = data.level.wallHSL.S;",
-										"    runtime.globalVars.LWall = data.level.wallHSL.L;",
-										"",
-										"    runtime.globalVars.HScore = data.level.scoreHSL.H;",
-										"    runtime.globalVars.SScore = data.level.scoreHSL.S;",
-										"    runtime.globalVars.LScore = data.level.scoreHSL.L;",
-										"",
-										"    runtime.globalVars.HCrystal = data.level.crystalHSL.H;",
-										"    runtime.globalVars.SCrystal = data.level.crystalHSL.S;",
-										"    runtime.globalVars.LCrystal = data.level.crystalHSL.L;",
-										"    //runtime.callFunction(\"SetUIHSL\");",
-										"",
-										"    runtime.globalVars.HBGColor = data.level.backgroundImageHSL.H;",
-										"    runtime.globalVars.SBGColor = data.level.backgroundImageHSL.S;",
-										"    runtime.globalVars.LBGColor = data.level.backgroundImageHSL.L;",
-										"    runtime.globalVars.BGIMageOpacity = data.level.backgroundImageOpacity;",
-										"    //runtime.callFunction(\"SetBGHSL\");",
-										"",
-										"    if (data.level.backgroundImage !== \"N/A\") runtime.callFunction(\"SetBG\", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);",
-										"    if (data.level.backgroundMusic !== \"N/A\" && runtime.globalVars.MusicSelect === 6) runtime.callFunction(\"SetMusic\", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);",
-										"",
-										"    if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction(\"SetMusicNonCustom\", runtime.globalVars.MusicSelect);",
-										"}",
-										"",
-										"if (runtime.layout.name === \"Level Editor Play\") {",
-										"  const dict = JSON.parse(runtime.globalVars.PegData).data;",
-										"",
-										"    for (const key in dict) {",
-										"        const pegData = JSON.parse(dict[key]);",
-										"",
-										"        const newPeg = runtime.objects.Peg.createInstance(\"Pegs\", pegData.x, pegData.y);",
-										"        newPeg.angle = pegData.angle;",
-										"        newPeg.setAnimation(pegData.animation);",
-										"    }",
-										"}",
-										"",
-										"if (runtime.layout.name === \"Level Editor Online\") {",
-										"    await load();",
-										"    const menu = runtime.objects.backtohome.getFirstInstance();",
-										"    menu.destroy();",
-										"}",
-										""
-									]
-								},
-								{
 									"id": "set-layer-background-color",
 									"objectClass": "System",
 									"sid": 881158778371142,
@@ -1738,12 +1754,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 282397593757122,
+									"sid": 582119349983602,
 									"parameters": {
 										"object-to-create": "ConnectorWallUI",
 										"layer": "\"BG\"",
 										"x": "400",
-										"y": "24",
+										"y": "23.25",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -8919,9 +8935,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "GameEndText",
-													"sid": 875776070885602,
+													"sid": 135866982778624,
 													"parameters": {
-														"text": "\"[outlineback=#000000][lineThickness=5]You win! Press R to reset layout.\""
+														"text": "\"[outlineback=#000000][lineThickness=5]You win!\""
 													}
 												},
 												{
@@ -8998,9 +9014,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "GameEndText",
-											"sid": 195458430407764,
+											"sid": 276908304862323,
 											"parameters": {
-												"text": "\"[outlineback=#000000][lineThickness=5]You lose! Press R to reset layout.\""
+												"text": "\"[outlineback=#000000][lineThickness=5]You lose!\""
 											}
 										},
 										{
@@ -19426,11 +19442,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 788911459282247,
+													"sid": 823942459150678,
 													"parameters": {
-														"audio-file": "Super Smash Bros. Brawl Stage Builder",
-														"loop": "not-looping",
-														"volume": "-5",
+														"audio-file": "Level_editor",
+														"loop": "looping",
+														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
 													}
@@ -19473,11 +19489,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 558840985959219,
+													"sid": 678232417721952,
 													"parameters": {
-														"audio-file": "Gambling",
-														"loop": "not-looping",
-														"volume": "-10",
+														"audio-file": "Lets_Go_Cruisin",
+														"loop": "looping",
+														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
 													}
@@ -19520,11 +19536,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 835931691488012,
+													"sid": 443311703437770,
 													"parameters": {
-														"audio-file": "Yakuza 0 OST - Disco Queen",
-														"loop": "not-looping",
-														"volume": "-10",
+														"audio-file": "PegTastic",
+														"loop": "looping",
+														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
 													}
@@ -19567,10 +19583,10 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 535492552866611,
+													"sid": 859433685824796,
 													"parameters": {
-														"audio-file": "Reptile Eater",
-														"loop": "not-looping",
+														"audio-file": "Saturday_Evening",
+														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
@@ -19614,11 +19630,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 307885414396439,
+													"sid": 813436682629545,
 													"parameters": {
-														"audio-file": "Yakuza 0 OST - Friday Night",
-														"loop": "not-looping",
-														"volume": "-10",
+														"audio-file": "PachiNgo",
+														"loop": "looping",
+														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
 													}
@@ -19661,10 +19677,10 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 696054973968638,
+													"sid": 661228060867143,
 													"parameters": {
-														"audio-file": "The_Fragrance_of_Black_Coffee",
-														"loop": "not-looping",
+														"audio-file": "Peggle Nights Beat 2",
+														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
 														"tag-optional": "\"\""
@@ -22141,7 +22157,7 @@
 														"    formData.append(\"backgroundImageHSL\", JSON.stringify({ \"H\": runtime.globalVars.HBGColor, \"S\": runtime.globalVars.SBGColor, \"L\": runtime.globalVars.LBGColor }));",
 														"    formData.append(\"musicSelect\", runtime.globalVars.MusicSelect);",
 														"    formData.append(\"wallHSL\", JSON.stringify({ \"H\": runtime.globalVars.HWall, \"S\": runtime.globalVars.SWall, \"L\": runtime.globalVars.LWall }));",
-														"    formData.append(\"scoreHSL\", JSON.stringify({ \"H\": runtime.globalVars.HScore, \"S\": runtime.globalVars.SWall, \"L\": runtime.globalVars.LWall }));",
+														"    formData.append(\"scoreHSL\", JSON.stringify({ \"H\": runtime.globalVars.HScore, \"S\": runtime.globalVars.SScore, \"L\": runtime.globalVars.LScore }));",
 														"    formData.append(\"crystalHSL\", JSON.stringify({ \"H\": runtime.globalVars.HCrystal, \"S\": runtime.globalVars.SCrystal, \"L\": runtime.globalVars.LCrystal }));",
 														"",
 														"    const backgroundPicker = runtime.objects.ImageHere;",
@@ -22170,7 +22186,9 @@
 														"    body: formData,",
 														"    });",
 														"",
+														"    const data = await res.json();",
 														"    res.ok ? runtime.globalVars.UploadStatus = 2 : runtime.globalVars.UploadStatus = 1;",
+														"    if (res.ok) localStorage.setItem(\"levelID\", data.levelID);",
 														"}",
 														"",
 														"runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;"
@@ -22286,6 +22304,22 @@
 															"parameters": {
 																"visibility": "visible"
 															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 786852188460837,
+															"parameters": {
+																"seconds": "1",
+																"use-timescale": true
+															}
+														},
+														{
+															"type": "script",
+															"language": "javascript",
+															"script": [
+																"localStorage.setItem(\"uploaded\", \"true\");"
+															]
 														}
 													],
 													"sid": 382276357709459
@@ -22992,11 +23026,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 560053895759230,
+							"sid": 741830444992681,
 							"parameters": {
-								"audio-file": "Super Smash Bros. Brawl Stage Builder",
+								"audio-file": "Level_editor",
 								"loop": "looping",
-								"volume": "-5",
+								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -23032,11 +23066,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 121252784299161,
+							"sid": 929787641973854,
 							"parameters": {
-								"audio-file": "Gambling",
+								"audio-file": "Lets_Go_Cruisin",
 								"loop": "looping",
-								"volume": "-10",
+								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -23072,11 +23106,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 421051325122454,
+							"sid": 357052348491388,
 							"parameters": {
-								"audio-file": "Yakuza 0 OST - Disco Queen",
+								"audio-file": "PegTastic",
 								"loop": "looping",
-								"volume": "-10",
+								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -23112,9 +23146,9 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 993019133402373,
+							"sid": 715254325751383,
 							"parameters": {
-								"audio-file": "Reptile Eater",
+								"audio-file": "Saturday_Evening",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
@@ -23152,11 +23186,11 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 710198798567407,
+							"sid": 920692985198311,
 							"parameters": {
-								"audio-file": "Yakuza 0 OST - Friday Night",
+								"audio-file": "PachiNgo",
 								"loop": "looping",
-								"volume": "-10",
+								"volume": "0",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -23192,9 +23226,9 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 920144891362771,
+							"sid": 743925552094166,
 							"parameters": {
-								"audio-file": "The_Fragrance_of_Black_Coffee",
+								"audio-file": "Peggle Nights Beat 2",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",

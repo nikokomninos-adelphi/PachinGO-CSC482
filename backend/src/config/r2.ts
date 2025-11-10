@@ -5,12 +5,16 @@
  *
  * Provides functions for uploading to the R2 bucket
  *
- * We used to ChatGPT to generate this, as we did not understand
+ * We used to ChatGPT to generate parts of this, as we did not understand
  * how to work with the AWS SDK.
  */
 
 import fs from "fs/promises";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import {
+  S3Client,
+  PutObjectCommand,
+  DeleteObjectCommand,
+} from "@aws-sdk/client-s3";
 import {
   R2_ACCOUNT_ID,
   R2_ACCESS_KEY_ID,
@@ -27,6 +31,15 @@ const r2 = new S3Client({
   },
 });
 
+/**
+ * uploadToR2
+ *
+ * Uploads a multer request body file to the R2 bucket
+ * @param file - the multer file to upload
+ * @param type - the type of file (e.g., "background", "music")
+ * @param levelID - the associated level ID
+ * @returns the key of the uploaded file in R2
+ */
 export const uploadToR2 = async (
   file: Express.Multer.File,
   type: string,
@@ -49,7 +62,14 @@ export const uploadToR2 = async (
   return `${key}`;
 };
 
-export const uploadFilePathToR2 = async (
+/** uploadThumbnailToR2
+ *
+ * Uploads a file from a given file path to the R2 bucket as a PNG thumbnail
+ * @param filePath - the local file path of the PNG to upload
+ * @param levelID - the associated level ID
+ * @returns the key of the uploaded thumbnail in R2
+ */
+export const uploadThumbnailToR2 = async (
   filePath: string,
   levelID: string,
 ): Promise<string> => {
@@ -68,3 +88,16 @@ export const uploadFilePathToR2 = async (
   return `thumbnail/${levelID}.png`;
 };
 
+/** removeFromR2
+ *
+ * Removes a file from the R2 bucket given its key
+ * @param key - the key of the file to remove
+ */
+export const removeFromR2 = async (key: string): Promise<void> => {
+  const command = new DeleteObjectCommand({
+    Bucket: R2_BUCKET_NAME,
+    Key: key,
+  });
+
+  await r2.send(command);
+};

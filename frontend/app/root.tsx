@@ -59,6 +59,8 @@ export default function App({ loaderData }: Route.ComponentProps) {
     })();
   }, [checkAuth]);
 
+  localStorage.setItem("uploaded", "false");
+
   return <Outlet />;
   //return (
   //  <ClerkProvider loaderData={loaderData}>

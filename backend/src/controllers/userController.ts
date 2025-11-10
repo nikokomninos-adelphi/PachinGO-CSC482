@@ -33,13 +33,12 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
-
 export const getUserLevels = async (req: Request, res: Response) => {
-  // TODO edit this when level uploading is implemented
-  // Move this into getUser. Rename to getUserInfo
   try {
     const username = req.query.username;
-    const results = await Level.find({ author: username });
+    const results = await Level.find({ author: username }).sort({
+      dateUploaded: -1,
+    });
 
     if (!results) {
       return res.status(204).json({ message: "No results" });
@@ -53,4 +52,3 @@ export const getUserLevels = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
