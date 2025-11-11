@@ -16,9 +16,6 @@ const editor = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [uploaded, setUploaded] = useState(
-    localStorage.getItem("uploaded") || "false",
-  );
 
   useEffect(() => {
     if (!user) navigate("/login");
@@ -32,7 +29,6 @@ const editor = () => {
       const value = localStorage.getItem("uploaded");
       if (value === "true") {
         localStorage.setItem("uploaded", "false");
-        setUploaded("false");
         navigate(`/play/${localStorage.getItem("levelID")}`);
       }
     };

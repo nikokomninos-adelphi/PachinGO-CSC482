@@ -14,36 +14,17 @@ const play = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [exists, setExists] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      const exists = await checkLevelExists();
-      if (exists) setIsLoading(false);
-      else navigate("/error", { replace: true });
+      await checkLevelExists();
+      localStorage.setItem("levelID", id!);
+      localStorage.setItem("layout", "Level Editor Online");
+      window.scrollTo(0, document.body.scrollHeight);
     })();
-    localStorage.setItem("levelID", id!);
-    localStorage.setItem("layout", "Level Editor Online");
-    window.scrollTo(0, document.body.scrollHeight);
   }, []);
-
-  const checkLevelExists = async () => {
-    const res = await fetch(
-      import.meta.env.VITE_BACKEND_URL +
-        `/api/v1/level/loadLevel?levelID=${id}`,
-      {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/plain",
-          "Access-Control-Allow-Credentials": "true",
-        },
-      },
-    );
-
-    if (res.ok) return true;
-    else return false;
-  };
 
   // Ensure that arrow keys do not follow
   // normal browser behavior when game
@@ -59,7 +40,25 @@ const play = () => {
     iframe?.addEventListener("mouseover", () => iframe.contentWindow?.focus());
   });
 
-  if (isLoading) return null;
+  const checkLevelExists = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL +
+        `/api/v1/level/loadLevel?levelID=${id}`,
+      {
+        method: "GET",
+        mode: "cors",
+      },
+    );
+
+    if (res.status === 200) {
+      setExists(true);
+    } else {
+      setExists(false);
+      navigate("/error", { replace: true });
+    }
+  };
+
+  if (isLoading && !exists) return null;
 
   return (
     <div className="flex flex-col min-h-screen">
