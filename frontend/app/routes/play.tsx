@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/nav/Navbar";
-import { useEffect, useRef } from "react";
-import { useParams } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,12 +13,37 @@ export function meta({}: Route.MetaArgs) {
 const play = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    (async () => {
+      const exists = await checkLevelExists();
+      if (exists) setIsLoading(false);
+      else navigate("/error", { replace: true });
+    })();
     localStorage.setItem("levelID", id!);
     localStorage.setItem("layout", "Level Editor Online");
     window.scrollTo(0, document.body.scrollHeight);
   }, []);
+
+  const checkLevelExists = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL +
+        `/api/v1/level/loadLevel?levelID=${id}`,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/plain",
+          "Access-Control-Allow-Credentials": "true",
+        },
+      },
+    );
+
+    if (res.ok) return true;
+    else return false;
+  };
 
   // Ensure that arrow keys do not follow
   // normal browser behavior when game
@@ -33,6 +58,8 @@ const play = () => {
     iframe?.addEventListener("click", () => iframe.contentWindow?.focus());
     iframe?.addEventListener("mouseover", () => iframe.contentWindow?.focus());
   });
+
+  if (isLoading) return null;
 
   return (
     <div className="flex flex-col min-h-screen">
