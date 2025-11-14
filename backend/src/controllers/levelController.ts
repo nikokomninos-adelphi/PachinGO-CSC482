@@ -314,3 +314,46 @@ export const addLikeToLevel = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+/**
+ * removeLikeFromLevel
+ *
+ * Removes a like from a level
+ * @param {Request} req a request body containing: levelID
+ * @param {Response} res a response body containing: message
+ */
+export const removeLikeFromLevel = async (req: Request, res: Response) => {
+  try {
+    const level = await Level.findOne({ levelID: req.body.levelID });
+
+    if (!level) {
+      return res.status(204).json({ message: "Level not found" });
+    }
+
+    level.likes = (level.likes || 0) + 1;
+    await level.save();
+
+    const username = req.body.username;
+    const populated = await UserInfo.find().populate({
+      path: "user",
+      match: { username: username },
+    });
+    const filter = populated.filter((info) => info.user);
+    const result = filter[0];
+
+    if (!result) {
+      return res.status(404).json({ result: "User not Found" });
+    }
+
+    if (result.likedLevels?.includes(req.body.levelID)) {
+      const filtered = result.likedLevels?.filter((id) => id !== req.body.levelID);
+      result.likedLevels = filtered;
+    }
+    await result.save();
+
+    return res.status(200).json({ message: "Like removed from level" });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}

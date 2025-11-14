@@ -135,12 +135,20 @@ const LikeButton = ({
 }) => {
   const [liked, setLiked] = useState(false);
   const [likedLevels, setLikedLevels] = useState<number[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      if (user) await getLikedLevels();
+      setIsLoading(false);
+    })();
+  }, []);
 
   useEffect(() => {
     (async () => {
       if (user) await getLikedLevels();
     })();
-  }, []);
+  }, [liked])
 
   useEffect(() => {
     if (user && likedLevels.includes(Number(id))) setLiked(true);
@@ -160,7 +168,6 @@ const LikeButton = ({
       },
     );
     const data = await res.json();
-    console.log(data.likedLevels);
     setLikedLevels(data.likedLevels);
   };
 
@@ -189,14 +196,37 @@ const LikeButton = ({
     else setLiked(true);
   };
 
+  const handleUnlike = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/removeLikeFromLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+        body: JSON.stringify({
+          levelID: Number(id),
+          username: user.username,
+        }),
+      },
+    );
+
+    if (!res.ok) alert("Level not unliked");
+    else setLiked(false);
+  };
+
+  if (isLoading) return null;
+
   return (
     <div className="relative inline-block">
       <button
-        onClick={liked === false ? handleLike : undefined}
+        onClick={liked === false ? handleLike : handleUnlike}
         className={
           liked === false
             ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
-            : "w-8 h-8 flex justify-center items-center bg-[#fafafa] text-neutral-400 border-1 border-[#e1e1e1] rounded-lg ease-linear duration-75"
+            : "w-8 h-8 flex justify-center items-center bg-[#fafafa] text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
         }
       >
         <FaThumbsUp />
