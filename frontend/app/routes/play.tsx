@@ -19,6 +19,10 @@ const play = () => {
 
   useEffect(() => {
     (async () => {
+      if (iframeRef.current) {
+        // Prevents caching by adding a cache busting query parameter
+        iframeRef.current.src = `/game/index.html?cacheBust=${Date.now()}`;
+      }
       await checkLevelExists();
       localStorage.setItem("levelID", id!);
       localStorage.setItem("layout", "Level Editor Online");
