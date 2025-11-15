@@ -1409,7 +1409,7 @@ self.C3_ExpressionFuncs = [
 			return () => v0.GetValue();
 		},
 		() => 0,
-		() => "",
+		() => "Music",
 		() => 1,
 		() => 2,
 		() => 3,
@@ -1438,6 +1438,7 @@ self.C3_ExpressionFuncs = [
 		() => 155,
 		() => "Gameplay",
 		() => 587,
+		() => "",
 		() => 393,
 		() => 632,
 		() => "UI",
@@ -1514,9 +1515,14 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 50);
 		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (v0.GetValue() + v1.GetValue());
+		},
 		() => "Additional Object Position Handling",
 		() => "25K",
-		() => "50k",
+		() => "50K",
 		() => "100K",
 		() => -67,
 		() => -225.17908,
@@ -1546,6 +1552,8 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpObject() - 20);
 		},
 		() => "Menu",
+		() => -12,
+		() => "peg",
 		() => "Score Modifiers",
 		() => "Multiplier",
 		() => 6,
@@ -1611,6 +1619,7 @@ self.C3_ExpressionFuncs = [
 			const v4 = p._GetNode(4).GetVar();
 			return () => (and((and((and((and("[outlineback=#000000][lineThickness=5]((", (v0.GetValue() * 10)) + " + "), (v1.GetValue() * 100)) + ") x "), (v2.GetValue() + v3.GetValue())) + ") x "), v4.GetValue()) + ") x 0.5");
 		},
+		() => "tally",
 		() => 111,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1619,6 +1628,8 @@ self.C3_ExpressionFuncs = [
 		() => 10000,
 		() => 30000,
 		() => 50000,
+		() => -4,
+		() => 1.3,
 		() => "Purple and Evil Peg Despawn",
 		() => "CirclePurple",
 		() => "CircleBlue",
@@ -1651,6 +1662,8 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "All Above Processes Complete",
 		() => 0.5,
+		() => -100,
+		() => "[outlineback=#000000][lineThickness=5]You lose!",
 		() => "Peg Function",
 		() => "FX Events",
 		() => "CircleOrange",
@@ -1663,6 +1676,11 @@ self.C3_ExpressionFuncs = [
 		() => "Purple Peg Spawning",
 		() => "Evil Peg Spawning",
 		() => "Peg Active",
+		() => "Peg Sound Effects",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (1 + (v0.GetValue() / 5));
+		},
 		() => "Blue Pegs Active",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -1714,12 +1732,9 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Victory Buckets",
 		() => 25000,
-		() => "50K",
 		() => "Post-Victory Bucket",
 		() => 511,
 		() => "[outlineback=#000000][lineThickness=5]You win!",
-		() => "Losing Handler",
-		() => "[outlineback=#000000][lineThickness=5]You lose!",
 		() => "UI Elements",
 		() => "CustomizeMenu",
 		() => 75,
@@ -1737,8 +1752,7 @@ self.C3_ExpressionFuncs = [
 		() => "two",
 		() => "three",
 		() => -25,
-		() => -20,
-		() => -10,
+		() => -15,
 		() => "on",
 		() => "off",
 		() => "BallsLeft",
@@ -1869,7 +1883,6 @@ self.C3_ExpressionFuncs = [
 		() => "BorderUI",
 		() => "Sliders",
 		() => "Music Button",
-		() => "Music",
 		() => "MusicUI",
 		() => "Button",
 		() => "LevelEditor",
@@ -1921,6 +1934,7 @@ self.C3_ExpressionFuncs = [
 		() => "[outlineback=#000000][lineThickness=5] You have more Orange Pegs set to spawn than there are Pegs in the layout! ",
 		() => "[outlineback=#000000][lineThickness=5] Upload your level! ",
 		() => "MUSIC",
+		() => "DEBUG CONTROLS",
 		() => "Level Editor Online",
 		() => "Level Select",
 		() => "Demo1",

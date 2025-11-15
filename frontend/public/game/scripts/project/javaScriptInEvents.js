@@ -90,7 +90,7 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	},
 
-	async Gameplay_Event301_Act15(runtime, localVars)
+	async Gameplay_Event308_Act15(runtime, localVars)
 	{
 		// Gets the logged in user, and loads the previous state of the level editor peg layout
 		
@@ -107,7 +107,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		}
 	},
 
-	async Gameplay_Event471_Act3(runtime, localVars)
+	async Gameplay_Event478_Act4(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -136,7 +136,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event482_Act4(runtime, localVars)
+	async Gameplay_Event489_Act5(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -165,7 +165,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event482_Act5(runtime, localVars)
+	async Gameplay_Event489_Act6(runtime, localVars)
 	{
 const pegs = JSON.parse(runtime.globalVars.PegData).data;
 
@@ -218,7 +218,7 @@ const upload = async () => {
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
-	async Gameplay_Event485_Act8(runtime, localVars)
+	async Gameplay_Event492_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
 	}
