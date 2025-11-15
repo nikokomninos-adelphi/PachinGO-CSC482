@@ -19,6 +19,10 @@ const play = () => {
 
   useEffect(() => {
     (async () => {
+      if (iframeRef.current) {
+        // Prevents caching by adding a cache busting query parameter
+        iframeRef.current.src = `/game/index.html?cacheBust=${Date.now()}`;
+      }
       await checkLevelExists();
       localStorage.setItem("levelID", id!);
       localStorage.setItem("layout", "Level Editor Online");
@@ -52,10 +56,29 @@ const play = () => {
 
     if (res.status === 200) {
       setExists(true);
+      setIsLoading(false);
+      await addPlayToLevel();
     } else {
       setExists(false);
       navigate("/error", { replace: true });
     }
+  };
+
+  const addPlayToLevel = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/addPlayToLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ levelID: id }),
+      },
+    );
+
+    const data = await res.json();
+    if (!res.ok) console.error(data.message);
   };
 
   if (isLoading && !exists) return null;

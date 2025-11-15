@@ -25,9 +25,8 @@ const levelSchema = new mongoose.Schema({
   crystalHSL: { type: Object, required: true },
   numOrange: { type: Number, required: true },
   dateUploaded: { type: Date, required: true },
-  //likes: { type: Number, required: true },
-  //dislikes: { type: Number, required: true },
-  //plays: { type: Number },
+  likes: { type: Number, required: false },
+  plays: { type: Number, required: false },
   //scores: { type: Object }
 });
 

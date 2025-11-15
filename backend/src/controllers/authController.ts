@@ -86,7 +86,7 @@ export const registerUser = async (req: Request, res: Response) => {
       user: newUser,
       dateJoined: new Date(),
       role: "Member",
-      levels: []
+      likedLevels: []
     })
     await newUserInfo.save();
 

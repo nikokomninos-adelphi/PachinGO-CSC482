@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
+import { FaThumbsUp } from "react-icons/fa6";
 import { Link } from "react-router";
 import { useAuthStore } from "~/stores/useAuthStore";
 import { useNavigate } from "react-router";
@@ -39,28 +40,7 @@ const LevelModal = ({
   }, []);
 
   const handlePlay = () => {
-    //localStorage.setItem("levelID", id);
-    //localStorage.setItem("layout", "Level Editor Online");
     navigate(`/play/${id}`);
-  };
-
-  const handleDeletion = async () => {
-    const res = await fetch(
-      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/deleteLevel`,
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": "true",
-        },
-        body: JSON.stringify({
-          levelID: id,
-        }),
-      },
-    );
-    const data = await res.json();
-    window.location.reload();
   };
 
   const handleKeyDown = (e: any) => {
@@ -132,15 +112,125 @@ const LevelModal = ({
             Play
           </button>
           <div className="flex flex-col gap-3 justify-end items-end h-full">
-            <DeleteButton
-              user={user}
-              author={author}
-              handleDeletion={handleDeletion}
-            />
+            <div className="flex flex-row gap-3">
+              <LikeButton id={id} user={user} navigate={navigate} />
+              <DeleteButton user={user} author={author} id={id} />
+            </div>
             <h3 className="text-xs">Level ID: {id}</h3>
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const LikeButton = ({
+  id,
+  user,
+  navigate,
+}: {
+  id: string;
+  user: any;
+  navigate: Function;
+}) => {
+  const [liked, setLiked] = useState(false);
+  const [likedLevels, setLikedLevels] = useState<number[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      if (user) await getLikedLevels();
+      setIsLoading(false);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      if (user) await getLikedLevels();
+    })();
+  }, [liked])
+
+  useEffect(() => {
+    if (user && likedLevels.includes(Number(id))) setLiked(true);
+  }, [likedLevels]);
+
+  const getLikedLevels = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL +
+        `/api/v1/users/getUserLikedLevels?username=${user.username}`,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+      },
+    );
+    const data = await res.json();
+    setLikedLevels(data.likedLevels);
+  };
+
+  const handleLike = async () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/addLikeToLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+        body: JSON.stringify({
+          levelID: Number(id),
+          username: user.username,
+        }),
+      },
+    );
+
+    if (!res.ok) alert("Level not liked");
+    else setLiked(true);
+  };
+
+  const handleUnlike = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/removeLikeFromLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+        body: JSON.stringify({
+          levelID: Number(id),
+          username: user.username,
+        }),
+      },
+    );
+
+    if (!res.ok) alert("Level not unliked");
+    else setLiked(false);
+  };
+
+  if (isLoading) return null;
+
+  return (
+    <div className="relative inline-block">
+      <button
+        onClick={liked === false ? handleLike : handleUnlike}
+        className={
+          liked === false
+            ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+            : "w-8 h-8 flex justify-center items-center bg-[#fafafa] text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+        }
+      >
+        <FaThumbsUp />
+      </button>
     </div>
   );
 };
@@ -150,13 +240,32 @@ const LevelModal = ({
 const DeleteButton = ({
   user,
   author,
-  handleDeletion,
+  id,
 }: {
   user: any;
   author: string;
-  handleDeletion: Function;
+  id: string;
 }) => {
   const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleDeletion = async () => {
+    const res = await fetch(
+      import.meta.env.VITE_BACKEND_URL + `/api/v1/level/deleteLevel`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+        },
+        body: JSON.stringify({
+          levelID: id,
+        }),
+      },
+    );
+    if (!res.ok) alert("Level deletion failed");
+    else window.location.reload();
+  };
 
   return (
     <div className="relative inline-block">

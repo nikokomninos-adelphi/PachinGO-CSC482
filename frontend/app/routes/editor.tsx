@@ -19,6 +19,10 @@ const editor = () => {
 
   useEffect(() => {
     if (!user) navigate("/login");
+    if (iframeRef.current) {
+      // Prevents caching by adding a cache busting query parameter
+      iframeRef.current.src = `/game/index.html?cacheBust=${Date.now()}`;
+    }
     setIsLoading(false);
     localStorage.setItem("layout", "Level Editor");
   }, [user]);
@@ -77,8 +81,8 @@ const editor = () => {
             <iframe
               ref={iframeRef}
               src="/game/index.html"
-              width={1200}
-              height={900}
+              width="800"
+              height="600"
               className="drop-shadow-2xl"
               tabIndex={0}
               allow="keyboard"
