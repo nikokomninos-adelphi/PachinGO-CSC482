@@ -113,6 +113,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "BlueAndOrangePegsDestroyedInOneTurn",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 569395149532319
+		},
+		{
+			"eventType": "variable",
 			"name": "HasPurplePegSpawned",
 			"type": "boolean",
 			"initialValue": "false",
@@ -623,13 +633,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 839949641983991,
+											"sid": 593667937471181,
 											"parameters": {
 												"audio-file": "Level_editor",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -658,13 +668,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 325111021471512,
+											"sid": 641754180895261,
 											"parameters": {
 												"audio-file": "Lets_Go_Cruisin",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -693,13 +703,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 717964670318527,
+											"sid": 593987831552914,
 											"parameters": {
 												"audio-file": "PegTastic",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -728,13 +738,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 849219522698737,
+											"sid": 627046858843709,
 											"parameters": {
 												"audio-file": "Saturday_Evening",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -763,13 +773,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 155872143661642,
+											"sid": 418577634414283,
 											"parameters": {
 												"audio-file": "PachiNgo",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -798,13 +808,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 318987314483426,
+											"sid": 589337874631323,
 											"parameters": {
 												"audio-file": "PachinGeetar",
 												"loop": "looping",
 												"volume": "0",
 												"stereo-pan": "0",
-												"tag-optional": "\"\""
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -849,14 +859,14 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 715944316670865,
+									"sid": 867527519006794,
 									"parameters": {
 										"folder": "music",
 										"audio-file-name": "\"ImportedFile\"",
 										"loop": "looping",
 										"volume": "0",
 										"stereo-pan": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"Music\""
 									}
 								}
 							],
@@ -2064,6 +2074,19 @@
 									}
 								},
 								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 546797521063493,
+									"parameters": {
+										"object-to-create": "VictoryBucketGlow",
+										"layer": "\"Gameplay\"",
+										"x": "656",
+										"y": "704",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
 									"type": "comment",
 									"text": "Game is ready to be played, end process"
 								},
@@ -2193,6 +2216,15 @@
 									"parameters": {
 										"range": "26"
 									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 442707128721310,
+									"parameters": {
+										"variable": "BlueAndOrangePegsDestroyedInOneTurn",
+										"value": "BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn"
+									}
 								}
 							],
 							"sid": 378289987967517
@@ -2247,10 +2279,10 @@
 										{
 											"id": "change-tags",
 											"objectClass": "bucketVictoryHitbox",
-											"sid": 565844495320973,
+											"sid": 320457411659221,
 											"parameters": {
 												"action": "add",
-												"tags": "\"50k\""
+												"tags": "\"50K\""
 											}
 										}
 									],
@@ -2299,10 +2331,10 @@
 										{
 											"id": "change-tags",
 											"objectClass": "bucketVictoryHitbox",
-											"sid": 655919350157484,
+											"sid": 355493246156441,
 											"parameters": {
 												"action": "add",
-												"tags": "\"50k\""
+												"tags": "\"50K\""
 											}
 										}
 									],
@@ -2475,6 +2507,11 @@
 												"comparison": 0,
 												"y-co-ordinate": "288"
 											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 979041053144791
 										}
 									],
 									"actions": [
@@ -2720,7 +2757,6 @@
 									"id": "on-collision-with-another-object",
 									"objectClass": "shootervisual",
 									"sid": 617029863297698,
-									"disabled": true,
 									"parameters": {
 										"object": "ConnectorWallUI"
 									}
@@ -2881,6 +2917,18 @@
 									"sid": 645287884942397
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 261207182945244,
+									"parameters": {
+										"audio-file": "Peggle Shooter_Fire",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "shooter",
 									"sid": 141443920626247,
@@ -2932,6 +2980,59 @@
 								}
 							],
 							"sid": 791286787912810
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ball",
+									"sid": 239643720304711,
+									"parameters": {
+										"object": "ConnectorWallUI"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ball",
+									"sid": 344813118278666,
+									"parameters": {
+										"object": "bucket"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ball",
+									"sid": 263502763730397,
+									"parameters": {
+										"object": "Bumper"
+									}
+								},
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "ball",
+									"sid": 773419761254356,
+									"parameters": {
+										"object": "WallUI"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 627911588402530,
+									"parameters": {
+										"audio-file": "Sonic3 ping",
+										"loop": "not-looping",
+										"volume": "-12",
+										"stereo-pan": "0",
+										"tag-optional": "\"peg\""
+									}
+								}
+							],
+							"sid": 355954037368863,
+							"isOrBlock": true
 						}
 					],
 					"sid": 659329090859972
@@ -3184,9 +3285,32 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 392021799352833
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 229090278491222,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 537144090970230,
+											"parameters": {
+												"audio-file": "Peggle extraball",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
@@ -3243,9 +3367,32 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 800509796518294
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 779203966437413,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 470658711135231,
+											"parameters": {
+												"audio-file": "Peggle extraball",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
@@ -3302,9 +3449,32 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 964449908414506
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 457686590881401,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 676168148591495,
+											"parameters": {
+												"audio-file": "Peggle extraball",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
@@ -3361,9 +3531,32 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 942393465617083
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 520240495216163,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 461383988120325,
+											"parameters": {
+												"audio-file": "Peggle extraball",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
@@ -3420,9 +3613,32 @@
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
 											"sid": 443241298555462
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 552497855073534,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 325811671863604,
+											"parameters": {
+												"audio-file": "Peggle extraball",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
@@ -3671,6 +3887,18 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 905265798419547,
+													"parameters": {
+														"audio-file": "Peggle extraball",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
 													"sid": 547891082223398,
@@ -3722,6 +3950,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 287133314164380,
+													"parameters": {
+														"audio-file": "Peggle coin_freeball_denied",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
@@ -4047,6 +4287,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 482278751740100,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -4168,6 +4417,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 946761113335236,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -4288,6 +4546,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 824679255551578,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -4319,6 +4586,46 @@
 															"sid": 447883985620981
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-visible",
+															"objectClass": "ScoreCountUpwards",
+															"sid": 924659762167858
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 832689427800393,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"comparison": 2,
+																"value": "PointsEarnedInOneTurn"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 842022705493451
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 199781039054514,
+															"parameters": {
+																"audio-file": "TallyNoise",
+																"loop": "looping",
+																"volume": "10",
+																"stereo-pan": "0",
+																"tag-optional": "\"tally\""
+															}
+														}
+													],
+													"sid": 308648810254331
 												},
 												{
 													"eventType": "block",
@@ -4550,6 +4857,26 @@
 									],
 									"actions": [
 										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 134877813795947,
+											"parameters": {
+												"tag": "\"tally\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 906042795609139,
+											"parameters": {
+												"audio-file": "Sonic3tally",
+												"loop": "not-looping",
+												"volume": "-4",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 874206808935228,
@@ -4569,9 +4896,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 420558464775081,
+											"sid": 308263862286664,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": "1.3",
 												"use-timescale": true
 											}
 										},
@@ -5206,7 +5533,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 277999996537417,
+											"sid": 378331226648221,
 											"parameters": {
 												"seconds": "0.5",
 												"use-timescale": true
@@ -5258,7 +5585,98 @@
 											}
 										}
 									],
-									"sid": 459187579026033
+									"sid": 459187579026033,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "GAME OVER/LOSS HANDLER"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 810963475153160,
+													"parameters": {
+														"variable": "BallCount",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 772401140721185,
+													"parameters": {
+														"variable": "OrangePegsRemaining",
+														"comparison": 5,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "fade-volume",
+													"objectClass": "Audio",
+													"sid": 901006640131185,
+													"parameters": {
+														"tag": "\"Music\"",
+														"db": "-100",
+														"duration": "1",
+														"ending": "stop"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 486934237083244,
+													"parameters": {
+														"seconds": "2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "GameEndText",
+													"sid": 614190406257120,
+													"parameters": {
+														"text": "\"[outlineback=#000000][lineThickness=5]You lose!\""
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 283856141966418,
+													"parameters": {
+														"layer": "\"Victory Screen\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "GameEndText",
+													"sid": 527590839211148,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 525380662717970,
+													"parameters": {
+														"audio-file": "Peggle coin_freeball_denied",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 626334965414456
+										}
+									]
 								}
 							],
 							"sid": 871917457030398
@@ -5312,10 +5730,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 307266015592703,
+											"sid": 461369606665598,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5356,10 +5774,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 861593222578632,
+											"sid": 221747843007282,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5400,10 +5818,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 518281269519011,
+											"sid": 559234007247397,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5444,10 +5862,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 320455236355765,
+											"sid": 733318862098321,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5488,10 +5906,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 568802786943038,
+											"sid": 677898101633271,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5532,10 +5950,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 818744795625389,
+											"sid": 340066626108121,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5576,10 +5994,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 428092431588487,
+											"sid": 423168663299183,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5620,10 +6038,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 673984063867491,
+											"sid": 327910856415025,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5664,10 +6082,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 164279141379779,
+											"sid": 406107631103233,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5708,10 +6126,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 524924075285991,
+											"sid": 138217393244532,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5752,10 +6170,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 991487812212049,
+											"sid": 818932916904024,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5796,10 +6214,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 954439787958704,
+											"sid": 703568243754704,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6472,6 +6890,245 @@
 								{
 									"eventType": "group",
 									"disabled": false,
+									"title": "Peg Sound Effects",
+									"description": "",
+									"isActiveOnStart": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "ball",
+													"sid": 535060433059735,
+													"parameters": {
+														"object": "Peg"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 680416267178788,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 941863014201344,
+															"parameters": {
+																"animation": "\"CircleBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 110595104556332,
+															"parameters": {
+																"animation": "\"BrickBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 958674525681918,
+															"parameters": {
+																"animation": "\"CurveBlue\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 158762588979481,
+															"parameters": {
+																"animation": "\"CircleOrange\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 525227683134318,
+															"parameters": {
+																"animation": "\"BrickOrange\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 606846849169666,
+															"parameters": {
+																"animation": "\"CurveOrange\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 921567221451519,
+															"parameters": {
+																"audio-file": "Sonic3 bumper",
+																"loop": "not-looping",
+																"volume": "0",
+																"stereo-pan": "0",
+																"tag-optional": "\"peg\""
+															}
+														},
+														{
+															"id": "set-playback-rate",
+															"objectClass": "Audio",
+															"sid": 482711825351872,
+															"parameters": {
+																"tag": "\"peg\"",
+																"playback-rate": "1 + (BlueAndOrangePegsDestroyedInOneTurn / 5)"
+															}
+														}
+													],
+													"sid": 604279961506527,
+													"isOrBlock": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "ball",
+													"sid": 451797945806203,
+													"parameters": {
+														"object": "Peg"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 363145144491617,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 268326451934012,
+															"parameters": {
+																"animation": "\"CircleBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 146609619811240,
+															"parameters": {
+																"animation": "\"BrickBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 189960643205405,
+															"parameters": {
+																"animation": "\"CurveBlueActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 546474207139879,
+															"parameters": {
+																"animation": "\"CircleOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 279409688571428,
+															"parameters": {
+																"animation": "\"BrickOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 421093838077135,
+															"parameters": {
+																"animation": "\"CurveOrangeActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 876952819320293,
+															"parameters": {
+																"animation": "\"CirclePurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 143180234497971,
+															"parameters": {
+																"animation": "\"BrickPurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 143724080732317,
+															"parameters": {
+																"animation": "\"CurvePurpleActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 420916439491385,
+															"parameters": {
+																"animation": "\"CircleEvilActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 762894943117041,
+															"parameters": {
+																"animation": "\"BrickEvilActive\""
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Peg",
+															"sid": 571084695055926,
+															"parameters": {
+																"animation": "\"CurveEvilActive\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 914335841776185,
+															"parameters": {
+																"audio-file": "Sonic3 ping",
+																"loop": "not-looping",
+																"volume": "-12",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 142393555360821,
+													"isOrBlock": true
+												}
+											]
+										}
+									],
+									"sid": 693312419217386
+								},
+								{
+									"eventType": "group",
+									"disabled": false,
 									"title": "Blue Pegs Active",
 									"description": "",
 									"isActiveOnStart": true,
@@ -7013,6 +7670,18 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 154016025483023,
+													"parameters": {
+														"audio-file": "Sonic3 checkpoint",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 342311060901084,
@@ -7100,6 +7769,18 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 853875017523608,
+													"parameters": {
+														"audio-file": "Sonic3 checkpoint",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 229403656988993,
@@ -7186,6 +7867,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 904038878932321,
+													"parameters": {
+														"audio-file": "Sonic3 checkpoint",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "set-animation",
 													"objectClass": "Peg",
@@ -7283,6 +7976,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 406439107448202,
+													"parameters": {
+														"audio-file": "Sonic3 spiked",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "set-animation",
 													"objectClass": "Peg",
@@ -7447,6 +8152,18 @@
 											],
 											"actions": [
 												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 149175801670333,
+													"parameters": {
+														"audio-file": "Sonic3 spiked",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 602482743174332,
@@ -7609,6 +8326,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 809981614871026,
+													"parameters": {
+														"audio-file": "Sonic3 spiked",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "set-animation",
 													"objectClass": "Peg",
@@ -8158,6 +8887,18 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 441460817138018,
+									"parameters": {
+										"audio-file": "Peggle extraball",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 484771520060442,
@@ -8438,6 +9179,26 @@
 											"behaviorType": "Physics",
 											"parameters": {
 												"gravity": "6"
+											}
+										},
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 803086618745163,
+											"parameters": {
+												"tag": "\"Music\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 257422816422583,
+											"parameters": {
+												"audio-file": "Victory!",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"Music\""
 											}
 										}
 									],
@@ -8725,6 +9486,83 @@
 												}
 											],
 											"sid": 847784857028304
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-collision-with-another-object",
+													"objectClass": "ball",
+													"sid": 197835849273368,
+													"parameters": {
+														"object": "bucketVictoryHitbox"
+													}
+												},
+												{
+													"id": "layer-is-visible",
+													"objectClass": "System",
+													"sid": 153938009756584,
+													"parameters": {
+														"layer": "\"Victory Screen\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "VictoryBucketGlow",
+													"sid": 342190050903099,
+													"parameters": {
+														"x": "bucketVictoryHitbox.X",
+														"y": "bucketVictoryHitbox.Y-50"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "VictoryBucketGlow",
+													"sid": 132570056893320,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 619653444282098,
+													"parameters": {
+														"audio-file": "Peggle extraball",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 297020493902648,
+													"parameters": {
+														"audio-file": "Yakuza 0 Complete",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 971296832465250,
+													"parameters": {
+														"audio-file": "FNAF Kids Cheering",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 446596019580624
 										}
 									],
 									"sid": 216940363760068
@@ -8795,6 +9633,18 @@
 													"sid": 277182822875861,
 													"parameters": {
 														"visibility": "visible"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 348487708469038,
+													"parameters": {
+														"audio-file": "TallyNoise",
+														"loop": "looping",
+														"volume": "10",
+														"stereo-pan": "0",
+														"tag-optional": "\"tally\""
 													}
 												}
 											],
@@ -8900,12 +9750,32 @@
 													}
 												},
 												{
-													"id": "every-tick",
+													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 553923786410960
+													"sid": 564228907781254
 												}
 											],
 											"actions": [
+												{
+													"id": "stop",
+													"objectClass": "Audio",
+													"sid": 197510444415107,
+													"parameters": {
+														"tag": "\"tally\""
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 158856232840624,
+													"parameters": {
+														"audio-file": "Sonic3tally",
+														"loop": "not-looping",
+														"volume": "-4",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
@@ -8956,91 +9826,6 @@
 								}
 							],
 							"sid": 170784552077020
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Losing Handler",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 934740283078746,
-											"parameters": {
-												"variable": "BallCount",
-												"comparison": 0,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 293559966552431,
-											"parameters": {
-												"variable": "OrangePegsRemaining",
-												"comparison": 5,
-												"value": "1"
-											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 638186172459343,
-											"parameters": {
-												"variable": "EndOfTurnHappeningContinued"
-											}
-										},
-										{
-											"id": "every-tick",
-											"objectClass": "System",
-											"sid": 795791311878078
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 259935415921890,
-											"parameters": {
-												"seconds": "1.5",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "GameEndText",
-											"sid": 276908304862323,
-											"parameters": {
-												"text": "\"[outlineback=#000000][lineThickness=5]You lose!\""
-											}
-										},
-										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 930486659165725,
-											"parameters": {
-												"layer": "\"Victory Screen\"",
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "GameEndText",
-											"sid": 307783315270660,
-											"parameters": {
-												"visibility": "visible"
-											}
-										}
-									],
-									"sid": 690394896167167
-								}
-							],
-							"sid": 756081302147775
 						}
 					],
 					"sid": 175890746049170
@@ -11502,15 +12287,20 @@
 														"comparison": 0,
 														"tag": "\"mute\""
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 831032751001255
 												}
 											],
 											"actions": [
 												{
 													"id": "set-muted",
 													"objectClass": "Audio",
-													"sid": 178329335041252,
+													"sid": 520462215110500,
 													"parameters": {
-														"tag": "\"\"",
+														"tag": "\"Music\"",
 														"state": "muted"
 													}
 												}
@@ -11528,24 +12318,29 @@
 														"comparison": 0,
 														"tag": "\"one\""
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 457800765527188
 												}
 											],
 											"actions": [
 												{
 													"id": "set-muted",
 													"objectClass": "Audio",
-													"sid": 255281125654282,
+													"sid": 557187103020935,
 													"parameters": {
-														"tag": "\"\"",
+														"tag": "\"Music\"",
 														"state": "unmuted"
 													}
 												},
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 977617859387503,
+													"sid": 523924165703297,
 													"parameters": {
-														"tag": "\"\"",
+														"tag": "\"Music\"",
 														"db": "-25"
 													}
 												}
@@ -11563,25 +12358,30 @@
 														"comparison": 0,
 														"tag": "\"two\""
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 286062534535401
 												}
 											],
 											"actions": [
 												{
 													"id": "set-muted",
 													"objectClass": "Audio",
-													"sid": 159313437151395,
+													"sid": 626705202852850,
 													"parameters": {
-														"tag": "\"\"",
+														"tag": "\"Music\"",
 														"state": "unmuted"
 													}
 												},
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 178575753649246,
+													"sid": 519499957124383,
 													"parameters": {
-														"tag": "\"\"",
-														"db": "-20"
+														"tag": "\"Music\"",
+														"db": "-15"
 													}
 												}
 											],
@@ -11598,25 +12398,30 @@
 														"comparison": 0,
 														"tag": "\"three\""
 													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 251677272609945
 												}
 											],
 											"actions": [
 												{
 													"id": "set-muted",
 													"objectClass": "Audio",
-													"sid": 542609437623535,
+													"sid": 400965496166994,
 													"parameters": {
-														"tag": "\"\"",
+														"tag": "\"Music\"",
 														"state": "unmuted"
 													}
 												},
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 596608785048437,
+													"sid": 532106843001484,
 													"parameters": {
-														"tag": "\"\"",
-														"db": "-10"
+														"tag": "\"Music\"",
+														"db": "0"
 													}
 												}
 											],
@@ -17276,6 +18081,18 @@
 											}
 										},
 										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
 											"id": "set-layer-visible",
 											"objectClass": "System",
 											"sid": 341324062117958,
@@ -17290,6 +18107,18 @@
 											"sid": 888514526455637,
 											"parameters": {
 												"mode": "enabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -17405,6 +18234,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 169212865941598
@@ -17517,6 +18358,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 462552556828415
@@ -17585,6 +18438,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 757951211325095
@@ -17650,6 +18515,18 @@
 											"sid": 404366279020322,
 											"parameters": {
 												"mode": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -17840,6 +18717,18 @@
 												"layer": "\"BGHandler\"",
 												"visibility": "visible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 327211384590916
@@ -17900,6 +18789,18 @@
 												"layer": "\"BGHandler\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 308819249207143
@@ -17958,6 +18859,18 @@
 												"layer": "\"BGHandler\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 297190062878161
@@ -18015,6 +18928,18 @@
 											"parameters": {
 												"layer": "\"BGHandler\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -18480,6 +19405,18 @@
 												"layer": "\"Pegs\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 893698609294594
@@ -18671,6 +19608,18 @@
 													"parameters": {
 														"variable": "SCrystal",
 														"value": "SatCrystalSlide.Value"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 995868190961315,
+													"parameters": {
+														"audio-file": "pop",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
 													}
 												}
 											],
@@ -19122,6 +20071,18 @@
 											"parameters": {
 												"mode": "enabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 201675965171897
@@ -19190,6 +20151,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 679096336350310
@@ -19248,6 +20221,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 667775909779938
@@ -19305,6 +20290,18 @@
 											"sid": 363873815463055,
 											"parameters": {
 												"mode": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -19442,13 +20439,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 823942459150678,
+													"sid": 124503275384625,
 													"parameters": {
 														"audio-file": "Level_editor",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19489,13 +20486,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 678232417721952,
+													"sid": 921594897309651,
 													"parameters": {
 														"audio-file": "Lets_Go_Cruisin",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19536,13 +20533,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 443311703437770,
+													"sid": 803861996226383,
 													"parameters": {
 														"audio-file": "PegTastic",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19583,13 +20580,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 859433685824796,
+													"sid": 356365579448604,
 													"parameters": {
 														"audio-file": "Saturday_Evening",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19630,13 +20627,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 813436682629545,
+													"sid": 945877101225035,
 													"parameters": {
 														"audio-file": "PachiNgo",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19677,13 +20674,13 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 131129267083622,
+													"sid": 416893927659279,
 													"parameters": {
 														"audio-file": "PachinGeetar",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -19726,14 +20723,14 @@
 												{
 													"id": "play-by-name",
 													"objectClass": "Audio",
-													"sid": 105137035896073,
+													"sid": 860131018251881,
 													"parameters": {
 														"folder": "music",
 														"audio-file-name": "\"ImportedFile\"",
 														"loop": "looping",
 														"volume": "0",
 														"stereo-pan": "0",
-														"tag-optional": "\"\""
+														"tag-optional": "\"Music\""
 													}
 												}
 											],
@@ -20009,6 +21006,18 @@
 												"layer": "\"Delete\"",
 												"visibility": "visible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 941273734680105
@@ -20068,6 +21077,18 @@
 											"parameters": {
 												"layer": "\"Delete\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -20184,6 +21205,18 @@
 											"parameters": {
 												"layer": "\"Delete\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -20303,6 +21336,18 @@
 												"layer": "\"Delete\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 844627198886096
@@ -20360,6 +21405,18 @@
 											"parameters": {
 												"layer": "\"Delete\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -20531,6 +21588,18 @@
 												"layer": "\"InfoControls\"",
 												"visibility": "visible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 370045929209348
@@ -20591,6 +21660,18 @@
 												"layer": "\"InfoControls\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 318598652529243
@@ -20649,6 +21730,18 @@
 												"layer": "\"InfoControls\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 933982717735698
@@ -20706,6 +21799,18 @@
 											"parameters": {
 												"layer": "\"InfoControls\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -20901,6 +22006,18 @@
 											"parameters": {
 												"mode": "enabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 134922267717351
@@ -20995,6 +22112,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 583185039993526
@@ -21086,6 +22215,18 @@
 											"sid": 744795971432433,
 											"parameters": {
 												"mode": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -21179,6 +22320,18 @@
 											"parameters": {
 												"mode": "disabled"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 405759796619372
@@ -21268,6 +22421,18 @@
 											"sid": 945019168327058,
 											"parameters": {
 												"mode": "disabled"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -21484,6 +22649,18 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 427845412031417,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
 										{
 											"id": "destroy",
 											"objectClass": "Peg",
@@ -21898,6 +23075,18 @@
 												"layer": "\"Upload\"",
 												"visibility": "visible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 712313425428372
@@ -21958,6 +23147,18 @@
 												"layer": "\"Upload\"",
 												"visibility": "invisible"
 											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
 										}
 									],
 									"sid": 690832277450381
@@ -22015,6 +23216,18 @@
 											"parameters": {
 												"layer": "\"Upload\"",
 												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 995868190961315,
+											"parameters": {
+												"audio-file": "pop",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
 											}
 										}
 									],
@@ -22082,6 +23295,18 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 698173582644360,
+													"parameters": {
+														"audio-file": "pop",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
 												{
 													"id": "set-text",
 													"objectClass": "LevelEditorTextObject",
@@ -22530,6 +23755,18 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 995868190961315,
+													"parameters": {
+														"audio-file": "pop",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 450542482461453
@@ -22625,6 +23862,18 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 995868190961315,
+													"parameters": {
+														"audio-file": "pop",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
 												}
 											],
 											"sid": 907474680764419
@@ -22719,6 +23968,18 @@
 													"sid": 823087148463369,
 													"parameters": {
 														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 995868190961315,
+													"parameters": {
+														"audio-file": "pop",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
 													}
 												}
 											],
@@ -23026,13 +24287,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 741830444992681,
+							"sid": 594016627154263,
 							"parameters": {
 								"audio-file": "Level_editor",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23066,13 +24327,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 929787641973854,
+							"sid": 382933901792422,
 							"parameters": {
 								"audio-file": "Lets_Go_Cruisin",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23106,13 +24367,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 357052348491388,
+							"sid": 307077040740830,
 							"parameters": {
 								"audio-file": "PegTastic",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23146,13 +24407,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 715254325751383,
+							"sid": 211029594013986,
 							"parameters": {
 								"audio-file": "Saturday_Evening",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23186,13 +24447,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 920692985198311,
+							"sid": 207904304983814,
 							"parameters": {
 								"audio-file": "PachiNgo",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23226,13 +24487,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 355447889527385,
+							"sid": 336171863956250,
 							"parameters": {
 								"audio-file": "PachinGeetar",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23266,14 +24527,14 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 741144343577849,
+							"sid": 236908109344553,
 							"parameters": {
 								"folder": "music",
 								"audio-file-name": "\"ImportedFile\"",
 								"loop": "looping",
 								"volume": "0",
 								"stereo-pan": "0",
-								"tag-optional": "\"\""
+								"tag-optional": "\"Music\""
 							}
 						}
 					],
@@ -23284,7 +24545,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "DEBUG CONTROLS",
 			"description": "",
 			"isActiveOnStart": true,
@@ -23308,8 +24569,7 @@
 							}
 						}
 					],
-					"sid": 976573314261908,
-					"disabled": true
+					"sid": 976573314261908
 				},
 				{
 					"eventType": "block",
@@ -23334,8 +24594,7 @@
 							}
 						}
 					],
-					"sid": 171640072368903,
-					"disabled": true
+					"sid": 171640072368903
 				},
 				{
 					"eventType": "block",
@@ -23360,8 +24619,7 @@
 							}
 						}
 					],
-					"sid": 227123293719606,
-					"disabled": true
+					"sid": 227123293719606
 				},
 				{
 					"eventType": "block",
@@ -23386,8 +24644,7 @@
 							}
 						}
 					],
-					"sid": 243536268950250,
-					"disabled": true
+					"sid": 243536268950250
 				},
 				{
 					"eventType": "block",
@@ -23412,8 +24669,7 @@
 							}
 						}
 					],
-					"sid": 121276055968729,
-					"disabled": true
+					"sid": 121276055968729
 				},
 				{
 					"eventType": "block",
@@ -23462,8 +24718,7 @@
 							}
 						}
 					],
-					"sid": 179498141628454,
-					"disabled": true
+					"sid": 179498141628454
 				},
 				{
 					"eventType": "block",
@@ -23520,8 +24775,7 @@
 							}
 						}
 					],
-					"sid": 211081082695007,
-					"disabled": true
+					"sid": 211081082695007
 				}
 			],
 			"sid": 678078900678172

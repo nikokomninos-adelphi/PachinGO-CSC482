@@ -209,7 +209,8 @@
 					"demo4bg",
 					"shootervisual",
 					"bucketVictory",
-					"PegLayoutGameplay"
+					"PegLayoutGameplay",
+					"VictoryBucketGlow"
 				],
 				"subfolders": [],
 				"name": "Gameplay"
@@ -353,6 +354,7 @@
 			"Demo Level 3",
 			"Demo Level 4",
 			"Demo Level 5",
+			"Demo Level 6",
 			"Level Editor",
 			"Level Editor Play",
 			"Level Editor Online"
@@ -372,7 +374,120 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Peggle Shooter_Fire.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 541968679449230,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Peggle coin_freeball_denied.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 266974050138775,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Peggle extraball.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 165108102873873,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "pop.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 579062168465951,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Yakuza 0 Complete.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 939008556730462,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "TallyNoise.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 244088418265689,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "FNAF Kids Cheering.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 624029550774246,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 blue-sphere.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 762472367202668,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 bumper.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 885850007001709,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3tally.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 457304678522002,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 checkpoint.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 652104285191149,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 ping.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 875198872104762,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 point-gain.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 361018501442261,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Sonic3 spiked.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 199514644127751,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
@@ -429,6 +544,14 @@
 					"name": "PachinGeetar.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 333377402392128,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Victory!.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 299595956564892,
 					"file-info": {
 						"purpose": "none"
 					}
