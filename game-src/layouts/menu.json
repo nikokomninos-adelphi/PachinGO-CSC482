@@ -44,7 +44,7 @@
 					"locked": false,
 					"world": {
 						"x": 239,
-						"y": -94,
+						"y": -111,
 						"width": 322,
 						"height": 89,
 						"originX": 0,
@@ -97,7 +97,7 @@
 					"locked": false,
 					"world": {
 						"x": 175,
-						"y": -142,
+						"y": -159,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -150,7 +150,7 @@
 					"locked": false,
 					"world": {
 						"x": 390,
-						"y": -150,
+						"y": -167,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -203,7 +203,7 @@
 					"locked": false,
 					"world": {
 						"x": 618,
-						"y": -152,
+						"y": -169,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -256,7 +256,7 @@
 					"locked": false,
 					"world": {
 						"x": 581,
-						"y": -85,
+						"y": -102,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -834,7 +834,7 @@
 					"locked": false,
 					"world": {
 						"x": 528,
-						"y": -210,
+						"y": -227,
 						"width": 204,
 						"height": 55,
 						"originX": 0,
@@ -2213,7 +2213,7 @@
 					"locked": false,
 					"world": {
 						"x": 11,
-						"y": -131,
+						"y": -148,
 						"width": 98,
 						"height": 98,
 						"originX": 0,
@@ -2255,6 +2255,154 @@
 						"height": 45,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "purple",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 949,
+					"sid": 595680731651229,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 595680731651229,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 711,
+						"y": 699,
+						"width": 19.331983199999996,
+						"height": 19.331983199999996,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "blue",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 950,
+					"sid": 448287695730762,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 448287695730762,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 761,
+						"y": 707,
+						"width": 8.054993,
+						"height": 8.054993,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "orange",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 951,
+					"sid": 729807103570003,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 729807103570003,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 724,
+						"y": 734,
+						"width": 8.0549928453621,
+						"height": 8.0549928453621,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "eeevill",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 953,
+					"sid": 907322044468347,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 907322044468347,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 761,
+						"y": 752,
+						"width": 24,
+						"height": 24,
+						"originX": 0.46153846153846156,
+						"originY": 0.524390243902439,
 						"color": [
 							1,
 							1,

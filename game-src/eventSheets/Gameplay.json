@@ -2507,6 +2507,11 @@
 												"comparison": 0,
 												"y-co-ordinate": "288"
 											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 979041053144791
 										}
 									],
 									"actions": [
@@ -4282,6 +4287,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 482278751740100,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -4403,6 +4417,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 946761113335236,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -4523,6 +4546,15 @@
 																	"parameters": {
 																		"tags": "\"MainGameplay\""
 																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 824679255551578,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
 																}
 															],
 															"actions": [
@@ -5698,10 +5730,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 307266015592703,
+											"sid": 461369606665598,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5742,10 +5774,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 861593222578632,
+											"sid": 221747843007282,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5786,10 +5818,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 518281269519011,
+											"sid": 559234007247397,
 											"parameters": {
 												"object": "orange",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5830,10 +5862,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 320455236355765,
+											"sid": 733318862098321,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5874,10 +5906,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 568802786943038,
+											"sid": 677898101633271,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5918,10 +5950,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 818744795625389,
+											"sid": 340066626108121,
 											"parameters": {
 												"object": "blue",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -5962,10 +5994,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 428092431588487,
+											"sid": 423168663299183,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6006,10 +6038,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 673984063867491,
+											"sid": 327910856415025,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6050,10 +6082,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 164279141379779,
+											"sid": 406107631103233,
 											"parameters": {
 												"object": "purple",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6094,10 +6126,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 524924075285991,
+											"sid": 138217393244532,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6138,10 +6170,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 991487812212049,
+											"sid": 818932916904024,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -6182,10 +6214,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "Peg",
-											"sid": 954439787958704,
+											"sid": 703568243754704,
 											"parameters": {
 												"object": "eeevill",
-												"layer": "4",
+												"layer": "\"UI\"",
 												"image-point": "0",
 												"create-hierarchy": false,
 												"template-name": "\"\""
@@ -9575,11 +9607,6 @@
 													"parameters": {
 														"tags": "\"EndScreen\""
 													}
-												},
-												{
-													"id": "is-on-screen",
-													"objectClass": "ball",
-													"sid": 605977578845755
 												}
 											],
 											"actions": [
@@ -24518,7 +24545,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "DEBUG CONTROLS",
 			"description": "",
 			"isActiveOnStart": true,
@@ -24542,8 +24569,7 @@
 							}
 						}
 					],
-					"sid": 976573314261908,
-					"disabled": true
+					"sid": 976573314261908
 				},
 				{
 					"eventType": "block",
@@ -24568,8 +24594,7 @@
 							}
 						}
 					],
-					"sid": 171640072368903,
-					"disabled": true
+					"sid": 171640072368903
 				},
 				{
 					"eventType": "block",
@@ -24594,8 +24619,7 @@
 							}
 						}
 					],
-					"sid": 227123293719606,
-					"disabled": true
+					"sid": 227123293719606
 				},
 				{
 					"eventType": "block",
@@ -24620,8 +24644,7 @@
 							}
 						}
 					],
-					"sid": 243536268950250,
-					"disabled": true
+					"sid": 243536268950250
 				},
 				{
 					"eventType": "block",
@@ -24646,8 +24669,7 @@
 							}
 						}
 					],
-					"sid": 121276055968729,
-					"disabled": true
+					"sid": 121276055968729
 				},
 				{
 					"eventType": "block",
@@ -24696,8 +24718,7 @@
 							}
 						}
 					],
-					"sid": 179498141628454,
-					"disabled": true
+					"sid": 179498141628454
 				},
 				{
 					"eventType": "block",
@@ -24754,8 +24775,7 @@
 							}
 						}
 					],
-					"sid": 211081082695007,
-					"disabled": true
+					"sid": 211081082695007
 				}
 			],
 			"sid": 678078900678172
