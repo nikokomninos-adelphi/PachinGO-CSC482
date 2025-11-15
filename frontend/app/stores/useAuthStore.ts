@@ -6,9 +6,11 @@
  */
 
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface AuthState {
   user: string | null;
+  checking: boolean;
   checkAuth: () => Promise<void>;
   logout: () => Promise<void>;
   setUser: (user: string | null) => void;
@@ -16,7 +18,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
-  loading: true,
+  checking: true,
 
   checkAuth: async () => {
     try {
@@ -34,11 +36,11 @@ export const useAuthStore = create<AuthState>((set) => ({
       }
 
       const data = await res.json();
-      set({ user: data.username });
+      set({ user: data.username, checking: false });
       return data.username;
     } catch (err) {
       console.error("Auth check failed:", err);
-      set({ user: null });
+      set({ user: null, checking: false });
     }
   },
 

@@ -12,20 +12,21 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const editor = () => {
-  const { user } = useAuthStore();
+  const { user, checking } = useAuthStore();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    if (!user) navigate("/login");
+    if (checking) return;
+    if (!user) navigate("/login", { replace: true });
     if (iframeRef.current) {
       // Prevents caching by adding a cache busting query parameter
       iframeRef.current.src = `/game/index.html?cacheBust=${Date.now()}`;
     }
     setIsLoading(false);
     localStorage.setItem("layout", "Level Editor");
-  }, [user]);
+  }, [user, checking]);
 
   // Redirect to play page when upload is complete
   useEffect(() => {

@@ -59,7 +59,7 @@ const Search = () => {
    * to the user
    */
   useEffect(() => {
-    if (!initialTerm) handleRecentLevels();
+    //if (!term && searchType === "levelName") handleSearch("$recent$", 1);
   }, []);
 
   /* Handles what happens when the search type
@@ -75,9 +75,14 @@ const Search = () => {
     if (searchType === "levelName") {
       setSortType("date");
       setSortOrderType("desc");
+      handleSearch("$recent$", 1);
+    }
+    if(searchType === "levelID") {
+      handleSearch("", 1);
     }
     if (searchType === "users") {
       setSortType("name");
+      handleSearch("$recent$", 1);
     }
   }, [searchType]);
 
@@ -95,9 +100,11 @@ const Search = () => {
       setPage(currentPage);
       handleSearch(currentTerm, currentPage);
     } else {
-      setResults([]);
+      //setTerm("$recent$");
+      //setPage(1);
+      //handleSearch("$recent$", 1);
     }
-  }, [searchParams, limit]);
+  }, [searchParams]);
 
   /* Handles a search.
    *

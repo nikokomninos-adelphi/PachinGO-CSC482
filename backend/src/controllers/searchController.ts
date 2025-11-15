@@ -13,16 +13,22 @@ import UserInfo from "../models/UserInfo.ts";
  * getRecentLevels
  *
  * Returns all levels, ordered by date uploaded, descending
- * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
- * @param {Response} res, contains HTTP body with: status code, results,
  * current page, total pages
- * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
- * 500 and error otherwise
+ *
+ * @param {number} reqPage, the page number requested
+ * @param {number} reqLimit, the number of results per page
+ * @returns an object containing results, total, totalPages, currentPage
  */
-export const getRecentLevels = async (req: Request, res: Response) => {
+export const getRecentLevels = async ({
+  reqPage,
+  reqLimit,
+}: {
+  reqPage: number;
+  reqLimit: number;
+}) => {
   try {
-    const page = req.body.page || 1;
-    const limit = req.body.limit || 25;
+    const page = reqPage || 1;
+    const limit = reqLimit || 25;
     const skip = ((page as number) - 1) * (limit as number);
 
     const total = (await Level.find()).length;
@@ -31,15 +37,15 @@ export const getRecentLevels = async (req: Request, res: Response) => {
       .skip(skip)
       .limit(limit as number);
 
-    res.status(200).json({
+    return {
       results,
       total,
       totalPages: Math.ceil(total / (limit as number)),
       currentPage: page as number,
-    });
+    };
   } catch (e) {
     console.error(e);
-    return res.status(500).json({ message: "Internal server error" });
+    return { message: "Internal server error" };
   }
 };
 
@@ -47,16 +53,21 @@ export const getRecentLevels = async (req: Request, res: Response) => {
  * getMostPlayedLevels
  *
  * Returns all levels, ordered by plays, descending
- * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
- * @param {Response} res, contains HTTP body with: status code, results,
- * current page, total pages
- * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
- * 500 and error otherwise
+ *
+ * @param {number} reqPage, the page number requested
+ * @param {number} reqLimit, the number of results per page
+ * @returns an object containing results, total, totalPages, currentPage
  */
-export const getMostPlayedLevels = async (req: Request, res: Response) => {
+export const getMostPlayedLevels = async ({
+  reqPage,
+  reqLimit,
+}: {
+  reqPage: number;
+  reqLimit: number;
+}) => {
   try {
-    const page = req.body.page || 1;
-    const limit = req.body.limit || 25;
+    const page = reqPage || 1;
+    const limit = reqLimit || 25;
     const skip = ((page as number) - 1) * (limit as number);
 
     const total = (await Level.find()).length;
@@ -65,33 +76,37 @@ export const getMostPlayedLevels = async (req: Request, res: Response) => {
       .skip(skip)
       .limit(limit as number);
 
-    res.status(200).json({
+    return {
       results,
       total,
       totalPages: Math.ceil(total / (limit as number)),
       currentPage: page as number,
-    });
+    };
   } catch (e) {
     console.error(e);
-    return res.status(500).json({ message: "Internal server error" });
+    return { message: "Internal server error" };
   }
 };
-
 
 /**
  * getMostLikedLevels
  *
- * Returns all levels, ordered by liked, descending
- * @param {Request} req, contains HTTP body with: page, limit, term, sortType, sortOrderType
- * @param {Response} res, contains HTTP body with: status code, results,
- * current page, total pages
- * @returns an HTTP status code of 204 if no results, 200 and a response body if success,
- * 500 and error otherwise
+ * Returns all levels, ordered by likes, descending
+ *
+ * @param {number} reqPage, the page number requested
+ * @param {number} reqLimit, the number of results per page
+ * @returns an object containing results, total, totalPages, currentPage
  */
-export const getMostLikedLevels = async (req: Request, res: Response) => {
+export const getMostLikedLevels = async ({
+  reqPage,
+  reqLimit,
+}: {
+  reqPage: number;
+  reqLimit: number;
+}) => {
   try {
-    const page = req.body.page || 1;
-    const limit = req.body.limit || 25;
+    const page = reqPage || 1;
+    const limit = reqLimit || 25;
     const skip = ((page as number) - 1) * (limit as number);
 
     const total = (await Level.find()).length;
@@ -100,17 +115,18 @@ export const getMostLikedLevels = async (req: Request, res: Response) => {
       .skip(skip)
       .limit(limit as number);
 
-    res.status(200).json({
+    return {
       results,
       total,
       totalPages: Math.ceil(total / (limit as number)),
       currentPage: page as number,
-    });
+    };
   } catch (e) {
     console.error(e);
-    return res.status(500).json({ message: "Internal server error" });
+    return { message: "Internal server error" };
   }
 };
+
 
 /**
  * searchLevelName
@@ -132,9 +148,44 @@ export const searchLevelName = async (req: Request, res: Response) => {
     const limit = req.body.limit || 25;
     const skip = ((page as number) - 1) * (limit as number);
 
-    if (req.body.term === "$recent$") await getRecentLevels(req, res);
-    if (req.body.term === "$plays$") await getMostPlayedLevels(req, res);
-    if (req.body.term === "$likes$") await getMostLikedLevels(req, res);
+    if (req.body.term === "$recent$") {
+      const searchResult: Object = await getRecentLevels({
+        reqPage: page as number,
+        reqLimit: limit as number,
+      });
+      res.status(200).json({
+        results: (searchResult as any).results,
+        total: (searchResult as any).total,
+        totalPages: (searchResult as any).totalPages,
+        currentPage: (searchResult as any).currentPage,
+      });
+    }
+
+    if (req.body.term === "$plays$") {
+      const searchResult: Object = await getMostPlayedLevels({
+        reqPage: page as number,
+        reqLimit: limit as number,
+      });
+      res.status(200).json({
+        results: (searchResult as any).results,
+        total: (searchResult as any).total,
+        totalPages: (searchResult as any).totalPages,
+        currentPage: (searchResult as any).currentPage,
+      });
+    }
+
+    if (req.body.term === "$likes$") {
+      const searchResult: Object = await getMostLikedLevels({
+        reqPage: page as number,
+        reqLimit: limit as number,
+      });
+      res.status(200).json({
+        results: (searchResult as any).results,
+        total: (searchResult as any).total,
+        totalPages: (searchResult as any).totalPages,
+        currentPage: (searchResult as any).currentPage,
+      });
+    }
 
     let sort;
 
@@ -250,6 +301,59 @@ export const searchLevelID = async (req: Request, res: Response) => {
 };
 
 /**
+ * getRecentLevels
+ *
+ * Returns all levels, ordered by date uploaded, descending
+ * current page, total pages
+ *
+ * @param {number} reqPage, the page number requested
+ * @param {number} reqLimit, the number of results per page
+ * @returns an object containing results, total, totalPages, currentPage
+ */
+export const getRecentUsers = async ({
+  reqPage,
+  reqLimit,
+}: {
+  reqPage: number;
+  reqLimit: number;
+}) => {
+  try {
+    const page = reqPage || 1;
+    const limit = reqLimit || 25;
+    const skip = ((page as number) - 1) * (limit as number);
+
+    //const total = (await Level.find()).length;
+    //const results = await Level.find()
+    //  .sort({ dateUploaded: -1 })
+    //  .skip(skip)
+    //  .limit(limit as number);
+
+    const populated = await UserInfo.find()
+      .populate({
+        path: "user",
+        select: "username",
+      })
+      .sort({ dateJoined: -1 })
+      .skip(skip)
+      .limit(limit as number);
+    const filtered = populated.filter((info) => info.user);
+
+    const total = filtered.length;
+    const results = filtered.slice(skip, skip + (limit as number));
+
+    return {
+      results,
+      total,
+      totalPages: Math.ceil(total / (limit as number)),
+      currentPage: page as number,
+    };
+  } catch (e) {
+    console.error(e);
+    return { message: "Internal server error" };
+  }
+};
+
+/**
  * searchUsers
  *
  * Returns a paginated result given a search term,
@@ -268,6 +372,19 @@ export const searchUsers = async (req: Request, res: Response) => {
     const page = req.body.page || 1;
     const limit = req.body.limit || 25;
     const skip = ((page as number) - 1) * (limit as number);
+
+    if (req.body.term === "$recent$") {
+      const searchResult: Object = await getRecentUsers({
+        reqPage: page as number,
+        reqLimit: limit as number,
+      });
+      res.status(200).json({
+        results: (searchResult as any).results,
+        total: (searchResult as any).total,
+        totalPages: (searchResult as any).totalPages,
+        currentPage: (searchResult as any).currentPage,
+      });
+    }
 
     let sort;
 
@@ -289,7 +406,7 @@ export const searchUsers = async (req: Request, res: Response) => {
       .populate({
         path: "user",
         match: { username: new RegExp(req.body.term, "i") },
-        select: "username"
+        select: "username",
       })
       .sort(sort as any)
       .skip(skip)
