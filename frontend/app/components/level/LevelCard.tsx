@@ -56,8 +56,8 @@ const LevelCard = ({
 
       <div className="flex flex-col w-60 h-35 p-5">
         <div className="min-h-30">
-          <h1 className="text-md font-semibold mb-1">{name}</h1>
-          <h2 className="text-xs mb-3">by {author}</h2>
+          <h1 className="text-md font-semibold mb-1 line-clamp-2">{name}</h1>
+          <h2 className="text-xs mb-3 line-clamp-1">by {author}</h2>
           <p className="text-xs line-clamp-2">{desc}</p>
         </div>
 
