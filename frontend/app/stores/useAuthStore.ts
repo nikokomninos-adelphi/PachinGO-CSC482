@@ -6,11 +6,11 @@
  */
 
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 interface AuthState {
   user: string | null;
   checking: boolean;
+  isAdmin: boolean;
   checkAuth: () => Promise<void>;
   logout: () => Promise<void>;
   setUser: (user: string | null) => void;
@@ -19,6 +19,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   checking: true,
+  isAdmin: false,
 
   checkAuth: async () => {
     try {

@@ -25,6 +25,7 @@ const LevelCard = ({
   dateUploaded,
   numPegs,
   numOrange,
+  numBalls,
   hasBackground,
   hasMusic,
 }: {
@@ -38,6 +39,7 @@ const LevelCard = ({
   dateUploaded: Date;
   numPegs: number;
   numOrange: number;
+  numBalls: number;
   hasBackground: string;
   hasMusic: string;
 }) => {
@@ -94,6 +96,7 @@ const LevelCard = ({
           dateUploaded={dateUploaded}
           numPegs={numPegs}
           numOrange={numOrange}
+          numBalls={numBalls}
           hasBackground={hasBackground}
           hasMusic={hasMusic}
         />

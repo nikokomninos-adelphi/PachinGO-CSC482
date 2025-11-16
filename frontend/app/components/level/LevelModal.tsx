@@ -25,6 +25,7 @@ const LevelModal = ({
   dateUploaded,
   numPegs,
   numOrange,
+  numBalls,
   hasBackground,
   hasMusic,
 }: {
@@ -39,6 +40,7 @@ const LevelModal = ({
   dateUploaded: Date;
   numPegs: number;
   numOrange: number;
+  numBalls: number;
   hasBackground: string;
   hasMusic: string;
 }) => {
@@ -151,12 +153,17 @@ const LevelModal = ({
             </div>
 
             <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <img src="/ball.png" className="w-2.5 h-2.5" />
+              {numBalls.toString()}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
               <FaFileImage />
               {hasBackground}
             </div>
 
             <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <IoMdMusicalNote size={14}/>
+              <IoMdMusicalNote size={14} />
               {hasMusic}
             </div>
           </div>

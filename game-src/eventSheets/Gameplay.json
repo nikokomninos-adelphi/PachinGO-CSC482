@@ -1171,6 +1171,37 @@
 							"sid": 729746609237462
 						},
 						{
+							"functionName": "SetNumBalls",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "numBalls",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 801155869640085
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 177439907160262,
+									"parameters": {
+										"variable": "BallCountOnStart",
+										"value": "numBalls"
+									}
+								}
+							],
+							"sid": 520498552470692
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1267,6 +1298,8 @@
 										"",
 										"    runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;",
 										"    runtime.callFunction(\"SetNumOrange\", data.level.numOrange);",
+										"    runtime.globalVars.BallCountOnStart = data.level.numBalls;",
+										"    runtime.callFunction(\"SetNumBalls\", data.level.numBalls);",
 										"    runtime.globalVars.MusicSelect = data.level.musicSelect;",
 										"",
 										"    runtime.globalVars.HWall = data.level.wallHSL.H;",
@@ -23378,6 +23411,7 @@
 														"    formData.append(\"desc\", runtime.globalVars.CustomLevelDesc || \"This level is so fun!\");",
 														"    formData.append(\"pegLayout\", runtime.globalVars.PegData);",
 														"    formData.append(\"numOrange\", runtime.globalVars.NumberOfOrangePegsInLevel);",
+														"    formData.append(\"numBalls\", runtime.globalVars.BallCountOnStart);",
 														"    formData.append(\"backgroundImageOpacity\", runtime.globalVars.BGIMageOpacity);",
 														"    formData.append(\"backgroundImageHSL\", JSON.stringify({ \"H\": runtime.globalVars.HBGColor, \"S\": runtime.globalVars.SBGColor, \"L\": runtime.globalVars.LBGColor }));",
 														"    formData.append(\"musicSelect\", runtime.globalVars.MusicSelect);",

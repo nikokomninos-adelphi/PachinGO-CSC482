@@ -253,6 +253,7 @@ const Search = () => {
             dateUploaded={new Date(r.dateUploaded)}
             numPegs={Object.keys(r.pegLayout.data).length - 3}
             numOrange={r.numOrange}
+            numBalls={r.numBalls}
             hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
             hasMusic={r.backgroundMusic !== "N/A" ? "Yes" : "No"}
           />
@@ -275,6 +276,7 @@ const Search = () => {
             dateUploaded={new Date(r.dateUploaded)}
             numPegs={Object.keys(r.pegLayout.data).length - 3}
             numOrange={r.numOrange}
+            numBalls={r.numBalls}
             hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
             hasMusic={r.backgroundMusic !== "N/A" ? "Yes" : "No"}
           />
