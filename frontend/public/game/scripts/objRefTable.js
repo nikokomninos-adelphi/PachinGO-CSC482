@@ -147,6 +147,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Button.Acts.SetEnabled,
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.Button.Cnds.HasTags,
+		C3.JavaScriptInEvents.Gameplay_Event440_Act5,
 		C3.Plugins.Sprite.Exps.Count,
 		C3.JavaScriptInEvents.Gameplay_Event479_Act4,
 		C3.JavaScriptInEvents.Gameplay_Event490_Act5,

@@ -20782,8 +20782,7 @@
 														"const musicPicker = runtime.objects.MusicHere;",
 														"const musicPickerInst = musicPicker.getFirstInstance();",
 														"if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];"
-													],
-													"disabled": true
+													]
 												}
 											],
 											"sid": 778442245059578

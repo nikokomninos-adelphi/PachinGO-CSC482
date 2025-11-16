@@ -247,7 +247,9 @@ runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.Up
 
 	async Gameplay_Event440_Act5(runtime, localVars)
 	{
-
+		const musicPicker = runtime.objects.MusicHere;
+		const musicPickerInst = musicPicker.getFirstInstance();
+		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	}
 };
 
