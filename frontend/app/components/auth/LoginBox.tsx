@@ -14,7 +14,7 @@ const LoginBox = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const { user, role, checkAuth, setRole } = useAuthStore();
+  const { user, checkAuth, setRole } = useAuthStore();
 
   const navigate = useNavigate();
 

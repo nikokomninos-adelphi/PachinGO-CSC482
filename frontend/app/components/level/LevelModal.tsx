@@ -113,76 +113,119 @@ const LevelModal = ({
             </button>
           </div>
           <h1 className="text-4xl font-semibold mb-3">{name}</h1>
-          <h2 className="text-sm mb-3">
-            by{" "}
-            <Link
-              to={`/users/${author}`}
-              className="underline text-neutral-500"
-              onClick={() => setShowModal(false)}
-            >
-              {author}
-            </Link>
-          </h2>
-          <div className="flex flex-row gap-2 mb-5">
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <FaPlayCircle />
-              {plays || 0}
-            </div>
 
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <FaThumbsUp />
-              {likes || 0}
-            </div>
+          <LevelInfo
+            plays={plays}
+            likes={likes}
+            dateUploaded={dateUploaded}
+            numPegs={numPegs}
+            numOrange={numOrange}
+            numBalls={numBalls}
+            hasBackground={hasBackground}
+            hasMusic={hasMusic}
+          />
 
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <FaCalendarAlt />
-              {dateUploaded.toLocaleDateString("en-US", {
-                month: "2-digit",
-                day: "2-digit",
-                year: "numeric",
-              })}
-            </div>
-
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <img src="/peg_blue.png" className="w-3 h-3" />
-              {numPegs.toString()}
-            </div>
-
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <img src="/peg_orange.png" className="w-3 h-3" />
-              {numOrange.toString()}
-            </div>
-
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <img src="/ball.png" className="w-2.5 h-2.5" />
-              {numBalls.toString()}
-            </div>
-
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <FaFileImage />
-              {hasBackground}
-            </div>
-
-            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
-              <IoMdMusicalNote size={14} />
-              {hasMusic}
-            </div>
-          </div>
-          <p className="text-md mb-10">{desc}</p>
-          <button
-            onClick={() => handlePlay()}
-            className="flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+          <Link
+            to={`/users/${author}`}
+            className="flex flex-row items-center w-fit h-15 p-2 mb-5 border-1 border-[#e1e1e1] rounded-lg tracking-tight bg-[#fff] cursor-pointer hover:bg-[#fafafa] ease-linear duration-75"
           >
-            Play
-          </button>
+            <div className="flex justify-center items-center w-10 h-10 rounded-lg border-1 border-[#e1e1e1] mr-3">
+              <img src="/logo_small.png" />
+            </div>
+
+            <div className="flex justify-center items-center w-fit">
+              <h1>{author}</h1>
+            </div>
+          </Link>
+
+          <p className="text-md mb-10">{desc}</p>
+
           <div className="flex flex-col gap-3 justify-end items-end h-full">
-            <div className="flex flex-row gap-3">
-              <LikeButton id={id} user={user} navigate={navigate} />
-              <DeleteButton user={user} role={role} author={author} id={id} />
+            <div className="flex flex-row w-full gap-3">
+              <div className="flex w-full">
+                <button
+                  onClick={() => handlePlay()}
+                  className="flex w-full justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+                >
+                  Play
+                </button>
+              </div>
+              <div className="flex flex-row gap-3">
+                <LikeButton id={id} user={user} navigate={navigate} />
+                <DeleteButton user={user} role={role} author={author} id={id} />
+              </div>
             </div>
             <h3 className="text-xs">Level ID: {id}</h3>
           </div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const LevelInfo = ({
+  plays,
+  likes,
+  dateUploaded,
+  numPegs,
+  numOrange,
+  numBalls,
+  hasBackground,
+  hasMusic,
+}: {
+  plays: number;
+  likes: number;
+  dateUploaded: Date;
+  numPegs: number;
+  numOrange: number;
+  numBalls: number;
+  hasBackground: string;
+  hasMusic: string;
+}) => {
+  return (
+    <div className="flex flex-row gap-2 mb-5">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <FaPlayCircle />
+        {plays || 0}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <FaThumbsUp />
+        {likes || 0}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <FaCalendarAlt />
+        {dateUploaded.toLocaleDateString("en-US", {
+          month: "2-digit",
+          day: "2-digit",
+          year: "numeric",
+        })}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <img src="/peg_blue.png" className="w-3 h-3" />
+        {numPegs}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <img src="/peg_orange.png" className="w-3 h-3" />
+        {numOrange}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <img src="/ball.png" className="w-2.5 h-2.5" />
+        {numBalls}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <FaFileImage />
+        {hasBackground}
+      </div>
+
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+        <IoMdMusicalNote size={14} />
+        {hasMusic}
       </div>
     </div>
   );
