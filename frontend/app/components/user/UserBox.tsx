@@ -6,10 +6,12 @@
  */
 const UserBox = ({
   username,
+  role,
   dateJoined,
   numLevels,
 }: {
   username: any;
+  role: string;
   dateJoined: Date;
   numLevels: number;
 }) => {
@@ -26,6 +28,11 @@ const UserBox = ({
       </div>
 
       <h1 className="text-2xl break-words whitespace-normal w-full">{username}</h1>
+
+      <div>
+        <h2 className="text-sm">Role:</h2>
+        <p className="text-xs text-neutral-500">{role}</p>
+      </div>
 
       <div>
         <h2 className="text-sm">Member Since:</h2>

@@ -81,6 +81,7 @@ const user = () => {
           <div className="flex flex-row justify-start items-start gap-10">
             <UserBox
               username={username}
+              role={userInfo.role}
               dateJoined={userInfo.dateJoined}
               numLevels={results.length}
             />

@@ -20782,7 +20782,8 @@
 														"const musicPicker = runtime.objects.MusicHere;",
 														"const musicPickerInst = musicPicker.getFirstInstance();",
 														"if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];"
-													]
+													],
+													"disabled": true
 												}
 											],
 											"sid": 778442245059578
@@ -23450,11 +23451,15 @@
 														"    if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];",
 														"",
 														"    if(!backgroundFile) {",
-														"        backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);",
+														"        try {",
+														"            backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);",
+														"        } catch (e) { console.error(e); }",
 														"    } ",
 														"",
 														"    if(!musicFile) {",
-														"        musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);",
+														"        try {",
+														"            musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);",
+														"        } catch (e) { console.error(e); }",
 														"    } ",
 														"",
 														"    if (backgroundFile) {",

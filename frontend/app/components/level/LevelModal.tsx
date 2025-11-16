@@ -59,7 +59,6 @@ const LevelModal = ({
 
   const handlePlay = () => {
     navigate(`/play/${id}`);
-    console.log(role);
   };
 
   const handleKeyDown = (e: any) => {

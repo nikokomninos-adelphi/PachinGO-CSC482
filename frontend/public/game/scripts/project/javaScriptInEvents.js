@@ -200,11 +200,15 @@ const upload = async () => {
     if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];
 
     if(!backgroundFile) {
-        backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);
+        try {
+            backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);
+        } catch (e) { console.error(e); }
     } 
 
     if(!musicFile) {
-        musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);
+        try {
+            musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);
+        } catch (e) { console.error(e); }
     } 
 
     if (backgroundFile) {
@@ -243,9 +247,7 @@ runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.Up
 
 	async Gameplay_Event440_Act5(runtime, localVars)
 	{
-		const musicPicker = runtime.objects.MusicHere;
-		const musicPickerInst = musicPicker.getFirstInstance();
-		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
+
 	}
 };
 
