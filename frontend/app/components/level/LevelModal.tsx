@@ -5,11 +5,13 @@
  */
 
 import { useState, useEffect } from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaFileImage, FaMusic, FaTrash } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa6";
+import { FaPlayCircle, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import { useAuthStore } from "~/stores/useAuthStore";
 import { useNavigate } from "react-router";
+import { IoMdMusicalNote } from "react-icons/io";
 
 const LevelModal = ({
   setShowModal,
@@ -18,6 +20,13 @@ const LevelModal = ({
   author,
   desc,
   thumbnail,
+  plays,
+  likes,
+  dateUploaded,
+  numPegs,
+  numOrange,
+  hasBackground,
+  hasMusic,
 }: {
   setShowModal: Function;
   id: string;
@@ -25,6 +34,13 @@ const LevelModal = ({
   author: string;
   desc: string;
   thumbnail: string;
+  plays: number;
+  likes: number;
+  dateUploaded: Date;
+  numPegs: number;
+  numOrange: number;
+  hasBackground: string;
+  hasMusic: string;
 }) => {
   const { user } = useAuthStore();
   const navigate = useNavigate();
@@ -104,6 +120,46 @@ const LevelModal = ({
               {author}
             </Link>
           </h2>
+          <div className="flex flex-row gap-2 mb-5">
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <FaPlayCircle />
+              {plays || 0}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <FaThumbsUp />
+              {likes || 0}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <FaCalendarAlt />
+              {dateUploaded.toLocaleDateString("en-US", {
+                month: "2-digit",
+                day: "2-digit",
+                year: "numeric",
+              })}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <img src="/peg_blue.png" className="w-3 h-3" />
+              {numPegs.toString()}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <img src="/peg_orange.png" className="w-3 h-3" />
+              {numOrange.toString()}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <FaFileImage />
+              {hasBackground}
+            </div>
+
+            <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+              <IoMdMusicalNote size={14}/>
+              {hasMusic}
+            </div>
+          </div>
           <p className="text-md mb-10">{desc}</p>
           <button
             onClick={() => handlePlay()}
@@ -148,7 +204,7 @@ const LikeButton = ({
     (async () => {
       if (user) await getLikedLevels();
     })();
-  }, [liked])
+  }, [liked]);
 
   useEffect(() => {
     if (user && likedLevels.includes(Number(id))) setLiked(true);

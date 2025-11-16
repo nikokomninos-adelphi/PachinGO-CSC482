@@ -248,6 +248,13 @@ const Search = () => {
                 ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
                 : "/thumbnail.jpg"
             }
+            plays={r.plays}
+            likes={r.likes}
+            dateUploaded={new Date(r.dateUploaded)}
+            numPegs={Object.keys(r.pegLayout.data).length - 3}
+            numOrange={r.numOrange}
+            hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
+            hasMusic={r.backgroundMusic !== "N/A" ? "Yes" : "No"}
           />
         ));
       case "levelID":
@@ -263,6 +270,13 @@ const Search = () => {
                 ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
                 : "/thumbnail.jpg"
             }
+            plays={r.plays}
+            likes={r.likes}
+            dateUploaded={new Date(r.dateUploaded)}
+            numPegs={Object.keys(r.pegLayout.data).length - 3}
+            numOrange={r.numOrange}
+            hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
+            hasMusic={r.backgroundMusic !== "N/A" ? "Yes" : "No"}
           />
         ));
       case "users":
