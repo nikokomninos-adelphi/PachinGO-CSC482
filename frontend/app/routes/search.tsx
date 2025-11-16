@@ -75,14 +75,29 @@ const Search = () => {
     if (searchType === "levelName") {
       setSortType("date");
       setSortOrderType("desc");
-      handleSearch("$recent$", 1);
+      setTerm("$recent");
+      setSearchParams(
+        { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
+        { replace: true },
+      );
+      //handleSearch("$recent$", 1);
     }
     if(searchType === "levelID") {
+      setTerm("");
+      //setSearchParams(
+      //  { term: "", page: "1", limit, searchType, sortType, sortOrderType },
+      //  { replace: true },
+      //);
       handleSearch("", 1);
     }
     if (searchType === "users") {
       setSortType("name");
-      handleSearch("$recent$", 1);
+      setTerm("$recent");
+      setSearchParams(
+        { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
+        { replace: true },
+      );
+      //handleSearch("$recent$", 1);
     }
   }, [searchType]);
 
@@ -104,7 +119,7 @@ const Search = () => {
       //setPage(1);
       //handleSearch("$recent$", 1);
     }
-  }, [searchParams]);
+  }, [searchParams, limit]);
 
   /* Handles a search.
    *
