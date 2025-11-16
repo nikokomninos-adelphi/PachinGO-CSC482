@@ -84,10 +84,10 @@ const Search = () => {
     }
     if(searchType === "levelID") {
       setTerm("");
-      //setSearchParams(
-      //  { term: "", page: "1", limit, searchType, sortType, sortOrderType },
-      //  { replace: true },
-      //);
+      setSearchParams(
+        { term: "", page: "1", limit, searchType, sortType, sortOrderType },
+        { replace: true },
+      );
       handleSearch("", 1);
     }
     if (searchType === "users") {
