@@ -75,7 +75,7 @@ const Search = () => {
     if (searchType === "levelName") {
       setSortType("date");
       setSortOrderType("desc");
-      setTerm("$recent");
+      setTerm("$recent$");
       setSearchParams(
         { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
         { replace: true },
@@ -92,7 +92,7 @@ const Search = () => {
     }
     if (searchType === "users") {
       setSortType("name");
-      setTerm("$recent");
+      setTerm("$recent$");
       setSearchParams(
         { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
         { replace: true },
