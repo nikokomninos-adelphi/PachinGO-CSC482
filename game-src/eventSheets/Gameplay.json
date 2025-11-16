@@ -1263,13 +1263,21 @@
 									"text": "Resetting all gameplay related booleans"
 								},
 								{
-									"id": "wait",
+									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 492152757241286,
-									"disabled": true,
+									"sid": 241972488543122,
 									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
+										"group-name": "\"CORE GAMEPLAY\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 699236640986041,
+									"parameters": {
+										"group-name": "\"LEVEL EDITOR\"",
+										"state": "deactivated"
 									}
 								},
 								{
@@ -1620,10 +1628,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "Peg",
-									"sid": 237901183478229,
+									"sid": 154644628978025,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"range": "26"
+										"range": "28"
 									}
 								},
 								{
@@ -2170,6 +2178,193 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 607238222992388
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 418176628807742,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 851237250882602,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 669767854117991,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "muted"
+									}
+								}
+							],
+							"sid": 352437035560374
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 574084939591827
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 518920779836707,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 223458302278576,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 163133762686231,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 249361475823120,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-16"
+									}
+								}
+							],
+							"sid": 391830832255580
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 340567791089071
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 782420959327769,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 628810897452503,
+									"parameters": {
+										"frame-number": "2"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 651723512063114,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 146182080580215,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-8"
+									}
+								}
+							],
+							"sid": 686803506483395
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 427581181326497
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 216733586351277,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 639164103360749,
+									"parameters": {
+										"frame-number": "3"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 478159899258026,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 141459596134626,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "0"
+									}
+								}
+							],
+							"sid": 632882649463728
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "every-tick",
 									"objectClass": "System",
 									"sid": 661386807177220
@@ -2244,10 +2439,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "Peg",
-									"sid": 426515042963564,
+									"sid": 212643989750597,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"range": "26"
+										"range": "28"
 									}
 								},
 								{
@@ -5171,6 +5366,41 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 217359682784867,
+											"parameters": {
+												"variable": "DestroyingPegsAtEndOfTurnProcess",
+												"comparison": 5,
+												"value": "BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn + OtherPegsDestroyedInOneTurn"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 350344716673807,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 805619558024564,
+											"parameters": {
+												"variable": "EndOfTurnHappeningContinued",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 260574346196730
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
 											"sid": 501149174296348,
@@ -5349,6 +5579,18 @@
 															],
 															"actions": [
 																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 491401006936346,
+																	"parameters": {
+																		"audio-file": "pop",
+																		"loop": "not-looping",
+																		"volume": "5",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																},
+																{
 																	"id": "destroy",
 																	"objectClass": "Peg",
 																	"sid": 374200001282876
@@ -5356,7 +5598,7 @@
 																{
 																	"id": "add-to-eventvar",
 																	"objectClass": "System",
-																	"sid": 720246193679177,
+																	"sid": 511851157866790,
 																	"parameters": {
 																		"variable": "DestroyingPegsAtEndOfTurnProcess",
 																		"value": "1"
@@ -5372,41 +5614,6 @@
 											"isOrBlock": true
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 500404408547445,
-											"parameters": {
-												"variable": "DestroyingPegsAtEndOfTurnProcess",
-												"comparison": 5,
-												"value": "BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn + OtherPegsDestroyedInOneTurn"
-											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 484187354205485,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 535877721867315,
-											"parameters": {
-												"variable": "EndOfTurnHappeningContinued",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 198484263318374
 								},
 								{
 									"eventType": "comment",
@@ -5476,10 +5683,10 @@
 										{
 											"id": "set-range",
 											"objectClass": "Peg",
-											"sid": 457787931417469,
+											"sid": 392367975034111,
 											"behaviorType": "LineOfSight",
 											"parameters": {
-												"range": "26"
+												"range": "28"
 											}
 										},
 										{
@@ -8850,6 +9057,18 @@
 																			}
 																		},
 																		{
+																			"id": "play",
+																			"objectClass": "Audio",
+																			"sid": 436072800509451,
+																			"parameters": {
+																				"audio-file": "pop",
+																				"loop": "not-looping",
+																				"volume": "5",
+																				"stereo-pan": "0",
+																				"tag-optional": "\"\""
+																			}
+																		},
+																		{
 																			"id": "destroy",
 																			"objectClass": "Peg",
 																			"sid": 391895834694669
@@ -9153,6 +9372,14 @@
 												"variable": "OrangePegsRemaining",
 												"comparison": 3,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 359520895201261,
+											"parameters": {
+												"variable": "GameFinishedLoading"
 											}
 										},
 										{
@@ -12336,6 +12563,15 @@
 														"tag": "\"Music\"",
 														"state": "muted"
 													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 931712543309625,
+													"parameters": {
+														"variable": "volume",
+														"value": "0"
+													}
 												}
 											],
 											"sid": 259526801061019
@@ -12371,10 +12607,19 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 523924165703297,
+													"sid": 832307930452753,
 													"parameters": {
 														"tag": "\"Music\"",
-														"db": "-25"
+														"db": "-16"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 951410020059638,
+													"parameters": {
+														"variable": "volume",
+														"value": "1"
 													}
 												}
 											],
@@ -12411,10 +12656,19 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 519499957124383,
+													"sid": 834080949303332,
 													"parameters": {
 														"tag": "\"Music\"",
-														"db": "-15"
+														"db": "-8"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 598119060170398,
+													"parameters": {
+														"variable": "volume",
+														"value": "2"
 													}
 												}
 											],
@@ -12442,7 +12696,7 @@
 												{
 													"id": "set-muted",
 													"objectClass": "Audio",
-													"sid": 400965496166994,
+													"sid": 612207422987968,
 													"parameters": {
 														"tag": "\"Music\"",
 														"state": "unmuted"
@@ -12451,142 +12705,23 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 532106843001484,
+													"sid": 657775416926192,
 													"parameters": {
 														"tag": "\"Music\"",
 														"db": "0"
 													}
-												}
-											],
-											"sid": 458381895037943
-										},
-										{
-											"eventType": "comment",
-											"text": "might be excess to do this but to make sure volume is stored (NOT WORKING CURRENTLY)"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-start-of-layout",
-													"objectClass": "System",
-													"sid": 679761952907749
 												},
 												{
-													"id": "compare-eventvar",
+													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 346324238676195,
+													"sid": 755407661418215,
 													"parameters": {
 														"variable": "volume",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "volumebutt",
-													"sid": 435757279978079,
-													"parameters": {
-														"frame-number": "0"
-													}
-												}
-											],
-											"sid": 166909940899888
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-start-of-layout",
-													"objectClass": "System",
-													"sid": 732317247094937
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 256221227129559,
-													"parameters": {
-														"variable": "volume",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "volumebutt",
-													"sid": 567496218889050,
-													"parameters": {
-														"frame-number": "1"
-													}
-												}
-											],
-											"sid": 563472962638267
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-start-of-layout",
-													"objectClass": "System",
-													"sid": 275615078400223
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 910169263263716,
-													"parameters": {
-														"variable": "volume",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "volumebutt",
-													"sid": 583556967835018,
-													"parameters": {
-														"frame-number": "2"
-													}
-												}
-											],
-											"sid": 317461082631231
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-start-of-layout",
-													"objectClass": "System",
-													"sid": 234200808384696
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 133265604090907,
-													"parameters": {
-														"variable": "volume",
-														"comparison": 0,
 														"value": "3"
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "volumebutt",
-													"sid": 381295730860605,
-													"parameters": {
-														"frame-number": "3"
-													}
-												}
-											],
-											"sid": 875682051181430
+											"sid": 458381895037943
 										},
 										{
 											"eventType": "comment",
