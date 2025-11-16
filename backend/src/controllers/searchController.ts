@@ -153,7 +153,7 @@ export const searchLevelName = async (req: Request, res: Response) => {
         reqPage: page as number,
         reqLimit: limit as number,
       });
-      res.status(200).json({
+      return res.status(200).json({
         results: (searchResult as any).results,
         total: (searchResult as any).total,
         totalPages: (searchResult as any).totalPages,
@@ -166,7 +166,7 @@ export const searchLevelName = async (req: Request, res: Response) => {
         reqPage: page as number,
         reqLimit: limit as number,
       });
-      res.status(200).json({
+      return res.status(200).json({
         results: (searchResult as any).results,
         total: (searchResult as any).total,
         totalPages: (searchResult as any).totalPages,
@@ -179,7 +179,7 @@ export const searchLevelName = async (req: Request, res: Response) => {
         reqPage: page as number,
         reqLimit: limit as number,
       });
-      res.status(200).json({
+      return res.status(200).json({
         results: (searchResult as any).results,
         total: (searchResult as any).total,
         totalPages: (searchResult as any).totalPages,
@@ -245,7 +245,7 @@ export const searchLevelName = async (req: Request, res: Response) => {
       return res.status(204).json({ message: "No results" });
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       results,
       total,
       totalPages: Math.ceil(total / (limit as number)),

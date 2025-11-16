@@ -73,6 +73,7 @@ export const uploadLevel = [
         scoreHSL,
         crystalHSL,
         numOrange,
+        numBalls,
       } = req.body;
       let backgroundUrl: string = "N/A";
       let musicUrl: string = "N/A";
@@ -201,6 +202,7 @@ export const uploadLevel = [
         scoreHSL: JSON.parse(scoreHSL),
         crystalHSL: JSON.parse(crystalHSL),
         numOrange: numOrange,
+        numBalls: numBalls,
         dateUploaded: dateUploaded,
         likes: 0,
         plays: 0,

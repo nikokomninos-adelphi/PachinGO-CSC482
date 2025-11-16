@@ -38,7 +38,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Acts.RestartLayout,
-		C3.JavaScriptInEvents.Gameplay_Event16_Act3,
+		C3.JavaScriptInEvents.Gameplay_Event17_Act3,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.System.Acts.ResetEventVar,
 		C3.Behaviors.DragnDrop.Acts.SetEnabled,
@@ -124,7 +124,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.SetMuted,
 		C3.Plugins.Audio.Acts.SetVolume,
 		C3.Plugins.TextBox.Acts.SetText,
-		C3.JavaScriptInEvents.Gameplay_Event308_Act15,
+		C3.JavaScriptInEvents.Gameplay_Event309_Act15,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.DragnDrop.Cnds.OnDrop,
 		C3.Behaviors.DragnDrop.Cnds.OnDragStart,
@@ -142,16 +142,17 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.len,
 		C3.Plugins.filechooser.Cnds.OnChanged,
 		C3.Plugins.filechooser.Exps.FileURLAt,
+		C3.JavaScriptInEvents.Gameplay_Event405_Act2,
 		C3.Plugins.System.Acts.MoveLayer,
 		C3.Plugins.Button.Acts.SetEnabled,
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.Button.Cnds.HasTags,
+		C3.JavaScriptInEvents.Gameplay_Event440_Act5,
 		C3.Plugins.Sprite.Exps.Count,
-		C3.JavaScriptInEvents.Gameplay_Event478_Act4,
-		C3.JavaScriptInEvents.Gameplay_Event489_Act5,
-		C3.JavaScriptInEvents.Gameplay_Event489_Act6,
-		C3.JavaScriptInEvents.Gameplay_Event492_Act8,
-		C3.Plugins.System.Acts.SetFullscreenQuality,
+		C3.JavaScriptInEvents.Gameplay_Event479_Act4,
+		C3.JavaScriptInEvents.Gameplay_Event490_Act5,
+		C3.JavaScriptInEvents.Gameplay_Event490_Act6,
+		C3.JavaScriptInEvents.Gameplay_Event493_Act8,
 		C3.JavaScriptInEvents.Menu_Event5_Act1
 	];
 };
@@ -322,6 +323,7 @@ self.C3_JsPropNameTable = [
 	{ResetStatus: 0},
 	{url: 0},
 	{numOrange: 0},
+	{numBalls: 0},
 	{Layout: 0}
 ];
 

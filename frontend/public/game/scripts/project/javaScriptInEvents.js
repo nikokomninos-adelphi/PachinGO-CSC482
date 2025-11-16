@@ -13,7 +13,7 @@ const scriptsInEvents = {
 		runtime.callFunction("CheckLayout", layout);
 	},
 
-	async Gameplay_Event16_Act3(runtime, localVars)
+	async Gameplay_Event17_Act3(runtime, localVars)
 	{
 // Load the level editor peg layout into the
 // gameplay test layout
@@ -37,6 +37,8 @@ const load = async () => {
 
     runtime.globalVars.NumberOfOrangePegsInLevel = data.level.numOrange;
     runtime.callFunction("SetNumOrange", data.level.numOrange);
+    runtime.globalVars.BallCountOnStart = data.level.numBalls;
+    runtime.callFunction("SetNumBalls", data.level.numBalls);
     runtime.globalVars.MusicSelect = data.level.musicSelect;
 
     runtime.globalVars.HWall = data.level.wallHSL.H;
@@ -90,7 +92,7 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	},
 
-	async Gameplay_Event308_Act15(runtime, localVars)
+	async Gameplay_Event309_Act15(runtime, localVars)
 	{
 		// Gets the logged in user, and loads the previous state of the level editor peg layout
 		
@@ -107,7 +109,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		}
 	},
 
-	async Gameplay_Event478_Act4(runtime, localVars)
+	async Gameplay_Event479_Act4(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -136,7 +138,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event489_Act5(runtime, localVars)
+	async Gameplay_Event490_Act5(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -165,7 +167,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event489_Act6(runtime, localVars)
+	async Gameplay_Event490_Act6(runtime, localVars)
 	{
 const pegs = JSON.parse(runtime.globalVars.PegData).data;
 
@@ -177,6 +179,7 @@ const upload = async () => {
     formData.append("desc", runtime.globalVars.CustomLevelDesc || "This level is so fun!");
     formData.append("pegLayout", runtime.globalVars.PegData);
     formData.append("numOrange", runtime.globalVars.NumberOfOrangePegsInLevel);
+    formData.append("numBalls", runtime.globalVars.BallCountOnStart);
     formData.append("backgroundImageOpacity", runtime.globalVars.BGIMageOpacity);
     formData.append("backgroundImageHSL", JSON.stringify({ "H": runtime.globalVars.HBGColor, "S": runtime.globalVars.SBGColor, "L": runtime.globalVars.LBGColor }));
     formData.append("musicSelect", runtime.globalVars.MusicSelect);
@@ -196,12 +199,20 @@ const upload = async () => {
     if (backgroundPickerInst) backgroundFile = backgroundPickerInst.getFiles()[0];
     if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];
 
+    if(!backgroundFile) {
+        backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);
+    } 
+
+    if(!musicFile) {
+        musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);
+    } 
+
     if (backgroundFile) {
-        formData.append("background", backgroundFile, backgroundFile.name || "background.png");
+        formData.append("background", backgroundFile, backgroundFile.name);
     }
 
     if (musicFile) {
-        formData.append("music", musicFile, musicFile.name || "music.mp3");
+        formData.append("music", musicFile, musicFile.name);
     }
 
     const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/uploadLevel`, {
@@ -218,9 +229,23 @@ const upload = async () => {
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
-	async Gameplay_Event492_Act8(runtime, localVars)
+	async Gameplay_Event493_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
+	},
+
+	async Gameplay_Event405_Act2(runtime, localVars)
+	{
+		const backgroundPicker = runtime.objects.ImageHere;
+		const backgroundPickerInst = backgroundPicker.getFirstInstance();
+		if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];
+	},
+
+	async Gameplay_Event440_Act5(runtime, localVars)
+	{
+		const musicPicker = runtime.objects.MusicHere;
+		const musicPickerInst = musicPicker.getFirstInstance();
+		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	}
 };
 

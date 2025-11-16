@@ -19218,6 +19218,15 @@
 													}
 												},
 												{
+													"type": "script",
+													"language": "javascript",
+													"script": [
+														"const backgroundPicker = runtime.objects.ImageHere;",
+														"const backgroundPickerInst = backgroundPicker.getFirstInstance();",
+														"if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];"
+													]
+												},
+												{
 													"id": "set-visible",
 													"objectClass": "CustomBG",
 													"sid": 267104956089172,
@@ -20765,6 +20774,15 @@
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
+												},
+												{
+													"type": "script",
+													"language": "javascript",
+													"script": [
+														"const musicPicker = runtime.objects.MusicHere;",
+														"const musicPickerInst = musicPicker.getFirstInstance();",
+														"if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];"
+													]
 												}
 											],
 											"sid": 778442245059578
@@ -23431,12 +23449,20 @@
 														"    if (backgroundPickerInst) backgroundFile = backgroundPickerInst.getFiles()[0];",
 														"    if (musicPickerInst) musicFile = musicPickerInst.getFiles()[0];",
 														"",
+														"    if(!backgroundFile) {",
+														"        backgroundFile = new File([window.cachedBGFile], window.cachedBGFile.name);",
+														"    } ",
+														"",
+														"    if(!musicFile) {",
+														"        musicFile = new File([window.cachedMusicFile], window.cachedMusicFile.name);",
+														"    } ",
+														"",
 														"    if (backgroundFile) {",
-														"        formData.append(\"background\", backgroundFile, backgroundFile.name || \"background.png\");",
+														"        formData.append(\"background\", backgroundFile, backgroundFile.name);",
 														"    }",
 														"",
 														"    if (musicFile) {",
-														"        formData.append(\"music\", musicFile, musicFile.name || \"music.mp3\");",
+														"        formData.append(\"music\", musicFile, musicFile.name);",
 														"    }",
 														"",
 														"    const res = await fetch(`${runtime.globalVars.BackendURL}/api/v1/level/uploadLevel`, {",
@@ -24579,7 +24605,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "DEBUG CONTROLS",
 			"description": "",
 			"isActiveOnStart": true,
@@ -24603,7 +24629,8 @@
 							}
 						}
 					],
-					"sid": 976573314261908
+					"sid": 976573314261908,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24628,7 +24655,8 @@
 							}
 						}
 					],
-					"sid": 171640072368903
+					"sid": 171640072368903,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24653,7 +24681,8 @@
 							}
 						}
 					],
-					"sid": 227123293719606
+					"sid": 227123293719606,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24678,7 +24707,8 @@
 							}
 						}
 					],
-					"sid": 243536268950250
+					"sid": 243536268950250,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24703,7 +24733,8 @@
 							}
 						}
 					],
-					"sid": 121276055968729
+					"sid": 121276055968729,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24752,7 +24783,8 @@
 							}
 						}
 					],
-					"sid": 179498141628454
+					"sid": 179498141628454,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -24809,7 +24841,8 @@
 							}
 						}
 					],
-					"sid": 211081082695007
+					"sid": 211081082695007,
+					"disabled": true
 				}
 			],
 			"sid": 678078900678172
