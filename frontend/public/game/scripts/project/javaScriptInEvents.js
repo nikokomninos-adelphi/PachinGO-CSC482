@@ -86,12 +86,8 @@ if (runtime.layout.name === "Level Editor Play") {
 if (runtime.layout.name === "Level Editor Online") {
     runtime.globalVars.MusicSelect = 99;
     await load();
-    try {
-        setTimeout(() => {
-            const menu = runtime.objects.backtohome.getFirstInstance();
-            menu.destroy();
-        }, 50);
-    } catch (e) { console.error(e); }
+    const menu = runtime.objects.backtohome.getFirstInstance();
+    menu.destroy();
 }
 
 	},
