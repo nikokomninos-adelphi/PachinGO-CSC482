@@ -86,8 +86,12 @@ if (runtime.layout.name === "Level Editor Play") {
 if (runtime.layout.name === "Level Editor Online") {
     runtime.globalVars.MusicSelect = 99;
     await load();
-    const menu = runtime.objects.backtohome.getFirstInstance();
-    menu.destroy();
+    try {
+        setTimeout(() => {
+            const menu = runtime.objects.backtohome.getFirstInstance();
+            menu.destroy();
+        }, 50);
+    } catch (e) { console.error(e); }
 }
 
 	},
@@ -107,6 +111,20 @@ if (runtime.layout.name === "Level Editor Online") {
 		    newPeg.angle = pegData.angle;
 		    newPeg.setAnimation(pegData.animation);
 		}
+	},
+
+	async Gameplay_Event405_Act2(runtime, localVars)
+	{
+		const backgroundPicker = runtime.objects.ImageHere;
+		const backgroundPickerInst = backgroundPicker.getFirstInstance();
+		if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];
+	},
+
+	async Gameplay_Event440_Act5(runtime, localVars)
+	{
+		const musicPicker = runtime.objects.MusicHere;
+		const musicPickerInst = musicPicker.getFirstInstance();
+		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	},
 
 	async Gameplay_Event479_Act4(runtime, localVars)
@@ -236,20 +254,6 @@ runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.Up
 	async Gameplay_Event493_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
-	},
-
-	async Gameplay_Event405_Act2(runtime, localVars)
-	{
-		const backgroundPicker = runtime.objects.ImageHere;
-		const backgroundPickerInst = backgroundPicker.getFirstInstance();
-		if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];
-	},
-
-	async Gameplay_Event440_Act5(runtime, localVars)
-	{
-		const musicPicker = runtime.objects.MusicHere;
-		const musicPickerInst = musicPicker.getFirstInstance();
-		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	}
 };
 

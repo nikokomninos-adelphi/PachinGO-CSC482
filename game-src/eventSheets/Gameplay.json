@@ -1347,8 +1347,12 @@
 										"if (runtime.layout.name === \"Level Editor Online\") {",
 										"    runtime.globalVars.MusicSelect = 99;",
 										"    await load();",
-										"    const menu = runtime.objects.backtohome.getFirstInstance();",
-										"    menu.destroy();",
+										"    try {",
+										"        setTimeout(() => {",
+										"            const menu = runtime.objects.backtohome.getFirstInstance();",
+										"            menu.destroy();",
+										"        }, 50);",
+										"    } catch (e) { console.error(e); }",
 										"}",
 										""
 									]
