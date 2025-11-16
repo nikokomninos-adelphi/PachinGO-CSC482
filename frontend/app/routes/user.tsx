@@ -102,6 +102,14 @@ const user = () => {
                           ? `${import.meta.env.VITE_R2_URL}/${r.thumbnail}`
                           : "/thumbnail.jpg"
                       }
+                      plays={r.plays}
+                      likes={r.likes}
+                      dateUploaded={new Date(r.dateUploaded)}
+                      numPegs={Object.keys(r.pegLayout.data).length - 3}
+                      numOrange={r.numOrange}
+                      numBalls={r.numBalls}
+                      hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
+                      hasMusic={r.backgroundMusic !== "N/A" ? "Yes" : "No"}
                     />
                   ))
                 ) : (

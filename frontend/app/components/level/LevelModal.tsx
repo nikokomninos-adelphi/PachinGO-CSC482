@@ -5,7 +5,7 @@
  */
 
 import { useState, useEffect } from "react";
-import { FaFileImage, FaMusic, FaTrash } from "react-icons/fa";
+import { FaFileImage, FaTrash } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa6";
 import { FaPlayCircle, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router";
@@ -44,7 +44,7 @@ const LevelModal = ({
   hasBackground: string;
   hasMusic: string;
 }) => {
-  const { user } = useAuthStore();
+  const { user, role } = useAuthStore();
   const navigate = useNavigate();
 
   // Prevent scrolling when modal is open
@@ -59,6 +59,7 @@ const LevelModal = ({
 
   const handlePlay = () => {
     navigate(`/play/${id}`);
+    console.log(role);
   };
 
   const handleKeyDown = (e: any) => {
@@ -177,7 +178,7 @@ const LevelModal = ({
           <div className="flex flex-col gap-3 justify-end items-end h-full">
             <div className="flex flex-row gap-3">
               <LikeButton id={id} user={user} navigate={navigate} />
-              <DeleteButton user={user} author={author} id={id} />
+              <DeleteButton user={user} role={role} author={author} id={id} />
             </div>
             <h3 className="text-xs">Level ID: {id}</h3>
           </div>
@@ -198,12 +199,12 @@ const LikeButton = ({
 }) => {
   const [liked, setLiked] = useState(false);
   const [likedLevels, setLikedLevels] = useState<number[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  //const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       if (user) await getLikedLevels();
-      setIsLoading(false);
+      //setIsLoading(false);
     })();
   }, []);
 
@@ -280,7 +281,7 @@ const LikeButton = ({
     else setLiked(false);
   };
 
-  if (isLoading) return null;
+  //if (isLoading) return null;
 
   return (
     <div className="relative inline-block">
@@ -302,10 +303,12 @@ const LikeButton = ({
 // as to avoid using the alert() function
 const DeleteButton = ({
   user,
+  role,
   author,
   id,
 }: {
   user: any;
+  role: any;
   author: string;
   id: string;
 }) => {
@@ -335,7 +338,9 @@ const DeleteButton = ({
       <button
         onClick={() => setShowConfirm((prev) => !prev)} // toggle popup
         className={
-          user?.username === author
+          user?.username === author ||
+          role === "Moderator" ||
+          role === "PachinGOD"
             ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
             : "hidden"
         }

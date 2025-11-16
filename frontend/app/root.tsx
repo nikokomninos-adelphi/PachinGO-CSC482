@@ -51,11 +51,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App({ loaderData }: Route.ComponentProps) {
-  const { checkAuth } = useAuthStore();
+  const { checkAuth, setRole } = useAuthStore();
 
   useEffect(() => {
     (async () => {
-      await checkAuth();
+      const user = JSON.stringify(await checkAuth());
+      await setRole(JSON.parse(user).username);
     })();
   }, [checkAuth]);
 

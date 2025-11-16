@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { useAuthStore } from "~/stores/useAuthStore";
 import { FaCaretDown, FaMoon } from "react-icons/fa";
-import { IoIosExit, IoMdContact, IoMdSettings } from "react-icons/io";
+import { IoIosExit, IoMdContact } from "react-icons/io";
 import { FaSun } from "react-icons/fa";
 import { MdMonitor } from "react-icons/md";
 
@@ -23,13 +23,13 @@ const NavLoginOnly = () => {
   // Handles logging the user out when the logout button is clicked
   const handleLogout = async () => {
     await logout();
-    localStorage.removeItem("user");
     navigate("/");
   };
 
   // Handles client side flicker. Will not render
   // login controls until login state is checked.
   useEffect(() => {
+    //if (user) setRole((user as any).username);
     setIsLoading(false);
   }, [user]);
 

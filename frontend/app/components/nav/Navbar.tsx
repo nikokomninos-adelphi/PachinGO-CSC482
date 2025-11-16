@@ -3,6 +3,8 @@
  */
 
 import { Link } from "react-router";
+import { useEffect } from "react";
+import { useAuthStore } from "~/stores/useAuthStore";
 import {
   FaPlay,
   FaSearch,
@@ -11,10 +13,11 @@ import {
   FaMoneyBillWave,
 } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-
 import NavLoginOnly from "./NavLoginOnly";
 
 const Navbar = () => {
+const { user, role } = useAuthStore();
+
   return (
     <div>
       <div className="bg-[#FAFAFA] border-b-1 border-b-[#E1E1EE] p-1 mb-3">
@@ -64,6 +67,7 @@ const Navbar = () => {
               <FaWrench size={12} />
               <h1 className="text-sm">Level Editor</h1>
             </Link>
+
           </div>
           <div className="flex flex-row justify-center items-center gap-2 mt-1 mb-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl p-3 text-sm">
             <Link

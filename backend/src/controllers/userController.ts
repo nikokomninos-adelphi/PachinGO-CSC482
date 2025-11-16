@@ -22,6 +22,7 @@ export const getUser = async (req: Request, res: Response) => {
     const populated = await UserInfo.find().populate({
       path: "user",
       match: { username: username },
+      select: "username",
     });
     const filter = populated.filter((info) => info.user);
     const result = filter[0];

@@ -14,7 +14,7 @@ const LoginBox = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const { user, checkAuth } = useAuthStore();
+  const { user, role, checkAuth, setRole } = useAuthStore();
 
   const navigate = useNavigate();
 
@@ -41,8 +41,9 @@ const LoginBox = () => {
     );
     const data = await res.json();
     if (data.message === "Login successful") {
-      const username = JSON.stringify(await checkAuth());
-      localStorage.setItem("user", JSON.parse(username).username);
+      const user = JSON.stringify(await checkAuth());
+      await setRole(JSON.parse(user).username);
+      localStorage.setItem("user", JSON.parse(user).username);
       navigate("/");
     } else setStatus(data.message);
   };

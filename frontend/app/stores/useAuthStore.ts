@@ -9,17 +9,17 @@ import { create } from "zustand";
 
 interface AuthState {
   user: string | null;
+  role: string | null;
   checking: boolean;
-  isAdmin: boolean;
   checkAuth: () => Promise<void>;
+  setRole: (username: string) => Promise<void>;
   logout: () => Promise<void>;
-  setUser: (user: string | null) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
+  role: null,
   checking: true,
-  isAdmin: false,
 
   checkAuth: async () => {
     try {
@@ -32,16 +32,47 @@ export const useAuthStore = create<AuthState>((set) => ({
       );
 
       if (!res.ok) {
-        set({ user: null });
-        return;
+        set({ user: null, role: null, checking: false });
+        return null;
       }
 
       const data = await res.json();
-      set({ user: data.username, checking: false });
-      return data.username;
+      const username = data.username;
+      set({ user: username });
+      return username;
     } catch (err) {
       console.error("Auth check failed:", err);
-      set({ user: null, checking: false });
+      set({ user: null, role: null, checking: false });
+    }
+  },
+
+  setRole: async (username: string) => {
+    try {
+      const res = await fetch(
+        import.meta.env.VITE_BACKEND_URL +
+          `/api/v1/users/getUser?username=${username}`,
+        {
+          method: "GET",
+          credentials: "include",
+        },
+      );
+
+      if (!res.ok) {
+        set({ role: null });
+        return false;
+      }
+
+      const data = await res.json();
+      const userInfo = data.result;
+      const role = userInfo?.role;
+
+      set({ role: role, checking: false });
+
+      return role;
+    } catch (err) {
+      console.error("Role check failed:", err);
+      set({ role: null, checking: false });
+      return false;
     }
   },
 
@@ -51,12 +82,11 @@ export const useAuthStore = create<AuthState>((set) => ({
         method: "POST",
         credentials: "include",
       });
+      localStorage.removeItem("user");
     } catch (err) {
       console.error("Logout failed:", err);
     } finally {
-      set({ user: null });
+      set({ user: null, role: null });
     }
   },
-
-  setUser: (user) => set({ user }),
 }));
