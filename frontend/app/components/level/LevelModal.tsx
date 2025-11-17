@@ -111,7 +111,7 @@ const LevelModal = ({
               Back
             </button>
           </div>
-          <h1 className="text-4xl font-semibold mb-3">{name}</h1>
+          <h1 className="text-4xl font-semibold mb-3 whitespace-normal break-words">{name}</h1>
 
           <LevelInfo
             plays={plays}
@@ -137,7 +137,7 @@ const LevelModal = ({
             </div>
           </Link>
 
-          <p className="text-md mb-10">{desc}</p>
+          <p className="text-md mb-10 whitespace-normal break-words">{desc}</p>
 
           <div className="flex flex-col gap-3 justify-end items-end h-full">
             <div className="flex flex-row w-full gap-3">
