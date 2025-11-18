@@ -13,7 +13,7 @@ const scriptsInEvents = {
 		runtime.callFunction("CheckLayout", layout);
 	},
 
-	async Gameplay_Event17_Act3(runtime, localVars)
+	async Gameplay_Event17_Act4(runtime, localVars)
 	{
 // Load the level editor peg layout into the
 // gameplay test layout
