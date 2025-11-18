@@ -92,7 +92,7 @@ if (runtime.layout.name === "Level Editor Online") {
 
 	},
 
-	async Gameplay_Event309_Act15(runtime, localVars)
+	async Gameplay_Event313_Act15(runtime, localVars)
 	{
 		// Gets the logged in user, and loads the previous state of the level editor peg layout
 		
@@ -109,21 +109,21 @@ if (runtime.layout.name === "Level Editor Online") {
 		}
 	},
 
-	async Gameplay_Event405_Act2(runtime, localVars)
+	async Gameplay_Event412_Act2(runtime, localVars)
 	{
 		const backgroundPicker = runtime.objects.ImageHere;
 		const backgroundPickerInst = backgroundPicker.getFirstInstance();
 		if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];
 	},
 
-	async Gameplay_Event440_Act5(runtime, localVars)
+	async Gameplay_Event447_Act5(runtime, localVars)
 	{
 		const musicPicker = runtime.objects.MusicHere;
 		const musicPickerInst = musicPicker.getFirstInstance();
 		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	},
 
-	async Gameplay_Event479_Act4(runtime, localVars)
+	async Gameplay_Event486_Act4(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -152,7 +152,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event490_Act5(runtime, localVars)
+	async Gameplay_Event497_Act5(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -163,6 +163,8 @@ if (runtime.layout.name === "Level Editor Online") {
 		
 		for (const peg of runtime.objects.Peg.getAllInstances()) {
 		    const key = "Peg" + peg.uid;
+		
+		    if(peg.hasTags("Master")) continue;
 		
 		    if(peg.animationName === "CircleBlueActive") peg.setAnimation("CircleBlue");
 		    if(peg.animationName === "BrickBlueActive") peg.setAnimation("BrickBlue");
@@ -181,7 +183,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event490_Act6(runtime, localVars)
+	async Gameplay_Event497_Act6(runtime, localVars)
 	{
 const pegs = JSON.parse(runtime.globalVars.PegData).data;
 
@@ -247,7 +249,7 @@ const upload = async () => {
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
-	async Gameplay_Event493_Act8(runtime, localVars)
+	async Gameplay_Event500_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
 	}

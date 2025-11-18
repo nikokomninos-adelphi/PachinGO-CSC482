@@ -23860,6 +23860,8 @@
 														"for (const peg of runtime.objects.Peg.getAllInstances()) {",
 														"    const key = \"Peg\" + peg.uid;",
 														"",
+														"    if(peg.hasTags(\"Master\")) continue;",
+														"",
 														"    if(peg.animationName === \"CircleBlueActive\") peg.setAnimation(\"CircleBlue\");",
 														"    if(peg.animationName === \"BrickBlueActive\") peg.setAnimation(\"BrickBlue\");",
 														"    if(peg.animationName === \"CurveBlueActive\") peg.setAnimation(\"CurveBlue\");",
