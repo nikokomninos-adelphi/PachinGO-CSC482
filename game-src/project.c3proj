@@ -241,7 +241,8 @@
 					"ScoreCalcVisible",
 					"CustomLevelName",
 					"LevelEditorTextObject",
-					"LevelUploadSuccess"
+					"LevelUploadSuccess",
+					"PegXY"
 				],
 				"subfolders": [],
 				"name": "Text"
