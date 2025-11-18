@@ -453,8 +453,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 760.3769230769233,
-						"y": 398.07168447316405,
+						"x": 760,
+						"y": 366,
 						"width": 38.587195814267886,
 						"height": 39.51796504503712,
 						"originX": 0.5,
@@ -507,8 +507,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 760.3769230769233,
-						"y": 458.3014843561037,
+						"x": 760,
+						"y": 424,
 						"width": 38.587195814267886,
 						"height": 39.51796504503712,
 						"originX": 0.5,
@@ -1450,10 +1450,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 612.526715177969,
-						"y": 27.49568002111257,
-						"width": 31.64062617020586,
-						"height": 32.40383584792517,
+						"x": 608.0117726419153,
+						"y": 24.987935418232663,
+						"width": 35.64311363417555,
+						"height": 36.502868087937514,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2140,7 +2140,7 @@
 					"locked": false,
 					"world": {
 						"x": 470,
-						"y": 16,
+						"y": 15,
 						"width": 134.0000000000001,
 						"height": 26,
 						"originX": 0,
@@ -2251,6 +2251,59 @@
 							1,
 							1,
 							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PegXY",
+					"properties": {
+						"text": "[outlineback=#FFFFFF][lineThickness=5] X: 0\n Y: 0\n A: 0",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 9,
+						"line-height": -3,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": false,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 357,
+					"sid": 151324483843438,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 151324483843438,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 249,
+						"y": 1,
+						"width": 249,
+						"height": 51,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.25
 						],
 						"angle": 0,
 						"zElevation": 0

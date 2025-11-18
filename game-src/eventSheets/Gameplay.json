@@ -1275,6 +1275,7 @@
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 699236640986041,
+									"disabled": true,
 									"parameters": {
 										"group-name": "\"LEVEL EDITOR\"",
 										"state": "deactivated"
@@ -1628,10 +1629,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "Peg",
-									"sid": 154644628978025,
+									"sid": 845164827944012,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"range": "28"
+										"range": "30"
 									}
 								},
 								{
@@ -2439,10 +2440,10 @@
 								{
 									"id": "set-range",
 									"objectClass": "Peg",
-									"sid": 212643989750597,
+									"sid": 848858455620812,
 									"behaviorType": "LineOfSight",
 									"parameters": {
-										"range": "28"
+										"range": "30"
 									}
 								},
 								{
@@ -2780,6 +2781,30 @@
 										}
 									],
 									"sid": 769393692959373
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 608014813778652,
+											"parameters": {
+												"key": 80
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "BallsLeft",
+											"sid": 385453771393185,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 998512830364395
 								}
 							],
 							"sid": 961139987124810
@@ -5366,41 +5391,6 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 217359682784867,
-											"parameters": {
-												"variable": "DestroyingPegsAtEndOfTurnProcess",
-												"comparison": 5,
-												"value": "BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn + OtherPegsDestroyedInOneTurn"
-											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 350344716673807,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 805619558024564,
-											"parameters": {
-												"variable": "EndOfTurnHappeningContinued",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 260574346196730
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
 											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
 											"sid": 501149174296348,
@@ -5418,7 +5408,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 499725462449668,
+													"sid": 486213996157770,
 													"parameters": {
 														"variable": "BluePegsDestroyedInOneTurn",
 														"comparison": 0,
@@ -5429,7 +5419,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 189370681521560,
+													"sid": 758053436707174,
 													"parameters": {
 														"variable": "OrangePegsDestroyedInOneTurn",
 														"comparison": 0,
@@ -5440,7 +5430,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 347954385927011,
+													"sid": 152988644211827,
 													"parameters": {
 														"variable": "OtherPegsDestroyedInOneTurn",
 														"comparison": 0,
@@ -5450,7 +5440,8 @@
 												}
 											],
 											"actions": [],
-											"sid": 259803896636730,
+											"sid": 709700009937124,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -5458,7 +5449,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 128427244037022,
+															"sid": 655534101912490,
 															"parameters": {
 																"animation": "\"CircleBlueActive\""
 															}
@@ -5466,7 +5457,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 792714208083510,
+															"sid": 908166372353370,
 															"parameters": {
 																"animation": "\"BrickBlueActive\""
 															}
@@ -5474,7 +5465,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 704069041468713,
+															"sid": 780836446147057,
 															"parameters": {
 																"animation": "\"CurveBlueActive\""
 															}
@@ -5482,7 +5473,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 807870633189964,
+															"sid": 802671761511605,
 															"parameters": {
 																"animation": "\"CircleOrangeActive\""
 															}
@@ -5490,7 +5481,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 130535831034149,
+															"sid": 343415641405192,
 															"parameters": {
 																"animation": "\"BrickOrangeActive\""
 															}
@@ -5498,7 +5489,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 139005126550701,
+															"sid": 650574392489151,
 															"parameters": {
 																"animation": "\"CurveOrangeActive\""
 															}
@@ -5506,7 +5497,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 647359538813267,
+															"sid": 292787150015507,
 															"parameters": {
 																"animation": "\"CirclePurpleActive\""
 															}
@@ -5514,7 +5505,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 885531116332486,
+															"sid": 244456919237036,
 															"parameters": {
 																"animation": "\"BrickPurpleActive\""
 															}
@@ -5522,7 +5513,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 103777409705925,
+															"sid": 557629686764788,
 															"parameters": {
 																"animation": "\"CurvePurpleActive\""
 															}
@@ -5530,7 +5521,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 192672716914910,
+															"sid": 551378090387479,
 															"parameters": {
 																"animation": "\"CircleEvilActive\""
 															}
@@ -5538,7 +5529,7 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 850840464920232,
+															"sid": 142243969060240,
 															"parameters": {
 																"animation": "\"BrickEvilActive\""
 															}
@@ -5546,14 +5537,15 @@
 														{
 															"id": "is-animation-playing",
 															"objectClass": "Peg",
-															"sid": 664639210449583,
+															"sid": 249726252851463,
 															"parameters": {
 																"animation": "\"CurveEvilActive\""
 															}
 														}
 													],
 													"actions": [],
-													"sid": 940614454578941,
+													"sid": 688078899085547,
+													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -5561,7 +5553,7 @@
 																{
 																	"id": "pick-nearestfurthest",
 																	"objectClass": "Peg",
-																	"sid": 490240125720524,
+																	"sid": 429083014511452,
 																	"parameters": {
 																		"which": "nearest",
 																		"x": "0",
@@ -5571,7 +5563,7 @@
 																{
 																	"id": "every-x-seconds",
 																	"objectClass": "System",
-																	"sid": 259545411220181,
+																	"sid": 307625757491419,
 																	"parameters": {
 																		"interval-seconds": "0.05"
 																	}
@@ -5581,7 +5573,7 @@
 																{
 																	"id": "play",
 																	"objectClass": "Audio",
-																	"sid": 491401006936346,
+																	"sid": 462221257824130,
 																	"parameters": {
 																		"audio-file": "pop",
 																		"loop": "not-looping",
@@ -5593,25 +5585,129 @@
 																{
 																	"id": "destroy",
 																	"objectClass": "Peg",
-																	"sid": 374200001282876
+																	"sid": 620742310959854
 																},
 																{
 																	"id": "add-to-eventvar",
 																	"objectClass": "System",
-																	"sid": 511851157866790,
+																	"sid": 127908725631949,
 																	"parameters": {
 																		"variable": "DestroyingPegsAtEndOfTurnProcess",
 																		"value": "1"
 																	}
 																}
 															],
-															"sid": 247641041491014
+															"sid": 752160213399710,
+															"disabled": true
 														}
 													],
 													"isOrBlock": true
 												}
 											],
 											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Peg",
+													"sid": 216641029752648,
+													"parameters": {
+														"tags": "\"Active\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 709085470139720,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nearestfurthest",
+															"objectClass": "Peg",
+															"sid": 777544012225954,
+															"parameters": {
+																"which": "nearest",
+																"x": "0",
+																"y": "0"
+															}
+														},
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 188209998682215,
+															"parameters": {
+																"interval-seconds": "0.05"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 958501963400198,
+															"parameters": {
+																"audio-file": "pop",
+																"loop": "not-looping",
+																"volume": "5",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Peg",
+															"sid": 524961807877315
+														}
+													],
+													"sid": 921276931732056
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 640466987209139,
+													"parameters": {
+														"object": "Peg"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 518638442179270,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "has-tags",
+															"objectClass": "Peg",
+															"sid": 880553604989941,
+															"parameters": {
+																"tags": "\"Active\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 858061033125915,
+															"parameters": {
+																"variable": "EndOfTurnHappeningContinued",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 525727762320092
+												}
+											]
 										}
 									]
 								},
@@ -5683,10 +5779,10 @@
 										{
 											"id": "set-range",
 											"objectClass": "Peg",
-											"sid": 392367975034111,
+											"sid": 263637240973571,
 											"behaviorType": "LineOfSight",
 											"parameters": {
-												"range": "28"
+												"range": "30"
 											}
 										},
 										{
@@ -6650,21 +6746,21 @@
 															],
 															"actions": [
 																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 995399413498899,
-																	"parameters": {
-																		"variable": "OrangePegsLoadedInLevel",
-																		"value": "1"
-																	}
-																},
-																{
 																	"id": "set-animation",
 																	"objectClass": "Peg",
 																	"sid": 209025430112174,
 																	"parameters": {
 																		"animation": "\"CircleOrange\"",
 																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 759682149118585,
+																	"parameters": {
+																		"variable": "OrangePegsLoadedInLevel",
+																		"value": "1"
 																	}
 																}
 															],
@@ -6689,21 +6785,21 @@
 															],
 															"actions": [
 																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 817366668979528,
-																	"parameters": {
-																		"variable": "OrangePegsLoadedInLevel",
-																		"value": "1"
-																	}
-																},
-																{
 																	"id": "set-animation",
 																	"objectClass": "Peg",
 																	"sid": 757133546296785,
 																	"parameters": {
 																		"animation": "\"BrickOrange\"",
 																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 516691623182203,
+																	"parameters": {
+																		"variable": "OrangePegsLoadedInLevel",
+																		"value": "1"
 																	}
 																}
 															],
@@ -6728,21 +6824,21 @@
 															],
 															"actions": [
 																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 213447819260895,
-																	"parameters": {
-																		"variable": "OrangePegsLoadedInLevel",
-																		"value": "1"
-																	}
-																},
-																{
 																	"id": "set-animation",
 																	"objectClass": "Peg",
 																	"sid": 534705284033847,
 																	"parameters": {
 																		"animation": "\"CurveOrange\"",
 																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 814449376211324,
+																	"parameters": {
+																		"variable": "OrangePegsLoadedInLevel",
+																		"value": "1"
 																	}
 																}
 															],
@@ -7395,6 +7491,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 395357843535965,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 353327477806980,
@@ -7473,6 +7578,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 419364570318988,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 512504611472747,
@@ -7550,6 +7664,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 305936633996102,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "set-animation",
 													"objectClass": "Peg",
@@ -7639,6 +7762,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 788422552053089,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 675058603202214,
@@ -7726,6 +7858,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 139855104348960,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "set-animation",
 													"objectClass": "Peg",
 													"sid": 328621617718672,
@@ -7812,6 +7953,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 443922914837034,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "set-animation",
 													"objectClass": "Peg",
@@ -7909,6 +8059,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 444128430070907,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "play",
 													"objectClass": "Audio",
@@ -8009,6 +8168,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 568119565588840,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "play",
 													"objectClass": "Audio",
 													"sid": 853875017523608,
@@ -8107,6 +8275,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 651544979185622,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "play",
 													"objectClass": "Audio",
@@ -8216,6 +8393,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 253162517285323,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "play",
 													"objectClass": "Audio",
@@ -8392,6 +8578,15 @@
 											],
 											"actions": [
 												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 833590294473562,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
+												{
 													"id": "play",
 													"objectClass": "Audio",
 													"sid": 149175801670333,
@@ -8566,6 +8761,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 894051874247647,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
+												},
 												{
 													"id": "play",
 													"objectClass": "Audio",
@@ -14746,6 +14950,16 @@
 										"layer": "\"Black Screen 2\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 909947304651792,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Level Editor\""
+									}
 								}
 							],
 							"actions": [
@@ -15617,6 +15831,15 @@
 														"animation": "\"CircleBlueActive\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 553754946036211,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
 												}
 											],
 											"sid": 863107589708632
@@ -15642,6 +15865,15 @@
 														"animation": "\"BrickBlueActive\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 628165921763858,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
+													}
 												}
 											],
 											"sid": 828164080721099
@@ -15666,6 +15898,15 @@
 													"parameters": {
 														"animation": "\"CurveBlueActive\"",
 														"from": "beginning"
+													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "Peg",
+													"sid": 307580302459936,
+													"parameters": {
+														"action": "add",
+														"tags": "\"Active\""
 													}
 												}
 											],
@@ -16093,6 +16334,92 @@
 								}
 							],
 							"sid": 896636275555513
+						},
+						{
+							"eventType": "group",
+							"disabled": true,
+							"title": "Peg Stats Text",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 490130480570933,
+											"parameters": {
+												"object": "Peg"
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "Peg",
+											"sid": 989926480491760,
+											"parameters": {
+												"tags": "\"Master\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "PegXY",
+											"sid": 385827283499360,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "PegXY",
+											"sid": 127323109930966,
+											"parameters": {
+												"text": "\"[outlineback=#FFFFFF][lineThickness=5] X:\" &Peg.X&\"\n Y:\" &Peg.Y&\"\r\n A:\" &Peg.Angle"
+											}
+										}
+									],
+									"sid": 934285367380739,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 272154983389947,
+											"parameters": {
+												"object": "Peg"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "PegXY",
+											"sid": 422138968142119,
+											"parameters": {
+												"opacity": "25"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "PegXY",
+											"sid": 989923902525751,
+											"parameters": {
+												"text": "\"[outlineback=#FFFFFF][lineThickness=5] X: 0\n Y: 0\r\n A: 0\""
+											}
+										}
+									],
+									"sid": 466827670730377,
+									"disabled": true
+								}
+							],
+							"sid": 429612876798402
 						}
 					],
 					"sid": 729506153682368
