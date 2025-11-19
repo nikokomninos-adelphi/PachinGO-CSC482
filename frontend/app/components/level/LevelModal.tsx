@@ -93,7 +93,7 @@ const LevelModal = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-[75vw] h-[75vh] bg-[#fff] rounded-lg drop-shadow-2xl"
+        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-3/4 h-3/4 bg-[#fff] rounded-lg drop-shadow-2xl"
       >
         <div className="col-span-2 w-7/8 h-7/8 m-auto flex justify-center items-center">
           <img

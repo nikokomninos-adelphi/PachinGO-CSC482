@@ -1,5 +1,20 @@
 import { Link } from "react-router";
-const UserCard = ({ username }: { username: string }) => {
+import { useState, useEffect } from "react";
+
+const UserCard = ({ username, role }: { username: string; role: string }) => {
+  const [roleStyle, setRoleStyle] = useState("");
+
+  useEffect(() => {
+    switch (role) {
+      case "Moderator":
+        setRoleStyle("text-green-500");
+        break;
+      case "PachinGOD":
+        setRoleStyle("text-red-500");
+        break;
+    }
+  }, []);
+
   return (
     <Link
       to={`/users/${username}`}
@@ -10,7 +25,7 @@ const UserCard = ({ username }: { username: string }) => {
       </div>
 
       <div className="flex justify-center items-center w-fit">
-        <h1>{username}</h1>
+        <h1 className={roleStyle}>{username}</h1>
       </div>
     </Link>
   );

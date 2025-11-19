@@ -552,6 +552,16 @@
 			"sid": 487256127898832
 		},
 		{
+			"eventType": "variable",
+			"name": "LevelLoaded",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 645204008211945
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "CORE GAMEPLAY",
@@ -1356,8 +1366,8 @@
 										"if (runtime.layout.name === \"Level Editor Online\") {",
 										"    runtime.globalVars.MusicSelect = 99;",
 										"    await load();",
-										"    const menu = runtime.objects.backtohome.getFirstInstance();",
-										"    menu.destroy();",
+										"    //const menu = runtime.objects.backtohome.getFirstInstance();",
+										"    //menu.destroy();",
 										"}",
 										""
 									]

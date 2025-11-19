@@ -4,6 +4,9 @@
  * A component that holds a user's public info
  * for their profile
  */
+
+import { useState, useEffect } from "react";
+
 const UserBox = ({
   username,
   role,
@@ -21,6 +24,22 @@ const UserBox = ({
     year: "numeric",
   });
 
+  const [roleStyle, setRoleStyle] = useState("");
+
+  useEffect(() => {
+    switch (role) {
+      case "Moderator":
+        setRoleStyle("text-green-500");
+        break;
+      case "PachinGOD":
+        setRoleStyle("text-red-500");
+        break;
+      default:
+        setRoleStyle("text-neutral-500");
+        break;
+    }
+  }, []);
+
   return (
     <div className="flex flex-col justify-start items-start gap-5 border-1 border-[#E1E1EE] p-5 rounded-lg h-fit w-60">
       <div className="flex justify-center items-center w-50 h-50 rounded-lg border-1 border-[#e1e1e1]">
@@ -31,7 +50,7 @@ const UserBox = ({
 
       <div>
         <h2 className="text-sm">Role:</h2>
-        <p className="text-xs text-neutral-500">{role}</p>
+        <p className={`text-xs ${roleStyle}`}>{role}</p>
       </div>
 
       <div>

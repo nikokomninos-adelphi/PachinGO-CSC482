@@ -298,7 +298,7 @@ const Search = () => {
         ));
       case "users":
         return results.map((r: any, i: any) => (
-          <UserCard key={i} username={r.user?.username} />
+          <UserCard key={i} username={r.user?.username} role={r.role} />
         ));
       default:
         return null;

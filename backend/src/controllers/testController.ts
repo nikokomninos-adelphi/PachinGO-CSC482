@@ -8,5 +8,5 @@
 import type { Request, Response } from "express";
 
 export const hello = async (req: Request, res: Response) => {
-  res.json({ message: "Hello" });
+  return res.json({ message: "Hello" });
 };

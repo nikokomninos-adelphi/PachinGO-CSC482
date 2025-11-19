@@ -42,7 +42,7 @@ export const deleteLevel = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Level deleted successfuly" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -225,7 +225,7 @@ export const uploadLevel = [
       });
     } catch (e) {
       console.error(e);
-      res.status(500).json({ message: "Internal server error" });
+      return res.status(500).json({ message: "Internal server error" });
     }
   },
 ];
@@ -248,7 +248,7 @@ export const loadLevel = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Level found", level });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -272,7 +272,7 @@ export const addPlayToLevel = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Play added to level" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -313,7 +313,7 @@ export const addLikeToLevel = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Like added to level" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -356,6 +356,6 @@ export const removeLikeFromLevel = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Like removed from level" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 }

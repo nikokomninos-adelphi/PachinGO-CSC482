@@ -90,10 +90,10 @@ export const registerUser = async (req: Request, res: Response) => {
     })
     await newUserInfo.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    return res.status(201).json({ message: "User registered successfully" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -147,10 +147,10 @@ export const loginUser = async (req: Request, res: Response) => {
       maxAge: 60 * 60 * 1000,
     });
 
-    res.status(200).json({ message: "Login successful" });
+    return res.status(200).json({ message: "Login successful" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -164,10 +164,10 @@ export const loginUser = async (req: Request, res: Response) => {
 export const logoutUser = async (req: Request, res: Response) => {
   try {
     res.clearCookie("token");
-    res.status(200).json({ message: "Logout successful" });
+    return res.status(200).json({ message: "Logout successful" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 }
 

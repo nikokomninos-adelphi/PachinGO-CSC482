@@ -2,6 +2,8 @@ import type { Route } from "./+types/home";
 import Navbar from "~/components/nav/Navbar";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import ResizeButton from "~/components/game/ResizeButton";
+import GuidelinesButton from "~/components/game/GuidelinesButton";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,6 +18,10 @@ const play = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [exists, setExists] = useState(false);
   const navigate = useNavigate();
+  const [gameSize, setGameSize] = useState([
+    JSON.parse(localStorage.getItem("gameSize")!).width || 800,
+    JSON.parse(localStorage.getItem("gameSize")!).height || 600,
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +32,8 @@ const play = () => {
       await checkLevelExists();
       localStorage.setItem("levelID", id!);
       localStorage.setItem("layout", "Level Editor Online");
-      window.scrollTo(0, document.body.scrollHeight);
+      const game = document.getElementById("game");
+      game?.scrollIntoView({ block: "start", behavior: "smooth" });
     })();
   }, []);
 
@@ -90,14 +97,18 @@ const play = () => {
         <div className="flex-1 tracking-tighter min-h-screen">
           <div className="flex min-h-screen justify-center items-center">
             <iframe
+              id="game"
               ref={iframeRef}
               src="/game/index.html"
-              width="800"
-              height="600"
+              width={gameSize[0]}
+              height={gameSize[1]}
               className="drop-shadow-2xl"
               tabIndex={0}
               allow="keyboard"
             />
+          </div>
+          <div className="flex flex-row justify-end p-5 gap-2">
+            <ResizeButton gameSize={gameSize} setGameSize={setGameSize} />
           </div>
         </div>
       </div>

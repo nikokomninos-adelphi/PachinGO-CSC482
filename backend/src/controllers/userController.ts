@@ -34,7 +34,7 @@ export const getUser = async (req: Request, res: Response) => {
     return res.status(200).json({ result: result });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ result: "Internal server error" });
+    return res.status(500).json({ result: "Internal server error" });
   }
 };
 
@@ -56,12 +56,12 @@ export const getUserLevels = async (req: Request, res: Response) => {
       return res.status(204).json({ message: "No results" });
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       results,
     });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -86,9 +86,9 @@ export const getUserLikedLevels = async (req: Request, res: Response) => {
       return res.status(404).json({ result: "Not Found" });
     }
 
-    res.status(200).json({ likedLevels: result.likedLevels });
+    return res.status(200).json({ likedLevels: result.likedLevels });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
