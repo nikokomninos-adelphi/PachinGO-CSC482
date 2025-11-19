@@ -7,7 +7,7 @@ const scriptsInEvents = {
 
 	},
 
-	async Menu_Event5_Act1(runtime, localVars)
+	async Menu_Event5_Act2(runtime, localVars)
 	{
 		const layout = localStorage.getItem("layout");
 		runtime.callFunction("CheckLayout", layout);
@@ -87,7 +87,9 @@ if (runtime.layout.name === "Level Editor Online") {
     runtime.globalVars.MusicSelect = 99;
     await load();
     const menu = runtime.objects.backtohome.getFirstInstance();
-    menu.destroy();
+    try {
+        menu.destroy();
+    } catch (e) { console.error(e); }
 }
 
 	},
@@ -252,6 +254,11 @@ runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.Up
 	async Gameplay_Event500_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
+	},
+
+	async Menu_Event5_Act1(runtime, localVars)
+	{
+
 	}
 };
 

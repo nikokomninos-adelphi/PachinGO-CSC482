@@ -154,7 +154,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.JavaScriptInEvents.Gameplay_Event497_Act5,
 		C3.JavaScriptInEvents.Gameplay_Event497_Act6,
 		C3.JavaScriptInEvents.Gameplay_Event500_Act8,
-		C3.JavaScriptInEvents.Menu_Event5_Act1
+		C3.JavaScriptInEvents.Menu_Event5_Act2
 	];
 };
 self.C3_JsPropNameTable = [
@@ -323,6 +323,7 @@ self.C3_JsPropNameTable = [
 	{R2URL: 0},
 	{UploadStatus: 0},
 	{ResetStatus: 0},
+	{LevelLoaded: 0},
 	{url: 0},
 	{numOrange: 0},
 	{numBalls: 0},
