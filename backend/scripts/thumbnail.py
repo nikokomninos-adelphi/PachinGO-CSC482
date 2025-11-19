@@ -18,9 +18,11 @@ def main():
     background = ""
 
     # The level's peg layout
+    #layout_json = json.loads(sys.argv[2])
+    #layout_raw = layout_json.get("data", {})
+    #layout = {peg: json.loads(pegData) for peg, pegData in layout_raw.items()}
     layout_json = json.loads(sys.argv[2])
-    layout_raw = layout_json.get("data", {})
-    layout = {peg: json.loads(pegData) for peg, pegData in layout_raw.items()}
+    layout = layout_json.get("data", {})
 
     # The level's bg opacity
     opacity_raw = sys.argv[3]

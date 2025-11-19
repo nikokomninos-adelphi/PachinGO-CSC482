@@ -28,7 +28,7 @@ const load = async () => {
     const layout = data.level.pegLayout.data;
 
     for (const key in layout) {
-        const pegData = JSON.parse(layout[key]);
+        const pegData = layout[key];
 
         const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
         newPeg.angle = pegData.angle;
@@ -75,7 +75,7 @@ if (runtime.layout.name === "Level Editor Play") {
   const dict = JSON.parse(runtime.globalVars.PegData).data;
 
     for (const key in dict) {
-        const pegData = JSON.parse(dict[key]);
+        const pegData = dict[key];
 
         const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
         newPeg.angle = pegData.angle;
@@ -103,7 +103,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		const pegDict = JSON.parse(runtime.globalVars.PegData).data;
 		
 		for (const key in pegDict) {
-		    const pegData = JSON.parse(pegDict[key]);
+		    const pegData = pegDict[key];
 		
 		    const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
 		    newPeg.angle = pegData.angle;
@@ -148,7 +148,8 @@ if (runtime.layout.name === "Level Editor Online") {
 		        animation: peg.animationName
 		    };
 		
-		    pegDict.data[key] = JSON.stringify(pegData);
+		    //pegDict.data[key] = JSON.stringify(pegData);
+		    pegDict.data[key] = pegData;
 		}
 		
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
@@ -179,7 +180,7 @@ if (runtime.layout.name === "Level Editor Online") {
 		        animation: peg.animationName
 		    };
 		
-		    pegDict.data[key] = JSON.stringify(pegData);
+		    pegDict.data[key] = pegData;
 		}
 		
 		runtime.globalVars.PegData = JSON.stringify(pegDict);

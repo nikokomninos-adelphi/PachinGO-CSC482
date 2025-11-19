@@ -206,7 +206,7 @@
 					"type": "script",
 					"language": "javascript",
 					"script": [
-						"localStorage.setItem(\"levelID\", 1);",
+						"localStorage.setItem(\"levelID\", 29);",
 						"localStorage.setItem(\"layout\", \"Level Editor Online\");"
 					],
 					"disabled": true

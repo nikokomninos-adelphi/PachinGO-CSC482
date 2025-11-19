@@ -1,6 +1,6 @@
 /**
- * app.js
- * 
+ * app.ts
+ *
  * Bootstraps backend, including:
  * - DB connection
  * - Express server creation
@@ -20,9 +20,10 @@ import testRoutes from "./routes/testRoutes.ts";
 import authRoutes from "./routes/authRoutes.ts";
 import searchRoutes from "./routes/searchRoutes.ts";
 import userRoutes from "./routes/userRoutes.ts";
-import levelRoutes from "./routes/levelRoutes.ts"
+import levelRoutes from "./routes/levelRoutes.ts";
 //import { populateUserInfo } from "./config/populate.ts";
 //import { populateLevels } from "./config/populate.ts";
+import Level from "./models/Level.ts";
 
 connectDB();
 //populateLevels();
@@ -44,7 +45,7 @@ app.use(
       "https://playpachingo.vercel.app",
     ],
     credentials: true,
-  })
+  }),
 );
 app.use("/api/v1", testRoutes);
 app.use("/api/v1/auth", authRoutes);
