@@ -18,10 +18,17 @@ const play = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [exists, setExists] = useState(false);
   const navigate = useNavigate();
-  const [gameSize, setGameSize] = useState([
-    JSON.parse(localStorage.getItem("gameSize")!).width || 800,
-    JSON.parse(localStorage.getItem("gameSize")!).height || 600,
-  ]);
+  const [gameSize, setGameSize] = useState(() => {
+    const saved = localStorage.getItem("gameSize");
+    if (!saved) return [800, 600];
+
+    try {
+      const { width, height } = JSON.parse(saved);
+      return [width || 800, height || 600];
+    } catch {
+      return [800, 600];
+    }
+  });
 
   useEffect(() => {
     (async () => {
