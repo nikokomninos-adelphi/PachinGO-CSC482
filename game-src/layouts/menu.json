@@ -961,7 +961,7 @@
 				{
 					"type": "FreeBall",
 					"properties": {
-						"text": "[outlineback=#FFFFFF][lineThickness=5]Free Ball!",
+						"text": "[outlineback=#000000][lineThickness=5]Free Ball!",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 12,
@@ -969,9 +969,9 @@
 						"bold": true,
 						"italic": false,
 						"color": [
-							0,
-							0,
-							0,
+							0.8392156862745098,
+							0.8431372549019608,
+							0.10196078431372549,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -2241,7 +2241,18 @@
 					"sid": 702733321782723,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 702733321782723,
 						"expanded": true

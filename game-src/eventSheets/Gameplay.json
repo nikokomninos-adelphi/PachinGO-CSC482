@@ -2156,10 +2156,23 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 546797521063493,
+									"sid": 342326694114041,
 									"parameters": {
 										"object-to-create": "VictoryBucketGlow",
 										"layer": "\"Gameplay\"",
+										"x": "156",
+										"y": "704",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 383250041988192,
+									"parameters": {
+										"object-to-create": "VictoryBucketGlow",
+										"layer": "\"Victory Screen\"",
 										"x": "656",
 										"y": "704",
 										"create-hierarchy": false,
@@ -2454,9 +2467,9 @@
 								{
 									"id": "set-position",
 									"objectClass": "FreeBall",
-									"sid": 813685689488308,
+									"sid": 527394862753079,
 									"parameters": {
-										"x": "bucket.X-58",
+										"x": "bucket.X-53",
 										"y": "bucket.Y-50"
 									}
 								},
@@ -2494,7 +2507,34 @@
 									}
 								}
 							],
-							"sid": 378289987967517
+							"sid": 378289987967517,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-tags",
+											"objectClass": "VictoryBucketGlow",
+											"sid": 839461241500345,
+											"parameters": {
+												"tags": "\"mainbucket\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "VictoryBucketGlow",
+											"sid": 215661092383835,
+											"parameters": {
+												"x": "bucket.X",
+												"y": "bucket.Y-23"
+											}
+										}
+									],
+									"sid": 409429200995057
+								}
+							]
 						},
 						{
 							"eventType": "group",
@@ -2632,6 +2672,41 @@
 										}
 									],
 									"sid": 291568589763561
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "VictoryBucketGlow",
+											"sid": 851018982095053,
+											"parameters": {
+												"comparison": 0,
+												"x-co-ordinate": "156"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "VictoryBucketGlow",
+											"sid": 309459463068977,
+											"parameters": {
+												"width": "180",
+												"height": "76"
+											}
+										},
+										{
+											"id": "change-tags",
+											"objectClass": "VictoryBucketGlow",
+											"sid": 227933524283417,
+											"parameters": {
+												"action": "add",
+												"tags": "\"mainbucket\""
+											}
+										}
+									],
+									"sid": 686434262544659
 								},
 								{
 									"eventType": "block",
@@ -2819,30 +2894,6 @@
 										}
 									],
 									"sid": 769393692959373
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 608014813778652,
-											"parameters": {
-												"key": 80
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "BallsLeft",
-											"sid": 385453771393185,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										}
-									],
-									"sid": 998512830364395
 								}
 							],
 							"sid": 961139987124810
@@ -9360,9 +9411,25 @@
 									"parameters": {
 										"object": "bucketHitbox"
 									}
+								},
+								{
+									"id": "has-tags",
+									"objectClass": "VictoryBucketGlow",
+									"sid": 466557578465091,
+									"parameters": {
+										"tags": "\"mainbucket\""
+									}
 								}
 							],
 							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "VictoryBucketGlow",
+									"sid": 971079743732379,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
@@ -9418,6 +9485,12 @@
 										"variable": "BallCount",
 										"value": "1"
 									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "VictoryBucketGlow",
+									"sid": 254363461730189,
+									"behaviorType": "Fade"
 								},
 								{
 									"id": "destroy",
@@ -14665,6 +14738,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 940805662197059,
+									"parameters": {
+										"variable": "ResetStatus",
+										"value": "1"
+									}
+								},
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
@@ -25242,6 +25324,30 @@
 					],
 					"sid": 121276055968729,
 					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 437223795964678,
+							"parameters": {
+								"key": 80
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "BallsLeft",
+							"sid": 782760394103015,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 369630727259621
 				},
 				{
 					"eventType": "block",
