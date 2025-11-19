@@ -61,7 +61,6 @@ export default function App({ loaderData }: Route.ComponentProps) {
   }, [checkAuth]);
 
   localStorage.setItem("uploaded", "false");
-  localStorage.setItem("gameSize", JSON.stringify({ width: 800, height: 600 }));
 
   return <Outlet />;
   //return (
