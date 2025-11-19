@@ -1430,6 +1430,8 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() * 4);
 		},
+		() => 0.1,
+		() => "LEVEL EDITOR",
 		() => 30,
 		() => 10,
 		() => "Victory Screen",
@@ -1713,7 +1715,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 789,
 		() => "Rainbow Ball Trail",
-		() => 0.1,
 		() => "Brightness",
 		() => 125,
 		() => 100,
@@ -1743,7 +1744,6 @@ self.C3_ExpressionFuncs = [
 			return () => (n0.ExpObject() * 4);
 		},
 		() => "Buttons",
-		() => "LEVEL EDITOR",
 		() => "mute",
 		() => "one",
 		() => "two",
