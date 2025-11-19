@@ -7,13 +7,18 @@ const scriptsInEvents = {
 
 	},
 
+	async Menu_Event5_Act1(runtime, localVars)
+	{
+
+	},
+
 	async Menu_Event5_Act2(runtime, localVars)
 	{
 		const layout = localStorage.getItem("layout");
 		runtime.callFunction("CheckLayout", layout);
 	},
 
-	async Gameplay_Event313_Act15(runtime, localVars)
+	async Gameplay_Event314_Act16(runtime, localVars)
 	{
 		// Gets the logged in user, and loads the previous state of the level editor peg layout
 		
@@ -30,21 +35,21 @@ const scriptsInEvents = {
 		}
 	},
 
-	async Gameplay_Event412_Act2(runtime, localVars)
+	async Gameplay_Event413_Act2(runtime, localVars)
 	{
 		const backgroundPicker = runtime.objects.ImageHere;
 		const backgroundPickerInst = backgroundPicker.getFirstInstance();
 		if (backgroundPickerInst) window.cachedBGFile = backgroundPickerInst.getFiles()[0];
 	},
 
-	async Gameplay_Event447_Act5(runtime, localVars)
+	async Gameplay_Event448_Act5(runtime, localVars)
 	{
 		const musicPicker = runtime.objects.MusicHere;
 		const musicPickerInst = musicPicker.getFirstInstance();
 		if (musicPickerInst) window.cachedMusicFile = musicPickerInst.getFiles()[0];
 	},
 
-	async Gameplay_Event486_Act4(runtime, localVars)
+	async Gameplay_Event487_Act4(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -74,7 +79,7 @@ const scriptsInEvents = {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event497_Act5(runtime, localVars)
+	async Gameplay_Event498_Act5(runtime, localVars)
 	{
 		// Save the peg layout into a JSON
 		
@@ -105,7 +110,7 @@ const scriptsInEvents = {
 		runtime.globalVars.PegData = JSON.stringify(pegDict);
 	},
 
-	async Gameplay_Event497_Act6(runtime, localVars)
+	async Gameplay_Event498_Act6(runtime, localVars)
 	{
 const pegs = JSON.parse(runtime.globalVars.PegData).data;
 
@@ -171,17 +176,12 @@ const upload = async () => {
 runtime.globalVars.BGIMageOpacity !== 0 ? await upload() : runtime.globalVars.UploadStatus = 1;
 	},
 
-	async Gameplay_Event500_Act8(runtime, localVars)
+	async Gameplay_Event501_Act8(runtime, localVars)
 	{
 		localStorage.setItem("uploaded", "true");
 	},
 
-	async Menu_Event5_Act1(runtime, localVars)
-	{
-
-	},
-
-	async Gameplay_Event16_Act2(runtime, localVars)
+	async Gameplay_Event17_Act4(runtime, localVars)
 	{
 // Load the level editor peg layout into the
 // gameplay test layout
@@ -193,10 +193,10 @@ const load = async () => {
     });
     
     const data = await res.json();
-    runtime.globalVars.PegData = JSON.stringify(data.level.pegLayout);
+    const layout = data.level.pegLayout.data;
 
-    for (const key in JSON.parse(runtime.globalVars.PegData).data) {
-        const pegData = JSON.parse(runtime.globalVars.PegData).data[key];
+    for (const key in layout) {
+        const pegData = layout[key];
 
         const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
         newPeg.angle = pegData.angle;
@@ -237,39 +237,28 @@ const load = async () => {
     if (data.level.backgroundMusic !== "N/A" && runtime.globalVars.MusicSelect === 6) runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
 
     if (runtime.globalVars.MusicSelect !== 6) runtime.callFunction("SetMusicNonCustom", runtime.globalVars.MusicSelect);
-    runtime.globalVars.LevelLoaded = true;
+}
+
+if (runtime.layout.name === "Level Editor Play") {
+  const dict = JSON.parse(runtime.globalVars.PegData).data;
+
+    for (const key in dict) {
+        const pegData = dict[key];
+
+        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
+        newPeg.angle = pegData.angle;
+        newPeg.setAnimation(pegData.animation);
+    }
 }
 
 if (runtime.layout.name === "Level Editor Online") {
     runtime.globalVars.MusicSelect = 99;
-
-
-    setTimeout(() => {
-    
+    await load();
+    const menu = runtime.objects.backtohome.getFirstInstance();
     try {
+        menu.destroy();
     } catch (e) { console.error(e); }
-    }, 10);
-
-    await load().then(runtime.globalVars.ResetStatus = 1);
 }
-	},
-
-	async Gameplay_Event17_Act4(runtime, localVars)
-	{
-		const loadFromC3 = () => {
-		  const dict = JSON.parse(runtime.globalVars.PegData).data;
-		
-		    for (const key in dict) {
-		        const pegData = dict[key];
-		
-		        const newPeg = runtime.objects.Peg.createInstance("Pegs", pegData.x, pegData.y);
-		        newPeg.angle = pegData.angle;
-		        newPeg.setAnimation(pegData.animation);
-		    }
-		}
-		const menu = runtime.objects.backtohome.getFirstInstance();
-		menu.destroy();
-		loadFromC3();
 	}
 };
 
