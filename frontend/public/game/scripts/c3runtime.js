@@ -1484,6 +1484,7 @@ self.C3_ExpressionFuncs = [
 		() => 274,
 		() => 527,
 		() => 656,
+		() => 156,
 		() => 315,
 		() => -16,
 		() => -8,
@@ -1513,7 +1514,7 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() - 58);
+			return () => (n0.ExpObject() - 53);
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1524,10 +1525,17 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => (v0.GetValue() + v1.GetValue());
 		},
+		() => "mainbucket",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() - 23);
+		},
 		() => "Additional Object Position Handling",
 		() => "25K",
 		() => "50K",
 		() => "100K",
+		() => 180,
+		() => 76,
 		() => -67,
 		() => -225.17908,
 		() => 48.061917,
