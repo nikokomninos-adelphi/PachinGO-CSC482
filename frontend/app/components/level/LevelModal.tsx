@@ -93,7 +93,7 @@ const LevelModal = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-3/4 h-3/4 bg-[#fff] rounded-lg drop-shadow-2xl"
+        className="fixed grid grid-cols-3 top-1/8 left-1/8 w-3/4 h-3/4 bg-[var(--color-bg)] rounded-lg drop-shadow-2xl"
       >
         <div className="col-span-2 w-7/8 h-7/8 m-auto flex justify-center items-center">
           <img
@@ -106,7 +106,7 @@ const LevelModal = ({
           <div className="flex justify-end items-center">
             <button
               onClick={() => setShowModal(false)}
-              className="text-sm hover:text-neutral-400 cursor-pointer ease-linear duration-75"
+              className="text-sm hover:text-[var(--color-text-alt)] cursor-pointer ease-linear duration-75"
             >
               Back
             </button>
@@ -126,9 +126,9 @@ const LevelModal = ({
 
           <Link
             to={`/users/${author}`}
-            className="flex flex-row items-center w-fit h-15 p-2 mb-5 border-1 border-[#e1e1e1] rounded-lg tracking-tight bg-[#fff] cursor-pointer hover:bg-[#fafafa] ease-linear duration-75"
+            className="flex flex-row items-center w-fit h-15 p-2 mb-5 border-1 border-[var(--color-border)] rounded-lg tracking-tight bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-bg-alt)] ease-linear duration-75"
           >
-            <div className="flex justify-center items-center w-10 h-10 rounded-lg border-1 border-[#e1e1e1] mr-3">
+            <div className="flex justify-center items-center w-10 h-10 rounded-lg border-1 border-[var(--color-border)] mr-3">
               <img src="/logo_small.png" />
             </div>
 
@@ -144,7 +144,7 @@ const LevelModal = ({
               <div className="flex w-full">
                 <button
                   onClick={() => handlePlay()}
-                  className="flex w-full justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+                  className="flex w-full justify-center items-center hover:bg-[var(--color-bg-alt)] hover:text-neutral-400 border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
                 >
                   Play
                 </button>
@@ -183,17 +183,17 @@ const LevelInfo = ({
 }) => {
   return (
     <div className="flex flex-row gap-2 mb-5">
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <FaPlayCircle />
         {plays || 0}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <FaThumbsUp />
         {likes || 0}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <FaCalendarAlt />
         {dateUploaded.toLocaleDateString("en-US", {
           month: "2-digit",
@@ -202,27 +202,27 @@ const LevelInfo = ({
         })}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <img src="/peg_blue.png" className="w-3 h-3" />
         {numPegs}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <img src="/peg_orange.png" className="w-3 h-3" />
         {numOrange}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <img src="/ball.png" className="w-2.5 h-2.5" />
         {numBalls}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <FaFileImage />
         {hasBackground}
       </div>
 
-      <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+      <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
         <IoMdMusicalNote size={14} />
         {hasMusic}
       </div>
@@ -331,8 +331,8 @@ const LikeButton = ({
         onClick={liked === false ? handleLike : handleUnlike}
         className={
           liked === false
-            ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
-            : "w-8 h-8 flex justify-center items-center bg-[#fafafa] text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+            ? "w-8 h-8 flex justify-center items-center hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
+            : "w-8 h-8 flex justify-center items-center bg-[var(--color-bg-alt)] text-[var(--color-text-alt)] border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
         }
       >
         <FaThumbsUp />
@@ -383,7 +383,7 @@ const DeleteButton = ({
           user?.username === author ||
           role === "Moderator" ||
           role === "PachinGOD"
-            ? "w-8 h-8 flex justify-center items-center hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+            ? "w-8 h-8 flex justify-center items-center hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
             : "hidden"
         }
       >
@@ -391,7 +391,7 @@ const DeleteButton = ({
       </button>
 
       {showConfirm && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#fff] border-1 border-[#e1e1e1] rounded-lg drop-shadow-lg p-2 text-sm z-10">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[var(--color-bg)] border-1 border-[var(--color-border)] rounded-lg p-2 text-sm z-10">
           <p className="mb-2 text-center">Are you sure?</p>
           <div className="flex justify-between">
             <button
@@ -399,13 +399,13 @@ const DeleteButton = ({
                 handleDeletion();
                 setShowConfirm(false);
               }}
-              className="p-1 mr-2 rounded-md border-1 border-[#e1e1e1] hover:bg-[#fafafa] ease-linear duration-75 cursor-pointer"
+              className="p-1 mr-2 rounded-md border-1 border-[var(--color-border)] hover:bg-[var(--color-bg-alt)] ease-linear duration-75 cursor-pointer"
             >
               Yes
             </button>
             <button
               onClick={() => setShowConfirm(false)}
-              className="p-1 rounded-md border-1 border-[#e1e1e1] hover:bg-[#fafafa] ease-linear duration-75 cursor-pointer"
+              className="p-1 rounded-md border-1 border-[var(--color-border)] hover:bg-[var(--color-bg-alt)] ease-linear duration-75 cursor-pointer"
             >
               No
             </button>

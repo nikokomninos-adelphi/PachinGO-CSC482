@@ -39,21 +39,21 @@ const NavLoginOnly = () => {
     <div className="w-full flex justify-end mr-[3vw] tracking-tight">
       {user ? (
         <div className="flex flex-row items-center gap-2">
-          {/*<ThemeMenu />*/}
+          <ThemeMenu />
           <UserMenu user={user} handleLogout={handleLogout} />
         </div>
       ) : (
         <div className="flex flex-row items-center gap-2">
-          {/*<ThemeMenu />*/}
+          <ThemeMenu />
           <Link
             to="/login"
-            className="font-light text-xs hover:text-neutral-400 ease-linear duration-75"
+            className="font-light text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
           >
             Login
           </Link>
           <Link
             to="/register"
-            className="font-light text-xs hover:text-neutral-400 ease-linear duration-75"
+            className="font-light text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
           >
             Register
           </Link>
@@ -66,30 +66,48 @@ const NavLoginOnly = () => {
 const ThemeMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
 
+  const handleThemeChange = (theme: string) => {
+    const html = document.documentElement;
+    html.classList.remove("light", "dark");
+    html.classList.add(theme);
+    localStorage.setItem("theme", theme);
+    window.dispatchEvent(new Event("theme-changed"));
+  };
+
   return (
     <div className="relative inline-block">
       <button
         onClick={() => setShowMenu((prev) => !prev)}
-        className="p-1 border-1 border-[#e1e1e1] bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 rounded-sm ease-linear duration-75 cursor-pointer"
+        className="p-1 border-1 border-[var(--color-border)] bg-[var(--color-bg)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] rounded-sm ease-linear duration-75 cursor-pointer"
       >
-        <FaSun size={11} />
+        {localStorage.getItem("theme") === "light" ? (
+          <FaSun size={11} />
+        ) : (
+          <FaMoon size={11} />
+        )}
       </button>
       {showMenu && (
-        <div className="absolute -translate-x-1/2 left-1/2 mt-1 border-1 border-[#e1e1e1] w-20 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
-          <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+        <div className="absolute -translate-x-1/2 left-1/2 mt-1 border-1 border-[var(--color-border)] w-20 rounded-sm p-2 z-10 bg-[var(--color-bg)]">
+          <button
+            onClick={() => {handleThemeChange("light"); setShowMenu(false);}}
+            className="flex flex-row justify-between items-center mb-2 hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer w-full"
+          >
             <p className="text-xs">Light</p>
             <FaSun size={12} />
           </button>
 
-          <button className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+          <button
+            onClick={() => {handleThemeChange("dark"); setShowMenu(false);}}
+            className="flex flex-row justify-between items-center hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer w-full"
+          >
             <p className="text-xs">Dark</p>
             <FaMoon size={11} />
           </button>
 
-          <button className="flex flex-row justify-between items-center hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
+          {/*<button className="flex flex-row justify-between items-center hover:text-neutral-400 ease-linear duration-75 cursor-pointer w-full">
             <p className="text-xs">System</p>
             <MdMonitor size={13} />
-          </button>
+          </button>*/}
         </div>
       )}
     </div>
@@ -109,22 +127,22 @@ const UserMenu = ({
     <div className="relative inline-block">
       <button
         onClick={() => setShowMenu((prev) => !prev)}
-        className="flex flex-row items-center gap-1 font-semibold text-xs cursor-pointer hover:text-neutral-400 ease-linear duration-75"
+        className="flex flex-row items-center gap-1 font-semibold text-xs cursor-pointer hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         Hello, {user?.username}!
         <FaCaretDown />
       </button>
       {showMenu && (
-        <div className="absolute left-1/2 -translate-x-1/2 mt-2 border-1 border-[#e1e1e1] w-50 rounded-sm drop-shadow-lg p-2 z-10 bg-[#fff]">
+        <div className="absolute left-1/2 -translate-x-1/2 mt-2 border-1 border-[var(--color-border)] w-50 rounded-sm p-2 z-10 bg-[var(--color-bg)]">
           <Link to={`/users/${user.username}`}>
-            <div className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer">
+            <div className="flex flex-row justify-between items-center mb-2 hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer">
               <p className="text-xs">My Profile</p>
               <IoMdContact />
             </div>
           </Link>
 
           {/*<Link to={`/account`}>
-            <div className="flex flex-row justify-between items-center mb-2 hover:text-neutral-400 ease-linear duration-75 cursor-pointer">
+            <div className="flex flex-row justify-between items-center mb-2 hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer">
               <p className="text-xs">My Account Settings</p>
               <IoMdSettings />
             </div>
@@ -133,7 +151,7 @@ const UserMenu = ({
 
           <div
             onClick={() => handleLogout()}
-            className="flex flex-row justify-between items-center hover:text-neutral-400 ease-linear duration-75 cursor-pointer"
+            className="flex flex-row justify-between items-center hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer"
           >
             <p className="text-xs">Logout</p>
             <IoIosExit />

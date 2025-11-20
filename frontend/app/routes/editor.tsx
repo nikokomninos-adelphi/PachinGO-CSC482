@@ -90,7 +90,7 @@ const editor = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
+      <div className="bg-[url('/pattern2.svg')] dark:bg-[url('/pattern2_dark.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
         <div className="flex-1 tracking-tighter min-h-screen">
           <div className="flex flex-col min-h-screen justify-center items-center">
             <iframe
@@ -99,7 +99,7 @@ const editor = () => {
               src="/game/index.html"
               width={gameSize[0]}
               height={gameSize[1]}
-              className="drop-shadow-2xl"
+              className="drop-shadow-2xl dark:drop-shadow-neutral-800"
               tabIndex={0}
               allow="keyboard"
             />
