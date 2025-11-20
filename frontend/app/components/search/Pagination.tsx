@@ -45,7 +45,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex flex-row justify-evenly gap-3 p-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl">
+    <div className="flex flex-row justify-evenly gap-3 p-3 border-1 border-[var(--color-border)] text-[var(--color-text)] font-semibold tracking-tight rounded-3xl">
       <button
         onClick={() => {
           setPage(page - 1);
@@ -56,7 +56,7 @@ const Pagination = ({
         className={
           page === 1
             ? "hidden"
-            : "hover:text-neutral-400 ease-linear duration-75 cursor-pointer"
+            : "hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer"
         }
       >
         <FaCaretLeft />
@@ -66,7 +66,7 @@ const Pagination = ({
         type="text"
         id="pageInput"
         defaultValue={page.toString()}
-        className="w-10 text-center border-1 border-[#e1e1ee] rounded-lg"
+        className="w-10 text-center border-1 border-[var(--color-border)] rounded-lg"
         onKeyDown={(e) => handleKeyDown(e)}
       />
 
@@ -80,7 +80,7 @@ const Pagination = ({
         className={
           page === totalPages
             ? "hidden"
-            : "hover:text-neutral-400 ease-linear duration-75 cursor-pointer"
+            : "hover:text-[var(--color-text-alt)] ease-linear duration-75 cursor-pointer"
         }
       >
         <FaCaretRight />

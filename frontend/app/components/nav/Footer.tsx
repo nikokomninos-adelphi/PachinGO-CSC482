@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="h-10 bg-[#FAFAFA] border-t-1 border-t-[#E1E1EE] p-5 flex flex-row justify-center items-center gap-5">
+    <div className="h-10 bg-[var(--color-bg-alt)] border-t-1 border-t-[var(--color-border)] p-5 flex flex-row justify-center items-center gap-5">
       <Link to="/">
         <img
           src="/logo_small.png"
@@ -17,28 +17,28 @@ const Footer = () => {
 
       <Link
         to="/demo"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         Demo Levels
       </Link>
 
       <Link
         to="/search"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         User Levels
       </Link>
 
       <Link
         to="/editor"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         Level Editor
       </Link>
 
       <Link
         to="/about"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         About
       </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
       <Link
         to="https://docs.google.com/forms/d/e/1FAIpQLScM2HxSCttdwolVOBKbx0y5S_n04KVshtFBkdbr9Q_ysmhAug/viewform?usp=dialog"
         target="_blank"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         Contact
       </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
       <Link
         to="https://ko-fi.com/nikokomninos"
         target="_blank"
-        className="font-semibold text-xs hover:text-neutral-400 ease-linear duration-75"
+        className="font-semibold text-xs hover:text-[var(--color-text-alt)] ease-linear duration-75"
       >
         Donate
       </Link>

@@ -10,6 +10,7 @@ import { IoMdContact } from "react-icons/io";
 import { MdPassword } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { useAuthStore } from "~/stores/useAuthStore";
+import Logo from "../nav/Logo";
 
 const RegisterBox = () => {
   const [email, setEmail] = useState("");
@@ -57,14 +58,13 @@ const RegisterBox = () => {
   if (isLoading) return null;
 
   return (
-    <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
+    <div className="w-[90vw] h-[90vh] bg-[var(--color-bg)] rounded-2xl border-1 border-[var(--color-border-alt)] grid grid-cols-3">
       <div className="col-span-1 flex flex-col p-10">
-        <Link to="/" className="mb-5">
-          <img
-            src="/logo_outline.png"
-            alt="PachinGO! Logo, Large"
-            className="h-20 hover:drop-shadow-lg ease-linear duration-150"
-          />
+        <Link
+          to="/"
+          className="mb-5 hover:drop-shadow-lg dark:hover:drop-shadow-neutral-700 ease-linear duration-150"
+        >
+          <Logo width={75} />
         </Link>
         <h1 className="mb-10 text-sm font-normal">
           Ready to become a PachinGOD?
@@ -80,7 +80,7 @@ const RegisterBox = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
-            className="w-75 p-2 mb-5 border-1 border-[#E1E1EE] rounded-md"
+            className="w-75 p-2 mb-5 border-1 border-[var(--color-border)] rounded-md"
           />
         </div>
         <div className="flex flex-col">
@@ -94,7 +94,7 @@ const RegisterBox = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
-            className="w-75 p-2 mb-5 border-1 border-[#E1E1EE] rounded-md"
+            className="w-75 p-2 mb-5 border-1 border-[var(--color-border)] rounded-md"
           />
         </div>
         <div className="flex flex-col">
@@ -108,14 +108,14 @@ const RegisterBox = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
-            className="w-75 p-2 mb-10 border-1 border-[#E1E1EE] rounded-md"
+            className="w-75 p-2 mb-10 border-1 border-[var(--color-border)] rounded-md"
           />
         </div>
         <div className="flex flex-col">
           <button
             type="submit"
             onClick={() => submitRegister()}
-            className="text-md rounded-md w-75 mb-10 pt-2 pb-2 border-1 border-[#e1e1ee] hover:bg-neutral-100 ease-linear duration-75"
+            className="text-md rounded-md w-75 mb-10 pt-2 pb-2 border-1 border-[var(--color-border)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] ease-linear duration-75"
           >
             Register
           </button>
@@ -131,7 +131,7 @@ const RegisterBox = () => {
         </div>
       </div>
       <div className="col-span-2">
-        <div className="w-full h-full flex flex-col justify-center items-center border-l-1 border-l-[#C1C1CC] rounded-2xl">
+        <div className="w-full h-full flex flex-col justify-center items-center border-l-1 border-l-[var(--color-border-alt)] rounded-2xl">
           <h1>GIF Coming Soon!</h1>
         </div>
       </div>

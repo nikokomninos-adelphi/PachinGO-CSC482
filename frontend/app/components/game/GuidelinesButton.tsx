@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaQuestion } from "react-icons/fa";
 import { useEffect } from "react";
+import Logo from "../nav/Logo";
 
 const GuidelinesButton = () => {
   const [showGuidelines, setShowGuidelines] = useState(false);
@@ -15,7 +16,7 @@ const GuidelinesButton = () => {
     <div className="relative inline-block">
       <button
         onClick={() => setShowGuidelines((prev) => !prev)}
-        className="w-10 h-10 flex justify-center items-center bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+        className="w-10 h-10 flex justify-center items-center bg-[var(--color-bg)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
       >
         <FaQuestion />
       </button>
@@ -58,22 +59,20 @@ const GuidelinesModal = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="fixed p-5 top-1/4 left-1/4 w-1/2 h-1/2 bg-[#fff] rounded-lg drop-shadow-2xl"
+        className="fixed p-5 top-1/4 left-1/4 w-1/2 h-1/2 bg-[var(--color-bg)] rounded-lg"
       >
         <div className="flex justify-end items-center">
           <button
             onClick={() => setShowGuidelines(false)}
-            className="text-sm hover:text-neutral-400 cursor-pointer ease-linear duration-75"
+            className="text-sm hover:text-[var(--color-text-alt)] cursor-pointer ease-linear duration-75"
           >
             Back
           </button>
         </div>
         <div className="flex flex-col h-full justify-center items-center">
-          <img
-            src="/logo_outline.png"
-            alt="PachinGO! Logo"
-            className="w-100 mb-2"
-          />
+        <div className="mb-2">
+          <Logo width={100}/>
+        </div>
           <h1 className="text-xl mb-20">Content Guidelines</h1>
           <h2 className="text-lg mb-10">
             Before uploading your level, please ensure that it adheres to our

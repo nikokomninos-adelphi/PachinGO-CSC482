@@ -20,7 +20,7 @@ const PremadeSearchButtons = ({
     <div>
       <button
         onClick={() => handleRecentLevels()}
-        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-indigo-500"
+        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[var(--color-border)] rounded-lg hover:bg-[var(--color-bg-alt)] ease-linear duration-75 cursor-pointer hover:text-indigo-500"
       >
         Recently Uploaded
         <FaClock size={14} />
@@ -28,7 +28,7 @@ const PremadeSearchButtons = ({
 
       <button
         onClick={() => handleMostPlayedLevels()}
-        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-green-500"
+        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[var(--color-border)] rounded-lg hover:bg-[var(--color-bg-alt)] ease-linear duration-75 cursor-pointer hover:text-green-500"
       >
         Most Played
         <FaPlayCircle />
@@ -36,7 +36,7 @@ const PremadeSearchButtons = ({
 
       <button
         onClick={() => handleMostLikedLevels()}
-        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[#E1E1EE] rounded-lg hover:bg-[#FAFAFA] ease-linear duration-75 cursor-pointer hover:text-red-500"
+        className="flex flex-row justify-between items-center w-full p-2 mb-2 border-1 border-[var(--color-border)] rounded-lg hover:bg-[var(--color-bg-alt)] ease-linear duration-75 cursor-pointer hover:text-red-500"
       >
         Most Liked
         <FaHeart />

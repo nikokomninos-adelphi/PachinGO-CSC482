@@ -48,7 +48,7 @@ const LevelCard = ({
   return (
     <div
       onClick={() => setShowModal(true)}
-      className="flex flex-row w-100 h-45 border-1 border-[#e1e1e1] rounded-lg tracking-tight bg-[#fff] cursor-pointer hover:bg-[#fafafa] ease-linear duration-75"
+      className="flex flex-row w-100 h-45 border-1 border-[var(--color-border)] rounded-lg tracking-tight bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-bg-alt)] ease-linear duration-75"
     >
       <div className="flex justify-center items-center ml-3 min-w-40 min-h-40">
         <img src={thumbnail} className="w-40 h-40 rounded-sm" />
@@ -62,17 +62,17 @@ const LevelCard = ({
         </div>
 
         <div className="flex flex-row gap-2 min-h-5">
-          <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+          <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
             <FaPlayCircle />
             {plays || 0}
           </div>
 
-          <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+          <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
             <FaThumbsUp />
             {likes || 0}
           </div>
 
-          <div className="flex flex-row justify-start items-center gap-1 text-xs text-neutral-500">
+          <div className="flex flex-row justify-start items-center gap-1 text-xs text-[var(--color-text-alt)]">
             <FaCalendarAlt />
             {dateUploaded.toLocaleDateString("en-US", {
               month: "2-digit",

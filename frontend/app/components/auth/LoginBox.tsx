@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router";
 import { IoMdContact } from "react-icons/io";
 import { MdPassword } from "react-icons/md";
 import { useAuthStore } from "~/stores/useAuthStore";
+import Logo from "../nav/Logo";
 
 const LoginBox = () => {
   const [username, setUsername] = useState("");
@@ -57,14 +58,10 @@ const LoginBox = () => {
   if (isLoading) return null;
 
   return (
-    <div className="w-[90vw] h-[90vh] bg-[#FFF] rounded-2xl border-1 border-[#C1C1CC] grid grid-cols-3">
+    <div className="w-[90vw] h-[90vh] bg-[var(--color-bg)] rounded-2xl border-1 border-[var(--color-border-alt)] grid grid-cols-3">
       <div className="col-span-1 flex flex-col p-10">
-        <Link to="/" className="mb-20">
-          <img
-            src="/logo_outline.png"
-            alt="PachinGO! Logo, Large"
-            className="h-20 hover:drop-shadow-lg ease-linear duration-150"
-          />
+        <Link to="/" className="mb-20 hover:drop-shadow-lg dark:hover:drop-shadow-neutral-700 ease-linear duration-150">
+          <Logo width={75}/>
         </Link>
         <div className="flex flex-col">
           <div className="flex flex-row gap-1 items-center mb-2">
@@ -77,7 +74,7 @@ const LoginBox = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
-            className="w-75 p-2 mb-5 border-1 border-[#E1E1EE] rounded-md"
+            className="w-75 p-2 mb-5 border-1 border-[var(--color-border)] rounded-md"
           />
         </div>
         <div className="flex flex-col">
@@ -91,14 +88,14 @@ const LoginBox = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => handleKeyDown(e)}
-            className="w-75 p-2 mb-10 border-1 border-[#E1E1EE] rounded-md"
+            className="w-75 p-2 mb-10 border-1 border-[var(--color-border)] rounded-md"
           />
         </div>
         <div className="flex flex-col">
           <button
             type="submit"
             onClick={() => submitLogin()}
-            className="text-md rounded-md w-75 mb-10 pt-2 pb-2 border-1 border-[#e1e1ee] hover:bg-neutral-100 ease-linear duration-75"
+            className="text-md rounded-md w-75 mb-10 pt-2 pb-2 border-1 border-[var(--color-border)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] ease-linear duration-75"
           >
             Login
           </button>
@@ -112,16 +109,18 @@ const LoginBox = () => {
             <h1>{status}</h1>
           </div>
           Don't have an account?
+          <span>
           <Link
             to="/register"
-            className="underline hover:text-neutral-400 ease-linear duration-75"
+            className="underline hover:text-[var(--color-text-alt)] ease-linear duration-75"
           >
             Register Here
           </Link>
+          </span>
         </div>
       </div>
       <div className="col-span-2">
-        <div className="w-full h-full flex flex-col justify-center items-center border-l-1 border-l-[#C1C1CC] rounded-2xl">
+        <div className="w-full h-full flex flex-col justify-center items-center border-l-1 border-l-[var(--color-border-alt)] rounded-2xl">
           <h1>GIF Coming Soon!</h1>
         </div>
       </div>

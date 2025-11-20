@@ -35,14 +35,14 @@ const UserBox = ({
         setRoleStyle("text-red-500");
         break;
       default:
-        setRoleStyle("text-neutral-500");
+        setRoleStyle("text-[var(--color-text-alt)]");
         break;
     }
   }, []);
 
   return (
-    <div className="flex flex-col justify-start items-start gap-5 border-1 border-[#E1E1EE] p-5 rounded-lg h-fit w-60">
-      <div className="flex justify-center items-center w-50 h-50 rounded-lg border-1 border-[#e1e1e1]">
+    <div className="flex flex-col justify-start items-start gap-5 border-1 border-[var(--color-border)] p-5 rounded-lg h-fit w-60">
+      <div className="flex justify-center items-center w-50 h-50 rounded-lg border-1 border-[var(--color-border)]">
         <img src="/logo_small.png" width={128} height={128} />
       </div>
 
@@ -55,12 +55,12 @@ const UserBox = ({
 
       <div>
         <h2 className="text-sm">Member Since:</h2>
-        <p className="text-xs text-neutral-500">{formattedDate}</p>
+        <p className="text-xs text-[var(--color-text-alt)]">{formattedDate}</p>
       </div>
 
       <div>
         <h2 className="text-sm">Levels Uploaded:</h2>
-        <p className="text-xs text-neutral-500">{numLevels}</p>
+        <p className="text-xs text-[var(--color-text-alt)]">{numLevels}</p>
       </div>
     </div>
   );
