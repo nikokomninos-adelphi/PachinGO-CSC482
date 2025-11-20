@@ -60,6 +60,7 @@ export default function App({ loaderData }: Route.ComponentProps) {
 
     try {
       theme = localStorage.getItem("theme");
+      if (!theme) localStorage.setItem("theme", "light");
     } catch (e) {
       localStorage.setItem("theme", "light");
     } finally {
