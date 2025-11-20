@@ -69,7 +69,7 @@ const load = async () => {
     if (data.level.backgroundImage !== "N/A") {
         setTimeout(() => {
             runtime.callFunction("SetBG", `${runtime.globalVars.R2URL}/${data.level.backgroundImage}`);
-        }, 50);
+        }, 100);
     }
     if (data.level.backgroundMusic !== "N/A" && runtime.globalVars.MusicSelect === 6) runtime.callFunction("SetMusic", `${runtime.globalVars.R2URL}/${data.level.backgroundMusic}`);
 
@@ -92,9 +92,7 @@ if (runtime.layout.name === "Level Editor Online") {
     runtime.globalVars.MusicSelect = 99;
     await load();
     const menu = runtime.objects.backtohome.getFirstInstance();
-    try {
-        menu.destroy();
-    } catch (e) { console.error(e); }
+    menu.destroy();
 }
 	},
 

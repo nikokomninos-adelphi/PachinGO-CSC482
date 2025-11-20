@@ -1947,7 +1947,6 @@ self.C3_ExpressionFuncs = [
 		() => "UploadUI",
 		() => "[outlineback=#000000][lineThickness=5] You have more Orange Pegs set to spawn than there are Pegs in the layout! ",
 		() => "[outlineback=#000000][lineThickness=5] Upload your level! ",
-		() => "DEBUG CONTROLS",
 		() => "Level Editor Online",
 		() => "Level Select",
 		() => "Demo1",
