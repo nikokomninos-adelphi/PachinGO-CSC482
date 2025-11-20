@@ -332,7 +332,7 @@ export const removeLikeFromLevel = async (req: Request, res: Response) => {
       return res.status(204).json({ message: "Level not found" });
     }
 
-    level.likes = (level.likes || 0) + 1;
+    level.likes = (level.likes || 0) - 1;
     await level.save();
 
     const username = req.body.username;
