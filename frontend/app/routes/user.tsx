@@ -106,7 +106,7 @@ const user = () => {
                       plays={r.plays}
                       likes={r.likes}
                       dateUploaded={new Date(r.dateUploaded)}
-                      numPegs={Object.keys(r.pegLayout.data).length - 3}
+                      numPegs={Object.keys(r.pegLayout.data).length}
                       numOrange={r.numOrange}
                       numBalls={r.numBalls}
                       hasBackground={r.backgroundImage !== "N/A" ? "Yes" : "No"}
