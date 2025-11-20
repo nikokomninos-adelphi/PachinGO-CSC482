@@ -2612,9 +2612,7 @@
 										"    runtime.globalVars.MusicSelect = 99;",
 										"    await load();",
 										"    const menu = runtime.objects.backtohome.getFirstInstance();",
-										"    try {",
-										"        menu.destroy();",
-										"    } catch (e) { console.error(e); }",
+										"    menu.destroy();",
 										"}"
 									]
 								},

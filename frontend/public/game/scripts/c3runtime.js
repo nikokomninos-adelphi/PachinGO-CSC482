@@ -1405,6 +1405,7 @@ self.C3_ExpressionFuncs = [
 		() => "MUSIC & AUDIO",
 		() => "MUSIC",
 		() => 0,
+		() => -5,
 		() => "Music",
 		() => 1,
 		() => 2,
@@ -1417,8 +1418,10 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "audio/mpeg; codecs=opus",
 		() => "ImportedFile",
-		() => "Sound Effects",
 		() => -17,
+		() => -11,
+		() => "Sound Effects",
+		() => -18,
 		() => "peg",
 		() => "CircleBlue",
 		() => "BrickBlue",
@@ -1426,7 +1429,7 @@ self.C3_ExpressionFuncs = [
 		() => "CircleOrange",
 		() => "BrickOrange",
 		() => "CurveOrange",
-		() => -5,
+		() => -6,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (1 + (v0.GetValue() / 5));
@@ -1539,8 +1542,6 @@ self.C3_ExpressionFuncs = [
 		() => 656,
 		() => 156,
 		() => 315,
-		() => -16,
-		() => -8,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("[outlineback=#000000][lineThickness=5]Balls: ", v0.GetValue());
@@ -1567,7 +1568,7 @@ self.C3_ExpressionFuncs = [
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => (n0.ExpObject() - 53);
+			return () => (n0.ExpObject() - 51);
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -1622,6 +1623,33 @@ self.C3_ExpressionFuncs = [
 		() => 60000,
 		() => 80000,
 		() => 100000,
+		() => "Peg Function",
+		() => "FX Events",
+		() => "Animation 1",
+		() => "Peg Spawning",
+		() => "Orange Peg Spawning",
+		() => "Master",
+		() => "Purple Peg Spawning",
+		() => "Evil Peg Spawning",
+		() => "Peg Active",
+		() => "Blue Pegs Active",
+		() => "Active",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("[outlineback=#FFFFFF][lineThickness=5] ", v0.GetValue());
+		},
+		() => 16731960,
+		() => "Orange Pegs Active",
+		() => 27872,
+		() => "Purple Pegs Active",
+		() => "[outlineback=#FFFFFF][lineThickness=5] x1.5!",
+		() => 11337907,
+		() => "Evil Peg Active",
+		() => "[outlineback=#FFFFFF][lineThickness=5] x0.5...",
+		() => 6579300,
+		() => "[outlineback=#FFFFFF][lineThickness=5] Nevermind...",
+		() => "Continuous Contact w/ Peg",
+		() => 0.8,
 		() => "End of Turn Handler",
 		() => "Coin Flip",
 		p => {
@@ -1691,38 +1719,11 @@ self.C3_ExpressionFuncs = [
 		() => 1.3,
 		() => "Purple and Evil Peg Despawn",
 		() => "Peg Destroy",
-		() => "Active",
 		() => 0.05,
 		() => "All Above Processes Complete",
 		() => 0.5,
 		() => -100,
 		() => "[outlineback=#000000][lineThickness=5]You lose!",
-		() => "Peg Function",
-		() => "FX Events",
-		() => "Animation 1",
-		() => "Peg Spawning",
-		() => "Orange Peg Spawning",
-		() => "Master",
-		() => "Purple Peg Spawning",
-		() => "Evil Peg Spawning",
-		() => "Peg Active",
-		() => "Blue Pegs Active",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("[outlineback=#FFFFFF][lineThickness=5] ", v0.GetValue());
-		},
-		() => 16731960,
-		() => "Orange Pegs Active",
-		() => 27872,
-		() => "Purple Pegs Active",
-		() => "[outlineback=#FFFFFF][lineThickness=5] x1.5!",
-		() => 11337907,
-		() => "Evil Peg Active",
-		() => "[outlineback=#FFFFFF][lineThickness=5] x0.5...",
-		() => 6579300,
-		() => "[outlineback=#FFFFFF][lineThickness=5] Nevermind...",
-		() => "Continuous Contact w/ Peg",
-		() => 0.8,
 		() => "Bucket Function",
 		() => 0.02,
 		() => 1.2,
@@ -1739,7 +1740,7 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 40);
 		},
-		() => -2,
+		() => -7,
 		() => 789,
 		() => "Rainbow Ball Trail",
 		() => "Brightness",
