@@ -54,6 +54,22 @@ export default function App({ loaderData }: Route.ComponentProps) {
   const { checkAuth, setRole } = useAuthStore();
 
   useEffect(() => {
+    const html = document.documentElement;
+
+    let theme;
+
+    try {
+      theme = localStorage.getItem("theme");
+    } catch (e) {
+      localStorage.setItem("theme", "light");
+    } finally {
+      html.classList.remove("light", "dark");
+      html.classList.add(theme!);
+    }
+
+  }, []);
+
+  useEffect(() => {
     (async () => {
       const user = JSON.stringify(await checkAuth());
       await setRole(JSON.parse(user).username);

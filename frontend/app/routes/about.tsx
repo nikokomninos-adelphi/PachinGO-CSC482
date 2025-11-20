@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/nav/Navbar";
 import Footer from "~/components/nav/Footer";
+import Logo from "~/components/nav/Logo";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,14 +14,10 @@ const about = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="bg-[url('/pattern2.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
-        <div className="bg-[#FFF] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[#E1E1EE] border-r-1 border-r-[#E1E1EE] tracking-tighter min-h-screen">
-          <div className="flex justify-center items-center">
-            <img
-              src="/logo_outline.png"
-              alt="PachinGO! Logo, Large"
-              className="w-100 mb-10"
-            />
+      <div className="bg-[url('/pattern2.svg')] dark:bg-[url('/pattern2_dark.svg')] bg-repeat animate-[scroll-pattern_100s_linear_infinite]">
+        <div className="bg-[var(--color-bg)] flex-1 p-15 ml-[6vw] mr-[6vw] border-l-1 border-l-[var(--color-border)] border-r-1 border-r-[var(--color-border)] tracking-tighter min-h-screen">
+          <div className="flex justify-center items-center mb-10">
+            <Logo width={100} />
           </div>
 
           <p className="text-xl">
@@ -48,21 +45,21 @@ const about = () => {
           <h1 className="text-4xl font-bold mt-10 mb-10 text-center">The Team</h1>
           <div className="grid grid-cols-3">
             <div className="flex flex-col justify-center items-center mt-5">
-              <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
+              <div className="flex w-40 h-40 justify-center items-center border-2 border-[var(--color-border-alt)] text-2xl">
                 nk
               </div>
               <p className="mt-10 text-xl">Nikolaos Komninos</p>
             </div>
 
             <div className="flex flex-col justify-center items-center mt-5">
-              <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
+              <div className="flex w-40 h-40 justify-center items-center border-2 border-[var(--color-border-alt)] text-2xl">
                 tp
               </div>
               <p className="mt-10 text-xl">Tahir Peele</p>
             </div>
 
             <div className="flex flex-col justify-center items-center mt-5">
-              <div className="flex w-40 h-40 justify-center items-center border-2 border-black text-2xl">
+              <div className="flex w-40 h-40 justify-center items-center border-2 border-[var(--color-border-alt)] text-2xl">
                 mvw
               </div>
               <p className="mt-10 text-xl">Michael Weiss</p>

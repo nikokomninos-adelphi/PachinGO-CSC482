@@ -14,14 +14,15 @@ import {
 } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import NavLoginOnly from "./NavLoginOnly";
+import Logo from "~/components/nav/Logo";
 
 const Navbar = () => {
-const { user, role } = useAuthStore();
+  const { user, role } = useAuthStore();
 
   return (
     <div>
-      <div className="bg-[#FAFAFA] border-b-1 border-b-[#E1E1EE] p-1 mb-3">
-        <div className="flex flex-row justify-between">
+      <div className="bg-[var(--color-bg-alt)] border-b-1 border-b-[var(--color-border)] p-1 mb-3">
+        <div className="flex flex-row justify-between items-center">
           <div className="ml-[6vw]">
             <h1 className="text-xs font-light">
               🎉 PachinGO's open beta is now available to play! We hope you
@@ -35,18 +36,17 @@ const { user, role } = useAuthStore();
         </div>
       </div>
       <div>
-        <div className="flex flex-row justify-center-safe items-center gap-25 border-b-1 border-b-[#E1E1EE]">
-          <Link to="/">
-            <img
-              src="/logo_outline.png"
-              alt="PachinGO! Logo, Small"
-              className="h-10 mb-3 hover:drop-shadow-lg ease-linear duration-150"
-            />
+        <div className="flex flex-row justify-center-safe items-center gap-25 border-b-1 border-b-[var(--color-border)] bg-[var(--color-bg)]">
+          <Link
+            className="mb-3 hover:drop-shadow-lg dark:hover:drop-shadow-neutral-700 ease-linear duration-150"
+            to="/"
+          >
+            <Logo width={40} />
           </Link>
-          <div className="flex flex-row gap-3 mt-1 mb-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl p-3">
+          <div className="flex flex-row gap-3 mt-1 mb-3 border-1 border-[var(--color-border)] text-[var(--color-text)] font-semibold tracking-tight rounded-3xl p-3">
             <Link
               to="/demo"
-              className="flex group items-center gap-2 ml-2 hover:text-blue-500 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
+              className="flex group items-center gap-2 ml-2 hover:text-blue-500 ease-linear duration-75 border-r-1 border-r-[var(--color-border)] pr-5"
             >
               <FaPlay size={10} />
               <h1 className="text-sm">Demo Levels</h1>
@@ -54,7 +54,7 @@ const { user, role } = useAuthStore();
 
             <Link
               to="/search"
-              className="flex group items-center gap-2 ml-2 hover:text-orange-500 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
+              className="flex group items-center gap-2 ml-2 hover:text-orange-500 ease-linear duration-75 border-r-1 border-r-[var(--color-border)] pr-5"
             >
               <FaSearch size={11} />
               <h1 className="text-sm">User Levels</h1>
@@ -67,12 +67,11 @@ const { user, role } = useAuthStore();
               <FaWrench size={12} />
               <h1 className="text-sm">Level Editor</h1>
             </Link>
-
           </div>
-          <div className="flex flex-row justify-center items-center gap-2 mt-1 mb-3 border-1 border-[#E1E1EE] text-[#4B5563] font-semibold tracking-tight rounded-3xl p-3 text-sm">
+          <div className="flex flex-row justify-center items-center gap-2 mt-1 mb-3 border-1 border-[var(--color-border)] text-[var(--color-text)] font-semibold tracking-tight rounded-3xl p-3 text-sm">
             <Link
               to="/about"
-              className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
+              className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[var(--color-border)] pr-5"
             >
               <FaInfoCircle size={12} />
               <h1 className="text-sm">About</h1>
@@ -81,7 +80,7 @@ const { user, role } = useAuthStore();
             <Link
               to="https://docs.google.com/forms/d/e/1FAIpQLScM2HxSCttdwolVOBKbx0y5S_n04KVshtFBkdbr9Q_ysmhAug/viewform?usp=dialog"
               target="_blank"
-              className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[#E1E1EE] pr-5"
+              className="flex group items-center gap-2 ml-2 hover:text-gray-400 ease-linear duration-75 border-r-1 border-r-[var(--color-border)] pr-5"
             >
               <IoMail size={13} />
               <h1 className="text-sm">Contact</h1>

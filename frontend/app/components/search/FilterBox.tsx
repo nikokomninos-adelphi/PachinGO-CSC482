@@ -45,7 +45,7 @@ const FilterBox = ({
   };
 
   return (
-    <div className="flex flex-col p-4 border-1 border-[#E1E1EE] w-[15vw] h-fit rounded-lg">
+    <div className="flex flex-col p-4 border-1 border-[var(--color-border)] w-[15vw] h-fit rounded-lg">
       <div className="mb-5">
         <h1 className="font-bold mb-2">Search Type</h1>
         <div>
@@ -204,7 +204,7 @@ const FilterBox = ({
 
       <div className={searchType == "levelID" ? "hidden" : ""}>
         <h1 className="font-bold mb-2">Results Per Page</h1>
-        <form className="flex justify-center border-1 border-[#E1E1EE] w-12 p-1 rounded-lg cursor-pointer">
+        <form className="flex justify-center border-1 border-[var(--color-border)] w-12 p-1 rounded-lg cursor-pointer">
           <select
             name="limits"
             id="limits"

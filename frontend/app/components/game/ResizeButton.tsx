@@ -23,15 +23,15 @@ const ResizeButton = ({
         onClick={() => setShowMenu((prev) => !prev)}
         className={
           showMenu
-            ? "w-10 h-10 flex justify-center items-center bg-[#fafafa] border-1 border-[#e1e1e1] text-neutral-400 rounded-lg cursor-pointer ease-linear duration-75"
-            : "w-10 h-10 flex justify-center items-center bg-[#fff] hover:bg-[#fafafa] hover:text-neutral-400 border-1 border-[#e1e1e1] rounded-lg cursor-pointer ease-linear duration-75"
+            ? "w-10 h-10 flex justify-center items-center bg-[var(--color-bg-alt)] border-1 border-[var(--color-border)] text-[var(--color-text-alt)] rounded-lg cursor-pointer ease-linear duration-75"
+            : "w-10 h-10 flex justify-center items-center bg-[var(--color-bg)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-text-alt)] border-1 border-[var(--color-border)] rounded-lg cursor-pointer ease-linear duration-75"
         }
       >
         <FaDisplay />
       </button>
 
       {showMenu && (
-        <div className="absolute bottom-full -translate-x-1/2 mb-2 bg-[#fff] border-1 border-[#e1e1e1] rounded-lg drop-shadow-lg p-2 text-sm z-10">
+        <div className="absolute bottom-full -translate-x-1/2 mb-2 bg-[var(--color-bg)] border-1 border-[var(--color-border)] rounded-lg p-2 text-sm z-10">
           <div className="flex flex-col items-end gap-3">
             <button
               onClick={() => {
@@ -40,11 +40,11 @@ const ResizeButton = ({
               }}
               className={
                 gameSize[0] === 400 && gameSize[1] === 300
-                  ? "cursor-pointer text-neutral-400 hover:text-neutral-400 ease-linear duration-75"
-                  : "cursor-pointer hover:text-neutral-400 ease-linear duration-75"
+                  ? "cursor-pointer text-[var(--color-text-alt)] ease-linear duration-75"
+                  : "cursor-pointer hover:text-[var(--color-text-alt)] ease-linear duration-75"
               }
             >
-              400x300
+              400x300 (0.5x)
             </button>
             <button
               onClick={() => {
@@ -53,11 +53,11 @@ const ResizeButton = ({
               }}
               className={
                 gameSize[0] === 800 && gameSize[1] === 600
-                  ? "cursor-pointer text-neutral-400 hover:text-neutral-400 ease-linear duration-75"
-                  : "cursor-pointer hover:text-neutral-400 ease-linear duration-75"
+                  ? "cursor-pointer text-[var(--color-text-alt)] ease-linear duration-75"
+                  : "cursor-pointer hover:text-[var(--color-text-alt)] ease-linear duration-75"
               }
             >
-              800x600
+              800x600 (1x)
             </button>
             <button
               onClick={() => {
@@ -66,11 +66,11 @@ const ResizeButton = ({
               }}
               className={
                 gameSize[0] === 1200 && gameSize[1] === 900
-                  ? "cursor-pointer text-neutral-400 hover:text-neutral-400 ease-linear duration-75"
-                  : "cursor-pointer hover:text-neutral-400 ease-linear duration-75"
+                  ? "cursor-pointer text-[var(--color-text-alt)] ease-linear duration-75"
+                  : "cursor-pointer hover:text-[var(--color-text-alt)] ease-linear duration-75"
               }
             >
-              1200x900
+              1200x900 (1.5x)
             </button>
             <button
               onClick={() => {
@@ -79,11 +79,11 @@ const ResizeButton = ({
               }}
               className={
                 gameSize[0] === 1600 && gameSize[1] === 1200
-                  ? "cursor-pointer text-neutral-400 hover:text-neutral-400 ease-linear duration-75"
-                  : "cursor-pointer hover:text-neutral-400 ease-linear duration-75"
+                  ? "cursor-pointer text-[var(--color-text-alt)] ease-linear duration-75"
+                  : "cursor-pointer hover:text-[var(--color-text-alt)] ease-linear duration-75"
               }
             >
-              1600x1200
+              1600x1200 (2x)
             </button>
           </div>
         </div>
