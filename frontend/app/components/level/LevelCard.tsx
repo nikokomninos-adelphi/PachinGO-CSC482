@@ -51,7 +51,9 @@ const LevelCard = ({
       className="flex flex-row w-100 h-45 border-1 border-[var(--color-border)] rounded-lg tracking-tight bg-[var(--color-bg)] cursor-pointer hover:bg-[var(--color-bg-alt)] ease-linear duration-75"
     >
       <div className="flex justify-center items-center ml-3 min-w-40 min-h-40">
-        <img src={thumbnail} className="w-40 h-40 rounded-sm" />
+      {/*<img src={thumbnail} className="w-40 h-40 rounded-sm group-hover:hidden" />
+        <img src={background} className="w-40 h-40 rounded-sm hidden group-hover:block" />*/}
+      <img src={thumbnail} className="w-40 h-40 rounded-sm" />
       </div>
 
       <div className="flex flex-col w-60 h-35 p-5">

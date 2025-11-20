@@ -77,12 +77,19 @@ const Search = () => {
       setSortOrderType("desc");
       setTerm("$recent$");
       setSearchParams(
-        { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
+        {
+          term: "$recent$",
+          page: "1",
+          limit,
+          searchType,
+          sortType,
+          sortOrderType,
+        },
         { replace: true },
       );
       //handleSearch("$recent$", 1);
     }
-    if(searchType === "levelID") {
+    if (searchType === "levelID") {
       setTerm("");
       setSearchParams(
         { term: "", page: "1", limit, searchType, sortType, sortOrderType },
@@ -94,7 +101,14 @@ const Search = () => {
       setSortType("name");
       setTerm("$recent$");
       setSearchParams(
-        { term: "$recent$", page: "1", limit, searchType, sortType, sortOrderType },
+        {
+          term: "$recent$",
+          page: "1",
+          limit,
+          searchType,
+          sortType,
+          sortOrderType,
+        },
         { replace: true },
       );
       //handleSearch("$recent$", 1);

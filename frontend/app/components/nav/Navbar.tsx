@@ -20,7 +20,7 @@ const Navbar = () => {
   const { user, role } = useAuthStore();
 
   return (
-    <div>
+    <div className="bg-[var(--color-bg)]">
       <div className="bg-[var(--color-bg-alt)] border-b-1 border-b-[var(--color-border)] p-1 mb-3">
         <div className="flex flex-row justify-between items-center">
           <div className="ml-[6vw]">
