@@ -552,6 +552,16 @@
 			"sid": 487256127898832
 		},
 		{
+			"eventType": "variable",
+			"name": "PegDeletionTimer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 727939518638126
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "MUSIC & AUDIO",
@@ -582,6 +592,17 @@
 										"comparison": 0,
 										"value": "0"
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 590863780626270,
+									"parameters": {
+										"variable": "ResetStatus",
+										"comparison": 0,
+										"value": "0"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -593,11 +614,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 847821491458519,
+									"sid": 803683349897198,
 									"parameters": {
 										"audio-file": "Level_editor",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -633,11 +654,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 596738548378047,
+									"sid": 939050316910461,
 									"parameters": {
 										"audio-file": "Lets_Go_Cruisin",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -673,11 +694,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 974986812408842,
+									"sid": 756856205228365,
 									"parameters": {
 										"audio-file": "PegTastic",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -713,11 +734,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 511228744339971,
+									"sid": 204894563345446,
 									"parameters": {
 										"audio-file": "Saturday_Evening",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -753,11 +774,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 821011694683929,
+									"sid": 681953203572066,
 									"parameters": {
 										"audio-file": "PachiNgo",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -793,11 +814,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 187347583371990,
+									"sid": 790023518678823,
 									"parameters": {
 										"audio-file": "PachinGeetar",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -842,12 +863,12 @@
 								{
 									"id": "play-by-name",
 									"objectClass": "Audio",
-									"sid": 492771345521107,
+									"sid": 918637442315008,
 									"parameters": {
 										"folder": "music",
 										"audio-file-name": "\"ImportedFile\"",
 										"loop": "looping",
-										"volume": "0",
+										"volume": "-5",
 										"stereo-pan": "0",
 										"tag-optional": "\"Music\""
 									}
@@ -861,41 +882,186 @@
 								{
 									"id": "on-start-of-layout",
 									"objectClass": "System",
-									"sid": 614267449326122
+									"sid": 607238222992388
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 865924863516302,
+									"sid": 418176628807742,
 									"parameters": {
-										"variable": "MusicSelect",
+										"variable": "volume",
 										"comparison": 0,
-										"value": "6"
+										"value": "0"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "stop-all",
-									"objectClass": "Audio",
-									"sid": 110396858709336
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 851237250882602,
+									"parameters": {
+										"frame-number": "0"
+									}
 								},
 								{
-									"id": "play-by-name",
+									"id": "set-muted",
 									"objectClass": "Audio",
-									"sid": 126287476177505,
+									"sid": 669767854117991,
 									"parameters": {
-										"folder": "music",
-										"audio-file-name": "\"ImportedFile\"",
-										"loop": "looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"Music\""
+										"tag": "\"Music\"",
+										"state": "muted"
 									}
 								}
 							],
-							"sid": 295879695544219,
-							"disabled": true
+							"sid": 352437035560374
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 574084939591827
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 518920779836707,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 223458302278576,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 163133762686231,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 310453203203875,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-17"
+									}
+								}
+							],
+							"sid": 391830832255580
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 340567791089071
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 782420959327769,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 628810897452503,
+									"parameters": {
+										"frame-number": "2"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 651723512063114,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 916598929796306,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-11"
+									}
+								}
+							],
+							"sid": 686803506483395
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 427581181326497
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 216733586351277,
+									"parameters": {
+										"variable": "volume",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "volumebutt",
+									"sid": 639164103360749,
+									"parameters": {
+										"frame-number": "3"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 478159899258026,
+									"parameters": {
+										"tag": "\"Music\"",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 247075873225907,
+									"parameters": {
+										"tag": "\"Music\"",
+										"db": "-5"
+									}
+								}
+							],
+							"sid": 632882649463728
 						}
 					],
 					"sid": 651425084967295
@@ -947,11 +1113,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 586845239513039,
+									"sid": 409518081931070,
 									"parameters": {
 										"audio-file": "Sonic3 ping",
 										"loop": "not-looping",
-										"volume": "-17",
+										"volume": "-18",
 										"stereo-pan": "0",
 										"tag-optional": "\"peg\""
 									}
@@ -1031,11 +1197,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 190078285387033,
+											"sid": 318921922405643,
 											"parameters": {
 												"audio-file": "Sonic3 bumper",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "-6",
 												"stereo-pan": "0",
 												"tag-optional": "\"peg\""
 											}
@@ -1085,11 +1251,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 180740085920049,
+											"sid": 723688363486074,
 											"parameters": {
 												"audio-file": "Sonic3 checkpoint",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "-6",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -1130,11 +1296,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 459079210061439,
+											"sid": 846384803453713,
 											"parameters": {
 												"audio-file": "Sonic3 spiked",
 												"loop": "not-looping",
-												"volume": "-5",
+												"volume": "-6",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -1247,11 +1413,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 651486350239758,
+											"sid": 207414071674036,
 											"parameters": {
 												"audio-file": "Sonic3 ping",
 												"loop": "not-looping",
-												"volume": "-17",
+												"volume": "-18",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -3282,193 +3448,6 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 607238222992388
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 418176628807742,
-									"parameters": {
-										"variable": "volume",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "volumebutt",
-									"sid": 851237250882602,
-									"parameters": {
-										"frame-number": "0"
-									}
-								},
-								{
-									"id": "set-muted",
-									"objectClass": "Audio",
-									"sid": 669767854117991,
-									"parameters": {
-										"tag": "\"Music\"",
-										"state": "muted"
-									}
-								}
-							],
-							"sid": 352437035560374
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 574084939591827
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 518920779836707,
-									"parameters": {
-										"variable": "volume",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "volumebutt",
-									"sid": 223458302278576,
-									"parameters": {
-										"frame-number": "1"
-									}
-								},
-								{
-									"id": "set-muted",
-									"objectClass": "Audio",
-									"sid": 163133762686231,
-									"parameters": {
-										"tag": "\"Music\"",
-										"state": "unmuted"
-									}
-								},
-								{
-									"id": "set-volume",
-									"objectClass": "Audio",
-									"sid": 249361475823120,
-									"parameters": {
-										"tag": "\"Music\"",
-										"db": "-16"
-									}
-								}
-							],
-							"sid": 391830832255580
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 340567791089071
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 782420959327769,
-									"parameters": {
-										"variable": "volume",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "volumebutt",
-									"sid": 628810897452503,
-									"parameters": {
-										"frame-number": "2"
-									}
-								},
-								{
-									"id": "set-muted",
-									"objectClass": "Audio",
-									"sid": 651723512063114,
-									"parameters": {
-										"tag": "\"Music\"",
-										"state": "unmuted"
-									}
-								},
-								{
-									"id": "set-volume",
-									"objectClass": "Audio",
-									"sid": 146182080580215,
-									"parameters": {
-										"tag": "\"Music\"",
-										"db": "-8"
-									}
-								}
-							],
-							"sid": 686803506483395
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 427581181326497
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 216733586351277,
-									"parameters": {
-										"variable": "volume",
-										"comparison": 0,
-										"value": "3"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "volumebutt",
-									"sid": 639164103360749,
-									"parameters": {
-										"frame-number": "3"
-									}
-								},
-								{
-									"id": "set-muted",
-									"objectClass": "Audio",
-									"sid": 478159899258026,
-									"parameters": {
-										"tag": "\"Music\"",
-										"state": "unmuted"
-									}
-								},
-								{
-									"id": "set-volume",
-									"objectClass": "Audio",
-									"sid": 141459596134626,
-									"parameters": {
-										"tag": "\"Music\"",
-										"db": "0"
-									}
-								}
-							],
-							"sid": 632882649463728
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "every-tick",
 									"objectClass": "System",
 									"sid": 661386807177220
@@ -3519,9 +3498,9 @@
 								{
 									"id": "set-position",
 									"objectClass": "FreeBall",
-									"sid": 527394862753079,
+									"sid": 511910400985026,
 									"parameters": {
-										"x": "bucket.X-53",
+										"x": "bucket.X-51",
 										"y": "bucket.Y-50"
 									}
 								},
@@ -5024,2065 +5003,6 @@
 						}
 					],
 					"sid": 640466268629685
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "End of Turn Handler",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Turns can end via:\n- Ball falling out of screen\n- Ball falling into bucket\n- Ball hitting Evil Peg\n\n- If no pegs are hit and the ball doesn't land in bucket, Coin Flip activates\n\nUpon turn ending, the following must be happen:\n- All active pegs need to clear\n- Score needs to be totaled\n- Purple and Evil Peg need to go back to blue and choose a new blue peg to change\n- Turn needs to update\n- Ball can only be shootable after all this is done"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-on-screen",
-									"objectClass": "ball",
-									"sid": 753628616375264,
-									"isInverted": true
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 780544841405780,
-									"parameters": {
-										"variable": "OrangePegsRemaining",
-										"comparison": 3,
-										"value": "0"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "ball",
-									"sid": 859514653271193
-								}
-							],
-							"sid": 449040664667565
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-destroyed",
-									"objectClass": "ball",
-									"sid": 368199361710427
-								}
-							],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 548217692389843,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 479051564589906,
-									"parameters": {
-										"variable": "EndOfTurnHappening",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 650456661691900
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Coin Flip",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 567546286499662,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 365260061511227,
-											"parameters": {
-												"variable": "BluePegsDestroyedInOneTurn",
-												"comparison": 0,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 894628340564057,
-											"parameters": {
-												"variable": "OrangePegsDestroyedInOneTurn",
-												"comparison": 0,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 140380668420772,
-											"parameters": {
-												"variable": "TurnCount",
-												"comparison": 0,
-												"value": "0"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 536118593598463,
-											"parameters": {
-												"variable": "OtherPegsDestroyedInOneTurn",
-												"comparison": 0,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 690851287265223,
-											"parameters": {
-												"variable": "BallLandedInBucket"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 110715718328952
-										},
-										{
-											"id": "is-on-screen",
-											"objectClass": "CoinFlip",
-											"sid": 461488840214279
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "CoinFlip",
-											"sid": 175061926232571,
-											"parameters": {
-												"visibility": "visible"
-											}
-										},
-										{
-											"id": "set-animation-speed",
-											"objectClass": "CoinFlip",
-											"sid": 934912405371337,
-											"parameters": {
-												"speed": "(random(6,12))"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 821454348253496,
-											"parameters": {
-												"seconds": "1.5",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-animation-speed",
-											"objectClass": "CoinFlip",
-											"sid": 658264661630892,
-											"parameters": {
-												"speed": "0"
-											}
-										}
-									],
-									"sid": 993101222410851,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-animation-frame",
-													"objectClass": "CoinFlip",
-													"sid": 716810884998688,
-													"parameters": {
-														"comparison": 0,
-														"number": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 765652707745011,
-													"parameters": {
-														"audio-file": "Peggle extraball",
-														"loop": "not-looping",
-														"volume": "-5",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												},
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 547891082223398,
-													"parameters": {
-														"variable": "BallCount",
-														"value": "1"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 602606620635090,
-													"parameters": {
-														"seconds": "1.0",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "CoinFlip",
-													"sid": 875039092454429,
-													"parameters": {
-														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "set-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 681151556752232,
-													"parameters": {
-														"variable": "ScoreBeenTalliedForTheTurn",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 866930381872060
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-animation-frame",
-													"objectClass": "CoinFlip",
-													"sid": 969219893550479,
-													"parameters": {
-														"comparison": 0,
-														"number": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 576307554090966,
-													"parameters": {
-														"audio-file": "Peggle coin_freeball_denied",
-														"loop": "not-looping",
-														"volume": "-5",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												},
-												{
-													"id": "add-to-eventvar",
-													"objectClass": "System",
-													"sid": 946066204179250,
-													"parameters": {
-														"variable": "BallCount",
-														"value": "0"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 465944632182681,
-													"parameters": {
-														"seconds": "1.0",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "CoinFlip",
-													"sid": 916490588865969,
-													"parameters": {
-														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "set-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 344575054293273,
-													"parameters": {
-														"variable": "ScoreBeenTalliedForTheTurn",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 584139928149857
-										}
-									]
-								}
-							],
-							"sid": 723033276690211
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Score Calculation",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 953197728087349,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 474606383257063,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 373368481310206,
-													"parameters": {
-														"variable": "BluePegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 476458230394480,
-													"parameters": {
-														"variable": "OrangePegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 861578947766262,
-													"parameters": {
-														"variable": "OtherPegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 370512617693344,
-											"children": [
-												{
-													"eventType": "comment",
-													"text": "No Bonus Pegs Activated"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 387825937618119,
-															"parameters": {
-																"variable": "EndOfTurnHappening"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 412326757017646
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 463310999107473,
-															"parameters": {
-																"variable": "PurplePegActivatedForScore"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 496395488442610,
-															"parameters": {
-																"variable": "EvilPegActivatedForScore"
-															},
-															"isInverted": true
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 731193652310949,
-															"parameters": {
-																"variable": "ScoreTotal",
-																"value": "(((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 845473367148411,
-															"parameters": {
-																"variable": "PointsEarnedInOneTurn",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier)"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 754558863790737,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"value": "0"
-															}
-														}
-													],
-													"sid": 182891887997760,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 648842215497530,
-																	"parameters": {
-																		"variable": "OrangePegsRemaining",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 389315569181688,
-																	"parameters": {
-																		"tags": "\"MainGameplay\""
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 508087501445802,
-																	"parameters": {
-																		"tags": "\"EndScreen\""
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 311860685794830,
-																	"parameters": {
-																		"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 579666039221496,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 407334322870550,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																}
-															],
-															"sid": 295367707669872
-														}
-													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Purple Peg Activated"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 615342543816357,
-															"parameters": {
-																"variable": "EndOfTurnHappening"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 995387698561588
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 102343700410563,
-															"parameters": {
-																"variable": "PurplePegActivatedForScore"
-															}
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 631942461155391,
-															"parameters": {
-																"variable": "EvilPegActivatedForScore"
-															},
-															"isInverted": true
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 794108560998985,
-															"parameters": {
-																"variable": "ScoreTotal",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 1.5"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 300592377949090,
-															"parameters": {
-																"variable": "PointsEarnedInOneTurn",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 1.5"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 184015027479604,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"value": "0"
-															}
-														}
-													],
-													"sid": 613202721418849,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 638508411952400,
-																	"parameters": {
-																		"variable": "OrangePegsRemaining",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 826200887134132,
-																	"parameters": {
-																		"tags": "\"MainGameplay\""
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 482278751740100,
-																	"parameters": {
-																		"tags": "\"EndScreen\""
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 159337738119246,
-																	"parameters": {
-																		"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 1.5\"\n"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 543333574458271,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 631724870189837,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																}
-															],
-															"sid": 396938548739109
-														}
-													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Evil Peg Activated"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 243504637001397,
-															"parameters": {
-																"variable": "EndOfTurnHappening"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 188653305889668
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 643297067783373,
-															"parameters": {
-																"variable": "PurplePegActivatedForScore"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 275032702747439,
-															"parameters": {
-																"variable": "EvilPegActivatedForScore"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 934087960887109,
-															"parameters": {
-																"variable": "ScoreTotal",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 0.5"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 709432984695469,
-															"parameters": {
-																"variable": "PointsEarnedInOneTurn",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 0.5"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 218472062411744,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"value": "0"
-															}
-														}
-													],
-													"sid": 223628066576538,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 201748410448218,
-																	"parameters": {
-																		"variable": "OrangePegsRemaining",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 116862495051717,
-																	"parameters": {
-																		"tags": "\"MainGameplay\""
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 946761113335236,
-																	"parameters": {
-																		"tags": "\"EndScreen\""
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 301192037098481,
-																	"parameters": {
-																		"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 0.5\"\n"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 990424219024146,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 448007621097306,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																}
-															],
-															"sid": 206689505044348
-														}
-													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Both Bonus Pegs Activated"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 464479973788175,
-															"parameters": {
-																"variable": "EndOfTurnHappening"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 186644896716661
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 781652225352511,
-															"parameters": {
-																"variable": "PurplePegActivatedForScore"
-															}
-														},
-														{
-															"id": "compare-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 947721245437521,
-															"parameters": {
-																"variable": "EvilPegActivatedForScore"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 131187147385001,
-															"parameters": {
-																"variable": "ScoreTotal",
-																"value": "(((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 670302974739974,
-															"parameters": {
-																"variable": "PointsEarnedInOneTurn",
-																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier)"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 304660728619700,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"value": "0"
-															}
-														}
-													],
-													"sid": 468706834598849,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 427771299080913,
-																	"parameters": {
-																		"variable": "OrangePegsRemaining",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 267826356304083,
-																	"parameters": {
-																		"tags": "\"MainGameplay\""
-																	}
-																},
-																{
-																	"id": "has-tags",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 824679255551578,
-																	"parameters": {
-																		"tags": "\"EndScreen\""
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 240429321822425,
-																	"parameters": {
-																		"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCountUpwards",
-																	"sid": 338508585627669,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "ScoreCalcVisible",
-																	"sid": 281296166201261,
-																	"parameters": {
-																		"visibility": "visible"
-																	}
-																}
-															],
-															"sid": 447883985620981
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-visible",
-															"objectClass": "ScoreCountUpwards",
-															"sid": 924659762167858
-														},
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 832689427800393,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"comparison": 2,
-																"value": "PointsEarnedInOneTurn"
-															}
-														},
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 842022705493451
-														}
-													],
-													"actions": [
-														{
-															"id": "play",
-															"objectClass": "Audio",
-															"sid": 199781039054514,
-															"parameters": {
-																"audio-file": "TallyNoise",
-																"loop": "looping",
-																"volume": "10",
-																"stereo-pan": "0",
-																"tag-optional": "\"tally\""
-															}
-														}
-													],
-													"sid": 308648810254331
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-visible",
-															"objectClass": "ScoreCountUpwards",
-															"sid": 225879023401263
-														},
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 416202366402839,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"comparison": 2,
-																"value": "PointsEarnedInOneTurn"
-															}
-														},
-														{
-															"id": "every-tick",
-															"objectClass": "System",
-															"sid": 114072269511174
-														}
-													],
-													"actions": [
-														{
-															"id": "add-to-eventvar",
-															"objectClass": "System",
-															"sid": 969047898172899,
-															"parameters": {
-																"variable": "ScoreCounterTally",
-																"value": "111"
-															}
-														},
-														{
-															"id": "set-text",
-															"objectClass": "ScoreCountUpwards",
-															"sid": 778837648768977,
-															"parameters": {
-																"text": "\"[outlineback=#000000][lineThickness=5]\" &ScoreCounterTally"
-															}
-														}
-													],
-													"sid": 495866028906325,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 688915537661247,
-																	"parameters": {
-																		"variable": "PointsEarnedInOneTurn",
-																		"comparison": 5,
-																		"value": "10000"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 702482662939768,
-																	"parameters": {
-																		"variable": "ScoreCounterTally",
-																		"value": "111"
-																	}
-																}
-															],
-															"sid": 436683241431264
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 466056514435520,
-																	"parameters": {
-																		"variable": "PointsEarnedInOneTurn",
-																		"comparison": 5,
-																		"value": "20000"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 980141125706598,
-																	"parameters": {
-																		"variable": "ScoreCounterTally",
-																		"value": "111"
-																	}
-																}
-															],
-															"sid": 708433140816105
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 734334550008818,
-																	"parameters": {
-																		"variable": "PointsEarnedInOneTurn",
-																		"comparison": 5,
-																		"value": "30000"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 667861414433288,
-																	"parameters": {
-																		"variable": "ScoreCounterTally",
-																		"value": "111"
-																	}
-																}
-															],
-															"sid": 475373103523414
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 249106463216486,
-																	"parameters": {
-																		"variable": "PointsEarnedInOneTurn",
-																		"comparison": 5,
-																		"value": "40000"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 480723741067437,
-																	"parameters": {
-																		"variable": "ScoreCounterTally",
-																		"value": "111"
-																	}
-																}
-															],
-															"sid": 306435242533422
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 390027132272506,
-																	"parameters": {
-																		"variable": "PointsEarnedInOneTurn",
-																		"comparison": 5,
-																		"value": "50000"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 164173794207563,
-																	"parameters": {
-																		"variable": "ScoreCounterTally",
-																		"value": "111"
-																	}
-																}
-															],
-															"sid": 660431906030068
-														}
-													]
-												}
-											],
-											"isOrBlock": true
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-visible",
-											"objectClass": "ScoreCountUpwards",
-											"sid": 711973903403614
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "ScoreCountUpwards",
-											"sid": 341052504830133,
-											"parameters": {
-												"tags": "\"MainGameplay\""
-											}
-										},
-										{
-											"id": "has-tags",
-											"objectClass": "ScoreCountUpwards",
-											"sid": 337270147002777,
-											"parameters": {
-												"tags": "\"EndScreen\""
-											},
-											"isInverted": true
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 715676169109070,
-											"parameters": {
-												"variable": "ScoreCounterTally",
-												"comparison": 5,
-												"value": "PointsEarnedInOneTurn"
-											}
-										},
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 513303375217733
-										}
-									],
-									"actions": [
-										{
-											"id": "stop",
-											"objectClass": "Audio",
-											"sid": 134877813795947,
-											"parameters": {
-												"tag": "\"tally\""
-											}
-										},
-										{
-											"id": "play",
-											"objectClass": "Audio",
-											"sid": 847261143011250,
-											"parameters": {
-												"audio-file": "Sonic3tally",
-												"loop": "not-looping",
-												"volume": "-9",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 874206808935228,
-											"parameters": {
-												"variable": "ScoreCounterTally",
-												"value": "PointsEarnedInOneTurn"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "ScoreCountUpwards",
-											"sid": 165989912846089,
-											"parameters": {
-												"text": "\"[outlineback=#000000][lineThickness=5]\" &PointsEarnedInOneTurn"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 308263862286664,
-											"parameters": {
-												"seconds": "1.3",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "ScoreCountUpwards",
-											"sid": 294423997353357,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-visible",
-											"objectClass": "ScoreCalcVisible",
-											"sid": 286776949936731,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 982519938729957,
-											"parameters": {
-												"variable": "ScoreBeenTalliedForTheTurn",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 826329336307729
-								}
-							],
-							"sid": 608243767981900
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Purple and Evil Peg Despawn",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 780298293800982,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 644755485246550,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 257655547882846,
-													"parameters": {
-														"animation": "\"CirclePurple\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 172021634467201,
-													"parameters": {
-														"animation": "\"CircleBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 855723199360217
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 996507678347986,
-													"parameters": {
-														"animation": "\"BrickPurple\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 373632696823899,
-													"parameters": {
-														"animation": "\"BrickBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 381201892794297
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 951963785743461,
-													"parameters": {
-														"animation": "\"CurvePurple\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 234919938717592,
-													"parameters": {
-														"animation": "\"CurveBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 956991800720929
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 967059517390365,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 429719223034049,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 671672656153338,
-													"parameters": {
-														"animation": "\"CircleEvil\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 635622831861878,
-													"parameters": {
-														"animation": "\"CircleBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 936118673191210
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 125909309156398,
-													"parameters": {
-														"animation": "\"BrickEvil\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 395292914906293,
-													"parameters": {
-														"animation": "\"BrickBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 651188901949226
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-animation-playing",
-													"objectClass": "Peg",
-													"sid": 899672338565137,
-													"parameters": {
-														"animation": "\"CurveEvil\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "Peg",
-													"sid": 224900209477932,
-													"parameters": {
-														"animation": "\"CurveBlue\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 490714661079277
-										}
-									]
-								}
-							],
-							"sid": 834501325083495
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "Peg Destroy",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 501149174296348,
-											"parameters": {
-												"variable": "EndOfTurnHappening"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 952205532747963,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 486213996157770,
-													"parameters": {
-														"variable": "BluePegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 758053436707174,
-													"parameters": {
-														"variable": "OrangePegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 152988644211827,
-													"parameters": {
-														"variable": "OtherPegsDestroyedInOneTurn",
-														"comparison": 0,
-														"value": "0"
-													},
-													"isInverted": true
-												}
-											],
-											"actions": [],
-											"sid": 709700009937124,
-											"disabled": true,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 655534101912490,
-															"parameters": {
-																"animation": "\"CircleBlueActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 908166372353370,
-															"parameters": {
-																"animation": "\"BrickBlueActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 780836446147057,
-															"parameters": {
-																"animation": "\"CurveBlueActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 802671761511605,
-															"parameters": {
-																"animation": "\"CircleOrangeActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 343415641405192,
-															"parameters": {
-																"animation": "\"BrickOrangeActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 650574392489151,
-															"parameters": {
-																"animation": "\"CurveOrangeActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 292787150015507,
-															"parameters": {
-																"animation": "\"CirclePurpleActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 244456919237036,
-															"parameters": {
-																"animation": "\"BrickPurpleActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 557629686764788,
-															"parameters": {
-																"animation": "\"CurvePurpleActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 551378090387479,
-															"parameters": {
-																"animation": "\"CircleEvilActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 142243969060240,
-															"parameters": {
-																"animation": "\"BrickEvilActive\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Peg",
-															"sid": 249726252851463,
-															"parameters": {
-																"animation": "\"CurveEvilActive\""
-															}
-														}
-													],
-													"actions": [],
-													"sid": 688078899085547,
-													"disabled": true,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "pick-nearestfurthest",
-																	"objectClass": "Peg",
-																	"sid": 429083014511452,
-																	"parameters": {
-																		"which": "nearest",
-																		"x": "0",
-																		"y": "0"
-																	}
-																},
-																{
-																	"id": "every-x-seconds",
-																	"objectClass": "System",
-																	"sid": 307625757491419,
-																	"parameters": {
-																		"interval-seconds": "0.05"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "destroy",
-																	"objectClass": "Peg",
-																	"sid": 620742310959854
-																},
-																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 127908725631949,
-																	"parameters": {
-																		"variable": "DestroyingPegsAtEndOfTurnProcess",
-																		"value": "1"
-																	}
-																}
-															],
-															"sid": 752160213399710,
-															"disabled": true
-														}
-													],
-													"isOrBlock": true
-												}
-											],
-											"isOrBlock": true
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "has-tags",
-													"objectClass": "Peg",
-													"sid": 216641029752648,
-													"parameters": {
-														"tags": "\"Active\""
-													}
-												}
-											],
-											"actions": [],
-											"sid": 709085470139720,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-nearestfurthest",
-															"objectClass": "Peg",
-															"sid": 777544012225954,
-															"parameters": {
-																"which": "nearest",
-																"x": "0",
-																"y": "0"
-															}
-														},
-														{
-															"id": "every-x-seconds",
-															"objectClass": "System",
-															"sid": 188209998682215,
-															"parameters": {
-																"interval-seconds": "0.05"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "destroy",
-															"objectClass": "Peg",
-															"sid": 524961807877315
-														}
-													],
-													"sid": 921276931732056
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-all",
-													"objectClass": "System",
-													"sid": 640466987209139,
-													"parameters": {
-														"object": "Peg"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 518638442179270,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "has-tags",
-															"objectClass": "Peg",
-															"sid": 880553604989941,
-															"parameters": {
-																"tags": "\"Active\""
-															},
-															"isInverted": true
-														}
-													],
-													"actions": [
-														{
-															"id": "set-boolean-eventvar",
-															"objectClass": "System",
-															"sid": 858061033125915,
-															"parameters": {
-																"variable": "EndOfTurnHappeningContinued",
-																"value": "true"
-															}
-														}
-													],
-													"sid": 525727762320092
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "comment",
-									"text": "Fixed the bug via setting this to Greater to Or Equal. May be temporary fix"
-								}
-							],
-							"sid": 248789034787095
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "All Above Processes Complete",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "Only activates once every other process has been completed (Coin Flip, All Pegs Deleted). Pretty much global variable reset"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 194970956825666,
-											"parameters": {
-												"variable": "EndOfTurnHappeningContinued"
-											}
-										},
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 791070412028236,
-											"parameters": {
-												"variable": "ScoreBeenTalliedForTheTurn"
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 463881000234544,
-											"parameters": {
-												"variable": "OrangePegsRemaining",
-												"comparison": 3,
-												"value": "0"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Peg",
-											"sid": 953749265707200,
-											"parameters": {
-												"instance-variable": "ContinuousContactTimer",
-												"value": "0"
-											}
-										},
-										{
-											"id": "clear-obstacles",
-											"objectClass": "Peg",
-											"sid": 400174894785074,
-											"behaviorType": "LineOfSight"
-										},
-										{
-											"id": "set-range",
-											"objectClass": "Peg",
-											"sid": 263637240973571,
-											"behaviorType": "LineOfSight",
-											"parameters": {
-												"range": "30"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 614746591311607,
-											"parameters": {
-												"variable": "BallLandedInBucket",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 674480762712669,
-											"parameters": {
-												"variable": "HasPurplePegSpawned",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 160911908438715,
-											"parameters": {
-												"variable": "PurplePegActivatedForScore",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 649236375469538,
-											"parameters": {
-												"variable": "HasEvilPegSpawned",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 512398921270544,
-											"parameters": {
-												"variable": "EvilPegActivatedForScore",
-												"value": "false"
-											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 223349796531918,
-											"parameters": {
-												"variable": "TurnCount",
-												"value": "1"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 194767521651955,
-											"parameters": {
-												"variable": "ScoreBeenTalliedForTheTurn",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 406916444097967,
-											"parameters": {
-												"variable": "EndOfTurnHappening",
-												"value": "false"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 114972360309909,
-											"parameters": {
-												"variable": "EndOfTurnHappeningContinued",
-												"value": "false"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 378331226648221,
-											"parameters": {
-												"seconds": "0.5",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 418597503535502,
-											"parameters": {
-												"variable": "BluePegsDestroyedInOneTurn",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 217801895540561,
-											"parameters": {
-												"variable": "OrangePegsDestroyedInOneTurn",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 233458145996753,
-											"parameters": {
-												"variable": "OtherPegsDestroyedInOneTurn",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 630270361948686,
-											"parameters": {
-												"variable": "DestroyingPegsAtEndOfTurnProcess",
-												"value": "0"
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 786768824424148,
-											"parameters": {
-												"variable": "BallActive",
-												"value": "false"
-											}
-										}
-									],
-									"sid": 459187579026033,
-									"children": [
-										{
-											"eventType": "comment",
-											"text": "GAME OVER/LOSS HANDLER"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 810963475153160,
-													"parameters": {
-														"variable": "BallCount",
-														"comparison": 0,
-														"value": "0"
-													}
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 772401140721185,
-													"parameters": {
-														"variable": "OrangePegsRemaining",
-														"comparison": 5,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "fade-volume",
-													"objectClass": "Audio",
-													"sid": 901006640131185,
-													"parameters": {
-														"tag": "\"Music\"",
-														"db": "-100",
-														"duration": "1",
-														"ending": "stop"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 486934237083244,
-													"parameters": {
-														"seconds": "2",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "GameEndText",
-													"sid": 614190406257120,
-													"parameters": {
-														"text": "\"[outlineback=#000000][lineThickness=5]You lose!\""
-													}
-												},
-												{
-													"id": "set-layer-visible",
-													"objectClass": "System",
-													"sid": 283856141966418,
-													"parameters": {
-														"layer": "\"Victory Screen\"",
-														"visibility": "visible"
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "GameEndText",
-													"sid": 527590839211148,
-													"parameters": {
-														"visibility": "visible"
-													}
-												},
-												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 420915549181978,
-													"parameters": {
-														"audio-file": "Peggle coin_freeball_denied",
-														"loop": "not-looping",
-														"volume": "-5",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
-												}
-											],
-											"sid": 626334965414456
-										}
-									]
-								}
-							],
-							"sid": 871917457030398
-						}
-					],
-					"sid": 501471620798812
 				},
 				{
 					"eventType": "group",
@@ -10049,6 +7969,1891 @@
 				{
 					"eventType": "group",
 					"disabled": false,
+					"title": "End of Turn Handler",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Turns can end via:\n- Ball falling out of screen\n- Ball falling into bucket\n- Ball hitting Evil Peg\n\n- If no pegs are hit and the ball doesn't land in bucket, Coin Flip activates\n\nUpon turn ending, the following must be happen:\n- All active pegs need to clear\n- Score needs to be totaled\n- Purple and Evil Peg need to go back to blue and choose a new blue peg to change\n- Turn needs to update\n- Ball can only be shootable after all this is done"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "ball",
+									"sid": 791790893778705,
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 150343894293269,
+									"parameters": {
+										"variable": "OrangePegsRemaining",
+										"comparison": 3,
+										"value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ball",
+									"sid": 572552563794335
+								}
+							],
+							"sid": 673868517561961
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "ball",
+									"sid": 113084197537438
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 235124035275640,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 822187391059197,
+									"parameters": {
+										"variable": "EndOfTurnHappening",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 117392993567618
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Coin Flip",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 536468642437415,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 394657489671310,
+											"parameters": {
+												"variable": "BluePegsDestroyedInOneTurn",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 567834788057436,
+											"parameters": {
+												"variable": "OrangePegsDestroyedInOneTurn",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 937666935945105,
+											"parameters": {
+												"variable": "TurnCount",
+												"comparison": 0,
+												"value": "0"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 346772514383809,
+											"parameters": {
+												"variable": "OtherPegsDestroyedInOneTurn",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 816684992101534,
+											"parameters": {
+												"variable": "BallLandedInBucket"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 865389188699936
+										},
+										{
+											"id": "is-on-screen",
+											"objectClass": "CoinFlip",
+											"sid": 237514355896667
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "CoinFlip",
+											"sid": 165518159823024,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "CoinFlip",
+											"sid": 266570147782535,
+											"parameters": {
+												"speed": "(random(6,12))"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 652688299201204,
+											"parameters": {
+												"seconds": "1.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "CoinFlip",
+											"sid": 571625530735793,
+											"parameters": {
+												"speed": "0"
+											}
+										}
+									],
+									"sid": 363547261695669,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "CoinFlip",
+													"sid": 448471673203949,
+													"parameters": {
+														"comparison": 0,
+														"number": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 607414888672538,
+													"parameters": {
+														"audio-file": "Peggle extraball",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 808640031072116,
+													"parameters": {
+														"variable": "BallCount",
+														"value": "1"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 576296763422564,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "CoinFlip",
+													"sid": 503486006800454,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 113475738324592,
+													"parameters": {
+														"variable": "ScoreBeenTalliedForTheTurn",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 566614962661540
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "CoinFlip",
+													"sid": 383651570532231,
+													"parameters": {
+														"comparison": 0,
+														"number": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 364131209050585,
+													"parameters": {
+														"audio-file": "Peggle coin_freeball_denied",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 279974061135106,
+													"parameters": {
+														"variable": "BallCount",
+														"value": "0"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 894774611121469,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "CoinFlip",
+													"sid": 140778984349280,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 724705823667029,
+													"parameters": {
+														"variable": "ScoreBeenTalliedForTheTurn",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 188712311117063
+										}
+									]
+								}
+							],
+							"sid": 385004754685890
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Score Calculation",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 848224730774486,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 505963325209024,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 993902438319868,
+													"parameters": {
+														"variable": "BluePegsDestroyedInOneTurn",
+														"comparison": 0,
+														"value": "0"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 857291414135861,
+													"parameters": {
+														"variable": "OrangePegsDestroyedInOneTurn",
+														"comparison": 0,
+														"value": "0"
+													},
+													"isInverted": true
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 476054740389772,
+													"parameters": {
+														"variable": "OtherPegsDestroyedInOneTurn",
+														"comparison": 0,
+														"value": "0"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 183519334082368,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "No Bonus Pegs Activated"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 951199711816824,
+															"parameters": {
+																"variable": "EndOfTurnHappening"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 408462528145599
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 886293224753657,
+															"parameters": {
+																"variable": "PurplePegActivatedForScore"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 996881201267930,
+															"parameters": {
+																"variable": "EvilPegActivatedForScore"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 395240663264398,
+															"parameters": {
+																"variable": "ScoreTotal",
+																"value": "(((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 435956705840965,
+															"parameters": {
+																"variable": "PointsEarnedInOneTurn",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 815977600424315,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 143775591982730,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 505741507571153,
+																	"parameters": {
+																		"variable": "OrangePegsRemaining",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 626530023313799,
+																	"parameters": {
+																		"tags": "\"MainGameplay\""
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 944880771677542,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 719618273100239,
+																	"parameters": {
+																		"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 663876213058997,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 838456161961215,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 290975127506926
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Purple Peg Activated"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 208483644384790,
+															"parameters": {
+																"variable": "EndOfTurnHappening"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 975834300549884
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 326586335720783,
+															"parameters": {
+																"variable": "PurplePegActivatedForScore"
+															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 863839955686123,
+															"parameters": {
+																"variable": "EvilPegActivatedForScore"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 851161921505424,
+															"parameters": {
+																"variable": "ScoreTotal",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 1.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 637671090089942,
+															"parameters": {
+																"variable": "PointsEarnedInOneTurn",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 1.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 138678051588201,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 385025118041743,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 820791532044128,
+																	"parameters": {
+																		"variable": "OrangePegsRemaining",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 937449617902345,
+																	"parameters": {
+																		"tags": "\"MainGameplay\""
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 302176564048484,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 946396604370291,
+																	"parameters": {
+																		"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 1.5\"\n"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 923950906780074,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 900990867848091,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 608345536237467
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Evil Peg Activated"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 432551125897956,
+															"parameters": {
+																"variable": "EndOfTurnHappening"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 351476541084052
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 246253938729887,
+															"parameters": {
+																"variable": "PurplePegActivatedForScore"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 632346058035761,
+															"parameters": {
+																"variable": "EvilPegActivatedForScore"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 127796938412848,
+															"parameters": {
+																"variable": "ScoreTotal",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 808164015371069,
+															"parameters": {
+																"variable": "PointsEarnedInOneTurn",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier) * 0.5"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 260867234439080,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 138264559443862,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 360174179152453,
+																	"parameters": {
+																		"variable": "OrangePegsRemaining",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 172882064045903,
+																	"parameters": {
+																		"tags": "\"MainGameplay\""
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 882971886597663,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 839276061175882,
+																	"parameters": {
+																		"text": "\"[outlineback=#000000][lineThickness=5]((\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier& \") x 0.5\"\n"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 328489068155434,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 318083595907826,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 730764083663981
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Both Bonus Pegs Activated"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 288920576857847,
+															"parameters": {
+																"variable": "EndOfTurnHappening"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 296033451201047
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 885802542372822,
+															"parameters": {
+																"variable": "PurplePegActivatedForScore"
+															}
+														},
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 448959433095038,
+															"parameters": {
+																"variable": "EvilPegActivatedForScore"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 242827913668613,
+															"parameters": {
+																"variable": "ScoreTotal",
+																"value": "(((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 808830078892657,
+															"parameters": {
+																"variable": "PointsEarnedInOneTurn",
+																"value": "((((BluePegsDestroyedInOneTurn * 10) + (OrangePegsDestroyedInOneTurn * 100)) * (BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn)) * ScoreMultiplier)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 143407757046368,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 241098291656507,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 534679587261602,
+																	"parameters": {
+																		"variable": "OrangePegsRemaining",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 633266035121437,
+																	"parameters": {
+																		"tags": "\"MainGameplay\""
+																	}
+																},
+																{
+																	"id": "has-tags",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 775596640717493,
+																	"parameters": {
+																		"tags": "\"EndScreen\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 634539757297856,
+																	"parameters": {
+																		"text": "\"[outlineback=#000000][lineThickness=5](\" &BluePegsDestroyedInOneTurn * 10& \" + \" &OrangePegsDestroyedInOneTurn * 100& \") x \" &BluePegsDestroyedInOneTurn + OrangePegsDestroyedInOneTurn& \") x \" &ScoreMultiplier\n"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 246621984971730,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "ScoreCalcVisible",
+																	"sid": 436304649023460,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 103692168587364
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-visible",
+															"objectClass": "ScoreCountUpwards",
+															"sid": 603855239595554
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 888916357332107,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"comparison": 2,
+																"value": "PointsEarnedInOneTurn"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 766817850677679
+														}
+													],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 765097465594727,
+															"parameters": {
+																"audio-file": "TallyNoise",
+																"loop": "looping",
+																"volume": "10",
+																"stereo-pan": "0",
+																"tag-optional": "\"tally\""
+															}
+														}
+													],
+													"sid": 532575846923190
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-visible",
+															"objectClass": "ScoreCountUpwards",
+															"sid": 967673852834224
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 902325219635064,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"comparison": 2,
+																"value": "PointsEarnedInOneTurn"
+															}
+														},
+														{
+															"id": "every-tick",
+															"objectClass": "System",
+															"sid": 982538260553196
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 349248772275315,
+															"parameters": {
+																"variable": "ScoreCounterTally",
+																"value": "111"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "ScoreCountUpwards",
+															"sid": 606951469542355,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5]\" &ScoreCounterTally"
+															}
+														}
+													],
+													"sid": 455785144074208,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 216845423552802,
+																	"parameters": {
+																		"variable": "PointsEarnedInOneTurn",
+																		"comparison": 5,
+																		"value": "10000"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 236878602367619,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "111"
+																	}
+																}
+															],
+															"sid": 244251672418045
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 834319179769845,
+																	"parameters": {
+																		"variable": "PointsEarnedInOneTurn",
+																		"comparison": 5,
+																		"value": "20000"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 184262297346954,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "111"
+																	}
+																}
+															],
+															"sid": 733445295802467
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 178696189445323,
+																	"parameters": {
+																		"variable": "PointsEarnedInOneTurn",
+																		"comparison": 5,
+																		"value": "30000"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 856432577788462,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "111"
+																	}
+																}
+															],
+															"sid": 448583849300916
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 941782161536781,
+																	"parameters": {
+																		"variable": "PointsEarnedInOneTurn",
+																		"comparison": 5,
+																		"value": "40000"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 319686328451751,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "111"
+																	}
+																}
+															],
+															"sid": 397511583938668
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 495328802816597,
+																	"parameters": {
+																		"variable": "PointsEarnedInOneTurn",
+																		"comparison": 5,
+																		"value": "50000"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 183754415685754,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "111"
+																	}
+																}
+															],
+															"sid": 217646642879729
+														}
+													]
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "ScoreCountUpwards",
+											"sid": 178232637443595
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "ScoreCountUpwards",
+											"sid": 536568206545987,
+											"parameters": {
+												"tags": "\"MainGameplay\""
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "ScoreCountUpwards",
+											"sid": 317211218855301,
+											"parameters": {
+												"tags": "\"EndScreen\""
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 441515321321211,
+											"parameters": {
+												"variable": "ScoreCounterTally",
+												"comparison": 5,
+												"value": "PointsEarnedInOneTurn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 142355867512444,
+											"parameters": {
+												"tag": "\"tally\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 618923157217929,
+											"parameters": {
+												"variable": "ScoreCounterTally",
+												"value": "PointsEarnedInOneTurn"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "ScoreCountUpwards",
+											"sid": 752725500411167,
+											"parameters": {
+												"text": "\"[outlineback=#000000][lineThickness=5]\" &PointsEarnedInOneTurn"
+											}
+										}
+									],
+									"sid": 621322203241059,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 313261436737293
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 704187562210505,
+													"parameters": {
+														"audio-file": "Sonic3tally",
+														"loop": "not-looping",
+														"volume": "-9",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 703466783315856
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Peg",
+													"sid": 666269072719479,
+													"parameters": {
+														"tags": "\"Active\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 930572081589540
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 336599240649697
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 115613492276411
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 723211832779581,
+													"parameters": {
+														"seconds": "1.3",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "ScoreCountUpwards",
+													"sid": 984389231981523,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "ScoreCalcVisible",
+													"sid": 730151977444257,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 113578053495395,
+													"parameters": {
+														"variable": "ScoreBeenTalliedForTheTurn",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 774985015653649
+										}
+									]
+								}
+							],
+							"sid": 610073076979835
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Purple and Evil Peg Despawn",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 543022879200187,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 774003400428916,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 210213761861296,
+													"parameters": {
+														"animation": "\"CirclePurple\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 397429196454393,
+													"parameters": {
+														"animation": "\"CircleBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 483375061283486
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 246382203991445,
+													"parameters": {
+														"animation": "\"BrickPurple\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 796062103772472,
+													"parameters": {
+														"animation": "\"BrickBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 412519257829134
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 668322693124264,
+													"parameters": {
+														"animation": "\"CurvePurple\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 971130502857913,
+													"parameters": {
+														"animation": "\"CurveBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 916616851698298
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 373810557070044,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 519329122918715,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 767267460654939,
+													"parameters": {
+														"animation": "\"CircleEvil\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 167976198722969,
+													"parameters": {
+														"animation": "\"CircleBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 125470417350838
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 151285902135298,
+													"parameters": {
+														"animation": "\"BrickEvil\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 343253586177666,
+													"parameters": {
+														"animation": "\"BrickBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 768718502850158
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Peg",
+													"sid": 778871622929486,
+													"parameters": {
+														"animation": "\"CurveEvil\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Peg",
+													"sid": 704326794441948,
+													"parameters": {
+														"animation": "\"CurveBlue\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 444638285655103
+										}
+									]
+								}
+							],
+							"sid": 626215372833452
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Peg Destroy",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 288008680364119,
+											"parameters": {
+												"variable": "EndOfTurnHappening"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 945502922854107,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "has-tags",
+													"objectClass": "Peg",
+													"sid": 218849357580019,
+													"parameters": {
+														"tags": "\"Active\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 378688946776331,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-nearestfurthest",
+															"objectClass": "Peg",
+															"sid": 881653438449890,
+															"parameters": {
+																"which": "nearest",
+																"x": "0",
+																"y": "0"
+															}
+														},
+														{
+															"id": "every-x-seconds",
+															"objectClass": "System",
+															"sid": 921716047054464,
+															"parameters": {
+																"interval-seconds": "0.05"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Peg",
+															"sid": 673319468576701
+														}
+													],
+													"sid": 426271460423215
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 166436196822013
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 832783904543740,
+													"parameters": {
+														"variable": "EndOfTurnHappeningContinued",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 895114518792420
+										}
+									]
+								}
+							],
+							"sid": 251218282597400
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "All Above Processes Complete",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Only activates once every other process has been completed (Coin Flip, All Pegs Deleted). Pretty much global variable reset"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 113320355070886,
+											"parameters": {
+												"variable": "EndOfTurnHappeningContinued"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 600015980201731,
+											"parameters": {
+												"variable": "ScoreBeenTalliedForTheTurn"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 159374223728969,
+											"parameters": {
+												"variable": "OrangePegsRemaining",
+												"comparison": 3,
+												"value": "0"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Peg",
+											"sid": 368200325614908,
+											"parameters": {
+												"instance-variable": "ContinuousContactTimer",
+												"value": "0"
+											}
+										},
+										{
+											"id": "clear-obstacles",
+											"objectClass": "Peg",
+											"sid": 444031649283769,
+											"behaviorType": "LineOfSight"
+										},
+										{
+											"id": "set-range",
+											"objectClass": "Peg",
+											"sid": 197329984732116,
+											"behaviorType": "LineOfSight",
+											"parameters": {
+												"range": "30"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 649862344110367,
+											"parameters": {
+												"variable": "BallLandedInBucket",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 558011366132865,
+											"parameters": {
+												"variable": "HasPurplePegSpawned",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 339802628918748,
+											"parameters": {
+												"variable": "PurplePegActivatedForScore",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 446363379870869,
+											"parameters": {
+												"variable": "HasEvilPegSpawned",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 388509961121816,
+											"parameters": {
+												"variable": "EvilPegActivatedForScore",
+												"value": "false"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 259970595361006,
+											"parameters": {
+												"variable": "TurnCount",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 381556831476755,
+											"parameters": {
+												"variable": "ScoreBeenTalliedForTheTurn",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 126891233639818,
+											"parameters": {
+												"variable": "EndOfTurnHappening",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 879899608206105,
+											"parameters": {
+												"variable": "EndOfTurnHappeningContinued",
+												"value": "false"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 307729231076611,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 268174327341333,
+											"parameters": {
+												"variable": "BluePegsDestroyedInOneTurn",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 571564787511472,
+											"parameters": {
+												"variable": "OrangePegsDestroyedInOneTurn",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 122284761929423,
+											"parameters": {
+												"variable": "OtherPegsDestroyedInOneTurn",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 456378842048478,
+											"parameters": {
+												"variable": "DestroyingPegsAtEndOfTurnProcess",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 286433706064896,
+											"parameters": {
+												"variable": "BallActive",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 450233947193290,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "GAME OVER/LOSS HANDLER"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 682864488785839,
+													"parameters": {
+														"variable": "BallCount",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 203128310192250,
+													"parameters": {
+														"variable": "OrangePegsRemaining",
+														"comparison": 5,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "fade-volume",
+													"objectClass": "Audio",
+													"sid": 715026127716886,
+													"parameters": {
+														"tag": "\"Music\"",
+														"db": "-100",
+														"duration": "1",
+														"ending": "stop"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 971498979010463,
+													"parameters": {
+														"seconds": "2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "GameEndText",
+													"sid": 323264158862360,
+													"parameters": {
+														"text": "\"[outlineback=#000000][lineThickness=5]You lose!\""
+													}
+												},
+												{
+													"id": "set-layer-visible",
+													"objectClass": "System",
+													"sid": 774377091215846,
+													"parameters": {
+														"layer": "\"Victory Screen\"",
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "GameEndText",
+													"sid": 693711867698029,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 508942617665035,
+													"parameters": {
+														"audio-file": "Peggle coin_freeball_denied",
+														"loop": "not-looping",
+														"volume": "-5",
+														"stereo-pan": "0",
+														"tag-optional": "\"\""
+													}
+												}
+											],
+											"sid": 710094786239852
+										}
+									]
+								}
+							],
+							"sid": 291464393658643
+						}
+					],
+					"sid": 204016736330876
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
 					"title": "Bucket Function",
 					"description": "",
 					"isActiveOnStart": true,
@@ -10419,11 +10224,11 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 562902043843747,
+											"sid": 444051137797649,
 											"parameters": {
 												"audio-file": "Victory!",
 												"loop": "not-looping",
-												"volume": "-2",
+												"volume": "-7",
 												"stereo-pan": "0",
 												"tag-optional": "\"Music\""
 											}
@@ -10979,7 +10784,7 @@
 												{
 													"id": "trigger-once-while-true",
 													"objectClass": "System",
-													"sid": 564228907781254
+													"sid": 371074021709193
 												}
 											],
 											"actions": [
@@ -11006,7 +10811,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 418922956285538,
+													"sid": 698758389100306,
 													"parameters": {
 														"variable": "ScoreCounterTally",
 														"value": "ScoreTotal"
@@ -11015,38 +10820,190 @@
 												{
 													"id": "set-text",
 													"objectClass": "ScoreCountUpwards",
-													"sid": 825908303469813,
+													"sid": 666491334803863,
 													"parameters": {
 														"text": "\"[outlineback=#000000][lineThickness=5]\"&ScoreCounterTally"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 508375786470126,
-													"parameters": {
-														"seconds": "1.0",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "GameEndText",
-													"sid": 135866982778624,
-													"parameters": {
-														"text": "\"[outlineback=#000000][lineThickness=5]You win!\""
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "GameEndText",
-													"sid": 437234002097709,
-													"parameters": {
-														"visibility": "visible"
 													}
 												}
 											],
 											"sid": 580960841247121
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-visible",
+													"objectClass": "ScoreCountUpwards",
+													"sid": 901956733075117
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 153266003435650,
+													"parameters": {
+														"variable": "OrangePegsRemaining",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "has-tags",
+													"objectClass": "ScoreCountUpwards",
+													"sid": 665322878283487,
+													"parameters": {
+														"tags": "\"EndScreen\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 522604615464326,
+													"parameters": {
+														"variable": "ScoreCounterTally",
+														"comparison": 0,
+														"value": "ScoreTotal"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 442441406966123,
+													"parameters": {
+														"seconds": "1",
+														"use-timescale": true
+													}
+												}
+											],
+											"sid": 377508211881314,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 769461459163865,
+															"parameters": {
+																"variable": "BallCount",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 766941165919105,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "every-x-seconds",
+																	"objectClass": "System",
+																	"sid": 715205375164310,
+																	"parameters": {
+																		"interval-seconds": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-eventvar",
+																	"objectClass": "System",
+																	"sid": 413223366270199,
+																	"parameters": {
+																		"variable": "BallCount",
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 257644843622039,
+																	"parameters": {
+																		"variable": "ScoreTotal",
+																		"value": "10000"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 450076959059639,
+																	"parameters": {
+																		"variable": "ScoreCounterTally",
+																		"value": "ScoreTotal"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "ScoreCountUpwards",
+																	"sid": 577111541310825,
+																	"parameters": {
+																		"text": "\"[outlineback=#000000][lineThickness=5]\"&ScoreCounterTally"
+																	}
+																},
+																{
+																	"id": "play",
+																	"objectClass": "Audio",
+																	"sid": 769430737815286,
+																	"parameters": {
+																		"audio-file": "Sonic3tally",
+																		"loop": "not-looping",
+																		"volume": "-4",
+																		"stereo-pan": "0",
+																		"tag-optional": "\"\""
+																	}
+																}
+															],
+															"sid": 774707641715020
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 715617848187998,
+															"parameters": {
+																"variable": "BallCount",
+																"comparison": 3,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 149608500431212,
+															"parameters": {
+																"seconds": "1.0",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "GameEndText",
+															"sid": 202760369973754,
+															"parameters": {
+																"text": "\"[outlineback=#000000][lineThickness=5]You win!\""
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "GameEndText",
+															"sid": 519107021210730,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 539713976194508
+												}
+											]
 										}
 									],
 									"sid": 478018573988069
@@ -13574,10 +13531,10 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 832307930452753,
+													"sid": 211735538085874,
 													"parameters": {
 														"tag": "\"Music\"",
-														"db": "-16"
+														"db": "-17"
 													}
 												},
 												{
@@ -13623,10 +13580,10 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 834080949303332,
+													"sid": 159912291652486,
 													"parameters": {
 														"tag": "\"Music\"",
-														"db": "-8"
+														"db": "-11"
 													}
 												},
 												{
@@ -13672,10 +13629,10 @@
 												{
 													"id": "set-volume",
 													"objectClass": "Audio",
-													"sid": 657775416926192,
+													"sid": 990691998341747,
 													"parameters": {
 														"tag": "\"Music\"",
-														"db": "0"
+														"db": "-5"
 													}
 												},
 												{
@@ -15511,16 +15468,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 940805662197059,
-									"disabled": true,
-									"parameters": {
-										"variable": "ResetStatus",
-										"value": "1"
-									}
-								},
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
@@ -21645,11 +21592,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 124503275384625,
+													"sid": 393122602055799,
 													"parameters": {
 														"audio-file": "Level_editor",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21692,11 +21639,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 921594897309651,
+													"sid": 610608720191604,
 													"parameters": {
 														"audio-file": "Lets_Go_Cruisin",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21739,11 +21686,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 803861996226383,
+													"sid": 367425937718346,
 													"parameters": {
 														"audio-file": "PegTastic",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21786,11 +21733,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 356365579448604,
+													"sid": 873548207899874,
 													"parameters": {
 														"audio-file": "Saturday_Evening",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21833,11 +21780,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 945877101225035,
+													"sid": 815400629234068,
 													"parameters": {
 														"audio-file": "PachiNgo",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21880,11 +21827,11 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 416893927659279,
+													"sid": 318875292976035,
 													"parameters": {
 														"audio-file": "PachinGeetar",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -21929,12 +21876,12 @@
 												{
 													"id": "play-by-name",
 													"objectClass": "Audio",
-													"sid": 860131018251881,
+													"sid": 192084070849080,
 													"parameters": {
 														"folder": "music",
 														"audio-file-name": "\"ImportedFile\"",
 														"loop": "looping",
-														"volume": "0",
+														"volume": "-5",
 														"stereo-pan": "0",
 														"tag-optional": "\"Music\""
 													}
@@ -25221,7 +25168,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "DEBUG CONTROLS",
 			"description": "",
 			"isActiveOnStart": true,
@@ -25249,7 +25196,8 @@
 							}
 						}
 					],
-					"sid": 171640072368903
+					"sid": 171640072368903,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -25274,7 +25222,8 @@
 							}
 						}
 					],
-					"sid": 227123293719606
+					"sid": 227123293719606,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -25299,7 +25248,8 @@
 							}
 						}
 					],
-					"sid": 243536268950250
+					"sid": 243536268950250,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -25324,7 +25274,8 @@
 							}
 						}
 					],
-					"sid": 121276055968729
+					"sid": 121276055968729,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -25348,8 +25299,7 @@
 							}
 						}
 					],
-					"sid": 369630727259621,
-					"disabled": true
+					"sid": 369630727259621
 				},
 				{
 					"eventType": "block",
@@ -25398,7 +25348,8 @@
 							}
 						}
 					],
-					"sid": 179498141628454
+					"sid": 179498141628454,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -25455,7 +25406,8 @@
 							}
 						}
 					],
-					"sid": 211081082695007
+					"sid": 211081082695007,
+					"disabled": true
 				}
 			],
 			"sid": 678078900678172
